@@ -1,25 +1,27 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
-import os
+
 import unittest
 
 from ddt import ddt, data, unpack
-from selenium import webdriver
 from proboscis import test
 from tests_extensions.get_tests_context import get_csv_data
 from tests_resources.locators.home_page_locators import HomePageLocators
 from tests_resources.locators.login_page_locators import LogInPageLocators
 from tests_configuration.tests_definitions import BaseConfig
+from tests_extensions.webdriver_factory import WebDriverFactory
 
 
 @test(groups=['end2end'])
 @ddt
 class LogInTest(unittest.TestCase):
+
     @classmethod
-    def setUpClass(slc):
-        slc.driver = webdriver.Chrome(BaseConfig.W_CHROME_PATH)
-        slc.driver.implicitly_wait(1)
-        slc.driver.maximize_window()
+    def setUpClass(self):
+        self.browser_name = "chrome"
+        self.driver = WebDriverFactory.get_browser(self.browser_name)
+        self.driver.implicitly_wait(1)
+        self.driver.maximize_window()
 
     @test(groups=['login'])
     @data(*get_csv_data(BaseConfig.W_TEST_DATA))
