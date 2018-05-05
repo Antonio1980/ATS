@@ -169,7 +169,7 @@ class Loader(metaclass=abc.ABCMeta):
 
 class ResourceLoader(Loader):
 
-    """Abstract base class for loaders which can return data from their
+    """Abstract base class for loaders which can return tests_data from their
     back-end storage.
 
     This ABC represents one of the optional protocols specified by PEP 302.
@@ -224,10 +224,10 @@ class InspectLoader(Loader):
 
     @staticmethod
     def source_to_code(data, path='<string>'):
-        """Compile 'data' into a code object.
+        """Compile 'tests_data' into a code object.
 
-        The 'data' argument can be anything that compile() can handle. The'path'
-        argument should be where the data was retrieved (when applicable)."""
+        The 'tests_data' argument can be anything that compile() can handle. The'path'
+        argument should be where the tests_data was retrieved (when applicable)."""
         return compile(data, path, 'exec', dont_inherit=True)
 
     exec_module = _bootstrap_external._LoaderBasics.exec_module
@@ -319,7 +319,7 @@ class SourceLoader(_bootstrap_external.SourceLoader, ResourceLoader, ExecutionLo
     def set_data(self, path, data):
         """Write the bytes to the path (if possible).
 
-        Accepts a str path and data as bytes.
+        Accepts a str path and tests_data as bytes.
 
         Any needed intermediary directories are to be created. If for some
         reason the file cannot be written because of permissions, fail

@@ -13,7 +13,7 @@ from io import BytesIO
 
 ### Codec APIs
 
-def uu_encode(input, errors='strict', filename='<data>', mode=0o666):
+def uu_encode(input, errors='strict', filename='<tests_data>', mode=0o666):
     assert errors == 'strict'
     infile = BytesIO(input)
     outfile = BytesIO()
@@ -37,11 +37,11 @@ def uu_decode(input, errors='strict'):
     readline = infile.readline
     write = outfile.write
 
-    # Find start of encoded data
+    # Find start of encoded tests_data
     while 1:
         s = readline()
         if not s:
-            raise ValueError('Missing "begin" line in input data')
+            raise ValueError('Missing "begin" line in input tests_data')
         if s[:5] == b'begin':
             break
 
@@ -59,7 +59,7 @@ def uu_decode(input, errors='strict'):
             #sys.stderr.write("Warning: %s\n" % str(v))
         write(data)
     if not s:
-        raise ValueError('Truncated input data')
+        raise ValueError('Truncated input tests_data')
 
     return (outfile.getvalue(), len(input))
 

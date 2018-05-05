@@ -8,7 +8,7 @@ from proboscis import test
 from tests_extensions.get_tests_context import get_csv_data
 from tests_resources.locators.home_page_locators import HomePageLocators
 from tests_resources.locators.login_page_locators import LogInPageLocators
-from tests_configuration.tests_definitions import BaseConfig
+from tests_extensions.tests_definitions import BaseConfig
 from tests_extensions.webdriver_factory import WebDriverFactory
 
 

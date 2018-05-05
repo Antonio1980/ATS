@@ -7,7 +7,7 @@ from _weakrefset import WeakSet
 
 
 def abstractmethod(funcobj):
-    """A testrail_update indicating abstract methods.
+    """A decorator indicating abstract methods.
 
     Requires that the metaclass is ABCMeta or derived from it.  A
     class that has a metaclass derived from ABCMeta cannot be
@@ -28,7 +28,7 @@ def abstractmethod(funcobj):
 
 class abstractclassmethod(classmethod):
     """
-    A testrail_update indicating abstract classmethods.
+    A decorator indicating abstract classmethods.
 
     Similar to abstractmethod.
 
@@ -52,7 +52,7 @@ class abstractclassmethod(classmethod):
 
 class abstractstaticmethod(staticmethod):
     """
-    A testrail_update indicating abstract staticmethods.
+    A decorator indicating abstract staticmethods.
 
     Similar to abstractmethod.
 
@@ -76,7 +76,7 @@ class abstractstaticmethod(staticmethod):
 
 class abstractproperty(property):
     """
-    A testrail_update indicating abstract properties.
+    A decorator indicating abstract properties.
 
     Requires that the metaclass is ABCMeta or derived from it.  A
     class that has a metaclass derived from ABCMeta cannot be
@@ -151,7 +151,7 @@ class ABCMeta(type):
     def register(cls, subclass):
         """Register a virtual subclass of an ABC.
 
-        Returns the subclass, to allow usage as a class testrail_update.
+        Returns the subclass, to allow usage as a class decorator.
         """
         if not isinstance(subclass, type):
             raise TypeError("Can only register classes")

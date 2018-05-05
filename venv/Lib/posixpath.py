@@ -82,7 +82,7 @@ def join(a, *p):
     path = a
     try:
         if not p:
-            path[:0] + sep  #23780: Ensure compatible data type even if p is null.
+            path[:0] + sep  #23780: Ensure compatible tests_data type even if p is null.
         for b in map(os.fspath, p):
             if b.startswith(sep):
                 path = b

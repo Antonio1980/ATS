@@ -248,13 +248,13 @@ def copyfileobj(src, dst, length=None, exception=OSError, bufsize=None):
     for b in range(blocks):
         buf = src.read(bufsize)
         if len(buf) < bufsize:
-            raise exception("unexpected end of data")
+            raise exception("unexpected end of tests_data")
         dst.write(buf)
 
     if remainder != 0:
         buf = src.read(remainder)
         if len(buf) < remainder:
-            raise exception("unexpected end of data")
+            raise exception("unexpected end of tests_data")
         dst.write(buf)
     return
 
@@ -554,7 +554,7 @@ class _Stream:
             try:
                 buf = self.cmp.decompress(buf)
             except self.exception:
-                raise ReadError("invalid compressed data")
+                raise ReadError("invalid compressed tests_data")
             self.dbuf += buf
             c += len(buf)
         buf = self.dbuf[:size]
@@ -609,7 +609,7 @@ class _StreamProxy(object):
 #------------------------
 class _FileInFile(object):
     """A thin wrapper around an existing file object that
-       provides a part of its data as an individual file
+       provides a part of its tests_data as an individual file
        object.
     """
 
@@ -624,7 +624,7 @@ class _FileInFile(object):
         if blockinfo is None:
             blockinfo = [(0, size)]
 
-        # Construct a map with data and zero blocks.
+        # Construct a map with tests_data and zero blocks.
         self.map_index = 0
         self.map = []
         lastpos = 0
@@ -672,7 +672,7 @@ class _FileInFile(object):
         return self.position
 
     def read(self, size=None):
-        """Read data from the file.
+        """Read tests_data from the file.
         """
         if size is None:
             size = self.size - self.position
@@ -694,7 +694,7 @@ class _FileInFile(object):
                 self.fileobj.seek(offset + (self.position - start))
                 b = self.fileobj.read(length)
                 if len(b) != length:
-                    raise ReadError("unexpected end of data")
+                    raise ReadError("unexpected end of tests_data")
                 buf += b
             else:
                 buf += NUL * length
@@ -755,7 +755,7 @@ class TarInfo(object):
         self.devminor = 0       # device minor number
 
         self.offset = 0         # the tar header starts here
-        self.offset_data = 0    # the file's data starts here
+        self.offset_data = 0    # the file's tests_data starts here
 
         self.sparse = None      # sparse member information
         self.pax_headers = {}   # pax header information
@@ -1098,8 +1098,8 @@ class TarInfo(object):
     # subclass to add custom _proc_*() methods. A _proc_*() method MUST
     # implement the following
     # operations:
-    # 1. Set self.offset_data to the position where the data blocks begin,
-    #    if there is data that follows.
+    # 1. Set self.offset_data to the position where the tests_data blocks begin,
+    #    if there is tests_data that follows.
     # 2. Set tarfile.offset to the position where the next member's header will
     #    begin.
     # 3. Return self or another valid TarInfo object.
@@ -1123,7 +1123,7 @@ class TarInfo(object):
         self.offset_data = tarfile.fileobj.tell()
         offset = self.offset_data
         if self.isreg() or self.type not in SUPPORTED_TYPES:
-            # Skip the following data blocks.
+            # Skip the following tests_data blocks.
             offset += self._block(self.size)
         tarfile.offset = offset
 
@@ -1411,10 +1411,10 @@ class TarFile(object):
             errors="surrogateescape", pax_headers=None, debug=None,
             errorlevel=None, copybufsize=None):
         """Open an (uncompressed) tar archive `name'. `mode' is either 'r' to
-           read from an existing archive, 'a' to append data to an existing
+           read from an existing archive, 'a' to append tests_data to an existing
            file or 'w' to create a new file overwriting an existing one. `mode'
            defaults to 'r'.
-           If `fileobj' is given, it is used for reading or writing data. If it
+           If `fileobj' is given, it is used for reading or writing tests_data. If it
            can be determined, `mode' is overridden by `fileobj's mode.
            `fileobj' is not closed, when TarFile is closed.
         """
@@ -1944,7 +1944,7 @@ class TarFile(object):
                 self._dbg(2, "tarfile: Excluded %r" % name)
                 return
 
-        # Append the tar header and data to the archive.
+        # Append the tar header and tests_data to the archive.
         if tarinfo.isreg():
             with bltn_open(name, "rb") as f:
                 self.addfile(tarinfo, f)
@@ -1973,7 +1973,7 @@ class TarFile(object):
         self.fileobj.write(buf)
         self.offset += len(buf)
         bufsize=self.copybufsize
-        # If there's data to follow, append it.
+        # If there's tests_data to follow, append it.
         if fileobj is not None:
             copyfileobj(fileobj, self.fileobj, tarinfo.size, bufsize=bufsize)
             blocks, remainder = divmod(tarinfo.size, BLOCKSIZE)
@@ -2089,7 +2089,7 @@ class TarFile(object):
                 # A (sym)link's file object is its target's file object.
                 return self.extractfile(self._find_link_target(tarinfo))
         else:
-            # If there's no data associated with the member (directory, chrdev,
+            # If there's no tests_data associated with the member (directory, chrdev,
             # blkdev, etc.), return None instead of a file object.
             return None
 
@@ -2286,7 +2286,7 @@ class TarFile(object):
         if self.offset != self.fileobj.tell():
             self.fileobj.seek(self.offset - 1)
             if not self.fileobj.read(1):
-                raise ReadError("unexpected end of data")
+                raise ReadError("unexpected end of tests_data")
 
         # Read the next block.
         tarinfo = None

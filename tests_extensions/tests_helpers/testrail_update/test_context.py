@@ -4,7 +4,7 @@ class Config:
 
     def __init__(self):
         self.path = sys.path[1] + "\\TestData\\"
-        self.filename = 'data.csv'
+        self.filename = 'tests_data.csv'
         self.username = ""
         self.password = ""
         self.url = ""

@@ -426,7 +426,7 @@ class EnumMeta(type):
             return object, Enum
 
         # double check that we are not subclassing a class with existing
-        # enumeration members; while we're at it, see if any other data
+        # enumeration members; while we're at it, see if any other tests_data
         # type has been mixed in so we can use the correct __new__
         member_type = first_enum = None
         for base in bases:
@@ -442,7 +442,7 @@ class EnumMeta(type):
         # get correct mix-in type (either mix-in type of Enum subclass, or
         # first base if last base is Enum)
         if not issubclass(bases[0], Enum):
-            member_type = bases[0]     # first data type
+            member_type = bases[0]     # first tests_data type
             first_enum = bases[-1]  # enum type
         else:
             for base in bases[0].__mro__:
@@ -464,7 +464,7 @@ class EnumMeta(type):
         """Returns the __new__ to be used for creating the enum members.
 
         classdict: the class dictionary given to __new__
-        member_type: the data type whose __new__ will be used by default
+        member_type: the tests_data type whose __new__ will be used by default
         first_enum: enumeration to check for an overriding __new__
 
         """
@@ -822,7 +822,7 @@ def _high_bit(value):
     return value.bit_length() - 1
 
 def unique(enumeration):
-    """Class testrail_update for enumerations ensuring unique member values."""
+    """Class decorator for enumerations ensuring unique member values."""
     duplicates = []
     for name, member in enumeration.__members__.items():
         if name != member.name:

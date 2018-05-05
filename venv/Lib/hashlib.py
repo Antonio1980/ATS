@@ -4,9 +4,9 @@
 
 __doc__ = """hashlib module - A common interface to many hash functions.
 
-new(name, data=b'', **kwargs) - returns a new hash object implementing the
+new(name, tests_data=b'', **kwargs) - returns a new hash object implementing the
                                 given hash function; initializing the hash
-                                using the given binary data.
+                                using the given binary tests_data.
 
 Named constructor functions are also available, these are faster
 than using new(name):
@@ -129,15 +129,15 @@ def __get_openssl_constructor(name):
 
 
 def __py_new(name, data=b'', **kwargs):
-    """new(name, data=b'', **kwargs) - Return a new hashing object using the
-    named algorithm; optionally initialized with data (which must be bytes).
+    """new(name, tests_data=b'', **kwargs) - Return a new hashing object using the
+    named algorithm; optionally initialized with tests_data (which must be bytes).
     """
     return __get_builtin_constructor(name)(data, **kwargs)
 
 
 def __hash_new(name, data=b'', **kwargs):
-    """new(name, data=b'') - Return a new hashing object using the named algorithm;
-    optionally initialized with data (which must be bytes).
+    """new(name, tests_data=b'') - Return a new hashing object using the named algorithm;
+    optionally initialized with tests_data (which must be bytes).
     """
     if name in {'blake2b', 'blake2s'}:
         # Prefer our blake2 implementation.

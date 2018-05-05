@@ -117,7 +117,7 @@ class HMAC:
     def digest(self):
         """Return the hash value of this hashing object.
 
-        This returns a string containing 8-bit data.  The object is
+        This returns a string containing 8-bit tests_data.  The object is
         not altered in any way by this function; you can continue
         updating the object after calling this function.
         """

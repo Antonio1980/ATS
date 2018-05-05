@@ -14,7 +14,7 @@ input, all return values will be in bytes.  Ex:
     >>> tempfile.mkdtemp(suffix=b'')
     b'/tmp/tmppbi8f0hy'
 
-This module also provides some data items to the user:
+This module also provides some tests_data items to the user:
 
   TMP_MAX  - maximum number of names that will be tried before
              giving up.

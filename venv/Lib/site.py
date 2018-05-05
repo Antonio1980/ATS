@@ -316,7 +316,7 @@ def addusersitepackages(known_paths):
 
     USER_SITE is the user specific site-packages directory
 
-    USER_SITE/.. can be used for data.
+    USER_SITE/.. can be used for tests_data.
     """
     global USER_BASE, USER_SITE, ENABLE_USER_SITE
     env_base = os.environ.get("PYTHONUSERBASE", None)
