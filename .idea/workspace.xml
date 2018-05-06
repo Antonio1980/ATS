@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50d02b1a-3132-4f7c-aefe-2f5e3943d1bc" name="Default" comment="minor sintacsys fixes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="50d02b1a-3132-4f7c-aefe-2f5e3943d1bc" name="Default" comment="minor sintacsys fixes" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +25,10 @@
       <file leaf-file-name="login_ddriven.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/tests_login/login_ddriven.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
+            <state relative-caret-position="408">
               <caret line="32" column="38" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="38" />
               <folding>
                 <element signature="e#47#62#0" expanded="true" />
-                <element signature="e#576#751#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -40,7 +37,7 @@
       <file leaf-file-name="login_page.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/tests_base/login_page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
+            <state relative-caret-position="204">
               <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="e#46#89#0" expanded="true" />
@@ -52,11 +49,10 @@
       <file leaf-file-name="login_positive.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/tests_login/login_positive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
+            <state relative-caret-position="357">
               <caret line="26" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="e#47#62#0" expanded="true" />
-                <element signature="e#449#478#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,15 +62,9 @@
         <entry file="file://$PROJECT_DIR$/tests/tests_base/page_base.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="142">
-              <caret line="30" column="71" lean-forward="true" selection-start-line="30" selection-start-column="71" selection-end-line="30" selection-end-column="71" />
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="e#46#70#0" expanded="true" />
-                <element signature="e#321#413#0" expanded="true" />
-                <element signature="e#471#539#0" expanded="true" />
-                <element signature="e#609#813#0" expanded="true" />
-                <element signature="e#877#1056#0" expanded="true" />
-                <element signature="e#1116#1141#0" expanded="true" />
-                <element signature="e#1218#1523#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,7 +73,7 @@
       <file leaf-file-name="home_page_locators.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests_resources/locators/home_page_locators.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
+            <state relative-caret-position="136">
               <caret line="8" column="80" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="80" />
             </state>
           </provider>
@@ -92,12 +82,10 @@
       <file leaf-file-name="get_tests_context.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests_extensions/get_tests_context.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="510">
               <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
               <folding>
                 <element signature="e#47#66#0" expanded="true" />
-                <element signature="e#115#354#0" expanded="true" />
-                <element signature="e#390#583#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,7 +94,7 @@
       <file leaf-file-name="tests_container.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/tests_container.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
+            <state relative-caret-position="102">
               <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
             </state>
           </provider>
@@ -115,7 +103,7 @@
       <file leaf-file-name="data.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests_extensions/tests_data/data.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="153">
               <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
             </state>
           </provider>
@@ -198,57 +186,40 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="CRMBO" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CRMBO" type="462c0819:PsiDirectoryNode" />
+              <item name="my_crm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my_crm" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CRMBO" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CRMBO" type="462c0819:PsiDirectoryNode" />
+              <item name="my_crm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my_crm" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CRMBO" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CRMBO" type="462c0819:PsiDirectoryNode" />
+              <item name="my_crm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my_crm" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
               <item name="tests_base" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CRMBO" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CRMBO" type="462c0819:PsiDirectoryNode" />
+              <item name="my_crm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my_crm" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
               <item name="tests_login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CRMBO" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CRMBO" type="462c0819:PsiDirectoryNode" />
+              <item name="my_crm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my_crm" type="462c0819:PsiDirectoryNode" />
               <item name="tests_extensions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CRMBO" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CRMBO" type="462c0819:PsiDirectoryNode" />
-              <item name="tests_extensions" type="462c0819:PsiDirectoryNode" />
-              <item name="tests_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CRMBO" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CRMBO" type="462c0819:PsiDirectoryNode" />
-              <item name="tests_resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CRMBO" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CRMBO" type="462c0819:PsiDirectoryNode" />
-              <item name="tests_resources" type="462c0819:PsiDirectoryNode" />
-              <item name="locators" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -281,44 +252,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.tests_container">
-    <configuration name="login_page" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Me" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/tests_base" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/tests_base/login_page.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="tests_container" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Me" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/tests_container.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <module name="Me" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -362,6 +295,44 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="ADDITIONAL_ARGS" value="" />
     </configuration>
+    <configuration name="login_page" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Me" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/tests_base" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/tests_base/login_page.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="tests_container" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Me" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/tests_container.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration default="true" type="Python.FlaskServer" factoryName="Flask server">
       <module name="Me" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -384,6 +355,48 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+    </configuration>
+    <configuration name="Unittests for login_positive.LogInTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="Me" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/tests_login" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;login_positive.LogInTest&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests for login_positive.LogInTest.test_login_logout_login" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="Me" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/tests_login" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;login_positive.LogInTest.test_login_logout_login&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests in login_positive.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="Me" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/tests_login" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/tests_login/login_positive.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
       <module name="Me" />
@@ -445,48 +458,6 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
-    <configuration name="Unittests for login_positive.LogInTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="Me" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/tests_login" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;login_positive.LogInTest&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-    </configuration>
-    <configuration name="Unittests for login_positive.LogInTest.test_login_logout_login" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="Me" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/tests_login" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;login_positive.LogInTest.test_login_logout_login&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-    </configuration>
-    <configuration name="Unittests in login_positive.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="Me" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/tests_login" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/tests_login/login_positive.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <list>
@@ -590,16 +561,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.32843137" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="13" sideWeight="0.3540091" side_tool="true" visible="true" weight="0.21732026" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.35505125" side_tool="true" visible="true" weight="0.21705426" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.6459909" visible="true" weight="0.21732026" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.6449488" weight="0.21705426" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9248401" weight="0.23856209" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4977307" weight="0.19264069" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23146747" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23133236" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="4" />
@@ -749,13 +720,7 @@
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/remote/errorhandler.py" />
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/remote/webelement.py" />
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/selenium/webdriver/remote/webdriver.py" />
-    <entry file="file://D:/Python/Lib/http/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="258" selection-start-line="258" selection-end-line="258" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://D:/Python/Lib/http/client.py" />
     <entry file="file://$PROJECT_DIR$/tests_extensions/get_tests_directions.py" />
     <entry file="file://$PROJECT_DIR$/tests/tests_login/login_remote.py" />
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/proboscis/decorators.py" />
@@ -838,20 +803,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Python/Lib/unittest/suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="130" selection-start-line="130" selection-end-line="130" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Python/Lib/unittest/case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="652" selection-start-line="652" selection-end-line="652" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://D:/Python/Lib/unittest/suite.py" />
+    <entry file="file://D:/Python/Lib/unittest/case.py" />
     <entry file="file://$PROJECT_DIR$/../venv/Lib/site-packages/ddt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -861,62 +814,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests_extensions/tests_data/data.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="153">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests_extensions/get_tests_context.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="510">
           <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
           <folding>
             <element signature="e#47#66#0" expanded="true" />
-            <element signature="e#115#354#0" expanded="true" />
-            <element signature="e#390#583#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/tests_login/login_ddriven.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
+        <state relative-caret-position="408">
           <caret line="32" column="38" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="38" />
           <folding>
             <element signature="e#47#62#0" expanded="true" />
-            <element signature="e#576#751#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/tests_container.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
+        <state relative-caret-position="102">
           <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests_resources/locators/home_page_locators.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
+        <state relative-caret-position="136">
           <caret line="8" column="80" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/tests_login/login_positive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
+        <state relative-caret-position="357">
           <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="e#47#62#0" expanded="true" />
-            <element signature="e#449#478#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/tests_base/login_page.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
+        <state relative-caret-position="204">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#46#89#0" expanded="true" />
@@ -927,15 +876,9 @@
     <entry file="file://$PROJECT_DIR$/tests/tests_base/page_base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
-          <caret line="30" column="71" lean-forward="true" selection-start-line="30" selection-start-column="71" selection-end-line="30" selection-end-column="71" />
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#46#70#0" expanded="true" />
-            <element signature="e#321#413#0" expanded="true" />
-            <element signature="e#471#539#0" expanded="true" />
-            <element signature="e#609#813#0" expanded="true" />
-            <element signature="e#877#1056#0" expanded="true" />
-            <element signature="e#1116#1141#0" expanded="true" />
-            <element signature="e#1218#1523#0" expanded="true" />
           </folding>
         </state>
       </provider>
