@@ -27,7 +27,7 @@ with shallow copy operations:
     contain a reference to themselves) may cause a recursive loop
 
  b) because deep copy copies *everything* it may copy too much, e.g.
-    administrative data structures that should be shared even between
+    administrative tests_data structures that should be shared even between
     copies
 
 Python's deep copy operation avoids these problems by:

@@ -84,7 +84,7 @@ def join(path, *paths):
         colon = ':'
     try:
         if not paths:
-            path[:0] + sep  #23780: Ensure compatible data type even if p is null.
+            path[:0] + sep  #23780: Ensure compatible tests_data type even if p is null.
         result_drive, result_path = splitdrive(path)
         for p in map(os.fspath, paths):
             p_drive, p_path = splitdrive(p)

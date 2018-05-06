@@ -74,7 +74,7 @@ class RegistryError(Exception):
 
 
 def copyfileobj(fsrc, fdst, length=16*1024):
-    """copy data from file-like object fsrc to file-like object fdst"""
+    """copy tests_data from file-like object fsrc to file-like object fdst"""
     while 1:
         buf = fsrc.read(length)
         if not buf:
@@ -94,7 +94,7 @@ def _samefile(src, dst):
             os.path.normcase(os.path.abspath(dst)))
 
 def copyfile(src, dst, *, follow_symlinks=True):
-    """Copy data from src to dst.
+    """Copy tests_data from src to dst.
 
     If follow_symlinks is not set and src is a symbolic link, a new
     symlink will be created instead of copying the file it points to.
@@ -225,7 +225,7 @@ def copystat(src, dst, *, follow_symlinks=True):
     _copyxattr(src, dst, follow_symlinks=follow)
 
 def copy(src, dst, *, follow_symlinks=True):
-    """Copy data and mode bits ("cp src dst"). Return the file's destination.
+    """Copy tests_data and mode bits ("cp src dst"). Return the file's destination.
 
     The destination may be a directory.
 
@@ -243,7 +243,7 @@ def copy(src, dst, *, follow_symlinks=True):
     return dst
 
 def copy2(src, dst, *, follow_symlinks=True):
-    """Copy data and all stat info ("cp -p src dst"). Return the file's
+    """Copy tests_data and all stat info ("cp -p src dst"). Return the file's
     destination."
 
     The destination may be a directory.

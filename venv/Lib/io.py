@@ -24,7 +24,7 @@ is an in-memory stream for text.
 Argument names are not part of the specification, and only the arguments
 of open() are intended to be used as keyword arguments.
 
-data:
+tests_data:
 
 DEFAULT_BUFFER_SIZE
 

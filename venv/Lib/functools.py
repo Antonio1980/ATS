@@ -32,7 +32,7 @@ except ImportError:
 
 
 ################################################################################
-### update_wrapper() and wraps() testrail_update
+### update_wrapper() and wraps() decorator
 ################################################################################
 
 # update_wrapper() and wraps() are tools to help write
@@ -68,7 +68,7 @@ def update_wrapper(wrapper,
     # Issue #17482: set __wrapped__ last so we don't inadvertently copy it
     # from the wrapped function when updating __dict__
     wrapper.__wrapped__ = wrapped
-    # Return the wrapper so this can be used as a testrail_update via partial()
+    # Return the wrapper so this can be used as a decorator via partial()
     return wrapper
 
 def wraps(wrapped,
@@ -76,7 +76,7 @@ def wraps(wrapped,
           updated = WRAPPER_UPDATES):
     """Decorator factory to apply update_wrapper() to a wrapper function
 
-       Returns a testrail_update that invokes update_wrapper() with the decorated
+       Returns a decorator that invokes update_wrapper() with the decorated
        function as the wrapper argument and the arguments to wraps() as the
        remaining arguments. Default arguments are as for update_wrapper().
        This is a convenience function to simplify applying partial() to
@@ -87,7 +87,7 @@ def wraps(wrapped,
 
 
 ################################################################################
-### total_ordering class testrail_update
+### total_ordering class decorator
 ################################################################################
 
 # The total ordering functions all invoke the root magic method directly
@@ -191,7 +191,7 @@ _convert = {
 }
 
 def total_ordering(cls):
-    """Class testrail_update that fills in missing ordering methods"""
+    """Class decorator that fills in missing ordering methods"""
     # Find user-defined comparisons (not those inherited from object).
     roots = [op for op in _convert if getattr(cls, op, None) is not getattr(object, op, None)]
     if not roots:
@@ -397,7 +397,7 @@ class partialmethod(object):
 
 
 ################################################################################
-### LRU Cache function testrail_update
+### LRU Cache function decorator
 ################################################################################
 
 _CacheInfo = namedtuple("CacheInfo", ["hits", "misses", "maxsize", "currsize"])
@@ -427,7 +427,7 @@ def _make_key(args, kwds, typed,
     The key is constructed in a way that is flat as possible rather than
     as a nested structure that would take more memory.
 
-    If there is only a single argument and its data type is known to cache
+    If there is only a single argument and its tests_data type is known to cache
     its hash value, then that argument is returned without a wrapper.  This
     saves space and improves lookup speed.
 
@@ -446,7 +446,7 @@ def _make_key(args, kwds, typed,
     return _HashedSeq(key)
 
 def lru_cache(maxsize=128, typed=False):
-    """Least-recently-used cache testrail_update.
+    """Least-recently-used cache decorator.
 
     If *maxsize* is set to None, the LRU features are disabled and the cache
     can grow without bound.
@@ -605,7 +605,7 @@ except ImportError:
 
 
 ################################################################################
-### singledispatch() - single-dispatch generic function testrail_update
+### singledispatch() - single-dispatch generic function decorator
 ################################################################################
 
 def _c3_merge(sequences):
@@ -748,7 +748,7 @@ def _find_impl(cls, registry):
     return registry.get(match)
 
 def singledispatch(func):
-    """Single-dispatch generic function testrail_update.
+    """Single-dispatch generic function decorator.
 
     Transforms a function into a generic function, which can have different
     behaviours depending upon the type of its first argument. The decorated

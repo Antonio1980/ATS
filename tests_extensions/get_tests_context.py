@@ -1,7 +1,16 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
-
+import configparser
 import csv
+import os
+
+
+def config_parse(config_file):
+    parser = configparser.ConfigParser()
+    with open(config_file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True) as configfile:
+        parser.read(config_file)
+        parser.sections()
+        return parser
 
 
 def get_csv_data(data_file):
@@ -22,3 +31,6 @@ def get_csv_by_value(data_file):
         mycsv = list(mycsv)
         username = mycsv[0][0]
         password = mycsv[0][1]
+
+if __name__ == '__main__':
+    print(os.getcwd())

@@ -646,7 +646,7 @@ else:
 
 ### Database
 #
-# The following data was extracted from the locale.alias file which
+# The following tests_data was extracted from the locale.alias file which
 # comes with X11 and then hand edited removing the explicit encoding
 # definitions and adding some more aliases. The file is usually
 # available as /usr/lib/X11/locale/locale.alias.

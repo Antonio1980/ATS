@@ -176,10 +176,10 @@ def module_for_loader(fxn):
     before it is passed to the decorated function (if self.is_package() does
     not work for the module it will be set post-load).
 
-    If an exception is raised and the testrail_update created the module it is
+    If an exception is raised and the decorator created the module it is
     subsequently removed from sys.modules.
 
-    The testrail_update assumes that the decorated function takes the module name as
+    The decorator assumes that the decorated function takes the module name as
     the second argument.
 
     """

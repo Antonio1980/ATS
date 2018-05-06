@@ -333,7 +333,7 @@ class ModuleSpec:
     """The specification for a module, used for loading.
 
     A module's spec is the source for information about the module.  For
-    data associated with the module, including source, use the spec's
+    tests_data associated with the module, including source, use the spec's
     loader.
 
     `name` is the absolute name of the module.  `loader` is the loader

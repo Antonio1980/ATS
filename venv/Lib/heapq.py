@@ -315,7 +315,7 @@ def merge(*iterables, key=None, reverse=False):
     '''Merge multiple sorted inputs into a single sorted output.
 
     Similar to sorted(itertools.chain(*iterables)) but returns a generator,
-    does not pull the data into memory all at once, and assumes that each of
+    does not pull the tests_data into memory all at once, and assumes that each of
     the input streams is already sorted (smallest to largest).
 
     >>> list(merge([1,3,5,7], [0,2,4,8], [5,10,15,20], [], [25]))
@@ -395,7 +395,7 @@ def merge(*iterables, key=None, reverse=False):
 # Algorithm notes for nlargest() and nsmallest()
 # ==============================================
 #
-# Make a single pass over the data while keeping the k most extreme values
+# Make a single pass over the tests_data while keeping the k most extreme values
 # in a heap.  Memory consumption is limited to keeping k values in a list.
 #
 # Measured performance for random inputs:
@@ -444,7 +444,7 @@ def merge(*iterables, key=None, reverse=False):
 #
 # Worst-case for step 3:
 # ----------------------
-# In the worst case, the input data is reversed sorted so that every new element
+# In the worst case, the input tests_data is reversed sorted so that every new element
 # must be inserted in the heap:
 #
 #             comparisons = 1.66 * k + log(k, 2) * (n - k)
@@ -453,7 +453,7 @@ def merge(*iterables, key=None, reverse=False):
 # ----------------------
 # Other algorithms were not used because they:
 # 1) Took much more auxiliary memory,
-# 2) Made multiple passes over the data.
+# 2) Made multiple passes over the tests_data.
 # 3) Made more comparisons in common cases (small k, large n, semi-random input).
 # See the more detailed comparison of approach at:
 # http://code.activestate.com/recipes/577573-compare-algorithms-for-heapqsmallest
