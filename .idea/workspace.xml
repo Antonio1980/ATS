@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50d02b1a-3132-4f7c-aefe-2f5e3943d1bc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="50d02b1a-3132-4f7c-aefe-2f5e3943d1bc" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +20,11 @@
       <file leaf-file-name="login.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/tests_login/login.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+            <state relative-caret-position="240">
+              <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+              <folding>
+                <element signature="e#47#62#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,18 +89,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="32">
               <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="get_tests_context.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests_extensions/get_tests_context.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-              <folding>
-                <element signature="e#331#508#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -173,58 +162,6 @@
             <path>
               <item name="Me" type="b2602c69:ProjectViewProjectNode" />
               <item name="Me" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Me" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Me" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="tests_base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Me" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="tests_login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Me" type="462c0819:PsiDirectoryNode" />
-              <item name="tests_extensions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Me" type="462c0819:PsiDirectoryNode" />
-              <item name="tests_extensions" type="462c0819:PsiDirectoryNode" />
-              <item name="tests_helpers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Me" type="462c0819:PsiDirectoryNode" />
-              <item name="tests_resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Me" type="462c0819:PsiDirectoryNode" />
-              <item name="tests_resources" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Me" type="462c0819:PsiDirectoryNode" />
-              <item name="tests_resources" type="462c0819:PsiDirectoryNode" />
-              <item name="drivers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Me" type="462c0819:PsiDirectoryNode" />
-              <item name="tests_resources" type="462c0819:PsiDirectoryNode" />
-              <item name="drivers" type="462c0819:PsiDirectoryNode" />
-              <item name="lin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -399,8 +336,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49848714" weight="0.13095239" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49546143" weight="0.37091503" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4977307" visible="true" weight="0.19264069" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14925373" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4977307" visible="true" weight="0.19264069" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14925373" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -813,8 +750,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/tests_login/login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+        <state relative-caret-position="240">
+          <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+          <folding>
+            <element signature="e#47#62#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
