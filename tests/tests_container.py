@@ -4,7 +4,7 @@
 import unittest
 
 # load test cases
-from tests.tests_login.login import LogInTest
+from tests.tests_login.login_positive import LogInTest
 
 test_login = unittest.TestLoader().loadTestsFromTestCase(LogInTest)
 

@@ -15,7 +15,7 @@ def config_parse(config_file):
 
 def get_csv_data(data_file):
     rows = []
-    with open(str(data_file), "r") as csv_data:
+    with open(data_file, "r") as csv_data:
         content = csv.reader(csv_data)
         next(content, None)
         for row in content:
@@ -24,10 +24,13 @@ def get_csv_data(data_file):
     return rows
 
 
-def get_csv_by_value(data_file):
-    with open(data_file, 'r') as f:
-        mycsv = csv.reader(f)
-        next(mycsv, None)
-        mycsv = list(mycsv)
-        username = mycsv[0][0]
-        password = mycsv[0][1]
+def get_credentials_positive(data_file, row, column1, column2):
+    rows = []
+    with open(data_file, "r") as csv_data:
+        content = csv.reader(csv_data)
+        next(content, None)
+        for item in content:
+            rows.append(item)
+    username = rows[row][column1]
+    password = rows[row][column2]
+    return {'username': username, 'password': password}

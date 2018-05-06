@@ -15,6 +15,7 @@ class WebDriverFactory:
             return self.get_browser_lin(browser_name)
         raise Exception("No such " + browser_name + " browser exists")
 
+
     @classmethod
     def get_browser_win(self, browser_name):
         if (browser_name == 'firefox'):
@@ -24,6 +25,7 @@ class WebDriverFactory:
         elif (browser_name == 'ie'):
             return webdriver.Ie(BaseConfig.W_IE_PATH)
         raise Exception("No such " + browser_name + " browser exists")
+    
 
     @classmethod
     def get_browser_lin(self, browser_name):
@@ -31,6 +33,4 @@ class WebDriverFactory:
             return webdriver.Firefox(BaseConfig.L_FIREFOX_PATH)
         elif (browser_name == 'chrome'):
             return webdriver.Chrome(BaseConfig.L_CHROME_PATH)
-        elif (browser_name == 'ie'):
-            return webdriver.Ie(BaseConfig.L_IE_PATH)
         raise Exception("No such " + browser_name + " browser exists")

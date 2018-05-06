@@ -25,3 +25,6 @@ def is_win():
 
 def is_lin():
     return platform.system().lower() == "linux"
+
+
+
