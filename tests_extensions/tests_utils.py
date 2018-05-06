@@ -1,3 +1,6 @@
+# !/usr/bin/env python
+# -*- coding: utf8 -*-
+
 import platform
 
 
@@ -13,15 +16,12 @@ def detect_os():
 
 
 def is_mac():
-    if platform.system().lower() == "darwin":
-        return True
+    return platform.system().lower() == "darwin"
 
 
 def is_win():
-    if platform.system().lower() == "windows":
-        return True
+    return platform.system().lower() == "windows"
 
 
 def is_lin():
-    if platform.system().lower() == "linux":
-        return True
+    return platform.system().lower() == "linux"

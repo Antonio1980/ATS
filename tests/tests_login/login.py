@@ -18,7 +18,7 @@ class LogInTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.browser_name = "chrome_mac"
+        self.browser_name = "chrome"
         self.driver = WebDriverFactory.get_browser(self.browser_name)
         self.driver.implicitly_wait(1)
         self.driver.maximize_window()

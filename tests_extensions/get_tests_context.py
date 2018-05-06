@@ -1,8 +1,8 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
+
 import configparser
 import csv
-import os
 
 
 def config_parse(config_file):
@@ -31,6 +31,3 @@ def get_csv_by_value(data_file):
         mycsv = list(mycsv)
         username = mycsv[0][0]
         password = mycsv[0][1]
-
-if __name__ == '__main__':
-    print(os.getcwd())

@@ -33,6 +33,4 @@ class WebDriverFactory:
             return webdriver.Chrome(BaseConfig.L_CHROME_PATH)
         elif (browser_name == 'ie'):
             return webdriver.Ie(BaseConfig.L_IE_PATH)
-        elif (browser_name == 'chrome_mac'):
-            return webdriver.Chrome(BaseConfig.L_CHROME_PATH)
         raise Exception("No such " + browser_name + " browser exists")
