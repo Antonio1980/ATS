@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50d02b1a-3132-4f7c-aefe-2f5e3943d1bc" name="Default" comment="minor sintacsys fixes" />
+    <list default="true" id="50d02b1a-3132-4f7c-aefe-2f5e3943d1bc" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,8 +61,8 @@
       <file leaf-file-name="page_base.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/tests_base/page_base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="193">
+              <caret line="33" column="61" lean-forward="true" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
               <folding>
                 <element signature="e#46#70#0" expanded="true" />
               </folding>
@@ -516,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525592274052</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="minor sintacsys fixes">
+      <created>1525646581174</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1525646581174</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -562,15 +569,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.32843137" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.35505125" side_tool="true" visible="true" weight="0.21705426" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.3557833" side_tool="true" visible="true" weight="0.21705426" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.6449488" weight="0.21705426" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.6442167" visible="true" weight="0.21705426" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9248401" weight="0.23856209" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4977307" weight="0.19264069" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23133236" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23133236" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="4" />
@@ -875,8 +883,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/tests_base/page_base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="193">
+          <caret line="33" column="61" lean-forward="true" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
           <folding>
             <element signature="e#46#70#0" expanded="true" />
           </folding>
