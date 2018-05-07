@@ -1,7 +1,8 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
-from telnetlib import EC
 
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -10,9 +11,10 @@ from tests_extensions.webdriver_factory import WebDriverFactory
 
 class BasePage:
     @classmethod
-    def setUpClass(cls, browser_name):
-        cls.driver = WebDriverFactory.get_browser(browser_name)
-        cls.driver.maximize_window()
+    def setUpClass(self, browser_name):
+        self.driver = WebDriverFactory.get_browser(browser_name)
+        self.driver.maximize_window()
+        self.driver_wait(2)
 
     @classmethod
     def go_to_page(self, url):
@@ -20,45 +22,63 @@ class BasePage:
         self.driver_wait(5)
         return self
 
-    @classmethod
-    def search_type(self, locator, query):
-        self.element = self.driver_wait_until_clickable(locator)
-        self.element.clear()
-        self.driver_wait(1)
-        self.element.send_keys(str(query))
-        self.driver_wait(2)
-        return self
 
     @classmethod
-    def search_click(self, locator):
-        #element = self.driver.find_element_by_xpath(locator)
-        wait = self.driver_wait_until_clickable(locator)
-        wait.click()
-        self.driver_wait(2)
-        return self
+    def driver_wait(self, delay):
+        return WebDriverWait(self.driver, delay)
+        
 
     @classmethod
-    def driver_wait(self, args):
-        WebDriverWait(self, args)
-
-    @classmethod
-    def driver_wait_until_present(self, locator):
+    def search_element(self, delay, locator):
+        driver = self.driver
         try:
-            wait = self.driver_wait(10)
-            return wait.until(EC.presence_of_element_located(By.XPATH, locator))
-            #return WebDriverWait(self, 10).until(EC.presence_of_element_located(By.XPATH, locator))
-        finally:
-            assert self.driver.find_element_by_xpath(locator)
+            element = WebDriverWait(driver, delay).until(
+                lambda driver: driver.find_element_by_xpath(locator))
+            return element
+        except TimeoutException:
+            print("Loading took to much time.")
 
 
     @classmethod
-    def driver_wait_until_clickable(self, locator):
+    def search_and_type(self, delay, query, locator):
+        element = self.search_element(delay, locator)
+        element.clear()
+        element.send_keys(query)
+        return element
+
+    @classmethod
+    def search_and_click(self, delay, locator):
+        element = self.search_element(delay, locator)
+        element.click()
+        return element
+
+
+    @classmethod
+    def search_wait_click(self, delay, locator):
+        element = self.driver_wait_element_clickable(delay, locator)
+        element.click()
+        return element
+
+
+    @classmethod
+    def driver_wait_element_present(self, delay, locator):
         try:
-            return self.driver_wait(10).until(EC.element_to_be_clickable((By.XPATH, locator)))
-        finally:
-            assert self.driver.find_element_by_xpath(locator)
+            element = WebDriverWait(self.driver, delay).until(EC.presence_of_element_located((By.XPATH, locator)))
+            return element
+        except TimeoutException:
+            print("Loading took to much time.")
+
 
     @classmethod
-    def tearDownClass(slc):
-        slc.driver.delete_all_cookies()
-        slc.driver.quit()
+    def driver_wait_element_clickable(self, delay, locator):
+        try:
+            element = WebDriverWait(self.driver, delay).until(EC.element_to_be_clickable((By.XPATH, locator)))
+            return element
+        except TimeoutException:
+            print("Loading took to much time.")
+
+
+    @classmethod
+    def tearDownClass(self):
+        self.driver.delete_all_cookies()
+        self.driver.quit()
