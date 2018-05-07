@@ -1,7 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
-from tests.tests_base.page_base import BasePage
+from tests.pages.page_base import BasePage
 from tests_extensions.tests_definitions import BaseConfig
 from tests_resources.locators.home_page_locators import HomePageLocators
 from tests_resources.locators.login_page_locators import LogInPageLocators

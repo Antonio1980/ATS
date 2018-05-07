@@ -32,11 +32,16 @@ class BasePage:
     def search_element(self, delay, locator):
         driver = self.driver
         try:
-            element = WebDriverWait(driver, delay).until(
-                lambda driver: driver.find_element_by_xpath(locator))
+            element = WebDriverWait(driver, delay).until(EC.visibility_of_element_located((By.XPATH, locator)))
             return element
         except TimeoutException:
             print("Loading took to much time.")
+        # try:
+        #     element = WebDriverWait(driver, delay).until(
+        #         lambda driver: driver.find_element_by_xpath(locator))
+        #     return element
+        # except TimeoutException:
+        #     print("Loading took to much time.")
 
 
     @classmethod

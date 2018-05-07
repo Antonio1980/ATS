@@ -3,14 +3,14 @@
 
 import unittest
 from proboscis import test
-from tests.tests_base.login_page import LogInPage
-from tests.tests_base.page_base import BasePage
+from tests.pages.login_page import LogInPage
+from tests.pages.page_base import BasePage
 from tests_extensions.get_tests_context import get_credentials_positive
 from tests_extensions.tests_definitions import BaseConfig
 
 
 @test(groups=['end2end','smoke','sanity'])
-class LogInTest(unittest.TestCase):
+class LogInTestPositive(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         BasePage.setUpClass("chrome")
