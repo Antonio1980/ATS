@@ -10,7 +10,8 @@ class BaseConfig:
     dir_data = os.path.abspath(os.path.dirname(__file__))
     parser = config_parse(config_file)
 
-    BASE_URL = parser.get('BASE_URL', 'base_url')
+    CRM_BASE_URL = parser.get('BASE_URL', 'base_url_crm')
+    BO_BASE_URL = parser.get('BASE_URL', 'base_url_bo')
     W_CHROME_PATH: str = dir_data + parser.get('WEB_DRIVER_WIN', 'w_chrome')
     W_TEST_DATA = dir_data + parser.get('TEST_DATA_WIN', 'w_data_csv')
     W_FIREFOX_PATH = dir_data + parser.get('WEB_DRIVER_WIN', 'w_firefox')
