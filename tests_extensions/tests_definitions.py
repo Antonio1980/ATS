@@ -2,8 +2,8 @@
 # -*- coding: utf8 -*-
 
 import os
-
 from tests_extensions.get_tests_context import config_parse
+
 
 class BaseConfig:
     config_file = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'base_config.cfg')
