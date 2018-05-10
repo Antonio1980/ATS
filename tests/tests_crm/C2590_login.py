@@ -9,23 +9,21 @@ from tests_extensions.get_tests_context import get_credentials_positive
 from tests_extensions.tests_definitions import BaseConfig
 
 
-@test(groups=['end2end','smoke','sanity'])
-class LogInTestPositive(unittest.TestCase):
+@test(groups=['functional', 'smoke', 'sanity'])
+class LogInTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         BasePage.setUpClass("chrome")
 
     @classmethod
-    @test(groups=['login'])
-    def test_login_logout_login(self):
+    @test(groups=['login_page', 'positive'])
+    def test_login_positive(self):
         row = 0
         column1 = 0
         column2 = 1
         credentials = get_credentials_positive(BaseConfig.W_TEST_DATA, row, column1, column2)
         username = credentials['username']
         password = credentials['password']
-        LogInPage.login(username, password)
-        LogInPage.logout()
         LogInPage.login(username, password)
 
     @classmethod

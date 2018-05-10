@@ -11,9 +11,9 @@ from tests_extensions.tests_definitions import BaseConfig
 from tests_extensions.webdriver_factory import WebDriverFactory
 
 
-@test(groups=['end2end','smoke','sanity'])
+@test(groups=['functional', 'smoke', 'sanity'])
 @ddt
-class LogInTestDDT(unittest.TestCase):
+class LogInDDTTest(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.browser_name = "chrome"
@@ -21,7 +21,7 @@ class LogInTestDDT(unittest.TestCase):
         self.driver.implicitly_wait(1)
         self.driver.maximize_window()
 
-    @test(groups=['login'])
+    @test(groups=['login_page', 'ddt'])
     @data(*get_csv_data(BaseConfig.W_TEST_DATA))
     @unpack
     def test_login(self, username, password):

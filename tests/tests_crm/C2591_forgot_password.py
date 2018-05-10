@@ -8,26 +8,33 @@ from tests_extensions.tests_definitions import BaseConfig
 from tests_resources.locators.login_page_locators import LogInPageLocators
 
 
-@test(groups=['end2end','smoke','sanity'])
-class ForgotPassword(unittest.TestCase):
+@test(groups=['end2end', 'functional', 'sanity'])
+class ForgotPasswordTest(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         BasePage.setUpClass("chrome")
 
         
     @classmethod
-    def test_logout(self):
-        BasePage.go_to_page(BaseConfig.CRM_BASE_URL)
-        assert BasePage.driver_wait_element_present(2, LogInPageLocators.CRM_LOGO)
-        BasePage.search_and_click(3, LogInPageLocators.FORGOT_PASSWORD_LINK)
-        assert BasePage.driver_wait_element_present(2, LogInPageLocators.FORGOT_POPUP)
-        BasePage.search_and_click(3, LogInPageLocators.CLOSE_BUTTON)
-        assert BasePage.driver_wait_element_present(2, LogInPageLocators.CRM_LOGO)
-        BasePage.search_wait_click(10, LogInPageLocators.FORGOT_PASSWORD_LINK)
-        assert BasePage.driver_wait_element_present(2, LogInPageLocators.FORGOT_POPUP)
-        BasePage.search_and_type(1, "roman@spotoption.com", LogInPageLocators.EMAIL_FIELD)
-        BasePage.search_and_click(3, LogInPageLocators.SEND_BUTTON)
-        assert BasePage.driver_wait_element_present(2, LogInPageLocators.CRM_LOGO)
+    @test(groups=['login_page', 'positive'])
+    def test_forgot_password(self):
+        email = "roman@spotoption.com"
+        wait_element = 2
+        wait_click = 3
+        try:
+            BasePage.go_to_page(BaseConfig.CRM_BASE_URL)
+            assert BasePage.driver_wait_element_present(wait_element, LogInPageLocators.CRM_LOGO)
+            BasePage.search_and_click(wait_click, LogInPageLocators.FORGOT_PASSWORD_LINK)
+            assert BasePage.driver_wait_element_present(wait_element, LogInPageLocators.FORGOT_POPUP)
+            BasePage.search_and_click(wait_click, LogInPageLocators.CLOSE_BUTTON)
+            assert BasePage.driver_wait_element_present(wait_element, LogInPageLocators.CRM_LOGO)
+            BasePage.search_wait_click(wait_click, LogInPageLocators.FORGOT_PASSWORD_LINK)
+            assert BasePage.driver_wait_element_present(wait_element, LogInPageLocators.FORGOT_POPUP)
+            BasePage.search_and_type(wait_click, email, LogInPageLocators.EMAIL_FIELD)
+            BasePage.search_and_click(wait_click, LogInPageLocators.SEND_BUTTON)
+            assert BasePage.driver_wait_element_present(wait_element, LogInPageLocators.CRM_LOGO)
+        finally:
+            raise Exception
 
 
     @classmethod
