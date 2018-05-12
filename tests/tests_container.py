@@ -4,10 +4,10 @@
 import unittest
 
 # load test cases
-from tests.tests_crm.C2590_login import LogInTest
-from tests.tests_crm.C2598_login_logout import LogInLogOutLogInTest
-from tests.tests_crm.C2593_login_ddriven import LogInDDTTest
-from tests.tests_crm.C2591_forgot_password import ForgotPasswordTest
+from tests.login_tests.C2590_login import LogInTest
+from tests.login_tests.C2598_login_logout import LogInLogOutLogInTest
+from tests.login_tests.C2593_login_ddriven import LogInDDTTest
+from tests.login_tests.C2591_forgot_password import ForgotPasswordTest
 
 test_login = unittest.TestLoader().loadTestsFromTestCase(LogInTest)
 test_login_logout = unittest.TestLoader().loadTestsFromTestCase(LogInLogOutLogInTest)

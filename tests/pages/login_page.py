@@ -1,10 +1,10 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
-from tests.pages.page_base import BasePage
-from tests_extensions.tests_definitions import BaseConfig
-from tests_resources.locators.home_page_locators import HomePageLocators
-from tests_resources.locators.login_page_locators import LogInPageLocators
+from tests.pages.base_page import BasePage
+from tests_sources.test_definitions import BaseConfig
+from tests.locators.home_page_locators import HomePageLocators
+from tests.locators.login_page_locators import LogInPageLocators
 
 
 class LogInPage(BasePage):
