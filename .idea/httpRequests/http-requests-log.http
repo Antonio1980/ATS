@@ -1,0 +1,35 @@
+GET https://www.google.com
+Accept: application/json
+
+<> 2018-05-10T103627.200.html
+
+###
+
+POST https://www.google.com
+Accept: application/json
+
+<> 2018-05-10T103555.405.html
+
+###
+
+GET https://httpbin.org/ip
+Accept: application/json
+
+<> 2018-05-10T085716.200.json
+
+###
+
+GET https://httpbin.org/get?show_env=1
+Accept: application/json
+
+<> 2018-05-10T085628.200.json
+
+###
+
+GET https://httpbin.org/ip
+Accept: application/json
+
+<> 2018-05-10T085619.200.json
+
+###
+
