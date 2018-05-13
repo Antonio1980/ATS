@@ -5,11 +5,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
+from tests_sources.drivers.webdriver_factory import WebDriverFactory
 
-from tests_extensions.webdriver_factory import WebDriverFactory
 
-
-class BasePage:
+class Browser:
     @classmethod
     def setUpClass(self, browser_name):
         self.driver = WebDriverFactory.get_browser(browser_name)
@@ -36,12 +35,6 @@ class BasePage:
             return element
         except TimeoutException:
             print("Loading took to much time.")
-        # try:
-        #     element = WebDriverWait(driver, delay).until(
-        #         lambda driver: driver.find_element_by_xpath(locator))
-        #     return element
-        # except TimeoutException:
-        #     print("Loading took to much time.")
 
 
     @classmethod

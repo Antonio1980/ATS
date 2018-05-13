@@ -7,9 +7,9 @@ import csv
 
 def config_parse(config_file):
     parser = configparser.ConfigParser()
-    with open(config_file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True) as configfile:
+    with open(config_file, mode='r', buffering=-1, closefd=True):
         parser.read(config_file)
-        parser.sections()
+        #parser.sections()
         return parser
 
 
