@@ -15,21 +15,13 @@ class ForgotPasswordTest(unittest.TestCase):
     def setUpClass(self):
         Browser.setUpClass("chrome")
 
-        
+
     @classmethod
     @test(groups=['login_page', 'positive'])
     def test_forgot_password(self):
         email = "roman@spotoption.com"
-        delay = 1
-        try:
-            Browser.go_to_page(BaseConfig.CRM_BASE_URL)
-            assert Browser.driver_wait_element_present(delay, LogInPageLocators.CRM_LOGO)
-            Browser.search_and_click(delay, LogInPageLocators.FORGOT_PASSWORD_LINK)
-            assert Browser.driver_wait_element_present(delay, LogInPageLocators.FORGOT_POPUP)
-            Browser.search_and_click(delay, LogInPageLocators.CLOSE_BUTTON)
-            LogInPage.forgot_password(delay, email)
-        finally:
-            raise Exception
+        delay = 10
+        LogInPage.forgot_password(delay, email)
 
 
     @classmethod
