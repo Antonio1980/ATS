@@ -3,7 +3,8 @@
 
 import unittest
 from proboscis import test
-from tests.pages.base_page import BasePage
+from tests.pages.browser import Browser
+from tests.pages.login_page import LogInPage
 from tests_sources.test_definitions import BaseConfig
 from tests.locators.login_page_locators import LogInPageLocators
 
@@ -12,31 +13,25 @@ from tests.locators.login_page_locators import LogInPageLocators
 class ForgotPasswordTest(unittest.TestCase):
     @classmethod
     def setUpClass(self):
-        BasePage.setUpClass("chrome")
+        Browser.setUpClass("chrome")
 
         
     @classmethod
     @test(groups=['login_page', 'positive'])
     def test_forgot_password(self):
         email = "roman@spotoption.com"
-        wait_element = 2
-        wait_click = 3
+        delay = 1
         try:
-            BasePage.go_to_page(BaseConfig.CRM_BASE_URL)
-            assert BasePage.driver_wait_element_present(wait_element, LogInPageLocators.CRM_LOGO)
-            BasePage.search_and_click(wait_click, LogInPageLocators.FORGOT_PASSWORD_LINK)
-            assert BasePage.driver_wait_element_present(wait_element, LogInPageLocators.FORGOT_POPUP)
-            BasePage.search_and_click(wait_click, LogInPageLocators.CLOSE_BUTTON)
-            assert BasePage.driver_wait_element_present(wait_element, LogInPageLocators.CRM_LOGO)
-            BasePage.search_wait_click(wait_click, LogInPageLocators.FORGOT_PASSWORD_LINK)
-            assert BasePage.driver_wait_element_present(wait_element, LogInPageLocators.FORGOT_POPUP)
-            BasePage.search_and_type(wait_click, email, LogInPageLocators.EMAIL_FIELD)
-            BasePage.search_and_click(wait_click, LogInPageLocators.SEND_BUTTON)
-            assert BasePage.driver_wait_element_present(wait_element, LogInPageLocators.CRM_LOGO)
+            Browser.go_to_page(BaseConfig.CRM_BASE_URL)
+            assert Browser.driver_wait_element_present(delay, LogInPageLocators.CRM_LOGO)
+            Browser.search_and_click(delay, LogInPageLocators.FORGOT_PASSWORD_LINK)
+            assert Browser.driver_wait_element_present(delay, LogInPageLocators.FORGOT_POPUP)
+            Browser.search_and_click(delay, LogInPageLocators.CLOSE_BUTTON)
+            LogInPage.forgot_password(delay, email)
         finally:
             raise Exception
 
 
     @classmethod
     def tearDownClass(self):
-        BasePage.tearDownClass()
+        Browser.tearDownClass()

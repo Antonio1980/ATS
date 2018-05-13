@@ -8,7 +8,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from tests_sources.drivers.webdriver_factory import WebDriverFactory
 
 
-class BasePage:
+class Browser:
     @classmethod
     def setUpClass(self, browser_name):
         self.driver = WebDriverFactory.get_browser(browser_name)
