@@ -88,6 +88,7 @@ class Browser():
 =======
     def search_and_click(self, delay, locator):
         element = self.driver_wait_element_located(delay, locator)
+        self.driver_wait(delay)
         element.click()
         return element
 
