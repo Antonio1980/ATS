@@ -5,9 +5,15 @@ import unittest
 from tests.login_tests.C2590_login import LogInTest
 from tests.login_tests.C2593_login_ddt import LogInTestDDT
 from tests.login_tests.C2598_login_logout import LogInLogOutLogInTest
+<<<<<<< HEAD
 from tests.login_tests.C2591_forgot_password import ForgotPasswordTest
 from tests.login_tests.C2694_forgot_password_ddt import ForgotPasswordTestDDT
 
+=======
+from tests.login_tests.C2593_login_ddt import LogInTestDDT
+from tests.login_tests.C2591_forgot_password import ForgotPasswordTest
+from tests.login_tests.C2694_forgot_password_ddt import ForgotPasswordTestDDT
+>>>>>>> 83d150a... forgot data driven added
 
 # loading test cases
 test_login = unittest.TestLoader().loadTestsFromTestCase(LogInTest)
