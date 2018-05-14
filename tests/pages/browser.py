@@ -1,16 +1,27 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 from venv import logger
 from selenium.webdriver.common.by import By
 =======
+=======
+>>>>>>> f84205b... readme
 <<<<<<< HEAD
 =======
 from venv import logger
 
 >>>>>>> 1bca7f1... fixed forgot password
+<<<<<<< HEAD
 >>>>>>> fbcde02... fixed forgot password
+=======
+=======
+
+from venv import logger
+from selenium.webdriver.common.by import By
+>>>>>>> 3870113... readme
+>>>>>>> f84205b... readme
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait

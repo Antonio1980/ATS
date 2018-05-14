@@ -3,12 +3,17 @@
 
 import unittest
 <<<<<<< HEAD
+<<<<<<< HEAD
 from proboscis import test
 from ddt import ddt, data, unpack
 =======
 from ddt import ddt, data, unpack
 from proboscis import test
 >>>>>>> 83d150a... forgot data driven added
+=======
+from proboscis import test
+from ddt import ddt, data, unpack
+>>>>>>> f84205b... readme
 from tests.pages.browser import Browser
 from tests.pages.login_page import LogInPage
 from tests_sources.test_definitions import BaseConfig
