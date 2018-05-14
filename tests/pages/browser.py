@@ -1,12 +1,12 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
-from venv import logger
 
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
+from venv import logger
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from tests_sources.drivers.webdriver_factory import WebDriverFactory
 
 

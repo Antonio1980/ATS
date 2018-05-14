@@ -2,12 +2,12 @@
 # -*- coding: utf8 -*-
 
 import unittest
-from ddt import ddt, data, unpack
 from proboscis import test
+from ddt import ddt, data, unpack
+from tests_sources.test_definitions import BaseConfig
 from tests_sources.test_utils.file_util import get_csv_data
 from tests.locators.home_page_locators import HomePageLocators
 from tests.locators.login_page_locators import LogInPageLocators
-from tests_sources.test_definitions import BaseConfig
 from tests_sources.drivers.webdriver_factory import WebDriverFactory
 
 
