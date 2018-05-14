@@ -8,7 +8,7 @@ class LogInPageLocators():
     LOGIN_BUTTON = "//*[@id='loginBtn']"
     CRM_LOGO = "//*[@class='crmLogo crmLogoOverride']"
     PASSWORD_INCORRECT_MESSAGE = "//*[@class='alert alert-danger'][contains(.,' The login details you are using are incorrect.')]"
-    FORGOT_PASSWORD_LINK = "//*[@class='pull-left'][contains(.,'Forgot your password?')]"
+    FORGOT_PASSWORD_LINK = "//*[@class='pull-left'][contains(text(),'Forgot your password?')]"
 
     # Forgot password pop up
     FORGOT_POPUP = "//div[@class='modal-body']"
