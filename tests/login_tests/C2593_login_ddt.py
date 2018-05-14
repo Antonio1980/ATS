@@ -13,7 +13,7 @@ from tests_sources.drivers.webdriver_factory import WebDriverFactory
 
 @test(groups=['functional', 'smoke', 'sanity'])
 @ddt
-class LogInDDTTest(unittest.TestCase):
+class LogInTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.browser_name = "chrome"
@@ -22,7 +22,7 @@ class LogInDDTTest(unittest.TestCase):
         self.driver.maximize_window()
 
     @test(groups=['login_page', 'ddt'])
-    @data(*get_csv_data(BaseConfig.W_TEST_DATA))
+    @data(*get_csv_data(BaseConfig.W_TEST_LOGIN_DATA))
     @unpack
     def test_login(self, username, password):
         driver = self.driver
