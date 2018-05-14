@@ -18,7 +18,15 @@ class ForgotPasswordTest(unittest.TestCase):
     @test(groups=['login_page', 'positive'])
     def test_forgot_password(self):
         email = "roman@spotoption.com"
+<<<<<<< HEAD
         delay = 2
+=======
+<<<<<<< HEAD
+        delay = 10
+=======
+        delay = 5
+>>>>>>> 1bca7f1... fixed forgot password
+>>>>>>> fbcde02... fixed forgot password
         LogInPage.forgot_password(delay, email)
 
 
