@@ -1,5 +1,6 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
+import time
 
 from tests.pages.browser import Browser
 from tests_sources.test_definitions import BaseConfig
@@ -31,9 +32,10 @@ class LogInPage(Browser):
         assert self.driver_wait_element_present(delay+1, LogInPageLocators.CRM_LOGO)
 =======
         assert self.driver_wait_element_located(delay+1, HomePageLocators.HOME_PAGE_LOGO)
-        self.search_and_click(delay+2, HomePageLocators.SETTINGS_DROPDOWN)
-        self.search_and_click(delay+2, HomePageLocators.LANGUAGE_ICON)
-        self.search_and_click(delay+2, HomePageLocators.LOGOUT_LINK)
+        self.search_and_click(delay+10, HomePageLocators.SETTINGS_DROPDOWN)
+        #time.sleep(10)
+        self.search_and_click(delay+5, HomePageLocators.LANGUAGE_ICON)
+        self.search_and_click(delay+3, HomePageLocators.LOGOUT_LINK)
         assert self.driver_wait_element_located(delay+1, LogInPageLocators.CRM_LOGO)
 >>>>>>> 1bca7f1... fixed forgot password
         self.driver_wait(delay)
