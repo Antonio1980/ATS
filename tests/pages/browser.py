@@ -1,15 +1,20 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 from venv import logger
 
 >>>>>>> 1bca7f1... fixed forgot password
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
+=======
+
+from venv import logger
 from selenium.webdriver.common.by import By
+>>>>>>> 3870113... readme
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from tests_sources.drivers.webdriver_factory import WebDriverFactory
 
 

@@ -25,7 +25,7 @@ class WebDriverFactory:
         elif (browser_name == 'ie'):
             return webdriver.Ie(BaseConfig.W_IE_PATH)
         raise Exception("No such " + browser_name + " browser exists")
-    
+
 
     @classmethod
     def get_browser_lin(self, browser_name):

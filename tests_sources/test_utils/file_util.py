@@ -1,8 +1,8 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
-import configparser
 import csv
+import configparser
 
 
 def config_parse(config_file):
