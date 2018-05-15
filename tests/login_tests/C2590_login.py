@@ -19,6 +19,7 @@ class LogInTest(unittest.TestCase):
     @test(groups=['login_page', 'positive'])
     def test_login_positive(self):
         delay = 1
+        # 0, 0, 1 - row, column1, column2
         credentials = get_credentials_positive(BaseConfig.W_TEST_LOGIN_DATA, 0, 0, 1)
         username = credentials['username']
         password = credentials['password']

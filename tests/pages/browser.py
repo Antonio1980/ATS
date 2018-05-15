@@ -1,12 +1,13 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
-from venv import logger
 
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
+
+from venv import logger
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from tests_sources.drivers.webdriver_factory import WebDriverFactory
 
 
@@ -68,6 +69,11 @@ class Browser:
         return element
 
 
+    def refresh_page(self):
+        driver = self.driver
+        driver.find_element_by_tag_name('body').send_keys(Keys.COMMAND + 'r')
+
+
     @classmethod
     def driver_wait_element_visible(self, delay, locator):
         try:
@@ -76,8 +82,9 @@ class Browser:
         except TimeoutException:
             print("Loading took to much time.")
 
+
     @classmethod
-    def driver_wait_element_located(self, delay, locator):
+    def driver_wait_element_presented(self, delay, locator):
         try:
             element = WebDriverWait(self.driver, delay).until(EC.presence_of_element_located((By.XPATH, locator)))
             return element
@@ -94,7 +101,6 @@ class Browser:
             print("Loading took to much time.")
 
 
-
     @classmethod
     def find_located_element(self, delay, element):
         try:
@@ -103,6 +109,7 @@ class Browser:
         except TimeoutException as e:
             logger.error('{}: TimeoutException waiting for search input field: {}'.format(self.name, e))
             return False
+
 
     @classmethod
     def _wait_until_search_param_fields_appears(self, delay, element):

@@ -2,8 +2,8 @@
 # -*- coding: utf8 -*-
 
 import unittest
-from ddt import ddt, data, unpack
 from proboscis import test
+from ddt import ddt, data, unpack
 from tests.pages.browser import Browser
 from tests.pages.login_page import LogInPage
 from tests_sources.test_definitions import BaseConfig

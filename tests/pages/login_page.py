@@ -39,9 +39,12 @@ class LogInPage(Browser):
         assert self.driver_wait_element_located(delay+1, LogInPageLocators.CRM_LOGO)
         self.search_and_click(delay+2, LogInPageLocators.FORGOT_PASSWORD_LINK)
         assert self.driver_wait_element_located(delay+1, LogInPageLocators.FORGOT_POPUP)
+        assert self.driver_wait_element_present(delay, LogInPageLocators.MESSAGE_POPUP)
+        assert self.driver_wait_element_present(delay, LogInPageLocators.NOTE_POPUP)
         self.search_and_type(delay+3, email, LogInPageLocators.EMAIL_FIELD)
         self.search_and_click(delay+2, LogInPageLocators.SEND_BUTTON)
         assert self.driver_wait_element_located(delay+1, LogInPageLocators.CRM_LOGO)
+
 
 
 
