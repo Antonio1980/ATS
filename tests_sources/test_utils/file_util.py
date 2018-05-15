@@ -1,15 +1,14 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
-import configparser
 import csv
+import configparser
 
 
 def config_parse(config_file):
     parser = configparser.ConfigParser()
     with open(config_file, mode='r', buffering=-1, closefd=True):
         parser.read(config_file)
-        #parser.sections()
         return parser
 
 
@@ -20,7 +19,6 @@ def get_csv_data(data_file):
         next(content, None)
         for row in content:
             rows.append(row)
-
     return rows
 
 
