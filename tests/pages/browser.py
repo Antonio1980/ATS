@@ -1,27 +1,9 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 from venv import logger
 from selenium.webdriver.common.by import By
-=======
-=======
->>>>>>> f84205b... readme
-<<<<<<< HEAD
-=======
-from venv import logger
-
->>>>>>> 1bca7f1... fixed forgot password
-<<<<<<< HEAD
->>>>>>> fbcde02... fixed forgot password
-=======
-=======
-
-from venv import logger
-from selenium.webdriver.common.by import By
->>>>>>> 3870113... readme
->>>>>>> f84205b... readme
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
@@ -80,18 +62,16 @@ class Browser:
 
 
     @classmethod
-<<<<<<< HEAD
     def search_and_click(self, delay, locator):
         element = self.driver_wait_element_located(delay, locator)
         self.driver_wait(delay)
         element.click()
         return element
-=======
-<<<<<<< HEAD
+
+
     def refresh_page(self):
         driver = self.driver
         driver.find_element_by_tag_name('body').send_keys(Keys.COMMAND + 'r')
->>>>>>> fbcde02... fixed forgot password
 
 
     @classmethod
@@ -103,31 +83,7 @@ class Browser:
             print("Loading took to much time.")
 
     @classmethod
-<<<<<<< HEAD
-    def driver_wait_element_located(self, delay, locator):
-=======
-    def driver_wait_element_present(self, delay, locator):
-        driver = self.driver
-=======
-    def search_and_click(self, delay, locator):
-        element = self.driver_wait_element_located(delay, locator)
-        self.driver_wait(delay)
-        element.click()
-        return element
-
-
-    @classmethod
-    def driver_wait_element_visible(self, delay, locator):
-        try:
-            element = WebDriverWait(self.driver, delay).until(EC.visibility_of_element_located((By.XPATH, locator)))
-            return element
-        except TimeoutException:
-            print("Loading took to much time.")
-
-    @classmethod
-    def driver_wait_element_located(self, delay, locator):
->>>>>>> 1bca7f1... fixed forgot password
->>>>>>> fbcde02... fixed forgot password
+    def driver_wait_element_presented(self, delay, locator):
         try:
             element = WebDriverWait(self.driver, delay).until(EC.presence_of_element_located((By.XPATH, locator)))
             return element
