@@ -3,7 +3,8 @@
 
 import unittest
 from proboscis import test
-from tests.pages.browser import Browser
+from tests.base.browser import Browser
+from tests.pages.home_page import HomePage
 from tests.pages.login_page import LogInPage
 from tests_sources.test_definitions import BaseConfig
 from tests_sources.test_utils.file_util import get_credentials_positive
@@ -23,7 +24,7 @@ class LogInLogOutLogInTest(unittest.TestCase):
         username = credentials['username']
         password = credentials['password']
         LogInPage.login(delay, username, password)
-        LogInPage.logout(delay)
+        HomePage.logout(delay)
         LogInPage.login(delay, username, password)
 
     @classmethod

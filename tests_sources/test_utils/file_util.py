@@ -1,6 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
+import codecs
 import csv
 import configparser
 
@@ -32,3 +33,14 @@ def get_credentials_positive(data_file, row, column1, column2):
     username = rows[row][column1]
     password = rows[row][column2]
     return {'username': username, 'password': password}
+
+
+def write_file_output(process, file):
+    with codecs.open(file, "a", "utf-8") as f:
+        f.write(process)
+        f.flush()
+
+
+
+
+

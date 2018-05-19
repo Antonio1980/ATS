@@ -21,7 +21,7 @@ class BaseConfig:
 
     L_CHROME_PATH = path_dir + parser.get('WEB_DRIVER_LIN', 'l_chrome')
     L_FIREFOX_PATH = path_dir + parser.get('WEB_DRIVER_LIN', 'l_firefox')
-    L_TEST_DATA = path_dir + parser.get('TEST_DATA_LIN', 'l_login_data_csv')
+    L_TEST_LOGIN_DATA = path_dir + parser.get('TEST_DATA_LIN', 'l_login_data_csv')
     L_TEST_FORGOT_DATA = path_dir + parser.get('TEST_DATA_LIN', 'l_forgot_data_csv')
 
 
