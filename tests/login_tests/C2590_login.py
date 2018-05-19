@@ -4,7 +4,7 @@
 import unittest
 from proboscis import test
 from tests.pages.login_page import LogInPage
-from tests.pages.browser import Browser
+from tests.base.browser import Browser
 from tests_sources.test_utils.file_util import get_credentials_positive
 from tests_sources.test_definitions import BaseConfig
 
