@@ -29,13 +29,11 @@ class Terminal(object):
     def run_cd(self, dir_name):
         _os.chdir(dir_name)
 
-
     @classmethod
     def run_newman(self, command):
         proc = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
         process = str(proc.stdout)
         return process
-
 
     @classmethod
     def run_command_out(self, command, file):
@@ -46,7 +44,6 @@ class Terminal(object):
                 return process
             except subprocess.TimeoutExpired:
                 raise TimeoutError
-
 
     @classmethod
     def run_command_in(self, command, *option):
