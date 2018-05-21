@@ -1,4 +1,4 @@
-from tests.base.browser import Browser
+from src.base.browser import Browser
 from tests.locators.home_page_locators import HomePageLocators
 from tests.locators.login_page_locators import LogInPageLocators
 

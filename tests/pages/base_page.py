@@ -1,4 +1,4 @@
-from tests.base.browser import Browser
+from src.base.browser import Browser
 
 
 class BasePage(object):

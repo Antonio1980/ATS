@@ -3,7 +3,7 @@
 
 import unittest
 from proboscis import test
-from tests.base.browser import Browser
+from src.base.browser import Browser
 from tests.pages.login_page import LogInPage
 
 

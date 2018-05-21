@@ -3,8 +3,8 @@
 
 import unittest
 from proboscis import test
-from tests.base.terminal import Terminal
-from tests_sources.test_utils.terminal_util import *
+from src.base import Terminal
+from src.test_utils.terminal_utils import *
 
 
 class SmokeTest(unittest.TestCase):

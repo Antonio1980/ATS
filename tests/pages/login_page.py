@@ -1,8 +1,8 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
-from tests.base.browser import Browser
-from tests_sources.test_definitions import BaseConfig
+from src.base import Browser
+from src.test_definitions import BaseConfig
 from tests.locators.home_page_locators import HomePageLocators
 from tests.locators.login_page_locators import LogInPageLocators
 

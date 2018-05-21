@@ -4,9 +4,9 @@
 import unittest
 from proboscis import test
 from tests.pages.login_page import LogInPage
-from tests.base.browser import Browser
-from tests_sources.test_utils.file_util import get_credentials_positive
-from tests_sources.test_definitions import BaseConfig
+from src.base.browser import Browser
+from src.test_utils.file_utils import get_credentials_positive
+from src.test_definitions import BaseConfig
 
 
 @test(groups=['functional', 'smoke', 'sanity'])
