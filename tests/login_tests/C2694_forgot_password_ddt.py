@@ -4,10 +4,10 @@
 import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
-from tests.base.browser import Browser
+from src.base.browser import Browser
 from tests.pages.login_page import LogInPage
-from tests_sources.test_definitions import BaseConfig
-from tests_sources.test_utils.file_util import get_csv_data
+from src.test_definitions import BaseConfig
+from src.test_utils.file_utils import get_csv_data
 
 
 @test(groups=['end2end', 'functional', 'sanity'])
@@ -15,7 +15,7 @@ from tests_sources.test_utils.file_util import get_csv_data
 class ForgotPasswordTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(self):
-        Browser.setUpClass("chrome")
+        Browser.set_up_class("chrome")
 
         
     @test(groups=['login_page', 'positive'])
@@ -28,4 +28,4 @@ class ForgotPasswordTestDDT(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
-        Browser.tearDownClass()
+        Browser.tear_down_class()
