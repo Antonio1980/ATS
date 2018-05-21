@@ -11,7 +11,7 @@ from tests.pages.login_page import LogInPage
 class ForgotPasswordTest(unittest.TestCase):
     @classmethod
     def setUpClass(self):
-        Browser.setUpClass("chrome")
+        Browser.set_up_class("chrome")
 
         
     @classmethod
@@ -24,4 +24,4 @@ class ForgotPasswordTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
-        Browser.tearDownClass()
+        Browser.tear_down_class()

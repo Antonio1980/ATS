@@ -15,7 +15,7 @@ from tests_sources.test_utils.file_util import get_csv_data
 class ForgotPasswordTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(self):
-        Browser.setUpClass("chrome")
+        Browser.set_up_class("chrome")
 
         
     @test(groups=['login_page', 'positive'])
@@ -28,4 +28,4 @@ class ForgotPasswordTestDDT(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
-        Browser.tearDownClass()
+        Browser.tear_down_class()

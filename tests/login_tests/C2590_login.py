@@ -13,7 +13,7 @@ from tests_sources.test_definitions import BaseConfig
 class LogInTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        Browser.setUpClass("chrome")
+        Browser.set_up_class("chrome")
 
     @classmethod
     @test(groups=['login_page', 'positive'])
@@ -27,7 +27,7 @@ class LogInTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(slc):
-        Browser.tearDownClass()
+        Browser.tear_down_class()
 
 
 

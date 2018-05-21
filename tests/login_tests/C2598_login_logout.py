@@ -14,7 +14,7 @@ from tests_sources.test_utils.file_util import get_credentials_positive
 class LogInLogOutLogInTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        Browser.setUpClass("chrome")
+        Browser.set_up_class("chrome")
 
     @classmethod
     @test(groups=['login_page', 'positive'])
@@ -29,7 +29,7 @@ class LogInLogOutLogInTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(slc):
-        Browser.tearDownClass()
+        Browser.tear_down_class()
 
 
 
