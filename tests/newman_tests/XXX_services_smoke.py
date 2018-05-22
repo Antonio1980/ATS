@@ -11,7 +11,7 @@ class SmokeTest(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.terminal = Terminal
-        self.terminal.set_up_class()
+        self.terminal.set_up()
 
     @classmethod
     @test(groups=['services', 'smoke'])

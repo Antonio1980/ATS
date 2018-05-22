@@ -9,7 +9,7 @@ from src.test_utils.file_utils import write_file_output
 
 class Terminal(object):
     @classmethod
-    def set_up_class(self):
+    def set_up(self):
         if detect_os() == "windows":
             print("It's Windows OS.   ")
         else:
