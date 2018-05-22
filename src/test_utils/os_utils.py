@@ -2,29 +2,30 @@
 # -*- coding: utf8 -*-
 
 import platform
+from src.base.enums import OperationSystem
 
 
 def detect_os():
     if (is_mac()):
-        return "macintosh"
+        return OperationSystem.MAC
     elif (is_win()):
-        return "windows"
+        return OperationSystem.WINDOWS
     elif (is_lin()):
-        return "linux"
+        return OperationSystem.LINUX
     else:
-        raise Exception("The OS not detected")
+        raise Exception("The OS is not detected")
 
 
 def is_mac():
-    return platform.system().lower() == "darwin"
+    return platform.system().lower() == OperationSystem.DARWIN
 
 
 def is_win():
-    return platform.system().lower() == "windows"
+    return platform.system().lower() == OperationSystem.WINDOWS
 
 
 def is_lin():
-    return platform.system().lower() == "linux"
+    return platform.system().lower() == OperationSystem.LINUX
 
 
 

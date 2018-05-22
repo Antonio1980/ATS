@@ -1,6 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
+from src.base.enums import DriverHelper
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -16,6 +17,10 @@ class Browser(object):
         self.driver = WebDriverFactory.get_browser(browser_name)
         self.driver.maximize_window()
         self.driver_wait(2)
+
+    @classmethod
+    def get_driver(self):
+        return self.driver
 
     @classmethod
     def go_to_url(self, url):
@@ -36,10 +41,6 @@ class Browser(object):
     def close_driver_instance(self):
         self.driver.delete_all_cookies()
         self.driver.close()
-
-    @classmethod
-    def get_driver(self):
-        return self.driver
 
     @classmethod
     def driver_wait(self, delay):
@@ -91,33 +92,6 @@ class Browser(object):
         element.send_keys(query)
         return element
 
-    # @classmethod
-    # def if_page_loaded(self, delay, page_elements):
-    #     WebDriverWait(self.get_driver(), delay).all_elements.get(0).get_locator_by()
-
-    #need to change for elements
-    # @classmethod
-    # def print_objects_text(self, delay, locator):
-    #     element = self.wait_element_presented(delay, locator)
-    #     print(element.get_text())
-
-    # need to change for elements
-    # @classmethod
-    # def get_num_of_elements(self, locator):
-    #     elements = self.find_elements(locator)
-    #     return elements.size()
-
-    # @classmethod
-    # def click_on_button(self, locator, index):
-    #     self.find_elements(locator).get(index).click()
-
-    # for purpose need to create check_checkbox method
-    # @classmethod
-    # def if_parent_element_exists(self, delay, locator, element):
-    #     self.driver_wait(delay)
-    #     result = element.find_elements(locator).size() != 0
-    #     return result
-
     @classmethod
     def click_on_element(self, delay, locator):
         element = self.wait_element_clickable(delay, locator)
@@ -165,10 +139,35 @@ class Browser(object):
             print('{}: TimeoutException element not found: {}'.format(self.name, e))
 
     @classmethod
-    def find_located_element(self, delay, element):
+    def find_element_by(self, locator, by):
+        by = by.lower()
         try:
-            search_input = WebDriverWait(self.driver, delay).until(self.find_element(element))
-            return search_input
+            if by == DriverHelper.ID:
+                return self.driver.find_element(By.ID, locator)
+            elif by == DriverHelper.NAME:
+                return self.driver.find_element(By.NAME, locator)
+            elif by == DriverHelper.CLASS_NAME:
+                return self.driver.find_element(By.CLASS_NAME, locator)
+            elif by == DriverHelper.TAG_NAME:
+                return self.driver.find_element(By.TAG_NAME, locator)
+            elif by == DriverHelper.LINK_TEXT:
+                return self.driver.find_element(By.LINK_TEXT, locator)
+            elif by == DriverHelper.XPATH:
+                return self.driver.find_element(By.XPATH, locator)
+            elif by == DriverHelper.CSS_SELECTOR:
+                return self.driver.find_element(By.CSS_SELECTOR)
+            elif by == DriverHelper.PARTIAL_LINK_TEXT:
+                return self.driver.find_element(By.PARTIAL_LINK_TEXT, locator)
+            else:
+                return self.driver.find_element(By.XPATH, locator)
+        except TimeoutException as e:
+            print('{}: TimeoutException element not found: {}'.format(self.name, e))
+
+    @classmethod
+    def find_located_element(self, delay, locator):
+        try:
+            element = WebDriverWait(self.driver, delay).until(self.find_element(locator))
+            return element
         except TimeoutException as e:
             print('{}: TimeoutException waiting for search input field: {}'.format(self.name, e))
             return False
@@ -187,6 +186,33 @@ class Browser(object):
         except TimeoutException as e:
             print('{}: TimeoutException waiting for search param field: {}'.format(self.name, e))
             return False
+
+    # @classmethod
+    # def if_page_loaded(self, delay, page_elements):
+    #     WebDriverWait(self.get_driver(), delay).all_elements.get(0).get_locator_by()
+
+    # need to change for elements
+    # @classmethod
+    # def print_objects_text(self, delay, locator):
+    #     element = self.wait_element_presented(delay, locator)
+    #     print(element.get_text())
+
+    # need to change for elements
+    # @classmethod
+    # def get_num_of_elements(self, locator):
+    #     elements = self.find_elements(locator)
+    #     return elements.size()
+
+    # @classmethod
+    # def click_on_button(self, locator, index):
+    #     self.find_elements(locator).get(index).click()
+
+    # for purpose need to create check_checkbox method
+    # @classmethod
+    # def if_parent_element_exists(self, delay, locator, element):
+    #     self.driver_wait(delay)
+    #     result = element.find_elements(locator).size() != 0
+    #     return result
 
     @classmethod
     def tear_down_class(self):
