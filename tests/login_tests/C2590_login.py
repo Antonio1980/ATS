@@ -4,16 +4,16 @@
 import unittest
 from proboscis import test
 from tests.pages.login_page import LogInPage
-from tests.base.browser import Browser
-from tests_sources.test_utils.file_util import get_credentials_positive
-from tests_sources.test_definitions import BaseConfig
+from src.base.browser import Browser
+from src.test_utils.file_utils import get_credentials_positive
+from src.test_definitions import BaseConfig
 
 
 @test(groups=['functional', 'smoke', 'sanity'])
 class LogInTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        Browser.setUpClass("chrome")
+        Browser.set_up_class("chrome")
 
     @classmethod
     @test(groups=['login_page', 'positive'])
@@ -27,7 +27,7 @@ class LogInTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(slc):
-        Browser.tearDownClass()
+        Browser.tear_down_class()
 
 
 
