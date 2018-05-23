@@ -87,20 +87,20 @@ class Browser(object):
     def insert_text_into_element(self, delay, query, locator):
         element = self.wait_element_clickable(delay, locator)
         element.click()
-        if element.get_attribute('value').length() > 0:
-            element.clear()
+        element.clear()
         element.send_keys(query)
         return element
 
     @classmethod
     def click_on_element(self, delay, locator):
         element = self.wait_element_clickable(delay, locator)
-        self.hover_over_element(locator)
+        #self.hover_over_element(locator)
         return element.click()
 
-    @classmethod
-    def hover_over_element(self, locator):
-        ActionChains(self.driver).move_to_element(locator).perform()
+    # works only with id
+    # @classmethod
+    # def hover_over_element(self, locator):
+    #     ActionChains(self.driver).move_to_element(locator).perform()
 
     @classmethod
     def switch_frame(self, delay, locator):

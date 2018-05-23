@@ -5,12 +5,13 @@ import os as _os
 import subprocess
 from src.test_utils.os_utils import detect_os
 from src.test_utils.file_utils import write_file_output
+from src.base.enums import OperationSystem
 
 
 class Terminal(object):
     @classmethod
-    def set_up(self):
-        if detect_os() == "windows":
+    def set_up_class(self):
+        if detect_os() == OperationSystem.WINDOWS.value:
             print("It's Windows OS.   ")
         else:
             print("It's kind of Unix OS.   ")
