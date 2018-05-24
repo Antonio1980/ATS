@@ -13,7 +13,7 @@ from src.drivers.webdriver_factory import WebDriverFactory
 
 class Browser(object):
     @classmethod
-    def set_up_class(self, browser_name):
+    def get_browser(self, browser_name):
         self.driver = WebDriverFactory.get_browser(browser_name)
         self.driver.maximize_window()
         self.driver_wait(2)
@@ -68,6 +68,7 @@ class Browser(object):
     @classmethod
     def send_keys(self, delay, locator, query):
         element = self.wait_element_clickable(delay, locator)
+        element.clear()
         element.send_keys(query)
 
     @classmethod
@@ -112,7 +113,7 @@ class Browser(object):
             element = WebDriverWait(self.driver, delay).until(EC.visibility_of_element_located((By.XPATH, locator)))
             return element
         except TimeoutException as e:
-            print('{}: TimeoutException element not visible: {}'.format(self.name, e))
+            print('{}: TimeoutException element not visible: {}'.format(self.__class__, e))
 
     @classmethod
     def wait_element_presented(self, delay, locator):
@@ -120,7 +121,7 @@ class Browser(object):
             element = WebDriverWait(self.driver, delay).until(EC.presence_of_element_located((By.XPATH, locator)))
             return element
         except TimeoutException as e:
-            print('{}: TimeoutException element not present: {}'.format(self.name, e))
+            print('{}: TimeoutException element not present: {}'.format(self.__class__, e))
 
     @classmethod
     def wait_element_clickable(self, delay, locator):
@@ -128,7 +129,7 @@ class Browser(object):
             element = WebDriverWait(self.driver, delay).until(EC.element_to_be_clickable((By.XPATH, locator)))
             return element
         except TimeoutException as e:
-            print('{}: TimeoutException element not clickable: {}'.format(self.name, e))
+            print('{}: TimeoutException element not clickable: {}'.format(self.__class__, e))
 
     @classmethod
     def find_element(self, locator):
@@ -136,32 +137,32 @@ class Browser(object):
             element = self.driver.find_element_by_xpath(locator)
             return element
         except TimeoutException as e:
-            print('{}: TimeoutException element not found: {}'.format(self.name, e))
+            print('{}: TimeoutException element not found: {}'.format(self.__class__, e))
 
     @classmethod
     def find_element_by(self, locator, by):
         by = by.lower()
         try:
-            if by == DriverHelper.ID:
+            if by == DriverHelper.ID.value:
                 return self.driver.find_element(By.ID, locator)
-            elif by == DriverHelper.NAME:
+            elif by == DriverHelper.NAME.value:
                 return self.driver.find_element(By.NAME, locator)
-            elif by == DriverHelper.CLASS_NAME:
+            elif by == DriverHelper.CLASS_NAME.value:
                 return self.driver.find_element(By.CLASS_NAME, locator)
-            elif by == DriverHelper.TAG_NAME:
+            elif by == DriverHelper.TAG_NAME.value:
                 return self.driver.find_element(By.TAG_NAME, locator)
-            elif by == DriverHelper.LINK_TEXT:
+            elif by == DriverHelper.LINK_TEXT.value:
                 return self.driver.find_element(By.LINK_TEXT, locator)
-            elif by == DriverHelper.XPATH:
+            elif by == DriverHelper.XPATH.value:
                 return self.driver.find_element(By.XPATH, locator)
-            elif by == DriverHelper.CSS_SELECTOR:
+            elif by == DriverHelper.CSS_SELECTOR.value:
                 return self.driver.find_element(By.CSS_SELECTOR)
-            elif by == DriverHelper.PARTIAL_LINK_TEXT:
+            elif by == DriverHelper.PARTIAL_LINK_TEXT.value:
                 return self.driver.find_element(By.PARTIAL_LINK_TEXT, locator)
             else:
                 return self.driver.find_element(By.XPATH, locator)
         except TimeoutException as e:
-            print('{}: TimeoutException element not found: {}'.format(self.name, e))
+            print('{}: TimeoutException element not found: {}'.format(self.__class__, e))
 
     @classmethod
     def find_located_element(self, delay, locator):
@@ -169,7 +170,7 @@ class Browser(object):
             element = WebDriverWait(self.driver, delay).until(self.find_element(locator))
             return element
         except TimeoutException as e:
-            print('{}: TimeoutException waiting for search input field: {}'.format(self.name, e))
+            print('{}: TimeoutException waiting for search input field: {}'.format(self.__class__, e))
             return False
 
     @classmethod
@@ -184,7 +185,7 @@ class Browser(object):
             element = WebDriverWait(self.webdriver, delay).until(find_visible_search_param)
             return element
         except TimeoutException as e:
-            print('{}: TimeoutException waiting for search param field: {}'.format(self.name, e))
+            print('{}: TimeoutException waiting for search param field: {}'.format(self.__class__, e))
             return False
 
     # @classmethod
@@ -215,5 +216,5 @@ class Browser(object):
     #     return result
 
     @classmethod
-    def tear_down_class(self):
+    def close_browser(self):
         self.close_driver_instance()
