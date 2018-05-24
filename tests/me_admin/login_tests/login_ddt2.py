@@ -29,39 +29,26 @@ class LogInTest(unittest.TestCase):
     def test_login(self, username, password):
         by_id = "ID"
         by_xpath = "XPATH"
+        delay = 3
         self.browser.go_to_url(BaseConfig.ME_BASE_URL)
-        user_field = self.browser.find_element_by(LogInPageLocators.USERNAME_FIELD, by_id)
-        user_field.clear()
-        user_field.send_keys(username)
-        password_field = self.browser.find_element_by(LogInPageLocators.PASSWORD_FIELD, by_id)
-        password_field.clear()
-        password_field.send_keys(password)
-        time.sleep(3)
-        login_button = self.browser.click_on_element(LogInPageLocators.LOGIN_BUTTON)
-        self.browser.click_on_element(LogInPageLocators.BODY)
-        assert self.browser.wait_element_visible(HomePageLocators.HOME_PAGE_LABEL)
-        time.sleep(3)
-        self.browser.click_on_element(LogInPageLocators.BODY)
-        dropdown = self.browser.click_on_element(HomePageLocators.SETTINGS_DROPDOWN)
-        dropdown.click()
-        time.sleep(3)
-        logoff = driver.find_element_by_xpath(HomePageLocators.LOGOFF_BUTTON)
-        logoff.click()
-        time.sleep(3)
-        logoff_conf = driver.find_element_by_xpath(HomePageLocators.LOGOFF_CONFIRM_BUTTON)
-        logoff_conf.click()
-        user_field.clear()
-        password_field.clear()
-        user_field.send_keys(username)
-        password_field.send_keys(password)
-        login_button.click()
-        assert homepage_label
+        self.browser.send_keys(delay, LogInPageLocators.USERNAME_FIELD, username)
+        self.browser.send_keys(delay, LogInPageLocators.PASSWORD_FIELD, password)
+        self.browser.click_on_element(delay, LogInPageLocators.LOGIN_BUTTON)
+        #self.browser.click_on_element(delay, LogInPageLocators.BODY)
+        assert self.browser.wait_element_visible(delay, HomePageLocators.HOME_PAGE_LABEL)
+        self.browser.click_on_element(delay, LogInPageLocators.BODY)
+        self.browser.click_on_element(delay, HomePageLocators.SETTINGS_DROPDOWN)
+        self.browser.click_on_element(delay, HomePageLocators.LOGOFF_BUTTON)
+        self.browser.driver_wait(delay)
+        self.browser.click_on_element(delay, HomePageLocators.LOGOFF_CONFIRM_BUTTON)
+        self.browser.send_keys(delay, LogInPageLocators.USERNAME_FIELD, username)
+        self.browser.send_keys(delay, LogInPageLocators.PASSWORD_FIELD, password)
+        self.browser.click_on_element(delay, LogInPageLocators.LOGIN_BUTTON)
+        
 
     @classmethod
     def tearDownClass(self):
-        self.driver.delete_all_cookies()
-        self.driver.quit()
-        self.driver.close()
+        self.browser.tear_down_class()
 
 
 
