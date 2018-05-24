@@ -22,25 +22,25 @@ class SmokeTest(unittest.TestCase):
         self.terminal.run_command_in(SEND_MAIL_REPORT, NEWMAN_OUTPUT)
 
 
-    # @classmethod
-    # @test(groups=['unit'])
-    # def test_for_test_smoke(self):
-    #     self.terminal.get_cur_date()
-    #     print("OUTPUT______________________")
-    #     print(TERMINAL_OUTPUT)
-    #     print("PING______________________")
-    #     print(self.terminal.ping_host(HOST))
-    #     print("PWD______________________")
-    #     print(self.terminal.run_command_out(PWD, TERMINAL_OUTPUT))
-    #     print("LS______________________")
-    #     print(self.terminal.run_command_out(LS, TERMINAL_OUTPUT))
-    #     print("CD______________________")
-    #     print(self.terminal.run_cd(test_utils_dir))
-    #     print("PWD______________________")
-    #     print(self.terminal.run_command_out(PWD, TERMINAL_OUTPUT))
-    #     print("LS______________________")
-    #     print(self.terminal.run_command_out(LS, TERMINAL_OUTPUT))
-    #     print("CHMOD______________________")
-    #     print(self.terminal.run_command_in(CHMOD, NEWMAN_BASH))
+    @classmethod
+    @test(groups=['unit'])
+    def test_for_test_smoke(self):
+        self.terminal.get_cur_date()
+        print("OUTPUT______________________")
+        print(TERMINAL_OUTPUT)
+        print("PING______________________")
+        print(self.terminal.ping_host(HOST))
+        print("PWD______________________")
+        print(self.terminal.run_command_out(PWD, TERMINAL_OUTPUT))
+        print("LS______________________")
+        print(self.terminal.run_command_out(LS, TERMINAL_OUTPUT))
+        print("CD______________________")
+        print(self.terminal.run_cd(test_utils_dir))
+        print("PWD______________________")
+        print(self.terminal.run_command_out(PWD, TERMINAL_OUTPUT))
+        print("LS______________________")
+        print(self.terminal.run_command_out(LS, TERMINAL_OUTPUT))
+        print("CHMOD______________________")
+        print(self.terminal.run_command_in(CHMOD, NEWMAN_BASH))
 
 

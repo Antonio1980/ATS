@@ -20,7 +20,7 @@ class LogInLogOutLogInTest(unittest.TestCase):
     @test(groups=['login_page', 'positive'])
     def test_login_logout_login(self):
         delay = 1
-        credentials = get_credentials_positive(BaseConfig.W_TEST_LOGIN_DATA, 0, 0, 1)
+        credentials = get_credentials_positive(BaseConfig.W_CRM_LOGIN_DATA, 0, 0, 1)
         username = credentials['username']
         password = credentials['password']
         LogInPage.login(delay, username, password)

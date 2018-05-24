@@ -16,13 +16,13 @@ from src.drivers.webdriver_factory import WebDriverFactory
 class LogInTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(self):
-        self.browser_name = "chrome"
-        self.driver = WebDriverFactory.get_browser(self.browser_name)
+        browser_name = "chrome"
+        self.driver = WebDriverFactory.get_browser(browser_name)
         self.driver.implicitly_wait(1)
         self.driver.maximize_window()
 
     @test(groups=['login_page', 'ddt'])
-    @data(*get_csv_data(BaseConfig.W_TEST_LOGIN_DATA))
+    @data(*get_csv_data(BaseConfig.W_CRM_LOGIN_DATA))
     @unpack
     def test_login(self, username, password):
         driver = self.driver
