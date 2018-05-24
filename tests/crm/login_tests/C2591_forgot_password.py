@@ -3,25 +3,22 @@
 
 import unittest
 from proboscis import test
-from src.base.browser import Browser
 from tests.crm.pages.login_page import LogInPage
 
 
 @test(groups=['end2end', 'functional', 'sanity'])
-class ForgotPasswordTest(unittest.TestCase):
+class ForgotPasswordTest(unittest.TestCase, LogInPage):
     @classmethod
-    def setUpClass(self):
-        Browser.set_up_class("chrome")
+    def setUpClass(cls):
+        cls.get_browser("chrome")
 
-        
     @classmethod
     @test(groups=['login_page', 'positive'])
-    def test_forgot_password(self):
+    def test_forgot_password(cls):
         email = "roman@spotoption.com"
         delay = 10
-        LogInPage.forgot_password(delay, email)
-
+        cls.forgot_password(delay, email)
 
     @classmethod
-    def tearDownClass(self):
-        Browser.tear_down_class()
+    def tearDownClass(cls):
+        cls.close_browser()

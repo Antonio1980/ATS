@@ -4,28 +4,25 @@
 import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
-from src.base.browser import Browser
-from tests.crm.pages.login_page import LogInPage
 from src.test_definitions import BaseConfig
+from tests.crm.pages.login_page import LogInPage
 from src.test_utils.file_utils import get_csv_data
 
 
 @test(groups=['end2end', 'functional', 'sanity'])
 @ddt
-class ForgotPasswordTestDDT(unittest.TestCase):
+class ForgotPasswordTestDDT(unittest.TestCase, LogInPage):
     @classmethod
-    def setUpClass(self):
-        Browser.set_up_class("chrome")
+    def setUpClass(cls):
+        cls.get_browser("chrome")
 
-        
     @test(groups=['login_page', 'positive'])
     @data(*get_csv_data(BaseConfig.W_CRM_FORGOT_DATA))
     @unpack
     def test_forgot_password_ddt(self, email):
         delay = 1
-        LogInPage.forgot_password(delay, email)
-
+        self.forgot_password(delay, email)
 
     @classmethod
-    def tearDownClass(self):
-        Browser.tear_down_class()
+    def tearDownClass(cls):
+        cls.close_browser()

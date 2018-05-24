@@ -6,50 +6,24 @@ from proboscis import test
 from ddt import ddt, data, unpack
 from src.test_definitions import BaseConfig
 from src.test_utils.file_utils import get_csv_data
-from tests.crm.locators.home_page_locators import HomePageLocators
-from tests.crm.locators.login_page_locators import LogInPageLocators
-from src.drivers.webdriver_factory import WebDriverFactory
+from tests.crm.pages.login_page import LogInPage
 
 
 @test(groups=['functional', 'smoke', 'sanity'])
 @ddt
-class LogInTestDDT(unittest.TestCase):
+class LogInTestDDT(unittest.TestCase, LogInPage):
     @classmethod
-    def setUpClass(self):
-        browser_name = "chrome"
-        self.driver = WebDriverFactory.get_browser(browser_name)
-        self.driver.implicitly_wait(1)
-        self.driver.maximize_window()
+    def setUpClass(cls):
+        cls.get_browser("chrome")
 
     @test(groups=['login_page', 'ddt'])
     @data(*get_csv_data(BaseConfig.W_CRM_LOGIN_DATA))
     @unpack
     def test_login(self, username, password):
-        driver = self.driver
-        driver.get(BaseConfig.CRM_BASE_URL)
-        user_field = driver.find_element_by_xpath(LogInPageLocators.USERNAME_FIELD)
-        user_field.clear()
-        user_field.send_keys(username)
-        password_field = driver.find_element_by_xpath(LogInPageLocators.PASSWORD_FIELD)
-        password_field.clear()
-        password_field.send_keys(password)
-        login_button = driver.find_element_by_xpath(LogInPageLocators.LOGIN_BUTTON)
-        login_button.click()
-        assert driver.find_element_by_xpath(HomePageLocators.HOME_PAGE_LOGO)
-
+        delay = 3
+        self.login(delay, username, password)
 
     @classmethod
-    def tearDownClass(slc):
-        slc.driver.delete_all_cookies()
-        slc.driver.quit()
-
-
-
-
-
-
-
-
-
-
+    def tearDownClass(cls):
+        cls.close_browser()
 
