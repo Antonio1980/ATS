@@ -9,7 +9,7 @@
     },
     "item": [
       {
-        "id": "1264729b-f861-495d-9224-298269d3bab5",
+        "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
         "name": "Authorization@Login",
         "request": {
           "description": {},
@@ -50,7 +50,7 @@
         "event": []
       },
       {
-        "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+        "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
         "name": "File@Transfer",
         "request": {
           "description": {},
@@ -91,7 +91,7 @@
         "event": []
       },
       {
-        "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+        "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
         "name": "ValidateAuth",
         "request": {
           "description": {},
@@ -123,7 +123,7 @@
         "event": []
       },
       {
-        "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+        "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
         "name": "GeneratePasswordHash",
         "request": {
           "description": {},
@@ -155,7 +155,7 @@
         "event": []
       },
       {
-        "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+        "id": "fae1b1de-9989-410e-b076-63bf8151240e",
         "name": "CustomerService.Find",
         "request": {
           "description": {},
@@ -203,7 +203,7 @@
         "event": []
       },
       {
-        "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+        "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
         "name": "AssetService.Tradeable",
         "request": {
           "description": {
@@ -246,7 +246,7 @@
         "event": []
       },
       {
-        "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+        "id": "05c74efe-d4ff-42df-b687-915ed069d655",
         "name": "AssetService.History",
         "request": {
           "description": {},
@@ -286,7 +286,7 @@
         "event": []
       },
       {
-        "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+        "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
         "name": "AssetService.SetFavouriteAsset",
         "request": {
           "description": {},
@@ -326,7 +326,7 @@
         "event": []
       },
       {
-        "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+        "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
         "name": "Config.GetLangs",
         "request": {
           "description": {
@@ -361,7 +361,7 @@
         "event": []
       },
       {
-        "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+        "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
         "name": "Config.Get",
         "request": {
           "description": {
@@ -399,7 +399,7 @@
         "event": []
       },
       {
-        "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+        "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
         "name": "AssetManagement.RemoveFavouriteAsset",
         "request": {
           "description": {
@@ -442,7 +442,7 @@
         "event": []
       },
       {
-        "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+        "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
         "name": "CustomerManagement.Update",
         "request": {
           "description": {},
@@ -470,7 +470,7 @@
         "event": []
       },
       {
-        "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+        "id": "6bbee93a-e64c-436c-812d-60728f740672",
         "name": "File@Upload",
         "request": {
           "description": {
@@ -512,7 +512,7 @@
         "event": []
       },
       {
-        "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+        "id": "b9c83017-db7f-4a5e-8714-97024633f634",
         "name": "NotificationService.SingleSmsSend",
         "request": {
           "description": {
@@ -547,7 +547,7 @@
         "event": []
       },
       {
-        "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+        "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
         "name": "Authorization@SignUpStep@addPhone",
         "request": {
           "description": {
@@ -590,7 +590,7 @@
         "event": []
       },
       {
-        "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+        "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
         "name": "Authorization@SignUpStep@verifyPhone",
         "request": {
           "description": {
@@ -633,7 +633,7 @@
         "event": []
       },
       {
-        "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+        "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
         "name": "Authorization@ResetPassword",
         "request": {
           "description": {
@@ -677,11 +677,11 @@
     }
   },
   "environment": {
-    "id": "7405b116-d7e7-4c16-a776-a39e79f1658b",
+    "id": "a582163c-2644-4aa9-91c4-3415d3d4e65d",
     "values": []
   },
   "globals": {
-    "id": "2369c180-9284-474b-b84c-60fe5bb19cae",
+    "id": "a98b0cd2-3800-4e9e-8170-b5983ff4d009",
     "values": []
   },
   "run": {
@@ -734,8 +734,8 @@
     },
     "timings": {
       "responseAverage": 0,
-      "started": 1527264858877,
-      "completed": 1527264883838
+      "started": 1527278961073,
+      "completed": 1527278961423
     },
     "executions": [
       {
@@ -748,11 +748,11 @@
           "eof": false,
           "bof": true,
           "cr": false,
-          "ref": "b576d2b6-d91c-4abd-a017-3d65d7a4f59c",
-          "httpRequestId": "9c9c1bf4-e765-41a5-8fb5-119e4e6edc68"
+          "ref": "3f7dfa18-df7d-457e-9b29-5e9bd313ba7c",
+          "httpRequestId": "e5a6da39-d43c-449b-9e68-9a5f4c8aeca4"
         },
         "item": {
-          "id": "1264729b-f861-495d-9224-298269d3bab5",
+          "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
           "name": "Authorization@Login",
           "request": {
             "description": {},
@@ -829,10 +829,10 @@
             "raw": "{\n\t\"jsonrpc\": \"2.0\", \n\t\"id\": \"Evgeniy\", \n\t\"method\": \"Authorization.LoginByCredentials\", \n\t\"params\": [\n\t\t\t{\n\t\t\t\t\"login\": \"yevmoga@gmail.com\",\n\t\t\t\t\"password\": \"111111\"\n\t\t\t}\n\t\t]\n}\n"
           }
         },
-        "id": "1264729b-f861-495d-9224-298269d3bab5",
+        "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001
@@ -840,15 +840,15 @@
       },
       {
         "cursor": {
-          "ref": "d8a874f4-dff8-496f-b91f-e7e5883f9690",
+          "ref": "77466c8b-c6bf-47fc-a694-64830556f24f",
           "length": 17,
           "cycles": 1,
           "position": 1,
           "iteration": 0,
-          "httpRequestId": "7dc27300-3c22-4d26-9d14-e78a1bf48dc0"
+          "httpRequestId": "fe565b69-1b37-4a94-a2f5-b48af95f0629"
         },
         "item": {
-          "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+          "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
           "name": "File@Transfer",
           "request": {
             "description": {},
@@ -925,10 +925,10 @@
             "raw": "{\n\t\"jsonrpc\": \"2.0\", \n\t\"id\": \"Evgeniy\", \n\t\"method\": \"Authorization.LoginByCredentials\", \n\t\"params\": [\n\t\t\t{\n\t\t\t\t\"login\": \"yevmoga@gmail.com\",\n\t\t\t\t\"password\": \"111111\"\n\t\t\t}\n\t\t]\n}\n"
           }
         },
-        "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+        "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001
@@ -936,15 +936,15 @@
       },
       {
         "cursor": {
-          "ref": "ef65d760-5b63-4c65-989b-4e261026a1d7",
+          "ref": "d9c47cd1-3381-4686-99e0-aafdc7014271",
           "length": 17,
           "cycles": 1,
           "position": 2,
           "iteration": 0,
-          "httpRequestId": "19849bbe-7aa9-47e5-bcb8-6a46905b56e9"
+          "httpRequestId": "1f06304f-67be-4b17-94af-f5d716e7ddaf"
         },
         "item": {
-          "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+          "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
           "name": "ValidateAuth",
           "request": {
             "description": {},
@@ -1003,10 +1003,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": \"Evgeniy\", \n  \"method\": \"AuthorizationService.ValidateToken\", \n  \"params\": [\n    {\n      \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inlldm1vZ2FAZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiWWV2aGVuIiwibGFzdE5hbWUiOiJNb2hhIiwiY3VzdG9tZXJJZCI6MSwidHJhZGVySWQiOiIiLCJleHAiOjE1MjIyNDU4NzksImp0aSI6Ilx1MDAwMSJ9.xRAc057-uXhhQ7GYCMyGpNi4ayao3T3JStwLEn91b7Ohum38suJI7ou7heV0At1YZ4vaOz0MFFKrjWygEmChKQ\"\n    }\n  ]\n}"
           }
         },
-        "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+        "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001
@@ -1014,15 +1014,15 @@
       },
       {
         "cursor": {
-          "ref": "26aac8de-f6c6-48d2-9447-ba6e729094f8",
+          "ref": "e6e08192-ca61-4a8c-be03-51a84e98d02a",
           "length": 17,
           "cycles": 1,
           "position": 3,
           "iteration": 0,
-          "httpRequestId": "4b7683e8-41c1-43a1-a540-6cc0db772e75"
+          "httpRequestId": "a0597b61-c6eb-417c-8ea1-8c5806121f58"
         },
         "item": {
-          "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+          "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
           "name": "GeneratePasswordHash",
           "request": {
             "description": {},
@@ -1081,10 +1081,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\", \n  \"id\": \"Evgeniy\", \n  \"method\": \"AuthorizationService.GeneratePasswordHash\", \n  \"params\": [\n    {\n      \"password\": \"111111\"\n      \n    }\n  ]\n}"
           }
         },
-        "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+        "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001
@@ -1092,15 +1092,15 @@
       },
       {
         "cursor": {
-          "ref": "4bb65346-b845-4f1f-b824-2693963960b4",
+          "ref": "0b52c58a-fd3e-48f9-9110-1c3146c4c387",
           "length": 17,
           "cycles": 1,
           "position": 4,
           "iteration": 0,
-          "httpRequestId": "e5092403-eb43-47fb-a800-1752b90efd4a"
+          "httpRequestId": "64066563-5211-408b-bdaa-1c83b2bfacba"
         },
         "item": {
-          "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+          "id": "fae1b1de-9989-410e-b076-63bf8151240e",
           "name": "CustomerService.Find",
           "request": {
             "description": {},
@@ -1191,10 +1191,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\", \n  \"id\": \"Evgeniy\", \n  \"method\": \"CustomerManagement.Find\",\n  \"params\": [\n    {\n      \"customerId\": 1\n    }\n  ]\n}"
           }
         },
-        "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+        "id": "fae1b1de-9989-410e-b076-63bf8151240e",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10003
@@ -1202,15 +1202,15 @@
       },
       {
         "cursor": {
-          "ref": "2311939c-d6b2-4b50-8c15-ffe7a4710194",
+          "ref": "a3a3327d-7f5e-46bc-9510-413d82c0eb43",
           "length": 17,
           "cycles": 1,
           "position": 5,
           "iteration": 0,
-          "httpRequestId": "f90c904a-9996-41c1-a208-5cb91aaab443"
+          "httpRequestId": "d2fd4a1e-6ad1-4e4c-90cc-516ba265e9cf"
         },
         "item": {
-          "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+          "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
           "name": "AssetService.Tradeable",
           "request": {
             "description": {
@@ -1289,10 +1289,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\", \n  \"id\": \"Evgeniy\", \n  \"method\": \"AssetService.Tradeable\",\n  \"params\": [\n    {\n      \"productId\": 0\n    }\n  ]\n}"
           }
         },
-        "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+        "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 41611
@@ -1300,15 +1300,15 @@
       },
       {
         "cursor": {
-          "ref": "c00dc51a-1817-48f3-8038-e599919af7a1",
+          "ref": "3f8e30c5-0982-453c-8f36-962a3a405c66",
           "length": 17,
           "cycles": 1,
           "position": 6,
           "iteration": 0,
-          "httpRequestId": "728c5962-9c80-471e-8e54-153297cf2a64"
+          "httpRequestId": "0670c12a-f6fa-4114-8641-0aff5917f587"
         },
         "item": {
-          "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+          "id": "05c74efe-d4ff-42df-b687-915ed069d655",
           "name": "AssetService.History",
           "request": {
             "description": {},
@@ -1383,10 +1383,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\", \n  \"id\": \"Evgeniy\", \n  \"method\": \"AssetManagement.History\",\n  \"params\": [\n    {\n      \"instrumentId\": 1,\n      \"type\": 2,\n      \"timestampFrom\": 15220622,\n      \"timestampTill\": 15220622600\n    }\n  ]\n}"
           }
         },
-        "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+        "id": "05c74efe-d4ff-42df-b687-915ed069d655",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 41611
@@ -1394,15 +1394,15 @@
       },
       {
         "cursor": {
-          "ref": "a632b197-f94a-4585-b430-b6e0b186fc65",
+          "ref": "6bd64308-043e-4cbd-a617-ff1ff2a98afb",
           "length": 17,
           "cycles": 1,
           "position": 7,
           "iteration": 0,
-          "httpRequestId": "a7fa95d7-edd9-42bf-a9c4-051851079253"
+          "httpRequestId": "e9211b9b-941e-4e84-820d-109c4de9d5f5"
         },
         "item": {
-          "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+          "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
           "name": "AssetService.SetFavouriteAsset",
           "request": {
             "description": {},
@@ -1477,10 +1477,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\", \n  \"id\": \"Evgeniy\", \n  \"method\": \"AssetManagement.SetFavouriteAsset\",\n  \"params\": [\n    {\n      \"productId\": 2,\n      \"assetId\": 173\n    }\n  ]\n}"
           }
         },
-        "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+        "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 41611
@@ -1488,15 +1488,15 @@
       },
       {
         "cursor": {
-          "ref": "d89d667d-4652-4a69-9395-26624ed78b02",
+          "ref": "5bd2adfd-0ae4-4ab2-a19f-014f127dc59b",
           "length": 17,
           "cycles": 1,
           "position": 8,
           "iteration": 0,
-          "httpRequestId": "994ddf86-e95d-4d04-aa2e-1d90917e1b66"
+          "httpRequestId": "2c24db25-c0f6-4170-910a-56799c105966"
         },
         "item": {
-          "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+          "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
           "name": "Config.GetLangs",
           "request": {
             "description": {
@@ -1559,10 +1559,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\", \n  \"id\": \"Evgeniy\", \n  \"method\": \"Config.GetLangs\",\n  \"params\": [\n    {\n      \"Zone\": [\"Common\", \"Dx\", \"OpenAccountDx\"],\n      \"LangCode\": \"en\"\n    }\n  ]\n}"
           }
         },
-        "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+        "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001
@@ -1570,15 +1570,15 @@
       },
       {
         "cursor": {
-          "ref": "dfb5fc6d-9456-4259-a9d3-309835802231",
+          "ref": "ca1c66f5-d28e-4b61-acab-920851a6481d",
           "length": 17,
           "cycles": 1,
           "position": 9,
           "iteration": 0,
-          "httpRequestId": "43675fee-1ba2-473d-bf08-458a75ebacdf"
+          "httpRequestId": "19264d24-c975-4778-989e-d81ab84e35b1"
         },
         "item": {
-          "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+          "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
           "name": "Config.Get",
           "request": {
             "description": {
@@ -1647,10 +1647,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\", \n  \"id\": \"Evgeniy\", \n  \"method\": \"Config.Get\",\n  \"params\": [{}]\n}"
           }
         },
-        "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+        "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001
@@ -1658,15 +1658,15 @@
       },
       {
         "cursor": {
-          "ref": "77c7847f-88b4-4f31-81ea-3e822077a6e3",
+          "ref": "c2c26d55-b252-46d2-88d9-bb85a13e7ea7",
           "length": 17,
           "cycles": 1,
           "position": 10,
           "iteration": 0,
-          "httpRequestId": "08771686-914a-4368-b7b8-23dc90d05ade"
+          "httpRequestId": "ab3df586-0594-4c25-a007-e26f07f48515"
         },
         "item": {
-          "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+          "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
           "name": "AssetManagement.RemoveFavouriteAsset",
           "request": {
             "description": {
@@ -1745,10 +1745,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\", \n  \"id\": \"Evgeniy\", \n  \"method\": \"AssetManagement.RemoveFavouriteAsset\",\n  \"params\": [\n    {\n      \"productId\": 2,\n      \"assetId\": 173\n    }\n  ]\n}"
           }
         },
-        "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+        "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 41611
@@ -1756,15 +1756,15 @@
       },
       {
         "cursor": {
-          "ref": "d1e8e695-cd8e-4d8a-b4de-219d1f6e69b9",
+          "ref": "2263320f-10bc-4fec-829c-2e9bc081a3cf",
           "length": 17,
           "cycles": 1,
           "position": 11,
           "iteration": 0,
-          "httpRequestId": "d7aa3fbd-de53-40b5-a63c-a4751ea129b6"
+          "httpRequestId": "bdb9887a-96ea-4c13-8b6a-a645b8898dcc"
         },
         "item": {
-          "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+          "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
           "name": "CustomerManagement.Update",
           "request": {
             "description": {},
@@ -1815,10 +1815,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\", \n  \"id\": \"Evgeniy\", \n  \"method\": \"CustomerManagement.Update\",\n  \"params\": [\n    {\n      \"customerId\": 1\n    }\n  ]\n}"
           }
         },
-        "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+        "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10003
@@ -1826,15 +1826,15 @@
       },
       {
         "cursor": {
-          "ref": "021771b8-3221-4c01-95c5-2f659d452440",
+          "ref": "cfbba2b9-04e7-4b14-9c05-d85abd5c3460",
           "length": 17,
           "cycles": 1,
           "position": 12,
           "iteration": 0,
-          "httpRequestId": "cff6fd0c-1dfe-4f16-88a0-795dea17875c"
+          "httpRequestId": "4e6928f8-34ab-40a5-95db-b34aeabd9937"
         },
         "item": {
-          "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+          "id": "6bbee93a-e64c-436c-812d-60728f740672",
           "name": "File@Upload",
           "request": {
             "description": {
@@ -1911,10 +1911,10 @@
             "raw": ""
           }
         },
-        "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+        "id": "6bbee93a-e64c-436c-812d-60728f740672",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 8081
@@ -1922,15 +1922,15 @@
       },
       {
         "cursor": {
-          "ref": "9f260784-bc1c-400a-aae0-7d5f5f5b8d63",
+          "ref": "c8358430-877b-4bfd-ae1c-5937c1b39c3f",
           "length": 17,
           "cycles": 1,
           "position": 13,
           "iteration": 0,
-          "httpRequestId": "550b9a3d-f2a2-454c-8e7d-2f8b57c2dbcd"
+          "httpRequestId": "7bd59a48-0164-48bf-991d-96330252a5fe"
         },
         "item": {
-          "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+          "id": "b9c83017-db7f-4a5e-8714-97024633f634",
           "name": "NotificationService.SingleSmsSend",
           "request": {
             "description": {
@@ -1993,10 +1993,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\", \n  \"id\": \"Evgeniy\", \n  \"method\": \"Notification.SingleSmsSend\",\n  \"params\": [\n    {\n      \"phoneNumber\": \"+380930836236\",\n      \"smsText\": \"Hello World 1!\"\n    }\n  ]\n}\n"
           }
         },
-        "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+        "id": "b9c83017-db7f-4a5e-8714-97024633f634",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 30007
@@ -2004,15 +2004,15 @@
       },
       {
         "cursor": {
-          "ref": "455be249-8ef0-40b4-9931-e92cc4bcf649",
+          "ref": "3546643a-9277-438b-a951-14b3694a9d1a",
           "length": 17,
           "cycles": 1,
           "position": 14,
           "iteration": 0,
-          "httpRequestId": "c139880e-797a-464c-813b-66fb34354ead"
+          "httpRequestId": "ecdfe3db-076d-42da-93f3-f32885f2e0f2"
         },
         "item": {
-          "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+          "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
           "name": "Authorization@SignUpStep@addPhone",
           "request": {
             "description": {
@@ -2091,10 +2091,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\", \n  \"id\": \"Evgeniy\", \n  \"method\": \"Authorization.SignUpStep\",\n  \"params\": [\n    {\n      \"addPhone\": {\n    \t\"phone\": \"+972506903206\"\n      }\n    }\n  ]\n}"
           }
         },
-        "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+        "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001
@@ -2102,15 +2102,15 @@
       },
       {
         "cursor": {
-          "ref": "a6868aeb-0a6a-4a0c-8726-4bf6880faaed",
+          "ref": "505e6e30-c532-4390-97ff-b4bc614cc4b0",
           "length": 17,
           "cycles": 1,
           "position": 15,
           "iteration": 0,
-          "httpRequestId": "31a9ee79-4942-449f-a1ab-90214d40f8c4"
+          "httpRequestId": "b1f913d3-54c1-4743-8f97-95c402bbc69c"
         },
         "item": {
-          "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+          "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
           "name": "Authorization@SignUpStep@verifyPhone",
           "request": {
             "description": {
@@ -2189,10 +2189,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\", \n  \"id\": \"Evgeniy\", \n  \"method\": \"Authorization.SignUpStep\",\n  \"params\": [\n    {\n      \"verifyPhone\": {\n    \t\"code\": 808207\n      }\n    }\n  ]\n}"
           }
         },
-        "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+        "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001
@@ -2200,15 +2200,15 @@
       },
       {
         "cursor": {
-          "ref": "983e97dd-e6a5-4455-a715-6378c6a968d4",
+          "ref": "ba23f881-c5d6-425f-a9c7-b3563eecbbc0",
           "length": 17,
           "cycles": 1,
           "position": 16,
           "iteration": 0,
-          "httpRequestId": "28d60845-0e8f-4716-a6bc-0d758e8a71a5"
+          "httpRequestId": "2399b6e9-b1c1-40a6-8285-722529cddd01"
         },
         "item": {
-          "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+          "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
           "name": "Authorization@ResetPassword",
           "request": {
             "description": {
@@ -2271,10 +2271,10 @@
             "raw": "{\n  \"jsonrpc\": \"2.0\", \n  \"id\": \"Evgeniy\", \n  \"method\": \"Authorization.ResetPassword\",\n  \"params\": [\n    {\n      \"id\": 3\n    }\n  ]\n}"
           }
         },
-        "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+        "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
         "requestError": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001
@@ -2287,30 +2287,30 @@
     "failures": [
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:10001",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "27b263504aa03ff735effc12f50d6442",
-          "id": "3e4ba4ad-44a2-4318-9cbc-115f061c30b7",
-          "timestamp": 1527264860460,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "1c1507686121a0e2457ced49a93fc1bf",
+          "id": "3d350a26-e983-43c6-91a4-45dffe52bdca",
+          "timestamp": 1527278961185,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -2319,7 +2319,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -2330,7 +2330,7 @@
         },
         "at": "request",
         "source": {
-          "id": "1264729b-f861-495d-9224-298269d3bab5",
+          "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
           "name": "Authorization@Login",
           "request": {
             "description": {},
@@ -2380,7 +2380,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -2421,7 +2421,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -2462,7 +2462,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -2494,7 +2494,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -2526,7 +2526,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -2574,7 +2574,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -2617,7 +2617,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -2657,7 +2657,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -2697,7 +2697,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -2732,7 +2732,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -2770,7 +2770,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -2813,7 +2813,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -2841,7 +2841,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -2883,7 +2883,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -2918,7 +2918,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -2961,7 +2961,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -3004,7 +3004,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -3056,36 +3056,36 @@
           "eof": false,
           "bof": true,
           "cr": false,
-          "ref": "b576d2b6-d91c-4abd-a017-3d65d7a4f59c",
-          "httpRequestId": "9c9c1bf4-e765-41a5-8fb5-119e4e6edc68"
+          "ref": "3f7dfa18-df7d-457e-9b29-5e9bd313ba7c",
+          "httpRequestId": "e5a6da39-d43c-449b-9e68-9a5f4c8aeca4"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:10001",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "27b263504aa03ff735effc12f50d6442",
-          "id": "16c2a338-0973-48af-9dc4-ea82159f6334",
-          "timestamp": 1527264861991,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "1c1507686121a0e2457ced49a93fc1bf",
+          "id": "3dfc516b-9eb7-4854-aed1-77da573768bb",
+          "timestamp": 1527278961209,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -3094,7 +3094,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -3105,7 +3105,7 @@
         },
         "at": "request",
         "source": {
-          "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+          "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
           "name": "File@Transfer",
           "request": {
             "description": {},
@@ -3155,7 +3155,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -3196,7 +3196,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -3237,7 +3237,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -3269,7 +3269,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -3301,7 +3301,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -3349,7 +3349,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -3392,7 +3392,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -3432,7 +3432,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -3472,7 +3472,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -3507,7 +3507,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -3545,7 +3545,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -3588,7 +3588,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -3616,7 +3616,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -3658,7 +3658,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -3693,7 +3693,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -3736,7 +3736,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -3779,7 +3779,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -3823,40 +3823,40 @@
           }
         },
         "cursor": {
-          "ref": "d8a874f4-dff8-496f-b91f-e7e5883f9690",
+          "ref": "77466c8b-c6bf-47fc-a694-64830556f24f",
           "length": 17,
           "cycles": 1,
           "position": 1,
           "iteration": 0,
-          "httpRequestId": "7dc27300-3c22-4d26-9d14-e78a1bf48dc0"
+          "httpRequestId": "fe565b69-1b37-4a94-a2f5-b48af95f0629"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:10001",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "27b263504aa03ff735effc12f50d6442",
-          "id": "bf51d3c2-7e03-4cb0-810d-070eb4f7b62d",
-          "timestamp": 1527264863519,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "1c1507686121a0e2457ced49a93fc1bf",
+          "id": "05374778-551e-4e4a-a61b-d8e47e8528a0",
+          "timestamp": 1527278961222,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -3865,7 +3865,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -3876,7 +3876,7 @@
         },
         "at": "request",
         "source": {
-          "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+          "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
           "name": "ValidateAuth",
           "request": {
             "description": {},
@@ -3917,7 +3917,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -3958,7 +3958,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -3999,7 +3999,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -4031,7 +4031,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -4063,7 +4063,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -4111,7 +4111,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -4154,7 +4154,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -4194,7 +4194,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -4234,7 +4234,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -4269,7 +4269,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -4307,7 +4307,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -4350,7 +4350,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -4378,7 +4378,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -4420,7 +4420,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -4455,7 +4455,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -4498,7 +4498,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -4541,7 +4541,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -4585,40 +4585,40 @@
           }
         },
         "cursor": {
-          "ref": "ef65d760-5b63-4c65-989b-4e261026a1d7",
+          "ref": "d9c47cd1-3381-4686-99e0-aafdc7014271",
           "length": 17,
           "cycles": 1,
           "position": 2,
           "iteration": 0,
-          "httpRequestId": "19849bbe-7aa9-47e5-bcb8-6a46905b56e9"
+          "httpRequestId": "1f06304f-67be-4b17-94af-f5d716e7ddaf"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:10001",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "27b263504aa03ff735effc12f50d6442",
-          "id": "ddebe145-f7b1-48c2-807e-03738080935d",
-          "timestamp": 1527264865039,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "1c1507686121a0e2457ced49a93fc1bf",
+          "id": "30e59909-248c-4da8-b3dc-ac91272db66a",
+          "timestamp": 1527278961235,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -4627,7 +4627,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -4638,7 +4638,7 @@
         },
         "at": "request",
         "source": {
-          "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+          "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
           "name": "GeneratePasswordHash",
           "request": {
             "description": {},
@@ -4679,7 +4679,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -4720,7 +4720,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -4761,7 +4761,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -4793,7 +4793,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -4825,7 +4825,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -4873,7 +4873,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -4916,7 +4916,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -4956,7 +4956,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -4996,7 +4996,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -5031,7 +5031,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -5069,7 +5069,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -5112,7 +5112,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -5140,7 +5140,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -5182,7 +5182,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -5217,7 +5217,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -5260,7 +5260,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -5303,7 +5303,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -5347,40 +5347,40 @@
           }
         },
         "cursor": {
-          "ref": "26aac8de-f6c6-48d2-9447-ba6e729094f8",
+          "ref": "e6e08192-ca61-4a8c-be03-51a84e98d02a",
           "length": 17,
           "cycles": 1,
           "position": 3,
           "iteration": 0,
-          "httpRequestId": "4b7683e8-41c1-43a1-a540-6cc0db772e75"
+          "httpRequestId": "a0597b61-c6eb-417c-8ea1-8c5806121f58"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10003,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:10003",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10003\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "64a7d1153f7059298febd72fa2d59466",
-          "id": "3f2dbf5e-4a60-4b61-9a3f-e8191761062d",
-          "timestamp": 1527264866562,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10003\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "c89a225435c91248838817a1c7eb76ab",
+          "id": "190e14ee-41c1-4cbb-85b6-0d3a7553e06b",
+          "timestamp": 1527278961250,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -5389,7 +5389,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -5400,7 +5400,7 @@
         },
         "at": "request",
         "source": {
-          "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+          "id": "fae1b1de-9989-410e-b076-63bf8151240e",
           "name": "CustomerService.Find",
           "request": {
             "description": {},
@@ -5457,7 +5457,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -5498,7 +5498,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -5539,7 +5539,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -5571,7 +5571,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -5603,7 +5603,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -5651,7 +5651,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -5694,7 +5694,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -5734,7 +5734,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -5774,7 +5774,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -5809,7 +5809,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -5847,7 +5847,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -5890,7 +5890,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -5918,7 +5918,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -5960,7 +5960,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -5995,7 +5995,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -6038,7 +6038,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -6081,7 +6081,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -6125,40 +6125,40 @@
           }
         },
         "cursor": {
-          "ref": "4bb65346-b845-4f1f-b824-2693963960b4",
+          "ref": "0b52c58a-fd3e-48f9-9110-1c3146c4c387",
           "length": 17,
           "cycles": 1,
           "position": 4,
           "iteration": 0,
-          "httpRequestId": "e5092403-eb43-47fb-a800-1752b90efd4a"
+          "httpRequestId": "64066563-5211-408b-bdaa-1c83b2bfacba"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 41611,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:41611",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:41611\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "04302954b55ede9dc05ffc8a1eeb5bb2",
-          "id": "f49baf27-5958-447e-9b24-79fe925f5155",
-          "timestamp": 1527264868086,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:41611\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "e37c4727e7b4d7229c1c502471db5ba0",
+          "id": "479d9ba6-2fe1-4630-860f-0a9a8258d11c",
+          "timestamp": 1527278961264,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -6167,7 +6167,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -6178,7 +6178,7 @@
         },
         "at": "request",
         "source": {
-          "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+          "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
           "name": "AssetService.Tradeable",
           "request": {
             "description": {
@@ -6230,7 +6230,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -6271,7 +6271,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -6312,7 +6312,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -6344,7 +6344,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -6376,7 +6376,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -6424,7 +6424,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -6467,7 +6467,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -6507,7 +6507,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -6547,7 +6547,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -6582,7 +6582,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -6620,7 +6620,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -6663,7 +6663,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -6691,7 +6691,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -6733,7 +6733,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -6768,7 +6768,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -6811,7 +6811,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -6854,7 +6854,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -6898,40 +6898,40 @@
           }
         },
         "cursor": {
-          "ref": "2311939c-d6b2-4b50-8c15-ffe7a4710194",
+          "ref": "a3a3327d-7f5e-46bc-9510-413d82c0eb43",
           "length": 17,
           "cycles": 1,
           "position": 5,
           "iteration": 0,
-          "httpRequestId": "f90c904a-9996-41c1-a208-5cb91aaab443"
+          "httpRequestId": "d2fd4a1e-6ad1-4e4c-90cc-516ba265e9cf"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 41611,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:41611",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:41611\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "04302954b55ede9dc05ffc8a1eeb5bb2",
-          "id": "b1075bfe-ebf9-4a1d-9abf-f926c807486a",
-          "timestamp": 1527264869618,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:41611\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "e37c4727e7b4d7229c1c502471db5ba0",
+          "id": "b2a67305-be99-462a-82a1-4b32b9e7bd25",
+          "timestamp": 1527278961277,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -6940,7 +6940,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -6951,7 +6951,7 @@
         },
         "at": "request",
         "source": {
-          "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+          "id": "05c74efe-d4ff-42df-b687-915ed069d655",
           "name": "AssetService.History",
           "request": {
             "description": {},
@@ -7000,7 +7000,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -7041,7 +7041,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -7082,7 +7082,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -7114,7 +7114,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -7146,7 +7146,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -7194,7 +7194,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -7237,7 +7237,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -7277,7 +7277,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -7317,7 +7317,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -7352,7 +7352,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -7390,7 +7390,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -7433,7 +7433,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -7461,7 +7461,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -7503,7 +7503,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -7538,7 +7538,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -7581,7 +7581,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -7624,7 +7624,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -7668,40 +7668,40 @@
           }
         },
         "cursor": {
-          "ref": "c00dc51a-1817-48f3-8038-e599919af7a1",
+          "ref": "3f8e30c5-0982-453c-8f36-962a3a405c66",
           "length": 17,
           "cycles": 1,
           "position": 6,
           "iteration": 0,
-          "httpRequestId": "728c5962-9c80-471e-8e54-153297cf2a64"
+          "httpRequestId": "0670c12a-f6fa-4114-8641-0aff5917f587"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 41611,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:41611",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:41611\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "04302954b55ede9dc05ffc8a1eeb5bb2",
-          "id": "8c09ec56-00de-433e-9d2c-33d60e8eebf9",
-          "timestamp": 1527264871141,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:41611\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "e37c4727e7b4d7229c1c502471db5ba0",
+          "id": "8891fd5c-7eba-42f2-af6e-9eb18927d851",
+          "timestamp": 1527278961290,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -7710,7 +7710,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -7721,7 +7721,7 @@
         },
         "at": "request",
         "source": {
-          "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+          "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
           "name": "AssetService.SetFavouriteAsset",
           "request": {
             "description": {},
@@ -7770,7 +7770,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -7811,7 +7811,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -7852,7 +7852,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -7884,7 +7884,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -7916,7 +7916,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -7964,7 +7964,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -8007,7 +8007,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -8047,7 +8047,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -8087,7 +8087,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -8122,7 +8122,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -8160,7 +8160,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -8203,7 +8203,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -8231,7 +8231,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -8273,7 +8273,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -8308,7 +8308,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -8351,7 +8351,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -8394,7 +8394,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -8438,40 +8438,40 @@
           }
         },
         "cursor": {
-          "ref": "a632b197-f94a-4585-b430-b6e0b186fc65",
+          "ref": "6bd64308-043e-4cbd-a617-ff1ff2a98afb",
           "length": 17,
           "cycles": 1,
           "position": 7,
           "iteration": 0,
-          "httpRequestId": "a7fa95d7-edd9-42bf-a9c4-051851079253"
+          "httpRequestId": "e9211b9b-941e-4e84-820d-109c4de9d5f5"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:10001",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "27b263504aa03ff735effc12f50d6442",
-          "id": "cbb85f2c-5775-44eb-9245-52f48aea8e20",
-          "timestamp": 1527264872663,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "1c1507686121a0e2457ced49a93fc1bf",
+          "id": "0b3fc3f7-53f5-40be-8926-71755c793bbe",
+          "timestamp": 1527278961302,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -8480,7 +8480,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -8491,7 +8491,7 @@
         },
         "at": "request",
         "source": {
-          "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+          "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
           "name": "Config.GetLangs",
           "request": {
             "description": {
@@ -8535,7 +8535,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -8576,7 +8576,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -8617,7 +8617,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -8649,7 +8649,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -8681,7 +8681,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -8729,7 +8729,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -8772,7 +8772,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -8812,7 +8812,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -8852,7 +8852,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -8887,7 +8887,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -8925,7 +8925,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -8968,7 +8968,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -8996,7 +8996,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -9038,7 +9038,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -9073,7 +9073,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -9116,7 +9116,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -9159,7 +9159,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -9203,40 +9203,40 @@
           }
         },
         "cursor": {
-          "ref": "d89d667d-4652-4a69-9395-26624ed78b02",
+          "ref": "5bd2adfd-0ae4-4ab2-a19f-014f127dc59b",
           "length": 17,
           "cycles": 1,
           "position": 8,
           "iteration": 0,
-          "httpRequestId": "994ddf86-e95d-4d04-aa2e-1d90917e1b66"
+          "httpRequestId": "2c24db25-c0f6-4170-910a-56799c105966"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:10001",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "27b263504aa03ff735effc12f50d6442",
-          "id": "d60bf8a3-e6a9-4f75-ab32-1f741b0f054d",
-          "timestamp": 1527264873682,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "1c1507686121a0e2457ced49a93fc1bf",
+          "id": "2ee0196d-c260-4188-8da5-f5c042bd6056",
+          "timestamp": 1527278961317,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -9245,7 +9245,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -9256,7 +9256,7 @@
         },
         "at": "request",
         "source": {
-          "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+          "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
           "name": "Config.Get",
           "request": {
             "description": {
@@ -9303,7 +9303,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -9344,7 +9344,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -9385,7 +9385,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -9417,7 +9417,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -9449,7 +9449,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -9497,7 +9497,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -9540,7 +9540,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -9580,7 +9580,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -9620,7 +9620,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -9655,7 +9655,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -9693,7 +9693,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -9736,7 +9736,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -9764,7 +9764,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -9806,7 +9806,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -9841,7 +9841,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -9884,7 +9884,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -9927,7 +9927,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -9971,40 +9971,40 @@
           }
         },
         "cursor": {
-          "ref": "dfb5fc6d-9456-4259-a9d3-309835802231",
+          "ref": "ca1c66f5-d28e-4b61-acab-920851a6481d",
           "length": 17,
           "cycles": 1,
           "position": 9,
           "iteration": 0,
-          "httpRequestId": "43675fee-1ba2-473d-bf08-458a75ebacdf"
+          "httpRequestId": "19264d24-c975-4778-989e-d81ab84e35b1"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 41611,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:41611",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:41611\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "04302954b55ede9dc05ffc8a1eeb5bb2",
-          "id": "c5ff79ea-68e6-417c-8412-b713b4ca9ee3",
-          "timestamp": 1527264875200,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:41611\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "e37c4727e7b4d7229c1c502471db5ba0",
+          "id": "f9fd0dbd-ac78-493f-af7e-1842612cc060",
+          "timestamp": 1527278961330,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -10013,7 +10013,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -10024,7 +10024,7 @@
         },
         "at": "request",
         "source": {
-          "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+          "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
           "name": "AssetManagement.RemoveFavouriteAsset",
           "request": {
             "description": {
@@ -10076,7 +10076,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -10117,7 +10117,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -10158,7 +10158,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -10190,7 +10190,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -10222,7 +10222,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -10270,7 +10270,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -10313,7 +10313,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -10353,7 +10353,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -10393,7 +10393,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -10428,7 +10428,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -10466,7 +10466,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -10509,7 +10509,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -10537,7 +10537,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -10579,7 +10579,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -10614,7 +10614,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -10657,7 +10657,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -10700,7 +10700,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -10744,40 +10744,40 @@
           }
         },
         "cursor": {
-          "ref": "77c7847f-88b4-4f31-81ea-3e822077a6e3",
+          "ref": "c2c26d55-b252-46d2-88d9-bb85a13e7ea7",
           "length": 17,
           "cycles": 1,
           "position": 10,
           "iteration": 0,
-          "httpRequestId": "08771686-914a-4368-b7b8-23dc90d05ade"
+          "httpRequestId": "ab3df586-0594-4c25-a007-e26f07f48515"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10003,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:10003",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10003\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "64a7d1153f7059298febd72fa2d59466",
-          "id": "982b6476-0de1-4677-a921-6b78fee4c185",
-          "timestamp": 1527264876723,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10003\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "c89a225435c91248838817a1c7eb76ab",
+          "id": "5c9cd853-ca2b-49d0-b548-fe82f3120f88",
+          "timestamp": 1527278961340,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -10786,7 +10786,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -10797,7 +10797,7 @@
         },
         "at": "request",
         "source": {
-          "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+          "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
           "name": "CustomerManagement.Update",
           "request": {
             "description": {},
@@ -10834,7 +10834,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -10875,7 +10875,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -10916,7 +10916,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -10948,7 +10948,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -10980,7 +10980,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -11028,7 +11028,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -11071,7 +11071,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -11111,7 +11111,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -11151,7 +11151,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -11186,7 +11186,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -11224,7 +11224,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -11267,7 +11267,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -11295,7 +11295,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -11337,7 +11337,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -11372,7 +11372,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -11415,7 +11415,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -11458,7 +11458,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -11502,40 +11502,40 @@
           }
         },
         "cursor": {
-          "ref": "d1e8e695-cd8e-4d8a-b4de-219d1f6e69b9",
+          "ref": "2263320f-10bc-4fec-829c-2e9bc081a3cf",
           "length": 17,
           "cycles": 1,
           "position": 11,
           "iteration": 0,
-          "httpRequestId": "d7aa3fbd-de53-40b5-a63c-a4751ea129b6"
+          "httpRequestId": "bdb9887a-96ea-4c13-8b6a-a645b8898dcc"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 8081,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:8081",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:8081\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "bb29081812eb53ebe034da3b45d320e3",
-          "id": "53419826-f498-4e81-b1fe-3a1c4718dea3",
-          "timestamp": 1527264877746,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:8081\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "1e6e8db2029a0c1f1858438789048395",
+          "id": "a92233b0-626c-4cdb-a8f9-24ec1143bbbe",
+          "timestamp": 1527278961355,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -11544,7 +11544,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -11555,7 +11555,7 @@
         },
         "at": "request",
         "source": {
-          "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+          "id": "6bbee93a-e64c-436c-812d-60728f740672",
           "name": "File@Upload",
           "request": {
             "description": {
@@ -11606,7 +11606,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -11647,7 +11647,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -11688,7 +11688,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -11720,7 +11720,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -11752,7 +11752,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -11800,7 +11800,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -11843,7 +11843,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -11883,7 +11883,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -11923,7 +11923,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -11958,7 +11958,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -11996,7 +11996,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -12039,7 +12039,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -12067,7 +12067,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -12109,7 +12109,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -12144,7 +12144,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -12187,7 +12187,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -12230,7 +12230,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -12274,40 +12274,40 @@
           }
         },
         "cursor": {
-          "ref": "021771b8-3221-4c01-95c5-2f659d452440",
+          "ref": "cfbba2b9-04e7-4b14-9c05-d85abd5c3460",
           "length": 17,
           "cycles": 1,
           "position": 12,
           "iteration": 0,
-          "httpRequestId": "cff6fd0c-1dfe-4f16-88a0-795dea17875c"
+          "httpRequestId": "4e6928f8-34ab-40a5-95db-b34aeabd9937"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 30007,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:30007",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:30007\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "9ed878fdd0a3eb1665aa0c94a2ea43ba",
-          "id": "dd08d849-623a-4fa9-b490-1dee51c0fd84",
-          "timestamp": 1527264879271,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:30007\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "74ea6daa6b8e7d371bf082901305c295",
+          "id": "6df9a079-b7c8-4953-9432-d82606698754",
+          "timestamp": 1527278961370,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -12316,7 +12316,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -12327,7 +12327,7 @@
         },
         "at": "request",
         "source": {
-          "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+          "id": "b9c83017-db7f-4a5e-8714-97024633f634",
           "name": "NotificationService.SingleSmsSend",
           "request": {
             "description": {
@@ -12371,7 +12371,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -12412,7 +12412,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -12453,7 +12453,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -12485,7 +12485,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -12517,7 +12517,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -12565,7 +12565,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -12608,7 +12608,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -12648,7 +12648,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -12688,7 +12688,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -12723,7 +12723,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -12761,7 +12761,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -12804,7 +12804,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -12832,7 +12832,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -12874,7 +12874,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -12909,7 +12909,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -12952,7 +12952,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -12995,7 +12995,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -13039,40 +13039,40 @@
           }
         },
         "cursor": {
-          "ref": "9f260784-bc1c-400a-aae0-7d5f5f5b8d63",
+          "ref": "c8358430-877b-4bfd-ae1c-5937c1b39c3f",
           "length": 17,
           "cycles": 1,
           "position": 13,
           "iteration": 0,
-          "httpRequestId": "550b9a3d-f2a2-454c-8e7d-2f8b57c2dbcd"
+          "httpRequestId": "7bd59a48-0164-48bf-991d-96330252a5fe"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:10001",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "27b263504aa03ff735effc12f50d6442",
-          "id": "7e10693e-fda5-4a10-a6ea-f26c5af7a9d4",
-          "timestamp": 1527264880792,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "1c1507686121a0e2457ced49a93fc1bf",
+          "id": "f149cb25-0064-4d36-8476-d88a1337ecb3",
+          "timestamp": 1527278961386,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -13081,7 +13081,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -13092,7 +13092,7 @@
         },
         "at": "request",
         "source": {
-          "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+          "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
           "name": "Authorization@SignUpStep@addPhone",
           "request": {
             "description": {
@@ -13144,7 +13144,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -13185,7 +13185,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -13226,7 +13226,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -13258,7 +13258,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -13290,7 +13290,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -13338,7 +13338,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -13381,7 +13381,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -13421,7 +13421,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -13461,7 +13461,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -13496,7 +13496,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -13534,7 +13534,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -13577,7 +13577,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -13605,7 +13605,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -13647,7 +13647,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -13682,7 +13682,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -13725,7 +13725,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -13768,7 +13768,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -13812,40 +13812,40 @@
           }
         },
         "cursor": {
-          "ref": "455be249-8ef0-40b4-9931-e92cc4bcf649",
+          "ref": "3546643a-9277-438b-a951-14b3694a9d1a",
           "length": 17,
           "cycles": 1,
           "position": 14,
           "iteration": 0,
-          "httpRequestId": "c139880e-797a-464c-813b-66fb34354ead"
+          "httpRequestId": "ecdfe3db-076d-42da-93f3-f32885f2e0f2"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:10001",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "27b263504aa03ff735effc12f50d6442",
-          "id": "5ca78e64-c520-459f-84a2-407e5c0a5c48",
-          "timestamp": 1527264882312,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "1c1507686121a0e2457ced49a93fc1bf",
+          "id": "b5f82948-04bb-4b03-89c0-5b6f89128af0",
+          "timestamp": 1527278961402,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -13854,7 +13854,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -13865,7 +13865,7 @@
         },
         "at": "request",
         "source": {
-          "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+          "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
           "name": "Authorization@SignUpStep@verifyPhone",
           "request": {
             "description": {
@@ -13917,7 +13917,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -13958,7 +13958,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -13999,7 +13999,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -14031,7 +14031,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -14063,7 +14063,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -14111,7 +14111,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -14154,7 +14154,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -14194,7 +14194,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -14234,7 +14234,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -14269,7 +14269,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -14307,7 +14307,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -14350,7 +14350,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -14378,7 +14378,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -14420,7 +14420,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -14455,7 +14455,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -14498,7 +14498,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -14541,7 +14541,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -14585,40 +14585,40 @@
           }
         },
         "cursor": {
-          "ref": "a6868aeb-0a6a-4a0c-8726-4bf6880faaed",
+          "ref": "505e6e30-c532-4390-97ff-b4bc614cc4b0",
           "length": 17,
           "cycles": 1,
           "position": 15,
           "iteration": 0,
-          "httpRequestId": "31a9ee79-4942-449f-a1ab-90214d40f8c4"
+          "httpRequestId": "b1f913d3-54c1-4743-8f97-95c402bbc69c"
         }
       },
       {
         "error": {
-          "code": "ECONNREFUSED",
           "errno": "ECONNREFUSED",
+          "code": "ECONNREFUSED",
           "syscall": "connect",
           "address": "127.0.0.1",
           "port": 10001,
           "name": "Error",
           "message": "connect ECONNREFUSED 127.0.0.1:10001",
-          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1022:11)\n    at _exceptionWithHostPort (util.js:1044:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)",
-          "checksum": "27b263504aa03ff735effc12f50d6442",
-          "id": "8b10d226-0a0a-45fb-9330-bee81d8d63eb",
-          "timestamp": 1527264883833,
+          "stack": "Error: connect ECONNREFUSED 127.0.0.1:10001\n    at Object._errnoException (util.js:1003:13)\n    at _exceptionWithHostPort (util.js:1024:20)\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1195:14)",
+          "checksum": "1c1507686121a0e2457ced49a93fc1bf",
+          "id": "e7c12813-ff84-45e2-8bcf-44bd9802d01c",
+          "timestamp": 1527278961417,
           "stacktrace": [
             {
               "fileName": "util.js",
-              "lineNumber": 1022,
+              "lineNumber": 1003,
               "functionName": "Object._errnoException",
               "typeName": "Object",
               "methodName": "_errnoException",
-              "columnNumber": 11,
+              "columnNumber": 13,
               "native": false
             },
             {
               "fileName": "util.js",
-              "lineNumber": 1044,
+              "lineNumber": 1024,
               "functionName": "_exceptionWithHostPort",
               "typeName": "Object",
               "methodName": null,
@@ -14627,7 +14627,7 @@
             },
             {
               "fileName": "net.js",
-              "lineNumber": 1198,
+              "lineNumber": 1195,
               "functionName": "TCPConnectWrap.afterConnect [as oncomplete]",
               "typeName": "TCPConnectWrap",
               "methodName": "afterConnect [as oncomplete]",
@@ -14638,7 +14638,7 @@
         },
         "at": "request",
         "source": {
-          "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+          "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
           "name": "Authorization@ResetPassword",
           "request": {
             "description": {
@@ -14682,7 +14682,7 @@
           },
           "item": [
             {
-              "id": "1264729b-f861-495d-9224-298269d3bab5",
+              "id": "25d95ce8-f0c2-43e5-b786-1192d6d7cf1f",
               "name": "Authorization@Login",
               "request": {
                 "description": {},
@@ -14723,7 +14723,7 @@
               "event": []
             },
             {
-              "id": "9884060d-65e2-403f-ba04-f33b8c83cd03",
+              "id": "8b71af99-1b7e-4e52-9c6c-de75dc9b6038",
               "name": "File@Transfer",
               "request": {
                 "description": {},
@@ -14764,7 +14764,7 @@
               "event": []
             },
             {
-              "id": "8cdc4acb-86cd-443b-b28f-02b383a2b621",
+              "id": "dbbe40ae-42a4-4fe9-913f-db222aad9a2f",
               "name": "ValidateAuth",
               "request": {
                 "description": {},
@@ -14796,7 +14796,7 @@
               "event": []
             },
             {
-              "id": "0095c3f4-f6bb-47a5-99b4-edcfd70e1f9e",
+              "id": "7212bbf0-c34f-493a-90a9-e15bfb9c9250",
               "name": "GeneratePasswordHash",
               "request": {
                 "description": {},
@@ -14828,7 +14828,7 @@
               "event": []
             },
             {
-              "id": "d6ee654b-62cc-4020-b6c8-08a6fb763425",
+              "id": "fae1b1de-9989-410e-b076-63bf8151240e",
               "name": "CustomerService.Find",
               "request": {
                 "description": {},
@@ -14876,7 +14876,7 @@
               "event": []
             },
             {
-              "id": "84d206ae-5d19-4899-9412-18ba8ce143a8",
+              "id": "b19c6ef2-71d1-4372-ae0b-0c3bb4486e66",
               "name": "AssetService.Tradeable",
               "request": {
                 "description": {
@@ -14919,7 +14919,7 @@
               "event": []
             },
             {
-              "id": "97f7f374-c502-43c0-8b4f-537ec133627d",
+              "id": "05c74efe-d4ff-42df-b687-915ed069d655",
               "name": "AssetService.History",
               "request": {
                 "description": {},
@@ -14959,7 +14959,7 @@
               "event": []
             },
             {
-              "id": "f28ee33a-bbd7-44a9-9367-4ca411a7cfd5",
+              "id": "14c49dbc-ec34-466a-9ba6-19e671d3c665",
               "name": "AssetService.SetFavouriteAsset",
               "request": {
                 "description": {},
@@ -14999,7 +14999,7 @@
               "event": []
             },
             {
-              "id": "3b305ba5-9646-4952-8fc0-3617baab8d3a",
+              "id": "7443fe34-0b5f-434e-87b8-8ffc4fee3206",
               "name": "Config.GetLangs",
               "request": {
                 "description": {
@@ -15034,7 +15034,7 @@
               "event": []
             },
             {
-              "id": "ee56e863-a47e-4bd6-97aa-fea28c78839b",
+              "id": "4d223e27-396e-439c-9894-5f7a49ca0f44",
               "name": "Config.Get",
               "request": {
                 "description": {
@@ -15072,7 +15072,7 @@
               "event": []
             },
             {
-              "id": "4a307d90-caa2-4ba2-aaae-a4588b1d8864",
+              "id": "53619e8b-61dd-4be5-8654-4e8ee10b08b5",
               "name": "AssetManagement.RemoveFavouriteAsset",
               "request": {
                 "description": {
@@ -15115,7 +15115,7 @@
               "event": []
             },
             {
-              "id": "eb138196-5cf0-4d6a-b9fd-4ec4fac666a7",
+              "id": "5d4bd66d-d0dd-4924-b711-e3908645ff47",
               "name": "CustomerManagement.Update",
               "request": {
                 "description": {},
@@ -15143,7 +15143,7 @@
               "event": []
             },
             {
-              "id": "9bde807a-c6f9-434c-905f-441d13c0ae88",
+              "id": "6bbee93a-e64c-436c-812d-60728f740672",
               "name": "File@Upload",
               "request": {
                 "description": {
@@ -15185,7 +15185,7 @@
               "event": []
             },
             {
-              "id": "1c18d422-cc40-4200-a0ef-e6bc4187b521",
+              "id": "b9c83017-db7f-4a5e-8714-97024633f634",
               "name": "NotificationService.SingleSmsSend",
               "request": {
                 "description": {
@@ -15220,7 +15220,7 @@
               "event": []
             },
             {
-              "id": "41029166-8014-40ba-97ce-a30d2d24fd0a",
+              "id": "06fa8b4e-7f49-4d93-a072-32a662f907ca",
               "name": "Authorization@SignUpStep@addPhone",
               "request": {
                 "description": {
@@ -15263,7 +15263,7 @@
               "event": []
             },
             {
-              "id": "764f785c-737d-4f0a-be6d-93e3c23ffde6",
+              "id": "e6d1f7c9-7764-4477-9aac-9ad7e9159395",
               "name": "Authorization@SignUpStep@verifyPhone",
               "request": {
                 "description": {
@@ -15306,7 +15306,7 @@
               "event": []
             },
             {
-              "id": "947ebf48-fdc3-4815-bfaf-c656ba8c5c96",
+              "id": "dcecdcb4-d558-405b-a888-f513a40506ff",
               "name": "Authorization@ResetPassword",
               "request": {
                 "description": {
@@ -15350,12 +15350,12 @@
           }
         },
         "cursor": {
-          "ref": "983e97dd-e6a5-4455-a715-6378c6a968d4",
+          "ref": "ba23f881-c5d6-425f-a9c7-b3563eecbbc0",
           "length": 17,
           "cycles": 1,
           "position": 16,
           "iteration": 0,
-          "httpRequestId": "28d60845-0e8f-4716-a6bc-0d758e8a71a5"
+          "httpRequestId": "2399b6e9-b1c1-40a6-8285-722529cddd01"
         }
       }
     ],

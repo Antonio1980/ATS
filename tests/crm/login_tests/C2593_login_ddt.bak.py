@@ -22,7 +22,7 @@ class LogInTestDDT(unittest.TestCase):
         cls.driver.maximize_window()
 
     @test(groups=['login_page', 'ddt'])
-    @data(*get_csv_data(BaseConfig.W_CRM_LOGIN_DATA))
+    @data(*get_csv_data(BaseConfig.CRM_LOGIN_DATA))
     @unpack
     def test_login(cls, username, password):
         driver = cls.driver

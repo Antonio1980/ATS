@@ -17,7 +17,7 @@ class ForgotPasswordTestDDT(unittest.TestCase, LogInPage):
         cls.get_browser("chrome")
 
     @test(groups=['login_page', 'positive'])
-    @data(*get_csv_data(BaseConfig.W_CRM_FORGOT_DATA))
+    @data(*get_csv_data(BaseConfig.CRM_FORGOT_DATA))
     @unpack
     def test_forgot_password_ddt(self, email):
         delay = 1
