@@ -13,3 +13,25 @@ total 17
 -rw-r--r-- 1 antons 1049089  664 May 24 08:23 os_utils.py
 -rw-r--r-- 1 antons 1049089 1608 May 24 08:23 tcp_utils.py
 drwxr-xr-x 1 antons 1049089    0 May 25 19:07 __pycache__
+/Volumes/DATA/GitLab/ATS/crm/tests/crm/newman_tests
+XXX_services_smoke.py
+__init__.py
+__pycache__
+/Volumes/DATA/GitLab/ATS/crm/src/test_utils
+__init__.py
+__pycache__
+file_utils.py
+os_utils.py
+tcp_utils.py
+terminal_utils.py
+/Volumes/DATA/GitLab/ATS/crm/tests/crm/newman_tests
+XXX_services_smoke.py
+__init__.py
+__pycache__
+/Volumes/DATA/GitLab/ATS/crm/src/test_utils
+__init__.py
+__pycache__
+file_utils.py
+os_utils.py
+tcp_utils.py
+terminal_utils.py

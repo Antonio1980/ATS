@@ -17,7 +17,7 @@ class LogInTestDDT(unittest.TestCase, LogInPage):
         cls.get_browser("chrome")
 
     @test(groups=['login_page', 'ddt'])
-    @data(*get_csv_data(BaseConfig.W_CRM_LOGIN_DATA))
+    @data(*get_csv_data(BaseConfig.CRM_LOGIN_DATA))
     @unpack
     def test_login(self, username, password):
         delay = 3

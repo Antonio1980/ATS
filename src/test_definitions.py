@@ -19,15 +19,15 @@ class BaseConfig:
     W_IE_PATH = path_dir + parser.get('WEB_DRIVER_WIN', 'w_ie')
     W_EDGE_PATH = path_dir + parser.get('WEB_DRIVER_WIN', 'w_edge')
     W_JS_PATH = path_dir + parser.get('WEB_DRIVER_WIN', 'w_js')
-    W_CRM_LOGIN_DATA = path_dir + parser.get('TEST_DATA_WIN', 'w_crm_login_data_csv')
-    W_CRM_FORGOT_DATA = path_dir + parser.get('TEST_DATA_WIN', 'w_crm_forgot_data_csv')
-    W_ME_LOGIN_DATA = path_dir + parser.get('TEST_DATA_WIN', 'w_me_login_data_csv')
 
     L_CHROME_PATH = path_dir + parser.get('WEB_DRIVER_LIN', 'l_chrome')
     L_FIREFOX_PATH = path_dir + parser.get('WEB_DRIVER_LIN', 'l_firefox')
-    L_CRM_LOGIN_DATA = path_dir + parser.get('TEST_DATA_LIN', 'l_crm_login_data_csv')
-    L_CRM_FORGOT_DATA = path_dir + parser.get('TEST_DATA_LIN', 'l_crm_forgot_data_csv')
-    L_ME_LOGIN_DATA = path_dir + parser.get('TEST_DATA_LIN', 'l_me_login_data_csv')
+
+    CRM_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'crm_login_data_csv')
+    CRM_FORGOT_DATA = path_dir + parser.get('TEST_DATA', 'crm_forgot_data_csv')
+    ME_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'me_login_data_csv')
+
+
 
 
 

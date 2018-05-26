@@ -19,7 +19,7 @@ class LogInTest(unittest.TestCase, LogInPage):
     def test_login_positive(cls):
         delay = 1
         # 0, 0, 1 - row, column1, column2
-        credentials = get_credentials_positive(BaseConfig.W_CRM_LOGIN_DATA, 0, 0, 1)
+        credentials = get_credentials_positive(BaseConfig.CRM_LOGIN_DATA, 0, 0, 1)
         username = credentials['username']
         password = credentials['password']
         cls.login(delay, username, password)
