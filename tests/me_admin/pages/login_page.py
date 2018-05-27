@@ -3,7 +3,7 @@
 
 from src.test_definitions import BaseConfig
 from tests.me_admin.pages.base_page import BasePage
-from tests.crm.locators.home_page_locators import HomePageLocators
+from tests.crm_bo.locators.home_page_locators import HomePageLocators
 from tests.me_admin.locators.login_page_locators import LogInPageLocators
 
 
