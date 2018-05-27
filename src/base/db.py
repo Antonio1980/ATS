@@ -1,6 +1,7 @@
+# !/usr/bin/env python
+# -*- coding: utf8 -*-
 
 
 
-
-class DataBase:
+class DataBase(object):
     pass

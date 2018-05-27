@@ -10,11 +10,14 @@ from src.base.enums import OperationSystem, Browsers
 class WebDriverFactory:
     @classmethod
     def get_browser(self, browser_name):
+        if browser_name == None:
+            browser_name = "chrome"
         if detect_os() == OperationSystem.WINDOWS.value:
             return self.get_browser_win(browser_name)
-        else:
+        elif detect_os() == (OperationSystem.DARWIN.value | OperationSystem.LINUX.value):
             return self.get_browser_lin(browser_name)
-        raise Exception("No such " + browser_name + " browser exists")
+        else:
+            raise Exception("Operational System not detected.")
 
 
     @classmethod
@@ -38,4 +41,5 @@ class WebDriverFactory:
             return webdriver.Firefox(BaseConfig.L_FIREFOX_PATH)
         elif (browser_name == Browsers.CHROME.value):
             return webdriver.Chrome(BaseConfig.L_CHROME_PATH)
-        raise Exception("No such " + browser_name + " browser exists")
+        else:
+            raise Exception("No such " + browser_name + " browser exists")

@@ -7,7 +7,7 @@ from src.base.enums import OperationSystem
 
 def detect_os():
     if (is_mac()):
-        return OperationSystem.MAC.value
+        return OperationSystem.DARWIN.value
     elif (is_win()):
         return OperationSystem.WINDOWS.value
     elif (is_lin()):

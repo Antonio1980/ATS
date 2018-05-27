@@ -22,7 +22,7 @@ class LogInTest(unittest.TestCase, LogInPage, HomePage):
     @data(*get_csv_data(BaseConfig.ME_LOGIN_DATA))
     @unpack
     def test_login(self, username, password):
-        delay = 10
+        delay = 1
         self.login(delay, username, password)
         self.logout(delay)
         self.login(delay, username, password)

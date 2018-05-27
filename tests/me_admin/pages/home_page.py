@@ -10,9 +10,8 @@ class HomePage(BasePage):
 
     @classmethod
     def logout(self, delay):
-        #self.find_element_by(HomePageLocators.SETTINGS_DROPDOWN, "XPATH")
-        self.wait_element_visible(delay, HomePageLocators.HOME_PAGE_LOGO)
-        self.click_on_element(delay, HomePageLocators.SETTINGS_DROPDOWN)
-        self.click_on_element(delay, HomePageLocators.LOGOFF_BUTTON)
-        self.click_on_element(delay, HomePageLocators.LOGOFF_CONFIRM_BUTTON)
-        assert self.wait_element_visible(delay, LogInPageLocators.NASDAQ_LOGO)
+        self.wait_element_visible(delay + 1, HomePageLocators.HOME_PAGE_LOGO)
+        self.click_on_element(delay + 3, HomePageLocators.SETTINGS_DROPDOWN)
+        self.click_on_element(delay + 3, HomePageLocators.LOGOFF_BUTTON)
+        self.click_on_element(delay + 2, HomePageLocators.LOGOFF_CONFIRM_BUTTON)
+        assert self.wait_element_visible(delay + 1, LogInPageLocators.NASDAQ_LOGO)

@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 
 
-class LogInPageLocators():
+class LogInPageLocators(object):
     USERNAME_FIELD = "//*[@id='username']"
     PASSWORD_FIELD = "//*[@id='password']"
     LOGIN_BUTTON = "//*[@id='loginBtn']"

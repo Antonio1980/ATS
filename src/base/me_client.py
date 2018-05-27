@@ -1,13 +1,14 @@
+# !/usr/bin/env python
+# -*- coding: utf8 -*-
 
 
-
-class FixClient:
+class FixClient(object):
     pass
 
 
-class ItchClient:
+class ItchClient(object):
     pass
 
 
-class HurlClient:
+class HurlClient(object):
     pass

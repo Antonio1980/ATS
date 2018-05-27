@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 
 
-class HomePageLocators():
+class HomePageLocators(object):
     SETTINGS_DROPDOWN = "//i[@class='fas fa-cogs fa-2x']"
     LOGOUT_LINK = "//*[@id='header-user-info-signout'][@class='pull-left']/a[contains(.,'Sign Out')]"
     HOME_PAGE_LOGO = "//*[@class='pull-left brandLogoOverride'][@id='brandLogo']"

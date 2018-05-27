@@ -37,14 +37,20 @@ class Terminal(object):
         return process
 
     @classmethod
-    def run_command_out(cls, command, file):
-            try:
-                proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True).communicate(timeout=10)[0]
-                process = proc.decode("utf-8")
-                write_file_output(process, file)
-                return process
-            except subprocess.TimeoutExpired:
-                raise TimeoutError
+    def run_command_out(cls, command, file, *option, **option2):
+        command = list(command)
+        if (option):
+            command.append(option)
+        if (option2):
+            command.append(option2)
+        try:
+            proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True).communicate(
+                timeout=100)[0]
+            process = proc.decode("utf-8")
+            write_file_output(process, file)
+            return process
+        except subprocess.TimeoutExpired:
+            raise TimeoutError
 
     @classmethod
     def run_command_in(cls, command, *option):
@@ -54,7 +60,7 @@ class Terminal(object):
         else:
             list(command)
         try:
-            proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True).communicate(timeout=10)[0]
+            proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True).communicate(timeout=100)[0]
             return proc
         except subprocess.TimeoutExpired:
             raise TimeoutError
