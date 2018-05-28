@@ -22,7 +22,7 @@ print(data)
 socket_server.close()
 
 
-class TcpClient():
+class TcpClient:
     query = "This from Client."
 
     def __init__(self):
@@ -41,8 +41,6 @@ class TcpClient():
         self.socket_client.close()
 
 
-
-
 class TcpServer:
     query = "Knock knock, I'm server."
 
@@ -51,7 +49,7 @@ class TcpServer:
         self.socket_server.bind((ip, port))
         self.socket_server.listen(5)
 
-    def receive_message(self, query, *code):
+    def receive_message(self, query):
         (client, (ip, port)) = self.socket_server.accept()
         client.send(bytes(query, 'UTF-8'))
         data = client.recv(2048)

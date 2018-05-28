@@ -27,6 +27,17 @@ class BaseConfig:
     CRM_FORGOT_DATA = path_dir + parser.get('TEST_DATA', 'crm_forgot_data_csv')
     ME_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'me_login_data_csv')
 
+    DB_HOST = parser.get('DATA_BASE', 'host')
+    DB_USERNAME = parser.get('DATA_BASE', 'username')
+    DB_PASSWORD = parser.get('DATA_BASE', 'password')
+    DB_NAME = parser.get('DATA_BASE', 'db_name')
+    DB_TABLE = parser.get('DATA_BASE', 'db_table')
+
+    TESTRAIL_USER = parser.get('TESTRAIL', 'user')
+    TESTRAIL_TOKEN = parser.get('TESTRAIL', 'token')
+    TESTRAIL_URL = parser.get('TESTRAIL', 'server_url')
+    TESTRAIL_RUN = parser.get('TESTRAIL', 'test_run')
+
 
 
 

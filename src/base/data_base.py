@@ -5,40 +5,21 @@ import pymysql
 
 
 class DataBase(object):
+    def __init__(self, db):
+        self.host = db['host']
+        self.username = db['username']
+        self.password = db['password']
+        self.db_name = db['db_name']
+        self.table = db['table']
+        self.query = "Select * from " + self.table + " ;"
+
     @classmethod
-    def db_connect(cls):
-        cls.connection = pymysql.connect(host="localhost", user="root", passwd="", database="databaseName")
+    def run_query(cls):
+        cls.connection = pymysql.connect(host=cls.host, user=cls.username, passwd=cls.password, database=cls.db_name)
         cls.cursor = cls.connection.cursor()
-
-    @classmethod
-    def create_table(cls):
-        ArtistTableSql = """CREATE TABLE Artists(
-        ID INT(20) PRIMARY KEY AUTO_INCREMENT,
-        NAME  CHAR(20) NOT NULL,
-        TRACK CHAR(10))"""
-        cls.cursor.execute(ArtistTableSql)
-
-    @classmethod
-    def insert_into(cls):
-        # queries for inserting values
-        insert1 = "INSERT INTO Artists(NAME, TRACK) VALUES('Towang', 'Jazz' );"
-        insert2 = "INSERT INTO Artists(NAME, TRACK) VALUES('Sadduz', 'Rock' );"
-        # executing the quires
-        cls.cursor.execute(insert1)
-        cls.cursor.execute(insert2)
-
-    @classmethod
-    def select_all(cls):
-        # queries for retrievint all rows
-        retrive = "Select * from Artists;"
-        # executing the quires
-        cls.cursor.execute(retrive)
+        cls.cursor.execute(cls.query)
         rows = cls.cursor.fetchall()
-        for row in rows:
-            print(row)
-
-    @classmethod
-    def close_c0nnection(cls):
         cls.connection.commit()
         cls.connection.close()
+        return rows
 

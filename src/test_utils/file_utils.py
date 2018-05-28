@@ -3,6 +3,7 @@
 
 import codecs
 import csv
+import argparse
 import configparser
 
 
@@ -11,6 +12,15 @@ def config_parse(config_file):
     with open(config_file, mode='r', buffering=-1, closefd=True):
         parser.read(config_file)
         return parser
+
+
+def parse_args(run_number):
+    parser = argparse.ArgumentParser()
+    # run - parameter for setting the number of Test Run in which TC start. TC number - constant
+    parser.add_argument('-run', '-' + run_number)
+    # '-run, -38, help=38, type=int
+    args = parser.parse_args()
+    return args
 
 
 def get_csv_data(data_file):
