@@ -11,8 +11,8 @@ class HomePage(BasePage):
     def logout(cls, delay):
         cls.driver_wait(delay)
         assert cls.wait_element_presented(delay + 1, HomePageLocators.HOME_PAGE_LOGO)
-        cls.click_on_element(delay + 5, HomePageLocators.SETTINGS_DROPDOWN)
-        cls.click_on_element(delay + 5, HomePageLocators.LANGUAGE_ICON)
-        cls.click_on_element(delay + 3, HomePageLocators.LOGOUT_LINK)
+        cls.click_on_element_by_locator(delay + 5, HomePageLocators.SETTINGS_DROPDOWN)
+        cls.click_on_element_by_locator(delay + 5, HomePageLocators.LANGUAGE_ICON)
+        cls.click_on_element_by_locator(delay + 3, HomePageLocators.LOGOUT_LINK)
         assert cls.wait_element_presented(delay + 1, LogInPageLocators.CRM_LOGO)
         cls.driver_wait(delay)

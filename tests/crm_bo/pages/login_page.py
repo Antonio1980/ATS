@@ -11,26 +11,30 @@ class LogInPage(BasePage):
     @classmethod
     def login(cls, delay, username, password):
         cls.go_to_url(BaseConfig.CRM_BASE_URL)
-        assert cls.wait_element_presented(delay + 1, LogInPageLocators.CRM_LOGO)
-        assert cls.wait_element_presented(delay + 1, LogInPageLocators.FORGOT_PASSWORD_LINK)
-        cls.insert_text_into_element(delay + 2, username, LogInPageLocators.USERNAME_FIELD)
-        cls.insert_text_into_element(delay + 2, password, LogInPageLocators.PASSWORD_FIELD)
-        cls.click_on_element(delay + 2, LogInPageLocators.LOGIN_BUTTON)
+        assert cls.wait_element_visible(delay + 1, LogInPageLocators.CRM_LOGO)
+        assert cls.wait_element_visible(delay + 1, LogInPageLocators.FORGOT_PASSWORD_LINK)
+        username_field = cls.find_element_by(LogInPageLocators.USERNAME_FIELD, "id")
+        cls.send_keys(username_field, username)
+        password_field = cls.find_element_by(LogInPageLocators.PASSWORD_FIELD, "id")
+        cls.send_keys(password_field, password)
+        login_button = cls.find_element_by(LogInPageLocators.LOGIN_BUTTON, "id")
+        cls.click_on_element(login_button)
         cls.driver_wait(delay)
-        assert cls.wait_element_presented(delay + 1, HomePageLocators.HOME_PAGE_LOGO)
-        cls.driver_wait(delay)
+        assert cls.wait_element_visible(delay + 1, HomePageLocators.HOME_PAGE_LOGO)
 
     @classmethod
     def forgot_password(cls, delay, email):
         cls.go_to_url(BaseConfig.CRM_BASE_URL)
-        assert cls.wait_element_presented(delay + 1, LogInPageLocators.CRM_LOGO)
-        cls.click_on_element(delay + 2, LogInPageLocators.FORGOT_PASSWORD_LINK)
-        assert cls.wait_element_presented(delay + 1, LogInPageLocators.FORGOT_POPUP)
-        assert cls.wait_element_presented(delay + 1, LogInPageLocators.MESSAGE_POPUP)
-        assert cls.wait_element_presented(delay + 1, LogInPageLocators.NOTE_POPUP)
-        cls.insert_text_into_element(delay + 3, email, LogInPageLocators.EMAIL_FIELD)
-        cls.click_on_element(delay + 2, LogInPageLocators.SEND_BUTTON)
-        assert cls.wait_element_presented(delay + 1, LogInPageLocators.CRM_LOGO)
+        assert cls.wait_element_visible(delay + 1, LogInPageLocators.CRM_LOGO)
+        cls.click_on_element_by_locator(delay + 2, LogInPageLocators.FORGOT_PASSWORD_LINK)
+        assert cls.wait_element_visible(delay + 1, LogInPageLocators.FORGOT_POPUP)
+        assert cls.wait_element_visible(delay + 1, LogInPageLocators.MESSAGE_POPUP)
+        assert cls.wait_element_visible(delay + 1, LogInPageLocators.NOTE_POPUP)
+        email_field = cls.find_element_by(LogInPageLocators.EMAIL_FIELD, "id")
+        cls.send_keys(email_field, email)
+        send_button = cls.find_element_by(LogInPageLocators.SEND_BUTTON, "id")
+        cls.click_on_element(send_button)
+        assert cls.wait_element_visible(delay + 1, LogInPageLocators.POP_UP_CHECK)
 
 
 

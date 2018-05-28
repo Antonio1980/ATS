@@ -12,12 +12,11 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class Browser(object):
-    @classmethod
-    def __init__(self, *browser_name):
-        if browser_name:
-            self.driver = WebDriverFactory.get_browser(browser_name)
-        else:
-            self.driver = WebDriverFactory.get_browser("chrome")
+    # def __init__(self, *browser_name):
+    #     if browser_name:
+    #         self.driver = WebDriverFactory.get_browser(browser_name)
+    #     else:
+    #         self.driver = WebDriverFactory.get_browser("chrome")
 
     @classmethod
     def get_browser(cls, browser_name):
@@ -27,7 +26,7 @@ class Browser(object):
         :param browser_name: string passed as parameter of browser type.
         :return: web driver object with implicite wait of 2 sec.
         """
-        #cls.driver = WebDriverFactory.get_browser(browser_name)
+        cls.driver = WebDriverFactory.get_browser(browser_name)
         cls.driver.maximize_window()
         return cls.driver_wait(2)
 
@@ -138,31 +137,27 @@ class Browser(object):
             print("Element not exists.")
 
     @classmethod
-    def send_keys(cls, delay, locator, query):
+    def send_keys(cls, element, query):
         """
-        Type a text into web element.
-        :param delay: seconds to wait an element.
-        :param locator: xpath of a element.
+        Type a text into web element directly.
+        :param element: web element.
         :param query: text to type.
         :return: driver state.
         """
         try:
-            element = cls.wait_element_clickable(delay, locator)
-            #element.clear()
+            element.clear()
             return element.send_keys(query)
         except TimeoutException:
             print("Element not clickable.")
 
     @classmethod
-    def send_enter_key(cls, delay, locator):
+    def send_enter_key(cls, element):
         """
         Push the enter key on web element.
-        :param delay: seconds to wait an element.
-        :param locator: xpath of a element.
+        :param element: web element.
         :return: driver state.
         """
         try:
-            element = cls.wait_element_clickable(delay, locator)
             return element.send_keys(Keys.ENTER)
         except TimeoutException:
             print("Element not clickable.")
@@ -176,13 +171,13 @@ class Browser(object):
         :return: web element.
         """
         try:
-            element = cls.wait_element_visible(delay, locator)
-            return element
+            if cls.wait_element_presented(delay, locator):
+                return cls.wait_element_clickable(delay, locator)
         except TimeoutException:
             print("Element not visible.")
 
     @classmethod
-    def insert_text_into_element(cls, delay, locator, query):
+    def type_text_by_locator(cls, delay, locator, query):
         """
         Clear and type text into web element.
         :param delay: seconds to wait an element.
@@ -191,7 +186,7 @@ class Browser(object):
         :return: driver state.
         """
         try:
-            element = cls.wait_element_clickable(delay, locator)
+            element = cls.search_element(delay, locator)
             element.click()
             element.clear()
             return element.send_keys(query)
@@ -199,7 +194,7 @@ class Browser(object):
             print("Element not clickable.")
 
     @classmethod
-    def click_on_element(cls, delay, locator):
+    def click_on_element_by_locator(cls, delay, locator):
         """
         Search and click on a web element.
         :param delay: seconds to wait an element.
@@ -209,6 +204,19 @@ class Browser(object):
         try:
             element = cls.wait_element_clickable(delay, locator)
             # cls.hover_over_element(locator)
+            return element.click()
+        except TimeoutException:
+            print("Element not clickable.")
+
+    @classmethod
+    def click_on_element(cls, element):
+        """
+        Search and click on a web element.
+        :param delay: seconds to wait an element.
+        :param locator: xpath of a element.
+        :return: driver state.
+        """
+        try:
             return element.click()
         except TimeoutException:
             print("Element not clickable.")
