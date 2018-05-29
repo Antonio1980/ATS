@@ -34,7 +34,7 @@ class BaseConfig:
     DB_TABLE = parser.get('DATA_BASE', 'db_table')
 
     TESTRAIL_USER = parser.get('TESTRAIL', 'user')
-    TESTRAIL_TOKEN = parser.get('TESTRAIL', 'token')
+    TESTRAIL_PASSWORD = parser.get('TESTRAIL', 'password')
     TESTRAIL_URL = parser.get('TESTRAIL', 'server_url')
     TESTRAIL_RUN = parser.get('TESTRAIL', 'test_run')
 

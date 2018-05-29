@@ -4,7 +4,7 @@
 import unittest
 from proboscis import test
 from src.test_definitions import BaseConfig
-from src.test_utils.http_utils import update_test_case
+from src.test_utils.testrail_utils import update_test_case
 from tests.crm_bo.pages.login_page import LogInPage
 from src.test_utils.file_utils import get_credentials_positive
 

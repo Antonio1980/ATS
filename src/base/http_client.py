@@ -9,7 +9,7 @@ from src.test_definitions import BaseConfig
 class APIClient:
     def __init__(self, server_url):
         self.user = BaseConfig.TESTRAIL_USER
-        self.password = BaseConfig.TESTRAIL_TOKEN
+        self.password = BaseConfig.TESTRAIL_PASSWORD
         if not server_url.endswith('/'):
             server_url += '/'
             self.url = server_url + 'index.php?/api/v2/'
