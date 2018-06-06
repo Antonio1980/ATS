@@ -13,6 +13,7 @@ class BaseConfig(object):
     CRM_BASE_URL = parser.get('BASE_URL', 'base_url_crm')
     BO_BASE_URL = parser.get('BASE_URL', 'base_url_bo')
     ME_BASE_URL = parser.get('BASE_URL', 'base_url_me')
+    WTP_BASE_URL = parser.get('BASE_URL', 'base_url_wtp')
 
     W_CHROME_PATH = path_dir + parser.get('WEB_DRIVER_WIN', 'w_chrome')
     W_FIREFOX_PATH = path_dir + parser.get('WEB_DRIVER_WIN', 'w_firefox')
@@ -26,6 +27,7 @@ class BaseConfig(object):
     CRM_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'crm_login_data_csv')
     CRM_FORGOT_DATA = path_dir + parser.get('TEST_DATA', 'crm_forgot_data_csv')
     ME_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'me_login_data_csv')
+    OPEN_ACCOUNT_DATA = path_dir + parser.get('TEST_DATA', 'open_account_data')
 
     DB_HOST = parser.get('DATA_BASE', 'host')
     DB_USERNAME = parser.get('DATA_BASE', 'username')

@@ -5,28 +5,31 @@ import unittest
 from proboscis import test
 from src.base.enums import Browsers
 from src.test_definitions import BaseConfig
-from tests.crm_bo.pages.login_page import LogInPage
+from tests.web_platform.pages.home_page import HomePage
 from src.test_utils.testrail_utils import update_test_case
+from tests.web_platform.pages.open_account_page import OpenAccountPage
 
 
 @test(groups=['functional', 'smoke', 'sanity'])
-class LogInTest(unittest.TestCase, LogInPage):
+class RegistrationTestDDT(unittest.TestCase, HomePage, OpenAccountPage):
     @classmethod
     def setUpClass(cls):
-        cls.setup_login_page()
+        cls.setup_open_account_page()
         cls.get_browser(Browsers.CHROME.value)
-        cls.test_case = '2590'
+        cls.test_case = '3521'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
     @test(groups=['login_page', 'positive'])
-    def test_login_positive(cls):
+    def test_registration_ddt(cls, firstname, lastname, email, password):
         delay = 1
-        result = False
+        result1, result2, result3 = False, False, False
         try:
-            result = cls.login_positive(delay, cls.base_url)
+            result1 = cls.go_to_home_page()
+            result2 = cls.click_on_sign_up(delay)
+            result3 = cls.registration(firstname, lastname, email, password)
         finally:
-            if result is True:
+            if result1 & result2 is True:
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:
                 update_test_case(cls.test_run, cls.test_case, 0)
