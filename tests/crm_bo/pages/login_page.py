@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 
 from src.test_definitions import BaseConfig
-from src.test_utils.file_utils import get_credentials_positive
+from src.test_utils.file_utils import get_crm_credentials_positive
 from tests.crm_bo.pages.base_page import BasePage
 from tests.crm_bo.locators.home_page_locators import HomePageLocators
 from tests.crm_bo.locators.login_page_locators import LogInPageLocators
@@ -12,7 +12,7 @@ class LogInPage(BasePage):
     @classmethod
     def setup_login_page(cls):
         # data_file, row, column1, column2
-        credentials = get_credentials_positive(BaseConfig.CRM_LOGIN_DATA, 0, 0, 1)
+        credentials = get_crm_credentials_positive(BaseConfig.CRM_LOGIN_DATA, 0, 0, 1)
         cls.email = BaseConfig.CRM_CUSTOMER_EMAIL
         cls.email_text = "An email has been sent to {0} which is the email address for your account. " \
                      "It includes information on changing and confirming your new password. " \

@@ -11,25 +11,27 @@ from tests.web_platform.pages.open_account_page import OpenAccountPage
 
 
 @test(groups=['functional', 'smoke', 'sanity'])
-class RegistrationTestDDT(unittest.TestCase, HomePage, OpenAccountPage):
+class RegistrationFlowTest(unittest.TestCase, HomePage, OpenAccountPage):
     @classmethod
     def setUpClass(cls):
         cls.setup_open_account_page()
+        cls.set_up_home_page()
         cls.get_browser(Browsers.CHROME.value)
         cls.test_case = '3521'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
     @test(groups=['login_page', 'positive'])
-    def test_registration_ddt(cls, firstname, lastname, email, password):
+    def test_registration_flow(cls):
+        print(cls.open_account_url)
         delay = 1
-        result1, result2, result3 = False, False, False
+        result1, result2 = False, False
         try:
-            result1 = cls.go_to_home_page()
-            result2 = cls.click_on_sign_up(delay)
-            result3 = cls.registration(firstname, lastname, email, password)
+            cls.go_to_home_page()
+            result1 = cls.click_on_sign_up(delay)
+            result2 = cls.registration_flow(delay)
         finally:
-            if result1 & result2 is True:
+            if (result1 & result2) is True:
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:
                 update_test_case(cls.test_run, cls.test_case, 0)

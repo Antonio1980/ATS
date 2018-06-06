@@ -22,7 +22,6 @@ class RegistrationTestDDT(unittest.TestCase, HomePage, OpenAccountPage):
         cls.test_case = '3521'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @classmethod
     @test(groups=['login_page', 'positive'])
     @data(*get_csv_data(BaseConfig.OPEN_ACCOUNT_DATA))
     @unpack
@@ -32,9 +31,9 @@ class RegistrationTestDDT(unittest.TestCase, HomePage, OpenAccountPage):
         try:
             result1 = cls.go_to_home_page()
             result2 = cls.click_on_sign_up(delay)
-            result3 = cls.registration(firstname, lastname, email, password)
+            result3 = cls.registration_flow_ddt(firstname, lastname, email, password)
         finally:
-            if result1 & result2 is True:
+            if (result1 & result2 & result3) is True:
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:
                 update_test_case(cls.test_run, cls.test_case, 0)

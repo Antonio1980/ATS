@@ -237,7 +237,7 @@ class Browser(object):
 
     @classmethod
     def check_element_not_visible(cls, element):
-        return cls.driver.EC.invisibility_of_element_located(element)
+        return cls.driver.until(EC.invisibility_of_element_located(element))
 
     @classmethod
     def wait_element_visible(cls, delay, locator):

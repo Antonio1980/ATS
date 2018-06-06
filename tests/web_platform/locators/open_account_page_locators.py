@@ -3,6 +3,9 @@
 
 
 class OpenAccountPageLocators(object):
+    OPEN_ACCOUNT_BOX_ID = "openAccountDxForm"
+    OPEN_ACCOUNT_BOX = "//*[@id='openAccountDxForm']"
+    OPEN_ACCOUNT_LOGO = "//div[@class='title'][contains(text(),'Create your account')]"
     FIRST_NAME_FIELD = "//input[@name='firstName'][@placeholder='First name']"
     LAST_NAME_FIELD = "//input[@name='lastName'][@placeholder='Last name']"
     EMAIL_FIELD = "//input[@name='email'][@placeholder='Email address']"
@@ -12,5 +15,8 @@ class OpenAccountPageLocators(object):
     NEWSLETTERS_CHECKBOX = "//div[@class='receivePromoEmail']//span[@class='checkmark']"
     CERTIFY_CHECKBOX = "//div[@class='acceptTerms']//span[@class='checkmark']"
     PASSWORD_NOT_SECURE = "//span[@class='text'][contains(text(),'Password is not secure')]"
+    TERM_OF_USE_LINK = "//a[@href='#'][contains(text(),'Terms of Use')]"
+    PRIVACY_POLICY_LINK = "//a[@href='#'][contains(text(),'Privacy Policy')]"
+    SIGNIN_LINK = "//a[@href='#'][contains(text(),'Sign in')]"
     
     

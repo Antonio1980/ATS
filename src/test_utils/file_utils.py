@@ -47,13 +47,13 @@ def get_csv_data(data_file):
     return rows
 
 
-def get_credentials_positive(data_file, row, column1, column2):
+def get_crm_credentials_positive(data_file, row, column1, column2):
     """
     Allows to get data from csv file.
     :param data_file: csv data file.
     :param row: Specific row in csv file.
-    :param column1: Specific column in csv file.
-    :param column2: Specific column in csv file.
+    :param column1: First column in csv file.
+    :param column2: Second column in csv file.
     :return: Dictionary object with username and password.
     """
     rows = []
@@ -65,6 +65,30 @@ def get_credentials_positive(data_file, row, column1, column2):
     username = rows[row][column1]
     password = rows[row][column2]
     return {'username': username, 'password': password}
+
+
+def get_account_details(data_file, row, column1, column2, column3, column4):
+    """
+    Allows to get data from csv file.
+    :param data_file: csv data file.
+    :param row: Specific row in csv file.
+    :param column1: First column in csv file.
+    :param column2: Second column in csv file.
+    :param column3: Third column in csv file.
+    :param column4: Fourth column in csv file.
+    :return: Dictionary object with username and password.
+    """
+    rows = []
+    with open(data_file, "r") as csv_data:
+        content = csv.reader(csv_data)
+        next(content, None)
+        for item in content:
+            rows.append(item)
+    firstname = rows[row][column1]
+    lastname = rows[row][column2]
+    email = rows[row][column3]
+    password = rows[row][column4]
+    return {'firstname': firstname, 'lastname': lastname, 'email': email, 'password': password}
 
 
 def write_file_output(process, file):
