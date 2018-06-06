@@ -128,3 +128,33 @@ total 20
 drwxr-xr-x 1 antons 1049089    0 May 25 19:07 __pycache__
 -rw-r--r-- 1 antons 1049089  667 May 26 15:46 os_utils.py
 -rw-r--r-- 1 antons 1049089 1076 May 26 17:22 terminal_utils.py
+/c/GitLab/crm_bo_qa/tests
+total 8
+-rw-r--r-- 1 antons 1049089    0 May 27 19:31 __init__.py
+-rw-r--r-- 1 antons 1049089 1668 May 30 23:49 tests_container.py
+drwxr-xr-x 1 antons 1049089    0 May 30 23:49 __pycache__
+drwxr-xr-x 1 antons 1049089    0 May 30 23:49 crm_bo
+/c/GitLab/crm_bo_qa/src/test_utils
+total 21
+-rw-r--r-- 1 antons 1049089    0 May 27 19:31 __init__.py
+-rw-r--r-- 1 antons 1049089  667 May 27 19:31 os_utils.py
+-rw-r--r-- 1 antons 1049089 1076 May 27 19:31 terminal_utils.py
+-rw-r--r-- 1 antons 1049089 1338 May 30 20:22 file_utils.py
+-rw-r--r-- 1 antons 1049089 1597 May 30 20:22 tcp_utils.py
+-rw-r--r-- 1 antons 1049089  853 May 30 23:21 testrail_utils.py
+drwxr-xr-x 1 antons 1049089    0 May 30 23:49 __pycache__
+/d/GitLab/crm_bo_qa/tests
+total 8
+-rw-r--r-- 1 antons 1049089    0 May 21 14:18 __init__.py
+drwxr-xr-x 1 antons 1049089    0 May 27 18:09 __pycache__
+drwxr-xr-x 1 antons 1049089    0 May 31 09:27 crm_bo
+-rw-r--r-- 1 antons 1049089 1668 May 31 09:28 tests_container.py
+/d/GitLab/crm_bo_qa/src/test_utils
+total 21
+-rw-r--r-- 1 antons 1049089    0 May 21 16:40 __init__.py
+-rw-r--r-- 1 antons 1049089  667 May 27 11:54 os_utils.py
+-rw-r--r-- 1 antons 1049089 1076 May 27 11:54 terminal_utils.py
+-rw-r--r-- 1 antons 1049089 1394 May 31 09:28 file_utils.py
+-rw-r--r-- 1 antons 1049089 1655 May 31 09:28 tcp_utils.py
+-rw-r--r-- 1 antons 1049089  879 May 31 09:28 testrail_utils.py
+drwxr-xr-x 1 antons 1049089    0 May 31 12:21 __pycache__

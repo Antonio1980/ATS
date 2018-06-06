@@ -2,13 +2,13 @@
 # -*- coding: utf8 -*-
 
 
-class FixClient(object):
+class FixClient():
     pass
 
 
-class ItchClient(object):
+class ItchClient():
     pass
 
 
-class HurlClient(object):
+class HurlClient():
     pass

@@ -5,7 +5,7 @@ import os
 from src.test_utils.file_utils import config_parse
 
 
-class BaseConfig:
+class BaseConfig(object):
     config_file = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'base_config.cfg')
     path_dir = os.path.abspath(os.path.dirname(__file__))
     parser = config_parse(config_file)
@@ -38,8 +38,8 @@ class BaseConfig:
     TESTRAIL_URL = parser.get('TESTRAIL', 'server_url')
     TESTRAIL_RUN = parser.get('TESTRAIL', 'test_run')
 
+    CRM_CUSTOMER_ID = parser.get('USERS', 'crm_customer_id')
+    CRM_CUSTOMER_EMAIL = parser.get('USERS', 'crm_customer_email')
 
-
-
-
-
+    BIN_CARD_NUMBER = parser.get('CREDIT_CARD', 'bin_number')
+    CC_CARD_NUMBER = parser.get('CREDIT_CARD', 'cc_number')

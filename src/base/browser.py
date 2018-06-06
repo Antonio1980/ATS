@@ -84,30 +84,31 @@ class Browser(object):
         return WebDriverWait(cls.driver, delay)
 
     @classmethod
-    def get_span_text(cls, locator):
+    def get_cur_url(cls):
+        """
+        Get the url from browser state.
+        :return: Current url from browser
+        """
+        return cls.driver.current_url
+
+    @classmethod
+    def get_element_span_html(cls, element):
         """
         Get attribute text of a web element.
-        :param locator: xpath string.
+        :param element: web element.
         :return: span tag of a web element.
         """
         try:
-            element = cls.find_element(locator)
             return element.get_attribute("innerHTML")
         except TimeoutException:
             print("Element not found.")
 
     @classmethod
-    def get_text(cls, locator):
-        """
-        Get text of a web element.
-        :param locator: xpath string.
-        :return: text of a web element if exists.
-        """
-        try:
-            element = cls.find_element(locator)
-            return element.get_text()
-        except TimeoutException:
-            print("Element not found.")
+    def highlight_element(cls, element):
+        cls.driver.execute_script("arguments[0].setAttribute('style', arguments[1]);",
+                                   element, "color: green; border: 2px solid green;")
+        cls.driver.execute_script("arguments[0].setAttribute('style', arguments[1]);",
+                                   element, "")
 
     @classmethod
     def get_attribute_from_locator(cls, locator, attribute):
@@ -213,7 +214,7 @@ class Browser(object):
         """
         Search and click on a web element.
         :param delay: seconds to wait an element.
-        :param locator: xpath of a element.
+        :param element: web element.
         :return: driver state.
         """
         try:
@@ -221,19 +222,18 @@ class Browser(object):
         except TimeoutException:
             print("Element not clickable.")
 
-    # works only with id
-    # @classmethod
-    # def hover_over_element(cls, locator):
-    #     ActionChains(cls.driver).move_to_element(locator).perform()
+    #works only with id
+    @classmethod
+    def hover_over_element_and_click(cls, element):
+        ActionChains(cls.driver).move_to_element(element).click(element).perform()
 
     @classmethod
-    def switch_frame(cls, delay, locator):
+    def switch_frame(cls, element):
         """
         Switch driver state to another page frame.
-        :param delay: seconds to wait an element.
-        :param locator: xpath of a element.
+        :param element: web element.
         """
-        return cls.driver.switch_to().frame(cls.wait_element_presented(delay, locator))
+        return cls.driver.switch_to.window(element)
 
     @classmethod
     def wait_element_visible(cls, delay, locator):
@@ -306,8 +306,6 @@ class Browser(object):
                 return cls.driver.find_element(By.TAG_NAME, locator)
             elif by == DriverHelper.LINK_TEXT.value:
                 return cls.driver.find_element(By.LINK_TEXT, locator)
-            elif by == DriverHelper.XPATH.value:
-                return cls.driver.find_element(By.XPATH, locator)
             elif by == DriverHelper.CSS_SELECTOR.value:
                 return cls.driver.find_element(By.CSS_SELECTOR)
             elif by == DriverHelper.PARTIAL_LINK_TEXT.value:
