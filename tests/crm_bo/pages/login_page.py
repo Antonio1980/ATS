@@ -2,8 +2,8 @@
 # -*- coding: utf8 -*-
 
 from src.test_definitions import BaseConfig
-from src.test_utils.file_utils import get_crm_credentials_positive
 from tests.crm_bo.pages.base_page import BasePage
+from src.test_utils.file_utils import get_crm_credentials_positive
 from tests.crm_bo.locators.home_page_locators import HomePageLocators
 from tests.crm_bo.locators.login_page_locators import LogInPageLocators
 
