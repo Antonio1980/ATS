@@ -5,7 +5,6 @@ import codecs
 import csv
 import argparse
 import configparser
-from contextlib import contextmanager
 
 
 def config_parse(config_file):

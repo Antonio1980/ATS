@@ -29,8 +29,8 @@ class RegistrationTestDDT(unittest.TestCase, HomePage, OpenAccountPage):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = cls.go_to_home_page()
-            result2 = cls.click_on_sign_up(delay)
+            result1 = cls.open_home_page()
+            result2 = cls.open_signup_page(delay)
             result3 = cls.registration_flow_ddt(firstname, lastname, email, password)
         finally:
             if (result1 & result2 & result3) is True:

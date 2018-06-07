@@ -236,10 +236,6 @@ class Browser(object):
         return cls.driver.switch_to.window(element)
 
     @classmethod
-    def check_element_not_visible(cls, element):
-        return cls.driver.until(EC.invisibility_of_element_located(element))
-
-    @classmethod
     def wait_element_visible(cls, delay, locator):
         """
         Wait for element to be visible on the page.

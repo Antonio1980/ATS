@@ -11,6 +11,7 @@ from tests.crm_bo.locators.login_page_locators import LogInPageLocators
 class LogInPage(BasePage):
     @classmethod
     def setup_login_page(cls):
+        cls.setup_base_page()
         # data_file, row, column1, column2
         credentials = get_crm_credentials_positive(BaseConfig.CRM_LOGIN_DATA, 0, 0, 1)
         cls.email = BaseConfig.CRM_CUSTOMER_EMAIL

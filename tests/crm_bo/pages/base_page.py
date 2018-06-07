@@ -6,4 +6,6 @@ from src.test_definitions import BaseConfig
 
 
 class BasePage(Browser):
-    base_url = BaseConfig.CRM_BASE_URL
+    @classmethod
+    def setup_base_page(cls):
+        cls.base_url = BaseConfig.CRM_BASE_URL

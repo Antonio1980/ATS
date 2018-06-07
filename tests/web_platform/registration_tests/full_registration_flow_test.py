@@ -27,8 +27,7 @@ class RegistrationFlowTest(unittest.TestCase, HomePage, OpenAccountPage):
         delay = 1
         result1, result2 = False, False
         try:
-            cls.go_to_home_page()
-            result1 = cls.click_on_sign_up(delay)
+            result1 = cls.open_signup_page(delay)
             result2 = cls.registration_flow(delay)
         finally:
             if (result1 & result2) is True:
