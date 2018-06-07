@@ -2,11 +2,11 @@
 # -*- coding: utf8 -*-
 
 import unittest
-from tests.crm_bo.login_tests.C2590_login import LogInTest
-from tests.crm_bo.login_tests.C2593_login_ddt import LogInTestDDT
-from tests.crm_bo.login_tests.C2598_login_logout import LogInLogOutLogInTest
-from tests.crm_bo.login_tests.C2591_forgot_password import ForgotPasswordTest
-from tests.crm_bo.login_tests.C2694_forgot_password_ddt import ForgotPasswordTestDDT
+from tests.crm_bo.login_tests.C2590_login_test import LogInTest
+from tests.crm_bo.login_tests.C2593_login_ddt_test import LogInTestDDT
+from tests.crm_bo.login_tests.C2598_login_logout_test import LogInLogOutLogInTest
+from tests.crm_bo.forgot_password_tests.C2591_forgot_password_test import ForgotPasswordTest
+from tests.crm_bo.forgot_password_tests.C2694_forgot_password_ddt_test import ForgotPasswordTestDDT
 from tests.crm_bo.newman_tests.XXX_services_smoke import SmokeTest
 from tests.me_admin.login_tests.login_ddt import LogInTest as me_login_test
 
