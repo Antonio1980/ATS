@@ -29,7 +29,7 @@ class LogInTestDDT(unittest.TestCase, LogInPage, HomePage):
         delay = 1
         result1, result2 = False, False
         try:
-            result1 = self.login(delay, username, password, self.base_url)
+            result1 = self.login(delay, username, password)
             result2 = self.logout(delay)
         finally:
             if result1 & result2 is True:
@@ -40,4 +40,3 @@ class LogInTestDDT(unittest.TestCase, LogInPage, HomePage):
     @classmethod
     def tearDownClass(cls):
         cls.close_browser()
-

@@ -3,13 +3,13 @@
 
 from src.test_definitions import BaseConfig
 from tests.crm_bo.pages.base_page import BasePage
-from tests.crm_bo.locators.home_page_locators import HomePageLocators
 from tests.crm_bo.locators.customer_page_locators import CustomerPageLocators
 
 
 class CustomerPage(BasePage):
     @classmethod
     def setup_customer_page(cls):
+        cls.setup_base_page()
         cls.customer_page_url = cls.base_url + "customers/page/"
         cls.customer_admin_url = cls.customer_page_url + "{0}#customer_admin_status".format(BaseConfig.CRM_CUSTOMER_ID)
         cls.customer_deposit_url = cls.customer_page_url + "{0}#customer_dw".format(BaseConfig.CRM_CUSTOMER_ID)
@@ -93,4 +93,4 @@ class CustomerPage(BasePage):
     def check_customer_icon(cls):
         customer_icon = cls.find_element_by(CustomerPageLocators.CUSTOMER_ICON_ID, "by")
         icon_attribute = cls.get_attribute_from_element(customer_icon, "oldtitle")
-        return  icon_attribute
+        return icon_attribute

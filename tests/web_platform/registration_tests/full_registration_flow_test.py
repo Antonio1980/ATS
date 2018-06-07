@@ -23,7 +23,7 @@ class RegistrationFlowTest(unittest.TestCase, HomePage, OpenAccountPage):
     @classmethod
     @test(groups=['login_page', 'positive'])
     def test_registration_flow(cls):
-        print(cls.open_account_url)
+        print(cls.wtp_home_page_url)
         delay = 1
         result1, result2 = False, False
         try:

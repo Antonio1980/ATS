@@ -55,6 +55,7 @@ class OpenAccountPage(BasePage):
 
     @classmethod
     def registration_flow(cls, delay):
+        print(cls.open_account_url)
         try:
             assert cls.open_account_url == cls.get_cur_url()
             cls.driver_wait(delay + 1)
@@ -71,9 +72,10 @@ class OpenAccountPage(BasePage):
             cls.click_on_element(password_field)
             cls.send_keys(password_field, cls.password)
             cls.driver_wait(delay + 1)
-            assert cls.check_element_not_visible(OpenAccountPageLocators.PASSWORD_NOT_SECURE)
-            captcha = cls.find_element(OpenAccountPageLocators.CAPTCHA)
-            cls.click_on_element(captcha)
+            assert cls.check_element_not_visible(delay, OpenAccountPageLocators.PASSWORD_NOT_SECURE)
+            cls.driver_wait(delay + 3)
+            captcha_frame = cls.find_element(OpenAccountPageLocators.CAPTCHA_FRAME)
+            cls.click_on_captcha(captcha_frame)
             terms_link = cls.find_element(OpenAccountPageLocators.TERM_OF_USE_LINK)
             cls.click_on_element(terms_link)
             cls.driver_wait(delay + 1)

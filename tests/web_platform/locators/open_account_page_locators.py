@@ -11,6 +11,8 @@ class OpenAccountPageLocators(object):
     EMAIL_FIELD = "//input[@name='email'][@placeholder='Email address']"
     PASSWORD_FIELD = "//input[@name='password'][@placeholder='Password']"
     CAPTCHA = "//div[@class='recaptcha-checkbox-checkmark'][@role='presentation']"
+    MAIN_CAPTCHA_FRAME = "//*[@class='g-recaptcha'][@data-theme='light']"
+    CAPTCHA_FRAME = "//*[@class='g-recaptcha']//iframe"
     CREATE_ACCOUNT_BUTTON = "//input[@class='formButton'][@value='Create Account']"
     NEWSLETTERS_CHECKBOX = "//div[@class='receivePromoEmail']//span[@class='checkmark']"
     CERTIFY_CHECKBOX = "//div[@class='acceptTerms']//span[@class='checkmark']"

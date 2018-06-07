@@ -10,7 +10,7 @@ from tests.crm_bo.pages.login_page import LogInPage
 from src.test_utils.testrail_utils import update_test_case
 
 
-@test(groups=['functional','smoke','sanity'])
+@test(groups=['functional', 'smoke', 'sanity'])
 class LogInLogOutLogInTest(unittest.TestCase, HomePage, LogInPage):
     @classmethod
     def setUpClass(cls):
@@ -25,9 +25,9 @@ class LogInLogOutLogInTest(unittest.TestCase, HomePage, LogInPage):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = cls.login_positive(delay, cls.base_url)
+            result1 = cls.login_positive(delay)
             result2 = cls.logout(delay)
-            result3 = cls.login_positive(delay, cls.base_url)
+            result3 = cls.login_positive(delay)
         finally:
             if (result1 & result2 & result3) is True:
                 update_test_case(cls.test_run, cls.test_case, 1)
@@ -37,13 +37,3 @@ class LogInLogOutLogInTest(unittest.TestCase, HomePage, LogInPage):
     @classmethod
     def tearDownClass(cls):
         cls.close_browser()
-
-
-
-
-
-
-
-
-
-

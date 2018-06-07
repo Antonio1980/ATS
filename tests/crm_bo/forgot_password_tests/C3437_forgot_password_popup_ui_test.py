@@ -23,7 +23,6 @@ class ForgotPasswordPopUpTest(unittest.TestCase, LogInPage):
     @test(groups=['login_page', 'positive'])
     def test_forgot_password_popup(cls):
         header = "Forgotten your password?"
-        email = "roman@spotoption.com"
         delay = 1
         result1, result2 = False, False
         try:

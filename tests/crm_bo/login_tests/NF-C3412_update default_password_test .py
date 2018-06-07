@@ -11,6 +11,7 @@ from tests.crm_bo.pages.home_page import HomePage
 from tests.crm_bo.pages.login_page import LogInPage
 
 
+@test(groups=['login_page', 'positive'])
 class UpdateDefaultPasswordTest(unittest.TestCase, LogInPage, HomePage, CustomerPage):
     @classmethod
     def setUpClass(cls):
@@ -25,7 +26,7 @@ class UpdateDefaultPasswordTest(unittest.TestCase, LogInPage, HomePage, Customer
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = cls.login_positive(delay, cls.base_url)
+            result1 = cls.login_positive(delay)
 
         finally:
             if (result1 & result2 & result3) is True:
@@ -36,5 +37,3 @@ class UpdateDefaultPasswordTest(unittest.TestCase, LogInPage, HomePage, Customer
     @classmethod
     def tearDown(cls):
         cls.close_browser()
-
-

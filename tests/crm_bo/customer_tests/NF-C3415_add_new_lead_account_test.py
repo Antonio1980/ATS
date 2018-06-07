@@ -2,14 +2,16 @@
 # -*- coding: utf8 -*-
 
 import unittest
+from proboscis import test
 from src.base.enums import Browsers
 from src.test_definitions import BaseConfig
-from src.test_utils.testrail_utils import update_test_case
-from tests.crm_bo.pages.customer_page import CustomerPage
 from tests.crm_bo.pages.home_page import HomePage
 from tests.crm_bo.pages.login_page import LogInPage
+from tests.crm_bo.pages.customer_page import CustomerPage
+from src.test_utils.testrail_utils import update_test_case
 
 
+@test(groups=['end2end_tests', 'functional', 'sanity'])
 class AddNewLeadTest(unittest.TestCase, LogInPage, HomePage, CustomerPage):
     @classmethod
     def setUpClass(cls):
@@ -19,11 +21,12 @@ class AddNewLeadTest(unittest.TestCase, LogInPage, HomePage, CustomerPage):
         cls.setup_login_page()
 
     @classmethod
+    @test(groups=['login_page', 'positive'])
     def test_add_new_lead_account(cls):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = cls.login_positive(delay, cls.base_url)
+            result1 = cls.login_positive(delay)
 
         finally:
             if (result1 & result2 & result3) is True:

@@ -14,16 +14,17 @@ class HomePage(BasePage):
         cls.wtp_home_page_url = cls.base_url + cls.self_url
 
     @classmethod
-    def open_home_page(cls):
-        return cls.go_to_url(cls.wtp_home_page_url)
+    def open_home_page(cls, delay):
+        cls.go_to_url(cls.wtp_home_page_url)
+        return cls.driver_wait(delay + 3)
 
     @classmethod
     def open_signup_page(cls, delay):
         try:
-            cls.open_home_page()
+            cls.open_home_page(delay)
             assert cls.wtp_home_page_url == cls.get_cur_url()
-            signup_button = cls.find_element(HomePageLocators.SIGN_UP_BUTTON)
-            cls.click_on_element(signup_button)
+            cls.click_on_element_by_locator(delay+5, HomePageLocators.SIGN_UP_BUTTON)
+            #cls.click_on_element(signup_button)
             cls.driver_wait(delay + 3)
         finally:
             if cls.get_cur_url() == cls.open_account_url:

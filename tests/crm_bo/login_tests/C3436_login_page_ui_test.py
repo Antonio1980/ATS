@@ -7,7 +7,6 @@ from src.base.enums import Browsers
 from src.test_definitions import BaseConfig
 from tests.crm_bo.pages.login_page import LogInPage
 from src.test_utils.testrail_utils import update_test_case
-from src.test_utils.js_utils import get_element_position
 from tests.crm_bo.locators.login_page_locators import LogInPageLocators
 
 
@@ -31,9 +30,12 @@ class LogInUiTest(unittest.TestCase, LogInPage):
             assert cls.find_element_by(LogInPageLocators.USERNAME_FIELD_ID, "id")
             assert cls.find_element_by(LogInPageLocators.PASSWORD_FIELD_ID, "id")
             assert cls.find_element_by(LogInPageLocators.LOGIN_BUTTON_ID, "id")
-            username_field_pos = int(cls.driver.execute_script("return window.$(\'input[id=\"username\"]\').position()").get('left'))
-            password_field_pos = int(cls.driver.execute_script("return window.$(\'input[id=\"password\"]\').position()").get('left'))
-            login_button_pos = int(cls.driver.execute_script("return window.$(\'button[id=\"loginBtn\"]\').position()").get('left'))
+            username_field_pos = int(cls.driver.execute_script("return window.$(\'input[id=\"username\"]\').position()")
+                                     .get('left'))
+            password_field_pos = int(cls.driver.execute_script("return window.$(\'input[id=\"password\"]\').position()")
+                                     .get('left'))
+            login_button_pos = int(cls.driver.execute_script("return window.$(\'button[id=\"loginBtn\"]\').position()")
+                                   .get('left'))
             if username_field_pos == 20 & password_field_pos == 20:
                 result1 = True
                 if login_button_pos == 215:
@@ -47,14 +49,3 @@ class LogInUiTest(unittest.TestCase, LogInPage):
     @classmethod
     def tearDownClass(cls):
         cls.close_browser()
-
-
-
-
-
-
-
-
-
-
-

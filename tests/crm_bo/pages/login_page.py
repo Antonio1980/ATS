@@ -28,9 +28,9 @@ class LogInPage(BasePage):
         cls.go_to_url(url)
 
     @classmethod
-    def login_positive(cls, delay, url):
+    def login_positive(cls, delay):
         try:
-            cls.go_to_login_page(url)
+            cls.go_to_login_page(cls.base_url)
             assert cls.login_page_url == cls.get_cur_url()
             username_field = cls.find_element_by(LogInPageLocators.USERNAME_FIELD_ID, "id")
             cls.send_keys(username_field, cls.username)
@@ -46,9 +46,9 @@ class LogInPage(BasePage):
                 return False
 
     @classmethod
-    def login(cls, delay, username, password, url):
+    def login(cls, delay, username, password):
         try:
-            cls.go_to_login_page(url)
+            cls.go_to_login_page(cls.base_url)
             assert cls.login_page_url == cls.get_cur_url()
             username_field = cls.find_element_by(LogInPageLocators.USERNAME_FIELD_ID, "id")
             cls.send_keys(username_field, username)
@@ -64,9 +64,9 @@ class LogInPage(BasePage):
                 return False
 
     @classmethod
-    def forgot_password(cls, delay, email, url):
+    def forgot_password(cls, delay, email):
         try:
-            cls.go_to_login_page(url)
+            cls.go_to_login_page(cls.base_url)
             assert cls.login_page_url == cls.get_cur_url()
             cls.click_on_element_by_locator(delay + 2, LogInPageLocators.FORGOT_PASSWORD_LINK)
             email_field = cls.find_element_by(LogInPageLocators.POPUP_EMAIL_FIELD_ID, "id")

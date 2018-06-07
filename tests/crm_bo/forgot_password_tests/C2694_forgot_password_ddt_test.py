@@ -28,7 +28,7 @@ class ForgotPasswordTestDDT(unittest.TestCase, LogInPage):
         delay = 1
         result = False
         try:
-            result = self.forgot_password(delay, email, self.base_url)
+            result = self.forgot_password(delay, email)
         finally:
             if result is True:
                 # server_url, test_case, status

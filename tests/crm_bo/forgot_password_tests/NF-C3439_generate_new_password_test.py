@@ -25,7 +25,7 @@ class GenerateNewPasswordTest(unittest.TestCase, LogInPage):
         delay = 1
         result = False
         try:
-            result = cls.forgot_password(delay, email, cls.base_url)
+            result = cls.forgot_password(delay, email)
         finally:
             if result is True:
                 update_test_case(cls.test_run, cls.test_case, 1)

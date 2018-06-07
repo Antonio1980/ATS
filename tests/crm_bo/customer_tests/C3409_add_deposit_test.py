@@ -11,11 +11,13 @@ from tests.crm_bo.pages.customer_page import CustomerPage
 from src.test_utils.testrail_utils import update_test_case
 
 
+@test(groups=['end2end_tests', 'functional', 'sanity'])
 class AddDepositTest(unittest.TestCase, LogInPage, HomePage, CustomerPage):
     @classmethod
     def setUpClass(cls):
         cls.setup_login_page()
         cls.setup_home_page()
+        cls.setup_customer_page()
         cls.get_browser(Browsers.CHROME.value)
         cls.test_case = '3409'
         cls.test_run = BaseConfig.TESTRAIL_RUN
@@ -27,12 +29,12 @@ class AddDepositTest(unittest.TestCase, LogInPage, HomePage, CustomerPage):
         amount = 100
         result1, result2, result3, result4 = False, False, False, False
         try:
-            result1 = cls.login_positive(delay, cls.base_url)
+            result1 = cls.login_positive(delay)
             result2 = cls.choose_customer_by_name(delay)
             result3 = cls.make_deposit(delay, amount)
             result4 = cls.check_balance(delay)
         finally:
-            if (result1 & result2 & result3 & result4) is True:
+            if (result1 & result2 is True) & (result3 & result4 is True):
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:
                 update_test_case(cls.test_run, cls.test_case, 0)

@@ -24,7 +24,7 @@ class LogInTest(unittest.TestCase, LogInPage):
         delay = 1
         result = False
         try:
-            result = cls.login_positive(delay, cls.base_url)
+            result = cls.login_positive(delay)
         finally:
             if result is True:
                 update_test_case(cls.test_run, cls.test_case, 1)
@@ -34,14 +34,3 @@ class LogInTest(unittest.TestCase, LogInPage):
     @classmethod
     def tearDownClass(cls):
         cls.close_browser()
-
-
-
-
-
-
-
-
-
-
-
