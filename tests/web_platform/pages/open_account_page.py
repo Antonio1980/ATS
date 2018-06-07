@@ -48,17 +48,16 @@ class OpenAccountPage(BasePage):
             cls.click_on_element(create_account_button)
             cls.driver_wait(delay)
         finally:
-            if cls.check_element_not_visible(OpenAccountPageLocators.OPEN_ACCOUNT_BOX):
+            if cls.check_element_not_visible(delay, OpenAccountPageLocators.OPEN_ACCOUNT_BOX):
                 return True
             else:
                 return False
 
     @classmethod
     def registration_flow(cls, delay):
-        print(cls.open_account_url)
         try:
             assert cls.open_account_url == cls.get_cur_url()
-            cls.driver_wait(delay + 1)
+            cls.driver_wait(delay + 2)
             firstname_field = cls.find_element(OpenAccountPageLocators.FIRST_NAME_FIELD)
             cls.click_on_element(firstname_field)
             cls.send_keys(firstname_field, cls.firstname)
@@ -92,7 +91,7 @@ class OpenAccountPage(BasePage):
             cls.click_on_element(create_account_button)
             cls.driver_wait(delay + 1)
         finally:
-            if cls.check_element_not_visible(OpenAccountPageLocators.OPEN_ACCOUNT_BOX):
+            if cls.check_element_not_visible(delay, OpenAccountPageLocators.OPEN_ACCOUNT_BOX):
                 return True
             else:
                 return False

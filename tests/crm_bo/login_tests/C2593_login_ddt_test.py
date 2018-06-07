@@ -12,8 +12,8 @@ from tests.crm_bo.pages.login_page import LogInPage
 from src.test_utils.testrail_utils import update_test_case
 
 
-@test(groups=['functional', 'smoke', 'sanity'])
 @ddt
+@test(groups=['functional', 'smoke', 'sanity'])
 class LogInTestDDT(unittest.TestCase, LogInPage, HomePage):
     @classmethod
     def setUpClass(cls):

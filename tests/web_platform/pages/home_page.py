@@ -2,7 +2,6 @@
 # -*- coding: utf8 -*-
 
 from tests.web_platform.pages.base_page import BasePage
-from tests.web_platform.pages.open_account_page import OpenAccountPage
 from tests.web_platform.locators.home_page_locators import HomePageLocators
 
 
@@ -24,11 +23,9 @@ class HomePage(BasePage):
             cls.open_home_page(delay)
             assert cls.wtp_home_page_url == cls.get_cur_url()
             cls.click_on_element_by_locator(delay+5, HomePageLocators.SIGN_UP_BUTTON)
-            #cls.click_on_element(signup_button)
             cls.driver_wait(delay + 3)
         finally:
             if cls.get_cur_url() == cls.open_account_url:
                 return True
             else:
                 return False
-            

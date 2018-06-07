@@ -11,8 +11,8 @@ from tests.crm_bo.pages.login_page import LogInPage
 from src.test_utils.testrail_utils import update_test_case
 
 
-@test(groups=['end2end_tests', 'functional', 'sanity'])
 @ddt
+@test(groups=['end2end_tests', 'functional', 'sanity'])
 class ForgotPasswordTestDDT(unittest.TestCase, LogInPage):
     @classmethod
     def setUpClass(cls):
