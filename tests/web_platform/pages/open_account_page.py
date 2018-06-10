@@ -11,14 +11,14 @@ class OpenAccountPage(BasePage):
     @classmethod
     def setup_open_account_page(cls):
         cls.set_up_base_page()
-        cls.self_url = "openAccountDx.html"
+        self_url = "openAccountDx.html"
         # data_file, row, column1, column2, column3, column4
         details = get_account_details(BaseConfig.OPEN_ACCOUNT_DATA, 0, 0, 1, 2, 3)
         cls.firstname = details['firstname']
         cls.lastname = details['lastname']
         cls.email = details['email']
         cls.password = details['password']
-        cls.open_account_url = cls.base_url + cls.self_url
+        cls.open_account_url = cls.wtp_base_url + self_url
         cls.terms_url = "https://dx.exchange/terms-of-use/"
         cls.privacy_url = "https://dx.exchange/privacy-policy/"
 

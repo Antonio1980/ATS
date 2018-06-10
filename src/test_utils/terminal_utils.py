@@ -2,8 +2,9 @@
 # -*- coding: utf8 -*-
 
 import os
-from src.test_data.data_helper import test_data_dir
 from src.test_definitions import BaseConfig
+from src.test_data.data_helper import test_data_dir
+
 
 test_utils_dir = os.path.abspath(os.path.dirname(__file__))
 UTILS_HOME_DIR = test_utils_dir

@@ -10,10 +10,10 @@ class CustomerPage(BasePage):
     @classmethod
     def setup_customer_page(cls):
         cls.setup_base_page()
-        cls.customer_page_url = cls.base_url + "customers/page/"
-        cls.customer_admin_url = cls.customer_page_url + "{0}#customer_admin_status".format(BaseConfig.CRM_CUSTOMER_ID)
-        cls.customer_deposit_url = cls.customer_page_url + "{0}#customer_dw".format(BaseConfig.CRM_CUSTOMER_ID)
-        cls.customer_balance_url = cls.customer_page_url + "{0}#customer_balance".format(BaseConfig.CRM_CUSTOMER_ID)
+        cls.self_url = cls.base_url + "customers/page/"
+        cls.customer_admin_url = cls.self_url + "{0}#customer_admin_status".format(BaseConfig.CRM_CUSTOMER_ID)
+        cls.customer_deposit_url = cls.self_url + "{0}#customer_dw".format(BaseConfig.CRM_CUSTOMER_ID)
+        cls.customer_balance_url = cls.self_url + "{0}#customer_balance".format(BaseConfig.CRM_CUSTOMER_ID)
 
     @classmethod
     def go_to_inset_id(cls, locator, delay=1):

@@ -9,8 +9,10 @@ class HomePage(BasePage):
     @classmethod
     def set_up_home_page(cls):
         cls.set_up_base_page()
-        cls.self_url = "exchange.html?nr_insight=0&fullPlugin=1"
-        cls.wtp_home_page_url = cls.base_url + cls.self_url
+        #OpenAccountPage.setup_open_account_page()
+        #LogInPage.setup_login_page()
+        self_url = "exchange.html?nr_insight=0&fullPlugin=1"
+        cls.wtp_home_page_url = cls.wtp_base_url + self_url
 
     @classmethod
     def open_home_page(cls, delay):
@@ -26,6 +28,19 @@ class HomePage(BasePage):
             cls.driver_wait(delay + 3)
         finally:
             if cls.get_cur_url() == cls.open_account_url:
+                return True
+            else:
+                return False
+
+    @classmethod
+    def open_login_page(cls, delay):
+        try:
+            cls.open_home_page(delay)
+            assert cls.wtp_home_page_url == cls.get_cur_url()
+            cls.click_on_element_by_locator(delay + 5, HomePageLocators.LOGIN_BUTTON)
+            cls.driver_wait(delay + 3)
+        finally:
+            if cls.get_cur_url() == cls.login_page_url:
                 return True
             else:
                 return False

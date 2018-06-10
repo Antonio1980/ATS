@@ -13,7 +13,7 @@ class HomePage(BasePage):
     @classmethod
     def setup_home_page(cls):
         CustomerPage.setup_customer_page()
-        cls.customer_page_url = CustomerPage.customer_page_url
+        cls.customer_admin_url = CustomerPage.customer_admin_url
         cls.home_page_url = cls.base_url + "dashboard" 
 
     @classmethod
@@ -50,7 +50,7 @@ class HomePage(BasePage):
             cls.driver_wait(delay)
             assert cls.wait_element_visible(delay + 1, CustomerPageLocators.CUSTOMER_ID_TEXT)
         finally:
-            if cls.customer_page_url == cls.get_cur_url():
+            if cls.customer_admin_url == cls.get_cur_url():
                 return True
             else:
                 return False
