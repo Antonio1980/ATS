@@ -10,47 +10,45 @@ from tests.crm_bo.locators.customer_page_locators import CustomerPageLocators
 
 
 class HomePage(BasePage):
-    @classmethod
-    def setup_home_page(cls):
-        CustomerPage.setup_customer_page()
-        cls.customer_admin_url = CustomerPage.customer_admin_url
-        cls.home_page_url = cls.base_url + "dashboard" 
+    def __init__(self):
+        super(HomePage, self).__init__()
+        self.customer_admin_url = CustomerPage().customer_admin_url
+        self_url = "dashboard"
+        self.home_page_url = self.crm_base_url + self_url
 
-    @classmethod
-    def logout(cls, delay):
+    def logout(self, driver, delay):
         try:
-            cls.driver_wait(delay)
-            assert cls.wait_element_presented(delay + 1, HomePageLocators.HOME_PAGE_LOGO)
-            cls.click_on_element_by_locator(delay + 5, HomePageLocators.SETTINGS_DROPDOWN)
-            cls.click_on_element_by_locator(delay + 5, HomePageLocators.LANGUAGE_ICON)
-            cls.click_on_element_by_locator(delay + 3, HomePageLocators.LOGOUT_LINK)
+            self.driver_wait(driver, delay)
+            assert self.wait_element_presented(driver, delay + 1, HomePageLocators.HOME_PAGE_LOGO)
+            self.click_on_element_by_locator(driver, delay + 5, HomePageLocators.SETTINGS_DROPDOWN)
+            self.click_on_element_by_locator(driver, delay + 5, HomePageLocators.LANGUAGE_ICON)
+            self.click_on_element_by_locator(driver, delay + 3, HomePageLocators.LOGOUT_LINK)
         finally:
-            if cls.wait_element_presented(delay + 1, LogInPageLocators.CRM_LOGO):
-                cls.driver_wait(delay)
+            if self.wait_element_presented(driver, delay + 1, LogInPageLocators.CRM_LOGO):
+                self.driver_wait(driver, delay)
                 return True
             else:
                 return False
 
-    @classmethod
-    def choose_customer_by_name(cls, delay):
+    def choose_customer_by_name(self, driver, delay):
         try:
-            assert cls.home_page_url == cls.get_cur_url()
-            customer_field = cls.find_element(HomePageLocators.CUSTOMER_DROPDOWN)
-            cls.click_on_element(customer_field)
-            cls.driver_wait(delay)
-            customer_option = cls.find_element(HomePageLocators.CUSTOMER_ID_OPTION)
-            cls.click_on_element(customer_option)
-            cls.driver_wait(delay)
-            customer_name_field = cls.find_element_by(HomePageLocators.CUSTOMER_NAME_FIELD_ID, "id")
-            cls.click_on_element(customer_field)
-            cls.send_keys(customer_name_field, BaseConfig.CRM_CUSTOMER_ID)
-            cls.driver_wait(delay)
-            show_button = cls.find_element_by(HomePageLocators.SHOW_RESULTS_BUTTON_ID, "id")
-            cls.click_on_element(show_button)
-            cls.driver_wait(delay)
-            assert cls.wait_element_visible(delay + 1, CustomerPageLocators.CUSTOMER_ID_TEXT)
+            assert self.home_page_url == self.get_cur_url(driver)
+            customer_field = self.find_element(driver, HomePageLocators.CUSTOMER_DROPDOWN)
+            self.click_on_element(customer_field)
+            self.driver_wait(driver, delay)
+            customer_option = self.find_element(driver, HomePageLocators.CUSTOMER_ID_OPTION)
+            self.click_on_element(customer_option)
+            self.driver_wait(driver, delay)
+            customer_name_field = self.find_element_by(driver, HomePageLocators.CUSTOMER_NAME_FIELD_ID, "id")
+            self.click_on_element(customer_field)
+            self.send_keys(customer_name_field, BaseConfig.CRM_CUSTOMER_ID)
+            self.driver_wait(driver, delay)
+            show_button = self.find_element_by(driver, HomePageLocators.SHOW_RESULTS_BUTTON_ID, "id")
+            self.click_on_element(show_button)
+            self.driver_wait(driver, delay)
+            assert self.wait_element_visible(driver, delay + 1, CustomerPageLocators.CUSTOMER_ID_TEXT)
         finally:
-            if cls.customer_admin_url == cls.get_cur_url():
+            if self.customer_admin_url == self.get_cur_url(driver):
                 return True
             else:
                 return False

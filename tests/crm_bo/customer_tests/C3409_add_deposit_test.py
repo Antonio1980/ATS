@@ -8,17 +8,18 @@ from src.test_definitions import BaseConfig
 from tests.crm_bo.pages.home_page import HomePage
 from tests.crm_bo.pages.login_page import LogInPage
 from tests.crm_bo.pages.customer_page import CustomerPage
+from src.drivers.webdriver_factory import WebDriverFactory
 from src.test_utils.testrail_utils import update_test_case
 
 
 @test(groups=['end2end_tests', 'functional', 'sanity'])
-class AddDepositTest(unittest.TestCase, LogInPage, HomePage, CustomerPage):
+class AddDepositTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.setup_login_page()
-        cls.setup_home_page()
-        cls.setup_customer_page()
-        cls.get_browser(Browsers.CHROME.value)
+        cls.login_page = LogInPage()
+        cls.home_page = HomePage()
+        cls.customer_page = CustomerPage()
+        cls._driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3409'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
@@ -29,10 +30,10 @@ class AddDepositTest(unittest.TestCase, LogInPage, HomePage, CustomerPage):
         amount = 100
         result1, result2, result3, result4 = False, False, False, False
         try:
-            result1 = cls.login_positive(delay)
-            result2 = cls.choose_customer_by_name(delay)
-            result3 = cls.make_deposit(delay, amount)
-            result4 = cls.check_balance(delay)
+            result1 = cls.login_page.login_positive(cls._driver, delay)
+            result2 = cls.home_page.choose_customer_by_name(cls._driver, delay)
+            result3 = cls.customer_page.make_deposit(cls._driver, delay, amount)
+            result4 = cls.customer_page.check_balance(cls._driver, delay)
         finally:
             if (result1 & result2 is True) & (result3 & result4 is True):
                 update_test_case(cls.test_run, cls.test_case, 1)
@@ -41,4 +42,4 @@ class AddDepositTest(unittest.TestCase, LogInPage, HomePage, CustomerPage):
 
     @classmethod
     def tearDownClass(cls):
-        cls.close_browser()
+        cls.login_page.close_browser(cls._driver)

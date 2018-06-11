@@ -7,14 +7,15 @@ from src.base.enums import Browsers
 from src.test_definitions import BaseConfig
 from tests.crm_bo.pages.login_page import LogInPage
 from src.test_utils.testrail_utils import update_test_case
+from src.drivers.webdriver_factory import WebDriverFactory
 
 
 @test(groups=['end2end_tests', 'functional', 'sanity'])
-class GenerateNewPasswordTest(unittest.TestCase, LogInPage):
+class GenerateNewPasswordTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.setup_login_page()
-        cls.get_browser(Browsers.CHROME.value)
+        cls.login_page = LogInPage()
+        cls._driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3439'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
@@ -25,7 +26,7 @@ class GenerateNewPasswordTest(unittest.TestCase, LogInPage):
         delay = 1
         result = False
         try:
-            result = cls.forgot_password(delay, email)
+            result = cls.forgot_password(cls._driver, delay, email)
         finally:
             if result is True:
                 update_test_case(cls.test_run, cls.test_case, 1)
@@ -34,4 +35,4 @@ class GenerateNewPasswordTest(unittest.TestCase, LogInPage):
 
     @classmethod
     def tearDownClass(cls):
-        cls.close_browser()
+        cls.login_page.close_browser(cls._driver)

@@ -9,16 +9,18 @@ from src.test_definitions import BaseConfig
 from tests.crm_bo.pages.home_page import HomePage
 from src.test_utils.file_utils import get_csv_data
 from tests.crm_bo.pages.login_page import LogInPage
+from src.drivers.webdriver_factory import WebDriverFactory
 from src.test_utils.testrail_utils import update_test_case
 
 
 @ddt
 @test(groups=['functional', 'smoke', 'sanity'])
-class LogInTestDDT(unittest.TestCase, LogInPage, HomePage):
+class LogInTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.setup_login_page()
-        cls.get_browser(Browsers.CHROME.value)
+        cls.login_page = LogInPage()
+        cls.home_page = HomePage()
+        cls._driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '2593'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
@@ -29,8 +31,8 @@ class LogInTestDDT(unittest.TestCase, LogInPage, HomePage):
         delay = 1
         result1, result2 = False, False
         try:
-            result1 = self.login(delay, username, password)
-            result2 = self.logout(delay)
+            result1 = self.login_page.login(self._driver, delay, username, password)
+            result2 = self.home_page.logout(self._driver, delay)
         finally:
             if result1 & result2 is True:
                 update_test_case(self.test_run, self.test_case, 1)
@@ -39,4 +41,4 @@ class LogInTestDDT(unittest.TestCase, LogInPage, HomePage):
 
     @classmethod
     def tearDownClass(cls):
-        cls.close_browser()
+        cls.login_page.close_browser(cls._driver)

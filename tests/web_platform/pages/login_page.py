@@ -9,33 +9,31 @@ from tests.web_platform.locators.login_page_locators import LogInPageLocators
 
 
 class LogInPage(BasePage):
-    @classmethod
-    def setup_login_page(cls):
-        cls.set_up_base_page()
-        HomePage.set_up_home_page()
+    def __init__(self):
+        super(LogInPage, self).__init__()
+        self.wtp_home_page_url = HomePage().wtp_home_page_url
         self_url = "login.html"
-        cls.login_page_url = cls.wtp_base_url + self_url
+        self.wtp_login_page_url = self.wtp_base_url + self_url
         # data_file, row, column1, column2, column3, column4
         details = get_account_details(BaseConfig.OPEN_ACCOUNT_DATA, 0, 0, 1, 2, 3)
-        cls.email = details['email']
-        cls.password = details['password']
+        self.email = details['email']
+        self.password = details['password']
 
-    @classmethod
-    def login(cls, delay):
+    def login(self, driver, delay):
         try:
-            HomePage.open_login_page(delay + 1)
-            assert cls.login_page_url == cls.get_cur_url()
-            username_field = cls.find_element(LogInPageLocators.USERNAME_FIELD)
-            cls.send_keys(username_field, cls.email)
-            password_field = cls.find_element(LogInPageLocators.PASSWORD_FIELD)
-            cls.send_keys(password_field, cls.assword)
-            captcha = cls.find_element(LogInPageLocators.CAPTCHA)
-            cls.click_on_captcha(captcha)
-            signin_button = cls.find_element(LogInPageLocators.SIGNIN_BUTTON)
-            cls.click_on_element(signin_button)
-            cls.driver_wait(delay + 2)
+            self.home_page.open_login_page(driver, delay + 1)
+            assert self.wtp_login_page_url == self.get_cur_url(driver)
+            username_field = self.find_element(driver, LogInPageLocators.USERNAME_FIELD)
+            self.send_keys(username_field, self.email)
+            password_field = self.find_element(driver, LogInPageLocators.PASSWORD_FIELD)
+            self.send_keys(password_field, self.password)
+            captcha = self.find_element(driver, LogInPageLocators.CAPTCHA)
+            self.click_on_captcha(driver, captcha)
+            signin_button = self.find_element(driver, LogInPageLocators.SIGNIN_BUTTON)
+            self.click_on_element(signin_button)
+            self.driver_wait(driver, delay + 2)
         finally:
-            if cls.get_cur_url() == HomePage.wtp_home_page_url:
+            if self.get_cur_url(driver) == self.wtp_home_page_url:
                 return True
             else:
                 return False

@@ -8,17 +8,20 @@ from src.test_definitions import BaseConfig
 from tests.crm_bo.pages.home_page import HomePage
 from tests.crm_bo.pages.login_page import LogInPage
 from tests.crm_bo.pages.customer_page import CustomerPage
+from src.drivers.webdriver_factory import WebDriverFactory
 from src.test_utils.testrail_utils import update_test_case
 
 
 @test(groups=['login_page', 'positive'])
-class LeadUpgradeStatusTest(unittest.TestCase, LogInPage, HomePage, CustomerPage):
+class LeadUpgradeStatusTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.get_browser(Browsers.CHROME.value)
+        cls.login_page = LogInPage()
+        cls.home_page = HomePage()
+        cls.customer_page = CustomerPage()
+        cls._driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3418'
         cls.test_run = BaseConfig.TESTRAIL_RUN
-        cls.setup_login_page()
 
     @classmethod
     @test(groups=['login_page', 'positive'])
@@ -26,7 +29,7 @@ class LeadUpgradeStatusTest(unittest.TestCase, LogInPage, HomePage, CustomerPage
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = cls.login_positive(delay)
+            result1 = cls.login_page.login_positive(cls._driver, delay)
 
         finally:
             if (result1 & result2 & result3) is True:
@@ -36,4 +39,4 @@ class LeadUpgradeStatusTest(unittest.TestCase, LogInPage, HomePage, CustomerPage
 
     @classmethod
     def tearDown(cls):
-        cls.close_browser()
+        cls.login_page.close_browser(cls._driver)

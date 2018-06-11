@@ -7,16 +7,17 @@ from src.base.enums import Browsers
 from src.test_definitions import BaseConfig
 from tests.web_platform.pages.home_page import HomePage
 from src.test_utils.testrail_utils import update_test_case
+from src.drivers.webdriver_factory import WebDriverFactory
 from tests.web_platform.pages.open_account_page import OpenAccountPage
 
 
 @test(groups=['functional', 'smoke', 'sanity'])
-class RegistrationFlowTest(unittest.TestCase, HomePage, OpenAccountPage):
+class RegistrationFlowTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.setup_open_account_page()
-        cls.set_up_home_page()
-        cls.get_browser(Browsers.CHROME.value)
+        cls.open_account_page = OpenAccountPage()
+        cls.home_page = HomePage()
+        cls._driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3521'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
@@ -26,8 +27,8 @@ class RegistrationFlowTest(unittest.TestCase, HomePage, OpenAccountPage):
         delay = 1
         result1, result2 = False, False
         try:
-            result1 = cls.open_signup_page(delay)
-            result2 = cls.registration_flow(delay)
+            result1 = cls.home_page.open_signup_page(cls._driver, delay)
+            result2 = cls.open_account_page.registration_flow(cls._driver, delay)
         finally:
             if (result1 & result2) is True:
                 update_test_case(cls.test_run, cls.test_case, 1)
@@ -36,4 +37,4 @@ class RegistrationFlowTest(unittest.TestCase, HomePage, OpenAccountPage):
 
     @classmethod
     def tearDownClass(cls):
-        cls.close_browser()
+        cls.home_page.close_browser(cls._driver)

@@ -8,90 +8,87 @@ from tests.web_platform.locators.open_account_page_locators import OpenAccountPa
 
 
 class OpenAccountPage(BasePage):
-    @classmethod
-    def setup_open_account_page(cls):
-        cls.set_up_base_page()
+    def __init__(self):
+        super(OpenAccountPage, self).__init__()
         self_url = "openAccountDx.html"
         # data_file, row, column1, column2, column3, column4
         details = get_account_details(BaseConfig.OPEN_ACCOUNT_DATA, 0, 0, 1, 2, 3)
-        cls.firstname = details['firstname']
-        cls.lastname = details['lastname']
-        cls.email = details['email']
-        cls.password = details['password']
-        cls.open_account_url = cls.wtp_base_url + self_url
-        cls.terms_url = "https://dx.exchange/terms-of-use/"
-        cls.privacy_url = "https://dx.exchange/privacy-policy/"
+        self.firstname = details['firstname']
+        self.lastname = details['lastname']
+        self.email = details['email']
+        self.password = details['password']
+        self.wtp_open_account_url = self.wtp_base_url + self_url
+        self.terms_url = "https://dx.exchange/terms-of-use/"
+        self.privacy_url = "https://dx.exchange/privacy-policy/"
 
-    @classmethod
-    def registration_flow_ddt(cls, firstname, lastname, email, password):
+    def registration_flow_ddt(self, driver, firstname, lastname, email, password):
         delay = 3
         try:
-            assert cls.open_account_url == cls.get_cur_url()
-            cls.driver_wait(delay)
-            firstname_field = cls.find_element(OpenAccountPageLocators.FIRST_NAME_FIELD)
-            cls.click_on_element(firstname_field)
-            cls.send_keys(firstname_field, firstname)
-            lastname_field = cls.find_element(OpenAccountPageLocators.LAST_NAME_FIELD)
-            cls.click_on_element(lastname_field)
-            cls.send_keys(lastname_field, lastname)
-            email_field = cls.find_element(OpenAccountPageLocators.EMAIL_FIELD)
-            cls.click_on_element(email_field)
-            cls.send_keys(email_field, email)
-            password_field = cls.find_element(OpenAccountPageLocators.PASSWORD_FIELD)
-            cls.click_on_element(password_field)
-            cls.send_keys(password_field, password)
-            captcha = cls.find_element(OpenAccountPageLocators.CAPTCHA)
-            cls.click_on_element(captcha)
-            certify_checkbox = cls.find_element(OpenAccountPageLocators.CERTIFY_CHECKBOX)
-            cls.click_on_element(certify_checkbox)
-            create_account_button = cls.find_element(OpenAccountPageLocators.CREATE_ACCOUNT_BUTTON)
-            cls.click_on_element(create_account_button)
-            cls.driver_wait(delay)
+            assert self.wtp_open_account_url == self.get_cur_url(driver)
+            self.driver_wait(driver, delay)
+            firstname_field = self.find_element(driver, OpenAccountPageLocators.FIRST_NAME_FIELD)
+            self.click_on_element(firstname_field)
+            self.send_keys(firstname_field, firstname)
+            lastname_field = self.find_element(driver, OpenAccountPageLocators.LAST_NAME_FIELD)
+            self.click_on_element(lastname_field)
+            self.send_keys(lastname_field, lastname)
+            email_field = self.find_element(driver, OpenAccountPageLocators.EMAIL_FIELD)
+            self.click_on_element(email_field)
+            self.send_keys(email_field, email)
+            password_field = self.find_element(driver, OpenAccountPageLocators.PASSWORD_FIELD)
+            self.click_on_element(password_field)
+            self.send_keys(password_field, password)
+            captcha = self.find_element(driver, OpenAccountPageLocators.CAPTCHA)
+            self.click_on_element(captcha)
+            certify_checkbox = self.find_element(driver, OpenAccountPageLocators.CERTIFY_CHECKBOX)
+            self.click_on_element(certify_checkbox)
+            create_account_button = self.find_element(driver, OpenAccountPageLocators.CREATE_ACCOUNT_BUTTON)
+            self.click_on_element(create_account_button)
+            self.driver_wait(driver, delay)
         finally:
-            if cls.check_element_not_visible(delay, OpenAccountPageLocators.OPEN_ACCOUNT_BOX):
+            if self.check_element_not_visible(driver, delay, OpenAccountPageLocators.OPEN_ACCOUNT_BOX):
                 return True
             else:
                 return False
 
-    @classmethod
-    def registration_flow(cls, delay):
+    def registration_flow(self, driver, delay):
         try:
-            assert cls.open_account_url == cls.get_cur_url()
-            cls.driver_wait(delay + 2)
-            firstname_field = cls.find_element(OpenAccountPageLocators.FIRST_NAME_FIELD)
-            cls.click_on_element(firstname_field)
-            cls.send_keys(firstname_field, cls.firstname)
-            lastname_field = cls.find_element(OpenAccountPageLocators.LAST_NAME_FIELD)
-            cls.click_on_element(lastname_field)
-            cls.send_keys(lastname_field, cls.lastname)
-            email_field = cls.find_element(OpenAccountPageLocators.EMAIL_FIELD)
-            cls.click_on_element(email_field)
-            cls.send_keys(email_field, cls.email)
-            password_field = cls.find_element(OpenAccountPageLocators.PASSWORD_FIELD)
-            cls.click_on_element(password_field)
-            cls.send_keys(password_field, cls.password)
-            cls.driver_wait(delay + 1)
-            assert cls.check_element_not_visible(delay, OpenAccountPageLocators.PASSWORD_NOT_SECURE)
-            cls.driver_wait(delay + 3)
-            captcha_frame = cls.find_element(OpenAccountPageLocators.CAPTCHA_FRAME)
-            cls.click_on_captcha(captcha_frame)
-            terms_link = cls.find_element(OpenAccountPageLocators.TERM_OF_USE_LINK)
-            cls.click_on_element(terms_link)
-            cls.driver_wait(delay + 1)
-            assert cls.get_cur_url() == cls.terms_url
-            privacy_link = cls.find_element(OpenAccountPageLocators.PRIVACY_POLICY_LINK)
-            cls.click_on_element(privacy_link)
-            cls.driver_wait(delay + 1)
-            assert cls.get_cur_url() == cls.privacy_url
-            newsletters_checkbox = cls.find_element(OpenAccountPageLocators.NEWSLETTERS_CHECKBOX)
-            cls.click_on_element(newsletters_checkbox)
-            certify_checkbox = cls.find_element(OpenAccountPageLocators.CERTIFY_CHECKBOX)
-            cls.click_on_element(certify_checkbox)
-            create_account_button = cls.find_element(OpenAccountPageLocators.CREATE_ACCOUNT_BUTTON)
-            cls.click_on_element(create_account_button)
-            cls.driver_wait(delay + 1)
+            assert self.wtp_open_account_url == self.get_cur_url(driver)
+            self.driver_wait(driver, delay + 2)
+            firstname_field = self.find_element(driver, OpenAccountPageLocators.FIRST_NAME_FIELD)
+            self.click_on_element(firstname_field)
+            self.send_keys(firstname_field, self.firstname)
+            lastname_field = self.find_element(driver, OpenAccountPageLocators.LAST_NAME_FIELD)
+            self.click_on_element(lastname_field)
+            self.send_keys(lastname_field, self.lastname)
+            email_field = self.find_element(driver, OpenAccountPageLocators.EMAIL_FIELD)
+            self.click_on_element(email_field)
+            self.send_keys(email_field, self.email)
+            password_field = self.find_element(driver, OpenAccountPageLocators.PASSWORD_FIELD)
+            self.click_on_element(password_field)
+            self.send_keys(password_field, self.password)
+            self.driver_wait(driver, delay + 1)
+            assert self.check_element_not_visible(driver, delay, OpenAccountPageLocators.PASSWORD_NOT_SECURE)
+            self.driver_wait(driver, delay + 3)
+            captcha_frame = self.find_element(driver, OpenAccountPageLocators.CAPTCHA_FRAME)
+            self.click_on_captcha(driver, captcha_frame)
+            terms_link = self.find_element(driver, OpenAccountPageLocators.TERM_OF_USE_LINK)
+            self.click_on_element(terms_link)
+            self.driver_wait(driver, delay + 1)
+            assert self.get_cur_url(driver) == self.terms_url
+            privacy_link = self.find_element(driver, OpenAccountPageLocators.PRIVACY_POLICY_LINK)
+            self.click_on_element(privacy_link)
+            self.driver_wait(driver, delay + 1)
+            assert self.get_cur_url(driver) == self.privacy_url
+            newsletters_checkbox = self.find_element(driver, OpenAccountPageLocators.NEWSLETTERS_CHECKBOX)
+            self.click_on_element(newsletters_checkbox)
+            certify_checkbox = self.find_element(driver, OpenAccountPageLocators.CERTIFY_CHECKBOX)
+            self.click_on_element(certify_checkbox)
+            create_account_button = self.find_element(driver, OpenAccountPageLocators.CREATE_ACCOUNT_BUTTON)
+            self.click_on_element(create_account_button)
+            self.driver_wait(driver, delay + 1)
         finally:
-            if cls.check_element_not_visible(delay, OpenAccountPageLocators.OPEN_ACCOUNT_BOX):
+            if self.check_element_not_visible(driver, delay, OpenAccountPageLocators.OPEN_ACCOUNT_BOX):
                 return True
             else:
                 return False

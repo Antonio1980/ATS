@@ -5,17 +5,18 @@ import unittest
 from proboscis import test
 from src.base.enums import Browsers
 from src.test_definitions import BaseConfig
-from tests.crm_bo.pages.login_page import LogInPage
+from tests.crm_bo.pages.base_page import BasePage
 from src.test_utils.testrail_utils import update_test_case
+from src.drivers.webdriver_factory import WebDriverFactory
 from tests.crm_bo.locators.login_page_locators import LogInPageLocators
 
 
 @test(groups=['functional', 'smoke', 'sanity'])
-class LogInUiTest(unittest.TestCase, LogInPage):
+class LogInUiTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.setup_login_page()
-        cls.get_browser(Browsers.CHROME.value)
+        cls.base_page = BasePage()
+        cls._driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3436'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
@@ -25,16 +26,16 @@ class LogInUiTest(unittest.TestCase, LogInPage):
         delay = 1
         result1, result2 = False, False
         try:
-            cls.go_to_url(cls.base_url)
-            assert cls.wait_element_visible(delay, LogInPageLocators.CRM_LOGO)
-            assert cls.find_element_by(LogInPageLocators.USERNAME_FIELD_ID, "id")
-            assert cls.find_element_by(LogInPageLocators.PASSWORD_FIELD_ID, "id")
-            assert cls.find_element_by(LogInPageLocators.LOGIN_BUTTON_ID, "id")
-            username_field_pos = int(cls.driver.execute_script("return window.$(\'input[id=\"username\"]\').position()")
+            cls.base_page.go_to_url(cls._driver, cls.base_page.crm_base_url)
+            assert cls.base_page.wait_element_visible(cls._driver, delay, LogInPageLocators.CRM_LOGO)
+            assert cls.base_page.find_element_by(cls._driver, LogInPageLocators.USERNAME_FIELD_ID, "id")
+            assert cls.base_page.find_element_by(cls._driver, LogInPageLocators.PASSWORD_FIELD_ID, "id")
+            assert cls.base_page.find_element_by(cls._driver, LogInPageLocators.LOGIN_BUTTON_ID, "id")
+            username_field_pos = int(cls._driver.execute_script("return window.$(\'input[id=\"username\"]\').position()")
                                      .get('left'))
-            password_field_pos = int(cls.driver.execute_script("return window.$(\'input[id=\"password\"]\').position()")
+            password_field_pos = int(cls._driver.execute_script("return window.$(\'input[id=\"password\"]\').position()")
                                      .get('left'))
-            login_button_pos = int(cls.driver.execute_script("return window.$(\'button[id=\"loginBtn\"]\').position()")
+            login_button_pos = int(cls._driver.execute_script("return window.$(\'button[id=\"loginBtn\"]\').position()")
                                    .get('left'))
             if username_field_pos == 20 & password_field_pos == 20:
                 result1 = True
@@ -48,4 +49,4 @@ class LogInUiTest(unittest.TestCase, LogInPage):
 
     @classmethod
     def tearDownClass(cls):
-        cls.close_browser()
+        cls.base_page.close_browser(cls._driver)

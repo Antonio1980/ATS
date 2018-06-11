@@ -6,6 +6,5 @@ from src.test_definitions import BaseConfig
 
 
 class BasePage(Browser):
-    @classmethod
-    def set_up_base_page(cls):
-        cls.wtp_base_url = BaseConfig.WTP_BASE_URL
+    def __init__(self):
+        self.wtp_base_url = BaseConfig.WTP_BASE_URL
