@@ -1,0 +1,127 @@
+newman
+
+DerivativesExchange
+
+→ Authorization@Login
+  POST localhost:10001 
+→ File@Transfer
+  POST localhost:10001 
+→ ValidateAuth
+  POST localhost:10001 
+→ GeneratePasswordHash
+  POST localhost:10001 
+→ CustomerService.Find
+  POST localhost:10003 
+→ AssetService.Tradeable
+  POST localhost:41611 
+→ AssetService.History
+  POST localhost:41611 
+→ AssetService.SetFavouriteAsset
+  POST localhost:41611 
+→ Config.GetLangs
+  POST localhost:10001 
+→ Config.Get
+  POST 127.0.0.1:10001 
+→ AssetManagement.RemoveFavouriteAsset
+  POST localhost:41611 
+→ CustomerManagement.Update
+  POST localhost:10003 
+→ File@Upload
+  POST http://127.0.0.1:8081/upload 
+→ NotificationService.SingleSmsSend
+  POST localhost:30007 
+→ Authorization@SignUpStep@addPhone
+  POST localhost:10001 
+→ Authorization@SignUpStep@verifyPhone
+  POST localhost:10001 
+→ Authorization@ResetPassword
+  POST localhost:10001 
+┌─────────────────────────┬──────────┬──────────┐
+│                         │ executed │   failed │
+├─────────────────────────┼──────────┼──────────┤
+│              iterations │        1 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│                requests │       17 │       17 │
+├─────────────────────────┼──────────┼──────────┤
+│            test-scripts │        0 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│      prerequest-scripts │        0 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│              assertions │        0 │        0 │
+├─────────────────────────┴──────────┴──────────┤
+│ total run duration: 24.9s                     │
+├───────────────────────────────────────────────┤
+│ total data received: 0B (approx)              │
+├───────────────────────────────────────────────┤
+│ average response time: 0ms                    │
+└───────────────────────────────────────────────┘
+
+   #  failure  detail                                        
+                                                             
+ 01.  Error    connect ECONNREFUSED 127.0.0.1:10001          
+               at request                                    
+               inside "Authorization@Login"                  
+                                                             
+ 02.  Error    connect ECONNREFUSED 127.0.0.1:10001          
+               at request                                    
+               inside "File@Transfer"                        
+                                                             
+ 03.  Error    connect ECONNREFUSED 127.0.0.1:10001          
+               at request                                    
+               inside "ValidateAuth"                         
+                                                             
+ 04.  Error    connect ECONNREFUSED 127.0.0.1:10001          
+               at request                                    
+               inside "GeneratePasswordHash"                 
+                                                             
+ 05.  Error    connect ECONNREFUSED 127.0.0.1:10003          
+               at request                                    
+               inside "CustomerService.Find"                 
+                                                             
+ 06.  Error    connect ECONNREFUSED 127.0.0.1:41611          
+               at request                                    
+               inside "AssetService.Tradeable"               
+                                                             
+ 07.  Error    connect ECONNREFUSED 127.0.0.1:41611          
+               at request                                    
+               inside "AssetService.History"                 
+                                                             
+ 08.  Error    connect ECONNREFUSED 127.0.0.1:41611          
+               at request                                    
+               inside "AssetService.SetFavouriteAsset"       
+                                                             
+ 09.  Error    connect ECONNREFUSED 127.0.0.1:10001          
+               at request                                    
+               inside "Config.GetLangs"                      
+                                                             
+ 10.  Error    connect ECONNREFUSED 127.0.0.1:10001          
+               at request                                    
+               inside "Config.Get"                           
+                                                             
+ 11.  Error    connect ECONNREFUSED 127.0.0.1:41611          
+               at request                                    
+               inside "AssetManagement.RemoveFavouriteAsset" 
+                                                             
+ 12.  Error    connect ECONNREFUSED 127.0.0.1:10003          
+               at request                                    
+               inside "CustomerManagement.Update"            
+                                                             
+ 13.  Error    connect ECONNREFUSED 127.0.0.1:8081           
+               at request                                    
+               inside "File@Upload"                          
+                                                             
+ 14.  Error    connect ECONNREFUSED 127.0.0.1:30007          
+               at request                                    
+               inside "NotificationService.SingleSmsSend"    
+                                                             
+ 15.  Error    connect ECONNREFUSED 127.0.0.1:10001          
+               at request                                    
+               inside "Authorization@SignUpStep@addPhone"    
+                                                             
+ 16.  Error    connect ECONNREFUSED 127.0.0.1:10001          
+               at request                                    
+               inside "Authorization@SignUpStep@verifyPhone" 
+                                                             
+ 17.  Error    connect ECONNREFUSED 127.0.0.1:10001          
+               at request                                    
+               inside "Authorization@ResetPassword"          

@@ -13,13 +13,11 @@ class Browsers(Enum):
     IE_EDGE = "ie_edge"
 
 
-
 class OperationSystem(Enum):
     WINDOWS = "windows"
     LINUX = "linux"
     #MAC = "macintosh"
     DARWIN = "macintosh"
-
 
 
 class DriverHelper(Enum):

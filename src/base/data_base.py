@@ -2,7 +2,6 @@
 # -*- coding: utf8 -*-
 
 import pymysql
-from src.test_definitions import BaseConfig
 
 
 class DataBase(object):

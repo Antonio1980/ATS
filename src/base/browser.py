@@ -1,3 +1,6 @@
+# !/usr/bin/env python
+# -*- coding: utf8 -*-
+
 from src.base.enums import DriverHelper
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -10,6 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class Browser(object):
     def go_to_url(self, driver, url):
         driver.get(url)
+        driver.maximize_window()
         return self.driver_wait(driver, 3)
 
     def close_driver_instance(self, driver):
@@ -160,6 +164,7 @@ class Browser(object):
                 return driver.find_element(By.XPATH, locator)
         except TimeoutException as e:
             print('{}: TimeoutException element not found: {}'.format(self.__class__, e))
+
 
     def close_browser(self, driver):
         self.close_driver_instance(driver)
