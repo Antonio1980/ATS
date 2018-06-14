@@ -4,6 +4,7 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
+from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.test_definitions import BaseConfig
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.login_page import LogInPage
@@ -12,12 +13,12 @@ from src.test_utils.mailinator_utils import get_mailinator_updates
 
 
 @test(groups=['end2end_tests', 'functional', 'sanity'])
-class ForgotPasswordUiTest(unittest.TestCase, LogInPage, HomePage):
+class ForgotPasswordUiTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.setup_login_page()
-        cls.get_browser(Browsers.CHROME.value)
-        cls._driver = cls.driver
+        cls.login_page = LogInPage()
+        cls.home_page = HomePage()
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3558'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
@@ -27,7 +28,7 @@ class ForgotPasswordUiTest(unittest.TestCase, LogInPage, HomePage):
         delay = 1
         result1 = False
         try:
-            cls.open_login_page(delay)
+            cls.login_page.open_login_page(delay)
             data = get_mailinator_updates(cls.driver, cls.email)
             print(data)
         finally:
@@ -38,4 +39,4 @@ class ForgotPasswordUiTest(unittest.TestCase, LogInPage, HomePage):
 
     @classmethod
     def tearDownClass(cls):
-        cls.close_browser()
+        cls.login_page.close_browser()
