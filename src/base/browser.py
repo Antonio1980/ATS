@@ -10,6 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class Browser(object):
     def go_to_url(self, driver, url):
         driver.get(url)
+<<<<<<< a6ac884835aaa047de5b5f6bf0e391f6806c43ed
         return self.driver_wait(driver, 3)
 
     def close_driver_instance(self, driver):
@@ -22,6 +23,21 @@ class Browser(object):
     def get_cur_url(self, driver):
         return driver.current_url
 
+=======
+        driver.maximize_window()
+        return self.driver_wait(driver, 3)
+
+    def close_driver_instance(self, driver):
+        driver.delete_all_cookies()
+        driver.close()
+
+    def driver_wait(self, driver, delay):
+        return WebDriverWait(driver, delay)
+
+    def get_cur_url(self, driver):
+        return driver.current_url
+
+>>>>>>> 46d3ea0049230292881d76fb45bbfa6fde5f95e8
     def get_element_span_html(self, element):
         try:
             return element.get_attribute("innerHTML")
@@ -160,6 +176,10 @@ class Browser(object):
                 return driver.find_element(By.XPATH, locator)
         except TimeoutException as e:
             print('{}: TimeoutException element not found: {}'.format(self.__class__, e))
+<<<<<<< a6ac884835aaa047de5b5f6bf0e391f6806c43ed
+=======
+
+>>>>>>> 46d3ea0049230292881d76fb45bbfa6fde5f95e8
 
     def close_browser(self, driver):
         self.close_driver_instance(driver)

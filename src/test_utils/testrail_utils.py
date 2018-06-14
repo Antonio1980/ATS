@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 
 from src.base.http_client import APIClient
-from src.test_definitions import BaseConfig
+from tests.test_definitions import BaseConfig
 
 client = APIClient(BaseConfig.TESTRAIL_URL, BaseConfig.TESTRAIL_USER, BaseConfig.TESTRAIL_PASSWORD)
 
