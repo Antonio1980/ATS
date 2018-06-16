@@ -1,8 +1,8 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
-import codecs
 import csv
+import codecs
 import argparse
 import configparser
 

@@ -28,6 +28,7 @@ class BaseConfig(object):
 
     CRM_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'crm_login_data_csv')
     CRM_FORGOT_DATA = path_dir + parser.get('TEST_DATA', 'crm_forgot_data_csv')
+    CRM_CREATE_USER = path_dir + parser.get('TEST_DATA', 'crm_create_user_csv')
     ME_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'me_login_data_csv')
     OPEN_ACCOUNT_DATA = path_dir + parser.get('TEST_DATA', 'open_account_data_csv')
 

@@ -7,12 +7,27 @@ from tests.tests_me_admin.pages.base_page import BasePage
 
 
 class HomePage(BasePage):
+    def __init__(self):
+        super(HomePage, self).__init__()
+        self_url = "/xai"
+        self.home_page_url = self.me_base_url + self_url
 
-    @classmethod
-    def logout(self, delay):
-        self.wait_element_visible(delay + 1, HomePageLocators.HOME_PAGE_LOGO)
-        self.click_on_element(delay + 3, HomePageLocators.SETTINGS_DROPDOWN)
-        self.click_on_element(delay + 3, HomePageLocators.LOGOFF_BUTTON)
-        self.click_on_element(delay + 2, HomePageLocators.LOGOFF_CONFIRM_BUTTON)
-        assert self.wait_element_visible(delay + 1, LogInPageLocators.NASDAQ_LOGO)
+    def logout(self, driver, delay):
+        try:
+            assert self.get_cur_url(driver) == self.home_page_url
+            self.wait_element_visible(driver, delay + 1, HomePageLocators.HOME_PAGE_LOGO)
+            settings_dropdown = self.find_element(driver, HomePageLocators.SETTINGS_DROPDOWN)
+            self.click_on_element(settings_dropdown)
+            self.driver_wait(driver, delay + 3)
+            logoff_button = self.find_element(driver, HomePageLocators.LOGOFF_BUTTON)
+            self.click_on_element(logoff_button)
+            self.driver_wait(driver, delay + 3)
+            confirm_button = self.find_element(driver, HomePageLocators.LOGOFF_CONFIRM_BUTTON)
+            self.click_on_element(confirm_button)
+            self.driver_wait(driver, delay + 3)
+        finally:
+            if self.wait_element_visible(driver, delay + 1, LogInPageLocators.NASDAQ_LOGO):
+                return True
+            else:
+                return False
 

@@ -2,6 +2,7 @@
 # -*- coding: utf8 -*-
 
 from tests.test_definitions import BaseConfig
+from tests.tests_web_platform.pages import wtp_open_account_url
 from tests.tests_web_platform.pages.base_page import BasePage
 from src.test_utils.file_utils import get_account_details
 from tests.tests_web_platform.locators.open_account_page_locators import OpenAccountPageLocators
@@ -10,21 +11,19 @@ from tests.tests_web_platform.locators.open_account_page_locators import OpenAcc
 class OpenAccountPage(BasePage):
     def __init__(self):
         super(OpenAccountPage, self).__init__()
-        self_url = "openAccountDx.html"
         # data_file, row, column1, column2, column3, column4
         details = get_account_details(BaseConfig.OPEN_ACCOUNT_DATA, 0, 0, 1, 2, 3)
         self.firstname = details['firstname']
         self.lastname = details['lastname']
         self.email = details['email']
         self.password = details['password']
-        self.wtp_open_account_url = self.wtp_base_url + self_url
         self.terms_url = "https://dx.exchange/terms-of-use/"
         self.privacy_url = "https://dx.exchange/privacy-policy/"
 
     def registration_flow_ddt(self, driver, firstname, lastname, email, password):
         delay = 3
         try:
-            assert self.wtp_open_account_url == self.get_cur_url(driver)
+            assert self.get_cur_url(driver) == wtp_open_account_url
             self.driver_wait(driver, delay)
             firstname_field = self.find_element(driver, OpenAccountPageLocators.FIRST_NAME_FIELD)
             self.click_on_element(firstname_field)
@@ -53,7 +52,7 @@ class OpenAccountPage(BasePage):
 
     def registration_flow(self, driver, delay):
         try:
-            assert self.wtp_open_account_url == self.get_cur_url(driver)
+            assert self.get_cur_url(driver) == wtp_open_account_url
             self.driver_wait(driver, delay + 2)
             firstname_field = self.find_element(driver, OpenAccountPageLocators.FIRST_NAME_FIELD)
             self.click_on_element(firstname_field)

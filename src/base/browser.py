@@ -165,6 +165,5 @@ class Browser(object):
         except TimeoutException as e:
             print('{}: TimeoutException element not found: {}'.format(self.__class__, e))
 
-
     def close_browser(self, driver):
         self.close_driver_instance(driver)

@@ -5,9 +5,9 @@ import unittest
 from proboscis import test
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
-from tests.drivers.webdriver_factory import WebDriverFactory
 from src.test_utils.testrail_utils import update_test_case
 from tests.tests_crm_bo.pages import login_page, home_page
+from tests.drivers.webdriver_factory import WebDriverFactory
 
 
 @test(groups=['functional', 'smoke', 'sanity'])
@@ -39,6 +39,3 @@ class LogInLogOutLogInTest(unittest.TestCase):
     def tearDownClass(cls):
         cls.login_page.close_browser(cls.driver)
 
-
-if __name__ == '__main__':
-    unittest.main()

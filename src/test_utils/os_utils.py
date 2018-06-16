@@ -10,11 +10,11 @@ def detect_os():
     Checks the Operational Sysytem.
     :return: String with OS name.
     """
-    if (_is_mac()):
+    if _is_mac():
         return OperationSystem.DARWIN.value
-    elif (_is_win()):
+    elif _is_win():
         return OperationSystem.WINDOWS.value
-    elif (_is_lin()):
+    elif _is_lin():
         return OperationSystem.LINUX.value
     else:
         raise Exception("The OS is not detected")

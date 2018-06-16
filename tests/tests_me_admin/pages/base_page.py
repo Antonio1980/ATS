@@ -7,4 +7,5 @@ from tests.test_definitions import BaseConfig
 
 class BasePage(Browser):
     def __init__(self):
-        self.me_base_url = BaseConfig.CRM_BASE_URL
+        super(BasePage, self).__init__()
+        self.me_base_url = BaseConfig.ME_BASE_URL

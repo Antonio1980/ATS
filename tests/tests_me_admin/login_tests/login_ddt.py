@@ -19,17 +19,17 @@ class LogInTest(unittest.TestCase):
     def setUpClass(cls):
         cls.login_page = LogInPage()
         cls.home_page = HomePage()
-        cls._driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['login'])
     @data(*get_csv_data(BaseConfig.ME_LOGIN_DATA))
     @unpack
     def test_login(self, username, password):
         delay = 1
-        self.login(self._driver, delay, username, password)
-        self.logout(self._driver, delay)
-        self.login(self._driver, delay, username, password)
+        self.login_page.login(self.driver, delay, username, password)
+        self.home_page.logout(self.driver, delay)
+        self.login_page.login(self.driver, delay, username, password)
 
     @classmethod
     def tearDownClass(cls):
-        cls.login_page.close_browser(cls._driver)
+        cls.login_page.close_browser(cls.driver)

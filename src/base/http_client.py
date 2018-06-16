@@ -6,22 +6,19 @@ import urllib.request, urllib.error
 
 
 class APIClient:
-    @classmethod
     def __init__(self, server_url, username, password):
         self.user = username
         self.password = password
         if not server_url.endswith('/'):
             server_url += '/'
             self.url = server_url + 'index.php?/api/v2/'
-    @classmethod
+
     def send_get(self, uri):
         return self.send_request('GET', uri, None)
 
-    @classmethod
     def send_post(self, uri, data):
         return self.send_request('POST', uri, data)
 
-    @classmethod
     def send_request(self, method, uri, data):
         url = self.url + uri
         request = urllib.request.Request(url)

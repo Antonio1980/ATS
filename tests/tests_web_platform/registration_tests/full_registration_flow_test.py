@@ -15,10 +15,10 @@ from tests.tests_web_platform.pages.open_account_page import OpenAccountPage
 class RegistrationFlowTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.open_account_page = OpenAccountPage()
         cls.home_page = HomePage()
-        cls._driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = '3521'
+        cls.open_account_page = OpenAccountPage()
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+        cls.test_case = ''
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
@@ -27,8 +27,8 @@ class RegistrationFlowTest(unittest.TestCase):
         delay = 1
         result1, result2 = False, False
         try:
-            result1 = cls.home_page.open_signup_page(cls._driver, delay)
-            result2 = cls.open_account_page.registration_flow(cls._driver, delay)
+            result1 = cls.home_page.open_signup_page(cls.driver, delay)
+            result2 = cls.open_account_page.registration_flow(cls.driver, delay)
         finally:
             if (result1 & result2) is True:
                 update_test_case(cls.test_run, cls.test_case, 1)
@@ -37,4 +37,4 @@ class RegistrationFlowTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        cls.home_page.close_browser(cls._driver)
+        cls.home_page.close_browser(cls.driver)

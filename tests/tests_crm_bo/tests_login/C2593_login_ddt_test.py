@@ -6,11 +6,11 @@ from proboscis import test
 from ddt import ddt, data, unpack
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
-from tests.tests_crm_bo.pages.home_page import HomePage
 from src.test_utils.file_utils import get_csv_data
+from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
-from tests.drivers.webdriver_factory import WebDriverFactory
 from src.test_utils.testrail_utils import update_test_case
+from tests.drivers.webdriver_factory import WebDriverFactory
 
 
 @ddt
