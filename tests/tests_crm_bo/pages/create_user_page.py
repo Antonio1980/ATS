@@ -18,7 +18,6 @@ class CreateUserPage(BasePage):
 
     def fill_user_details(self, driver, delay):
         try:
-            print(user_index_page_url)
             assert self.get_cur_url(driver) == create_user_page_url
             first_name_field = self.find_element_by(driver, CreateUserPageLocators.FIRST_NAME_ID, "id")
             self.click_on_element(first_name_field)
@@ -65,9 +64,10 @@ class CreateUserPage(BasePage):
             self.send_enter_key(user_type_text_field)
             create_user_button = self.find_element_by(driver, CreateUserPageLocators.CREATE_USER_BUTTON_ID, "id")
             self.click_on_element(create_user_button)
-            self.driver_wait(driver, delay)
+            self.driver_wait(driver, delay =+ 10)
         finally:
             if self.get_cur_url(driver) == user_index_page_url:
+                print(user_index_page_url)
                 return True
             else:
                 return False
@@ -121,7 +121,7 @@ class CreateUserPage(BasePage):
             self.send_enter_key(user_type_text_field)
             create_user_button = self.find_element_by(driver, CreateUserPageLocators.CREATE_USER_BUTTON_ID, "id")
             self.click_on_element(create_user_button)
-            self.driver_wait(driver, delay=3)
+            self.driver_wait(driver, delay =+ 10)
         finally:
             if self.get_cur_url(driver) == user_index_page_url:
                 return True
