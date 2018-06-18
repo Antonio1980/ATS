@@ -5,29 +5,32 @@ import unittest
 from proboscis import test
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
-from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
+from tests.tests_web_platform.pages.home_page import HomePage
+from tests.tests_web_platform.pages.login_page import LogInPage
 
 
 @test(groups=['functional', 'smoke', 'sanity'])
 class LogInTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        cls.home_page = HomePage()
         cls.login_page = LogInPage()
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = '2590'
+        cls.test_case = '3671'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @classmethod
     @test(groups=['login_page', 'positive'])
     def test_login_positive(cls):
         delay = 1
-        result = False
+        result1, result2 = False, False
         try:
-            result = cls.login_page.login_positive(cls.driver, delay)
+            result1 = cls.home_page.open_login_page(cls.driver, delay)
+            result2 = cls.login_page.login_positive(cls.driver, delay)
         finally:
-            if result is True:
+            if result1 & result2 is True:
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:
                 update_test_case(cls.test_run, cls.test_case, 0)

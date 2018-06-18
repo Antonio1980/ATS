@@ -4,41 +4,46 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
+from src.test_utils.file_utils import get_account_details
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.test_definitions import BaseConfig
-from tests.tests_web_platform.locators.forgot_password_page_locators import ForgotPasswordPageLocators
-from tests.tests_web_platform.pages import forgot_password_page_url
 from tests.tests_web_platform.pages.home_page import HomePage
 from src.test_utils.testrail_utils import update_test_case
+from src.test_utils.mailinator_utils import get_mailinator_updates
 from tests.tests_web_platform.pages.login_page import LogInPage
+from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
 
 
 @test(groups=['end2end_tests', 'functional', 'sanity'])
-class ForgotPasswordUiTest(unittest.TestCase):
+class ForgotPasswordTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.login_page = LogInPage()
         cls.home_page = HomePage()
+        cls.forgot_password_page = ForgotPasswordPage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = '3558'
+        cls.test_case = '3668'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        # data_file, row, column1, column2, column3, column4
+        details = get_account_details(BaseConfig.OPEN_ACCOUNT_DATA, 0, 0, 1, 2, 3)
+        cls.email = details['email']
 
     @classmethod
     @test(groups=['login_page', 'positive'])
-    def test_forgot_password_page_ui(cls):
+    def test_forgot_password(cls):
         delay = 1
-        result1, result2 = False, False
+        result1, result2, result3 = False, False, False
         try:
             result1 = cls.home_page.open_login_page(cls.driver, delay)
             result2 = cls.login_page.click_on_forgot_password(cls.driver, delay)
             cls.login_page.driver_wait(cls.driver, delay)
-            assert forgot_password_page_url == cls.login_page.get_cur_url(cls.driver)
-            assert cls.login_page.wait_element_presented(cls.driver, delay, ForgotPasswordPageLocators.FORGOT_PASSWORD_TITLE)
-            cls.login_page.wait_element_presented(cls.driver, delay, ForgotPasswordPageLocators.EMAIL_TEXT_FIELD)
+            result3 = cls.forgot_password_page.fill_email_address_form(cls.driver, delay)
+            cls.login_page.driver_wait(cls.driver, delay)
+            data = get_mailinator_updates(cls.driver, cls.email)
+            print(data)
         finally:
-            if result1 & result2 is True:
-                if cls.login_page.wait_element_presented(cls.driver, delay, ForgotPasswordPageLocators.SUBMIT_BUTTON):
-                    update_test_case(cls.test_run, cls.test_case, 1)
+            if (result1 & result2 & result3) is True:
+                update_test_case(cls.test_run, cls.test_case, 1)
             else:
                 update_test_case(cls.test_run, cls.test_case, 0)
 
