@@ -17,7 +17,7 @@ class LogInTest(unittest.TestCase):
     def setUpClass(cls):
         cls.home_page = HomePage()
         cls.login_page = LogInPage()
-        cls.test_case = '3690'
+        cls.test_case = '3671'
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
@@ -25,12 +25,13 @@ class LogInTest(unittest.TestCase):
     @test(groups=['login_page', 'positive'])
     def test_login_positive(cls):
         delay = 1
-        result1, result2 = False, False
+        result1, result2, result3 = False, False, False
         try:
             result1 = cls.home_page.open_login_page(cls.driver, delay)
             result2 = cls.login_page.login_positive(cls.driver, delay)
+            result3 = ""
         finally:
-            if result1 & result2 is True:
+            if (result1 & result2 & result3) is True:
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:
                 update_test_case(cls.test_run, cls.test_case, 0)
