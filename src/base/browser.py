@@ -111,7 +111,7 @@ class Browser(object):
         try:
             return WebDriverWait(driver, delay).until_not(EC.presence_of_element_located((By.XPATH, locator)))
         except TimeoutException as e:
-            print('{}: TimeoutException element not visible: {}'.format(self.__class__, e))
+            print('{}: TimeoutException element still visible: {}'.format(self.__class__, e))
 
     def wait_element_visible(self, driver, delay, locator):
         try:

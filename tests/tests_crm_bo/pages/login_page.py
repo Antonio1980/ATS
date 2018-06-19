@@ -67,14 +67,13 @@ class LogInPage(BasePage):
             self.click_on_element_by_locator(driver, delay + 2, LogInPageLocators.FORGOT_PASSWORD_LINK)
             email_field = self.find_element_by(driver, LogInPageLocators.POPUP_EMAIL_FIELD_ID, "id")
             self.send_keys(email_field, email)
+            self.driver_wait(driver, delay)
             send_button = self.find_element_by(driver, LogInPageLocators.POPUP_SEND_BUTTON_ID, "id")
             self.click_on_element(send_button)
             self.driver_wait(driver, delay)
-            if self.wait_element_presented(driver, delay + 3, LogInPageLocators.POPUP_ERROR_MESSAGE_ID) is None:
-                self.click_on_element_by_locator(driver, delay + 1, LogInPageLocators.EMAIL_POPUP_CLOSE_BUTTON)
         finally:
-            self.driver_wait(driver, delay)
-            if self.wait_element_presented(driver, delay + 3, LogInPageLocators.POPUP_CHECK) is not None:
+            if self.wait_element_presented(driver, delay + 3, LogInPageLocators.POPUP_CHECK):
+                self.click_on_element_by_locator(driver, delay + 1, LogInPageLocators.EMAIL_POPUP_CLOSE_BUTTON)
                 return True
             else:
                 return False

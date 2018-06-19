@@ -70,7 +70,7 @@ class OpenAccountPage(BasePage):
             assert self.check_element_not_visible(driver, delay, OpenAccountPageLocators.PASSWORD_NOT_SECURE)
             self.driver_wait(driver, delay + 3)
             captcha_frame = self.find_element(driver, OpenAccountPageLocators.CAPTCHA_FRAME)
-            self.click_on_captcha(driver, captcha_frame)
+            assert self.click_on_captcha(driver, captcha_frame)
             terms_link = self.find_element(driver, OpenAccountPageLocators.TERM_OF_USE_LINK)
             self.click_on_element(terms_link)
             self.driver_wait(driver, delay + 1)
