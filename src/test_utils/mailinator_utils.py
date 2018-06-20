@@ -22,7 +22,7 @@ def get_email_updates(driver, email, action):
     email = driver.find_element_by_xpath("//*[@id='inboxpane']/li[1]")
     email.click()
     driver.implicitly_wait(3)
-    # 1 - get_updates, 2 - click onchange_pasword, 3 - click on verify_email
+    # 1 - get_updates, 2 - click on change_pasword, 3 - click on verify_email
     if action == 1:
         _get_updates(driver)
     elif action == 2:
