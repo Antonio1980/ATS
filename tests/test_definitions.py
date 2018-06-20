@@ -15,6 +15,7 @@ class BaseConfig(object):
     ME_BASE_URL = parser.get('BASE_URL', 'base_url_me')
     WTP_BASE_URL = parser.get('BASE_URL', 'base_url_wtp')
     WTP_INTEGRATION_URL = parser.get('BASE_URL', 'wtp_integration_url')
+    WTP_STAGING_URL = parser.get('BASE_URL', 'wtp_staging_url')
     CRM_STAGING_URL = parser.get('BASE_URL', 'crm_staging_url')
     CRM_INTEGRATION_URL = parser.get('BASE_URL', 'crm_integration_url')
     BO_INTEGRATION_URL = parser.get('BASE_URL', 'bo_integration_url')

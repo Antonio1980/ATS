@@ -15,7 +15,7 @@ from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPa
 
 
 @ddt
-@test(groups=['end2end_tests', 'functional', 'sanity', ])
+@test(groups=['forgot_password_page', ])
 class ForgotPasswordTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -26,7 +26,7 @@ class ForgotPasswordTestDDT(unittest.TestCase):
         cls.test_case = '3666'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @test(groups=['login_page', 'positive', ])
+    @test(groups=['sanity', 'ddt', 'negative', ])
     @data(*get_csv_data(BaseConfig.CRM_FORGOT_DATA))
     @unpack
     def test_forgot_password_ddt(self, email):

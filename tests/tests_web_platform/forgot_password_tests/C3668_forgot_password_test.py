@@ -9,12 +9,12 @@ from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.test_definitions import BaseConfig
 from tests.tests_web_platform.pages.home_page import HomePage
 from src.test_utils.testrail_utils import update_test_case
-from src.test_utils.mailinator_utils import verify_email
+from src.test_utils.mailinator_utils import get_email_updates
 from tests.tests_web_platform.pages.login_page import LogInPage
 from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
 
 
-@test(groups=['end2end_tests', 'functional', 'sanity'])
+@test(groups=['forgot_password_page', 'e2e'])
 class ForgotPasswordTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -29,7 +29,7 @@ class ForgotPasswordTest(unittest.TestCase):
         cls.email = details['email']
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'functional', 'positive'])
     def test_forgot_password(cls):
         delay = 1
         result1, result2, result3, result4 = False, False, False, False
@@ -39,7 +39,7 @@ class ForgotPasswordTest(unittest.TestCase):
             cls.login_page.driver_wait(cls.driver, delay)
             result3 = cls.forgot_password_page.fill_email_address_form(cls.driver, delay)
             cls.login_page.driver_wait(cls.driver, delay)
-            result4 = verify_email(cls.driver, cls.email)
+            result4 = get_email_updates(cls.driver, cls.email, 3)
         finally:
             if (result1 & result2 is True) & (result3 & result4 is True):
                 update_test_case(cls.test_run, cls.test_case, 1)

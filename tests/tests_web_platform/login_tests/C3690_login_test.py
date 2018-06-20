@@ -11,7 +11,7 @@ from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.login_page import LogInPage
 
 
-@test(groups=['functional', 'smoke', 'sanity'])
+@test(groups=['login_page', ])
 class LogInTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -22,7 +22,7 @@ class LogInTest(unittest.TestCase):
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['smoke', 'functional', 'positive', ])
     def test_login_positive(cls):
         delay = 1
         result1, result2 = False, False

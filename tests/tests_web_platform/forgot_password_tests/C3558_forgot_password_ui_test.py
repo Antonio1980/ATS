@@ -13,7 +13,7 @@ from src.test_utils.testrail_utils import update_test_case
 from tests.tests_web_platform.pages.login_page import LogInPage
 
 
-@test(groups=['end2end_tests', 'functional', 'sanity'])
+@test(groups=['forgot_password_page', ])
 class ForgotPasswordUiTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -24,7 +24,7 @@ class ForgotPasswordUiTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['smoke', 'gui', 'positive', ])
     def test_forgot_password_page_ui(cls):
         delay = 1
         result1, result2 = False, False

@@ -98,9 +98,9 @@ class Browser(object):
         action.click(element)
         return action.perform()
 
-    def click_on_captcha(self, driver, element):
+    def click_on_captcha(self, driver, element, x, y):
         action = ActionChains(driver)
-        action.move_to_element_with_offset(element, 2, 2)
+        action.move_to_element_with_offset(element, x, y)
         action.click(element)
         return action.perform()
 

@@ -14,7 +14,7 @@ from tests.tests_web_platform.pages.open_account_page import OpenAccountPage
 
 
 @ddt
-@test(groups=['functional', 'smoke', 'sanity'])
+@test(groups=['open_account_page', ])
 class RegistrationTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -24,7 +24,7 @@ class RegistrationTestDDT(unittest.TestCase):
         cls.test_case = ''
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'ddt', 'negative', ])
     @data(*get_csv_data(BaseConfig.OPEN_ACCOUNT_DATA))
     @unpack
     def test_registration_ddt(self, firstname, lastname, email, password):

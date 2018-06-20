@@ -12,7 +12,7 @@ from tests.tests_web_platform.pages.login_page import LogInPage
 from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
 
 
-@test(groups=['end2end_tests', 'functional', 'sanity'])
+@test(groups=['forgot_password_page', ])
 class WrongEmailTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -24,7 +24,7 @@ class WrongEmailTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'functional', 'positive', ])
     def test_wrong_email(cls):
         delay = 1
         result1, result2, result3 = False, False, False

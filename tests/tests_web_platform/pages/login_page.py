@@ -28,6 +28,8 @@ class LogInPage(BasePage):
             self.click_on_element(password_field)
             self.send_keys(password_true_field, self.password)
             captcha = self.search_element(driver, delay +5, LogInPageLocators.CAPTCHA)
+            location = captcha.location
+            print(location)
             self.click_on_captcha(driver, captcha)
             signin_button = self.find_element(driver, LogInPageLocators.SIGNIN_BUTTON)
             self.click_on_element(signin_button)

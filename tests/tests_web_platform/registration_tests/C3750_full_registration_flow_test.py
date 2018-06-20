@@ -11,18 +11,18 @@ from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.open_account_page import OpenAccountPage
 
 
-@test(groups=['functional', 'smoke', 'sanity'])
+@test(groups=['open_account_page', 'e2e', ])
 class RegistrationFlowTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
         cls.open_account_page = OpenAccountPage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = ''
+        cls.test_case = '3750'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'functional', 'positive', ])
     def test_registration_flow(cls):
         delay = 1
         result1, result2 = False, False
