@@ -19,7 +19,7 @@ class HomePage(BasePage):
             self.open_home_page(driver, delay)
             assert wtp_home_page_url == self.get_cur_url(driver)
             self.click_on_element_by_locator(driver, delay+5, HomePageLocators.SIGN_UP_BUTTON)
-            self.driver_wait(driver, delay + 3)
+            self.wait_driver(driver, delay + 3)
         finally:
             if self.get_cur_url(driver) == wtp_open_account_url:
                 return True

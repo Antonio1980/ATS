@@ -29,7 +29,7 @@ class ForgotPasswordTest(unittest.TestCase):
         cls.email = details['email']
 
     @classmethod
-    @test(groups=['sanity', 'functional', 'positive'])
+    @test(groups=['sanity', 'functional', 'positive', ])
     def test_forgot_password(cls):
         delay = 1
         result1, result2, result3, result4 = False, False, False, False

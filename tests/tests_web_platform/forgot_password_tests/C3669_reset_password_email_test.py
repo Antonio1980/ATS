@@ -29,7 +29,7 @@ class ResetPasswordEmailTest(unittest.TestCase):
         cls.email = details['email']
 
     @classmethod
-    @test(groups=['sanity', 'functional', 'positive'])
+    @test(groups=['sanity', 'functional', 'positive', ])
     def test_reset_password_email(cls):
         delay = 1
         result1, result2, result3 = False, False, False

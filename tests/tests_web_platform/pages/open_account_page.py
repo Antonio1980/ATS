@@ -1,6 +1,8 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
+import time
 
+from src.test_utils.mailinator_utils import email_generator
 from tests.test_definitions import BaseConfig
 from tests.tests_web_platform.pages import wtp_open_account_url
 from tests.tests_web_platform.pages.base_page import BasePage
@@ -15,10 +17,14 @@ class OpenAccountPage(BasePage):
         details = get_account_details(BaseConfig.OPEN_ACCOUNT_DATA, 0, 0, 1, 2, 3)
         self.firstname = details['firstname']
         self.lastname = details['lastname']
-        self.email = details['email']
         self.password = details['password']
+        email_suffix = "@mailinator.com"
+        self.negative_email = details['email']
+        self.email = email_generator() + email_suffix
         self.terms_url = "https://dx.exchange/terms-of-use/"
         self.privacy_url = "https://dx.exchange/privacy-policy/"
+        self.script = '$("input[name=\'captcha\']").val("sdfgsdfgsdfdfssdfgsdfg");'
+        self.element = "//*[@class='userEmail'][contains(.,'')]"
 
     def registration_flow_ddt(self, driver, firstname, lastname, email, password):
         delay = 3
@@ -72,9 +78,14 @@ class OpenAccountPage(BasePage):
             certify_checkbox = self.find_element(driver, OpenAccountPageLocators.CERTIFY_CHECKBOX)
             self.click_on_element(certify_checkbox)
             captcha_main_frame = self.find_element(driver, OpenAccountPageLocators.CAPTCHA_MAIN_FRAME)
-            self.click_on_captcha(driver, captcha_main_frame, 10, 10)
+            self.click_with_offset(driver, captcha_main_frame, 10, 10)
+            self.driver_wait(driver, delay + 5)
             box = self.find_element(driver, OpenAccountPageLocators.OPEN_ACCOUNT_LOGO)
-            self.click_on_captcha(driver, box, 3, 3)
+            time.sleep(5)
+            self.click_with_offset(driver, box, 3, 3)
+            captcha = self.find_element(driver, OpenAccountPageLocators.CAPTCHA)
+            self.execute_js(driver, self.script)
+            
             # captcha_frame = self.find_element(driver, OpenAccountPageLocators.CAPTCHA_FRAME)
             # self.click_on_captcha(driver, captcha_frame, 25, 40)
             #captcha = self.find_element(driver, OpenAccountPageLocators.CAPTCHA)
@@ -89,11 +100,12 @@ class OpenAccountPage(BasePage):
             # assert self.get_cur_url(driver) == self.privacy_url
             # newsletters_checkbox = self.find_element(driver, OpenAccountPageLocators.NEWSLETTERS_CHECKBOX)
             # self.click_on_element(newsletters_checkbox)
+            
             create_account_button = self.find_element(driver, OpenAccountPageLocators.CREATE_ACCOUNT_BUTTON)
             self.click_on_element(create_account_button)
             self.driver_wait(driver, delay + 1)
         finally:
-            if self.check_element_not_visible(driver, delay, OpenAccountPageLocators.OPEN_ACCOUNT_BOX):
+            if self.wait_element_presented(driver, delay, self.element):
                 return True
             else:
                 return False

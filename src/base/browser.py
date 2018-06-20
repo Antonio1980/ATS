@@ -23,6 +23,9 @@ class Browser(object):
     def driver_wait(self, driver, delay):
         return WebDriverWait(driver, delay)
 
+    def wait_driver(self, driver, delay):
+        return driver.implicitly_wait(delay)
+
     def get_cur_url(self, driver):
         return driver.current_url
 
@@ -63,6 +66,14 @@ class Browser(object):
         except TimeoutException:
             print("Element not click able.")
 
+    def execute_js(self, driver, script):
+         driver.execute_script(script)
+
+    def execute_js_on_element(self, driver, script, element):
+        WebDriverWait(driver, 10).until(
+            lambda driver: driver.execute_script(script, element)
+        )
+
     def search_element(self, driver, delay, locator):
         try:
             if self.wait_element_presented(driver, delay, locator):
@@ -98,7 +109,7 @@ class Browser(object):
         action.click(element)
         return action.perform()
 
-    def click_on_captcha(self, driver, element, x, y):
+    def click_with_offset(self, driver, element, x, y):
         action = ActionChains(driver)
         action.move_to_element_with_offset(element, x, y)
         action.click(element)

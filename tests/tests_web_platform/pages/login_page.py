@@ -30,7 +30,7 @@ class LogInPage(BasePage):
             captcha = self.search_element(driver, delay +5, LogInPageLocators.CAPTCHA)
             location = captcha.location
             print(location)
-            self.click_on_captcha(driver, captcha)
+            self.click_with_offset(driver, captcha)
             signin_button = self.find_element(driver, LogInPageLocators.SIGNIN_BUTTON)
             self.click_on_element(signin_button)
             self.driver_wait(driver, delay + 2)
