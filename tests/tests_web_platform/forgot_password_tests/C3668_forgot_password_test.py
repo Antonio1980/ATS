@@ -39,6 +39,7 @@ class ForgotPasswordTest(unittest.TestCase):
             cls.login_page.driver_wait(cls.driver, delay)
             result3 = cls.forgot_password_page.fill_email_address_form(cls.driver, delay)
             cls.login_page.driver_wait(cls.driver, delay)
+            # 1 - get_updates, 2 - click on change_pasword, 3 - click on verify_email
             result4 = get_email_updates(cls.driver, cls.email, 3)
         finally:
             if (result1 & result2 is True) & (result3 & result4 is True):
