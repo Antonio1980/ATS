@@ -16,8 +16,8 @@ class Browsers(Enum):
 class OperationSystem(Enum):
     WINDOWS = "windows"
     LINUX = "linux"
-    #MAC = "macintosh"
-    DARWIN = "macintosh"
+    MAC = "macintosh"
+    DARWIN = "darwin"
 
 
 class DriverHelper(Enum):

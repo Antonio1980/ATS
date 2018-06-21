@@ -14,7 +14,7 @@ class WebDriverFactory():
             browser_name = "chrome"
         if detect_os() == OperationSystem.WINDOWS.value:
             return cls.get_browser_win(browser_name)
-        elif detect_os() == (OperationSystem.DARWIN.value | OperationSystem.LINUX.value):
+        elif (detect_os() == OperationSystem.DARWIN.value) | (detect_os() == OperationSystem.LINUX.value):
             return cls.get_browser_lin(browser_name)
         else:
             raise Exception("Operational System not detected.")
