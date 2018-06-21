@@ -71,7 +71,7 @@ class Browser(object):
 
     def execute_js_on_element(self, driver, script, element):
         WebDriverWait(driver, 10).until(
-            lambda driver: driver.execute_script(script, element)
+            lambda d: driver.execute_script(script, element)
         )
 
     def search_element(self, driver, delay, locator):

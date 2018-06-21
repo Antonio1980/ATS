@@ -1,7 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
-import selenium.webdriver as webdriver
+from selenium import webdriver
 from tests.test_definitions import BaseConfig
 from src.test_utils.os_utils import detect_os
 from src.base.enums import OperationSystem, Browsers

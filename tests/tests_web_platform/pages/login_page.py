@@ -1,10 +1,11 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
+import time
 from tests.test_definitions import BaseConfig
 from tests.tests_web_platform.pages.base_page import BasePage
 from src.test_utils.file_utils import get_account_details
-from tests.tests_web_platform.pages import wtp_home_page_url, wtp_login_page_url, forgot_password_page_url
+from tests.tests_web_platform.pages import wtp_login_page_url, forgot_password_page_url, wtp_dashboard_url
 from tests.tests_web_platform.locators.login_page_locators import LogInPageLocators
 
 
@@ -15,6 +16,7 @@ class LogInPage(BasePage):
         details = get_account_details(BaseConfig.OPEN_ACCOUNT_DATA, 0, 0, 1, 2, 3)
         self.email = details['email']
         self.password = details['password']
+        self.script = '$(".formContainer.formBox input.captchaCode").val("sdfgsdfgsdfdfssdfgsdfg");'
 
     def login_positive(self, driver, delay =+ 1):
         try:
@@ -27,15 +29,18 @@ class LogInPage(BasePage):
             password_field = self.find_element(driver, LogInPageLocators.PASSWORD_FIELD)
             self.click_on_element(password_field)
             self.send_keys(password_true_field, self.password)
-            captcha = self.search_element(driver, delay +5, LogInPageLocators.CAPTCHA)
-            location = captcha.location
-            print(location)
-            self.click_with_offset(driver, captcha)
-            signin_button = self.find_element(driver, LogInPageLocators.SIGNIN_BUTTON)
-            self.click_on_element(signin_button)
+            #captcha_frame = self.find_element(driver, LogInPageLocators.CAPTCHA_FRAME)
+            #self.click_with_offset(driver, captcha_frame, 10, 10)
+            self.driver_wait(driver, delay + 5)
+            #title = self.find_element(driver, LogInPageLocators.SIGNIN_BOX)
+            #time.sleep(5)
+            #self.click_with_offset(driver, title, 2, 2)
+            self.execute_js(driver, self.script)
+            login_button = self.find_element(driver, LogInPageLocators.SIGNIN_BUTTON)
+            self.click_on_element(login_button)
             self.driver_wait(driver, delay + 2)
         finally:
-            if self.get_cur_url(driver) == wtp_home_page_url:
+            if self.get_cur_url(driver) == wtp_dashboard_url:
                 return True
             else:
                 return False
