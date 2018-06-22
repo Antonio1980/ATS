@@ -6,7 +6,7 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 
 
 class Browser(object):
@@ -74,7 +74,7 @@ class Browser(object):
         :param element: Web element.
         """
         driver.execute_script("arguments[0].setAttribute('style', arguments[1]);", element,
-                                  "color: green; border: 2px solid green;")
+                              "color: green; border: 2px solid green;")
         driver.execute_script("arguments[0].setAttribute('style', arguments[1]);", element, "")
 
     def get_attribute_from_locator(self, driver, locator, attribute):
@@ -128,12 +128,12 @@ class Browser(object):
             print("{0} Element not click able. {0}").format(self.__class__, e)
 
     def execute_js(self, driver, script):
-         """
-         Injection js code into current driver state.
-         :param driver: web_driver instance.
-         :param script: java script code passed as string.
-         """
-         driver.execute_script(script)
+        """
+        Injection js code into current driver state.
+        :param driver: web_driver instance.
+        :param script: java script code passed as string.
+        """
+        driver.execute_script(script)
 
     def execute_js_on_element(self, driver, script, element):
         """
@@ -217,6 +217,8 @@ class Browser(object):
     def click_with_offset(self, driver, element, x, y):
         """
         Clicks on web element with x.y coordinates.
+        :param y: vertical coordinate in pixels.
+        :param x: horizontal coordinate in pixels.
         :param driver: web_driver instance.
         :param element: web element.
         :return: browser state with performed actions.
@@ -260,7 +262,7 @@ class Browser(object):
         :return: driver state.
         """
         try:
-            return WebDriverWait(driver, delay).until_not(EC.presence_of_element_located((By.XPATH, locator)))
+            return WebDriverWait(driver, delay).until_not(ec.presence_of_element_located((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element still visible: {}'.format(self.__class__, e))
 
@@ -273,7 +275,7 @@ class Browser(object):
         :return: web element.
         """
         try:
-            return WebDriverWait(driver, delay).until(EC.visibility_of_element_located((By.XPATH, locator)))
+            return WebDriverWait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element not visible: {}'.format(self.__class__, e))
 
@@ -286,7 +288,7 @@ class Browser(object):
         :return: web element.
         """
         try:
-            return WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, locator)))
+            return WebDriverWait(driver, delay).until(ec.presence_of_element_located((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element not present: {}'.format(self.__class__, e))
 
@@ -299,7 +301,7 @@ class Browser(object):
         :return: web element.
         """
         try:
-            return WebDriverWait(driver, delay).until(EC.element_to_be_selected((By.XPATH, locator)))
+            return WebDriverWait(driver, delay).until(ec.element_to_be_selected((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element not click able: {}'.format(self.__class__, e))
 
@@ -312,7 +314,7 @@ class Browser(object):
         :return: web element.
         """
         try:
-            return WebDriverWait(driver, delay).until(EC.element_to_be_clickable((By.XPATH, locator)))
+            return WebDriverWait(driver, delay).until(ec.element_to_be_clickable((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element not click able: {}'.format(self.__class__, e))
 
