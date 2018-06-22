@@ -1,12 +1,12 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
-import time
 
-from src.test_utils.mailinator_utils import email_generator
+import time
 from tests.test_definitions import BaseConfig
+from src.test_utils.file_utils import get_account_details
 from tests.tests_web_platform.pages import wtp_open_account_url
 from tests.tests_web_platform.pages.base_page import BasePage
-from src.test_utils.file_utils import get_account_details
+from src.test_utils.mailinator_utils import email_generator
 from tests.tests_web_platform.locators.open_account_page_locators import OpenAccountPageLocators
 
 
