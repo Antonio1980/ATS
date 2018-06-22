@@ -12,7 +12,7 @@ from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
 
 
-@test(groups=['tests_end2end', 'functional', 'sanity'])
+@test(groups=['login_page', ])
 class ForgotPasswordPopUpTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -23,7 +23,7 @@ class ForgotPasswordPopUpTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'gui', 'positive', ])
     def test_forgot_password_popup(cls):
         header = "Forgotten your password?"
         delay = 1

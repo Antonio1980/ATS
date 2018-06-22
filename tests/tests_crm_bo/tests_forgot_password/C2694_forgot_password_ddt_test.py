@@ -13,7 +13,7 @@ from tests.drivers.webdriver_factory import WebDriverFactory
 
 
 @ddt
-@test(groups=['tests_end2end', 'functional', 'sanity'])
+@test(groups=['login_page', ])
 class ForgotPasswordTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -22,7 +22,7 @@ class ForgotPasswordTestDDT(unittest.TestCase):
         cls.test_case = '2694'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'ddt', 'positive', ])
     @data(*get_csv_data(BaseConfig.CRM_FORGOT_DATA))
     @unpack
     def test_forgot_password_ddt(self, email):

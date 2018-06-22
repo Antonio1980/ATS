@@ -13,7 +13,7 @@ from tests.tests_crm_bo.pages.create_user_page import CreateUserPage
 from tests.tests_crm_bo.pages.users_management_page import UsersManagementPage
 
 
-@test(groups=['functional', 'smoke', 'sanity'])
+@test(groups=['create_user_page', ])
 class CreateNewUserTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -26,7 +26,7 @@ class CreateNewUserTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'functional', 'positive', ])
     def test_create_new_user(cls):
         delay = 3
         result1, result2, result3, result4 = False, False, False, False

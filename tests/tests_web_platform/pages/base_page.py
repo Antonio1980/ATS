@@ -7,4 +7,4 @@ from tests.test_definitions import BaseConfig
 
 class BasePage(Browser):
     def __init__(self):
-        self.wtp_base_url = BaseConfig.WTP_STAGING_URL
+        self.wtp_base_url = BaseConfig.WTP_INTEGRATION_URL

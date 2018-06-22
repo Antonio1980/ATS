@@ -10,7 +10,7 @@ from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 
 
-@test(groups=['tests_end2end', 'functional', 'sanity'])
+@test(groups=['login_page', ])
 class GenerateNewPasswordTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -20,7 +20,7 @@ class GenerateNewPasswordTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'functional', 'positive', ])
     def test_generate_new_password(cls):
         email = "roman@spotoption.com"
         delay = 1

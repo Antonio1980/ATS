@@ -12,7 +12,7 @@ from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_crm_bo.pages.customer_page import CustomerPage
 
 
-@test(groups=['tests_end2end', 'functional', 'sanity'])
+@test(groups=['customer_page', ])
 class AddDepositTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -24,7 +24,7 @@ class AddDepositTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'functional', 'positive', ])
     def test_add_deposit(cls):
         delay = 1
         amount = 100

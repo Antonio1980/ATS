@@ -12,7 +12,7 @@ from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_crm_bo.pages.customer_page import CustomerPage
 
 
-@test(groups=['login_page', 'positive'])
+@test(groups=['login_page', ])
 class UpdateDefaultPasswordTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -24,7 +24,7 @@ class UpdateDefaultPasswordTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'functional', 'positive', ])
     def test_update_default_password(cls):
         delay = 1
         result1, result2, result3 = False, False, False

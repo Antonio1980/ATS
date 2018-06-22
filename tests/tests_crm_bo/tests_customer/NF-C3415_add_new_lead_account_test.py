@@ -12,7 +12,7 @@ from tests.drivers.webdriver_factory import WebDriverFactory
 from src.test_utils.testrail_utils import update_test_case
 
 
-@test(groups=['tests_end2end', 'functional', 'sanity'])
+@test(groups=['customer_page', ])
 class AddNewLeadTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -25,7 +25,7 @@ class AddNewLeadTest(unittest.TestCase):
         cls.setup_login_page()
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'functional', 'positive', ])
     def test_add_new_lead_account(cls):
         delay = 1
         result1, result2, result3 = False, False, False

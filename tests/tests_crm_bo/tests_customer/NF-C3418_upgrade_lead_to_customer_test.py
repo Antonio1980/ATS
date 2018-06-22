@@ -12,7 +12,7 @@ from tests.drivers.webdriver_factory import WebDriverFactory
 from src.test_utils.testrail_utils import update_test_case
 
 
-@test(groups=['login_page', 'positive'])
+@test(groups=['customer_page', ])
 class LeadUpgradeStatusTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -24,7 +24,7 @@ class LeadUpgradeStatusTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'functional', 'positive', ])
     def test_upgrade_lead_status(cls):
         delay = 1
         result1, result2, result3 = False, False, False

@@ -10,7 +10,7 @@ from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 
 
-@test(groups=['functional', 'smoke', 'sanity'])
+@test(groups=['change_password_page', ])
 class ChangePasswordPageUiTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -20,7 +20,7 @@ class ChangePasswordPageUiTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'gui', 'positive', ])
     def test_change_password_page(cls):
         delay = 1
         result = False

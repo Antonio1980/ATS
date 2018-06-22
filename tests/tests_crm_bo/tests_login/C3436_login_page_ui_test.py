@@ -11,7 +11,7 @@ from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
 
 
-@test(groups=['functional', 'smoke', 'sanity'])
+@test(groups=['login_page', ])
 class LogInUiTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -21,7 +21,7 @@ class LogInUiTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'gui', 'positive', ])
     def test_login_page(cls):
         delay = 3
         result1, result2 = False, False

@@ -15,8 +15,8 @@ class LogInPage(BasePage):
     credentials = get_crm_credentials_positive(BaseConfig.CRM_LOGIN_DATA, 0, 0, 1)
     email = BaseConfig.CRM_CUSTOMER_EMAIL
     email_text = "An email has been sent to {0} which is the email address for your account. " \
-                      "It includes information on changing and confirming your new password. " \
-                      "Please reset your password within the next 24 hours.".format(email)
+                 "It includes information on changing and confirming your new password. " \
+                 "Please reset your password within the next 24 hours.".format(email)
     username = credentials['username']
     password = credentials['password']
 

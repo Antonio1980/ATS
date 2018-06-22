@@ -14,7 +14,7 @@ from tests.drivers.webdriver_factory import WebDriverFactory
 
 
 @ddt
-@test(groups=['functional', 'smoke', 'sanity'])
+@test(groups=['login_page', ])
 class LogInTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -24,7 +24,7 @@ class LogInTestDDT(unittest.TestCase):
         cls.test_case = '2593'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @test(groups=['login_page', 'ddt'])
+    @test(groups=['sanity', 'ddt', 'positive', ])
     @data(*get_csv_data(BaseConfig.CRM_LOGIN_DATA))
     @unpack
     def test_login(self, username, password):

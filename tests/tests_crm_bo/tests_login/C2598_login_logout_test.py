@@ -10,7 +10,7 @@ from tests.tests_crm_bo.pages import login_page, home_page
 from tests.drivers.webdriver_factory import WebDriverFactory
 
 
-@test(groups=['functional', 'smoke', 'sanity'])
+@test(groups=['login_page', ])
 class LogInLogOutLogInTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -21,7 +21,7 @@ class LogInLogOutLogInTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'functional', 'positive', ])
     def test_login_logout_login(cls):
         delay = 1
         result1, result2, result3 = False, False, False

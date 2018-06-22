@@ -16,7 +16,7 @@ from tests.tests_crm_bo.pages.users_management_page import UsersManagementPage
 
 
 @ddt
-@test(groups=['functional', 'smoke', 'sanity'])
+@test(groups=['create_user_page', ])
 class CreateNewUserTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -28,7 +28,7 @@ class CreateNewUserTestDDT(unittest.TestCase):
         cls.test_case = '1132'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @test(groups=['login_page', 'ddt'])
+    @test(groups=['sanity', 'ddt', ])
     @data(*get_csv_data(BaseConfig.CRM_CREATE_USER))
     @unpack
     def test_create_new_user(self, first_name, last_name, email, username):
