@@ -5,13 +5,13 @@ import unittest
 from ddt import data, unpack, ddt
 from proboscis import test
 from src.base.enums import Browsers
-from src.test_utils.file_utils import get_csv_data
 from tests.test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from tests.drivers.webdriver_factory import WebDriverFactory
 from src.test_utils.testrail_utils import update_test_case
 from tests.tests_crm_bo.pages.create_user_page import CreateUserPage
+from src.test_utils.file_utils import get_csv_data, write_file_result
 from tests.tests_crm_bo.pages.users_management_page import UsersManagementPage
 
 
@@ -41,8 +41,10 @@ class CreateNewUserTestDDT(unittest.TestCase):
             result4 = self.create_user_page.fill_user_details_ddt(self.driver, first_name, last_name, email, username)
         finally:
             if result1 & result2 is True & result3 & result4 is True:
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

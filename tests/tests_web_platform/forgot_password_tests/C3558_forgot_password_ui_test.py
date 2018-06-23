@@ -39,10 +39,10 @@ class ForgotPasswordUiTest(unittest.TestCase):
         finally:
             if result1 & result2 is True:
                 if cls.login_page.wait_element_presented(cls.driver, delay, ForgotPasswordPageLocators.SUBMIT_BUTTON):
-                    write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.TESTS_RESULT)
+                    write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                     update_test_case(cls.test_run, cls.test_case, 1)
             else:
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "0 \n", BaseConfig.TESTS_RESULT)
+                write_file_result(cls.test_case + "," + cls.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 0)
 
     @classmethod

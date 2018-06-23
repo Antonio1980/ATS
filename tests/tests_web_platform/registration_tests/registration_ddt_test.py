@@ -35,10 +35,10 @@ class RegistrationTestDDT(unittest.TestCase):
             result2 = self.registration_flow_ddt(self.driver, firstname, lastname, email, password)
         finally:
             if (result1 & result2) is True:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

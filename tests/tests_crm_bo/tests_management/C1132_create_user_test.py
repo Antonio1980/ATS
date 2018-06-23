@@ -5,6 +5,7 @@ import unittest
 from proboscis import test
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
+from src.test_utils.file_utils import write_file_result
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from tests.drivers.webdriver_factory import WebDriverFactory
@@ -37,8 +38,10 @@ class CreateNewUserTest(unittest.TestCase):
             result4 = cls.create_user_page.fill_user_details(cls.driver, delay)
         finally:
             if result1 & result2 is True & result3 & result4 is True:
+                write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:
+                write_file_result(cls.test_case + "," + cls.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 0)
 
     @classmethod

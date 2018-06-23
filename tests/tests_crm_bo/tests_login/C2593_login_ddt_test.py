@@ -6,11 +6,11 @@ from proboscis import test
 from ddt import ddt, data, unpack
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
-from src.test_utils.file_utils import get_csv_data
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
+from src.test_utils.file_utils import get_csv_data, write_file_result
 
 
 @ddt
@@ -35,8 +35,10 @@ class LogInTestDDT(unittest.TestCase):
             result2 = self.home_page.logout(self.driver, delay)
         finally:
             if result1 & result2 is True:
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
