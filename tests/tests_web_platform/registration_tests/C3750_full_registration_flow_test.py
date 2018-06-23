@@ -5,6 +5,7 @@ import unittest
 from proboscis import test
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
+from src.test_utils.file_utils import write_file_result
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
@@ -31,8 +32,10 @@ class RegistrationFlowTest(unittest.TestCase):
             result2 = cls.open_account_page.registration_flow(cls.driver, delay)
         finally:
             if (result1 & result2) is True:
+                write_file_result("3750 - Passed \n", BaseConfig.TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:
+                write_file_result("3750 - Passed \n", BaseConfig.TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 0)
 
     @classmethod

@@ -4,13 +4,13 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from src.test_utils.file_utils import get_account_details
-from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.test_definitions import BaseConfig
-from tests.tests_web_platform.pages.home_page import HomePage
 from src.test_utils.testrail_utils import update_test_case
+from tests.drivers.webdriver_factory import WebDriverFactory
+from tests.tests_web_platform.pages.home_page import HomePage
 from src.test_utils.mailinator_utils import get_email_updates
 from tests.tests_web_platform.pages.login_page import LogInPage
+from src.test_utils.file_utils import get_account_details, write_file_result
 from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
 
 
@@ -43,8 +43,10 @@ class ForgotPasswordTest(unittest.TestCase):
             result4 = get_email_updates(cls.driver, cls.email, 3)
         finally:
             if (result1 & result2 is True) & (result3 & result4 is True):
+                write_file_result("3668 - Passed \n", BaseConfig.TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:
+                write_file_result("3668 - Failed \n", BaseConfig.TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 0)
 
     @classmethod

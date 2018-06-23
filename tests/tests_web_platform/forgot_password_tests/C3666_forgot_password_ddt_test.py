@@ -6,11 +6,11 @@ from proboscis import test
 from ddt import unpack, data, ddt
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
-from src.test_utils.file_utils import get_csv_data
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.login_page import LogInPage
+from src.test_utils.file_utils import get_csv_data, write_file_result
 from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
 
 
@@ -39,8 +39,10 @@ class ForgotPasswordTestDDT(unittest.TestCase):
             result3 = self.forgot_password_page.fill_email_address_form_ddt(self.driver, email, delay)
         finally:
             if (result1 & result2 & result3) is True:
+                write_file_result("3666 - Passed \n", BaseConfig.TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
+                write_file_result("3666 - Failed \n", BaseConfig.TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

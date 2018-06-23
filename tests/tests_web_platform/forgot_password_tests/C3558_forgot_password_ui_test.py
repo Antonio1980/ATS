@@ -4,13 +4,14 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.test_definitions import BaseConfig
-from tests.tests_web_platform.locators.forgot_password_page_locators import ForgotPasswordPageLocators
-from tests.tests_web_platform.pages import forgot_password_page_url
-from tests.tests_web_platform.pages.home_page import HomePage
+from src.test_utils.file_utils import write_file_result
 from src.test_utils.testrail_utils import update_test_case
+from tests.drivers.webdriver_factory import WebDriverFactory
+from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.login_page import LogInPage
+from tests.tests_web_platform.pages import forgot_password_page_url
+from tests.tests_web_platform.locators.forgot_password_page_locators import ForgotPasswordPageLocators
 
 
 @test(groups=['forgot_password_page', ])
@@ -38,8 +39,10 @@ class ForgotPasswordUiTest(unittest.TestCase):
         finally:
             if result1 & result2 is True:
                 if cls.login_page.wait_element_presented(cls.driver, delay, ForgotPasswordPageLocators.SUBMIT_BUTTON):
+                    write_file_result("3558 - Passed \n", BaseConfig.TESTS_RESULT)
                     update_test_case(cls.test_run, cls.test_case, 1)
             else:
+                write_file_result("3558 - Failed \n", BaseConfig.TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 0)
 
     @classmethod

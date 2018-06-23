@@ -6,10 +6,10 @@ from proboscis import test
 from ddt import data, unpack, ddt
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
-from src.test_utils.file_utils import get_csv_data
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
+from src.test_utils.file_utils import get_csv_data, write_file_result
 from tests.tests_web_platform.pages.open_account_page import OpenAccountPage
 
 
@@ -35,8 +35,10 @@ class RegistrationTestDDT(unittest.TestCase):
             result2 = self.registration_flow_ddt(self.driver, firstname, lastname, email, password)
         finally:
             if (result1 & result2) is True:
+                write_file_result(" - Passed \n", BaseConfig.TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
+                write_file_result(" - Failed \n", BaseConfig.TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

@@ -5,12 +5,12 @@ import unittest
 from proboscis import test
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
-from src.test_utils.file_utils import get_account_details
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from src.test_utils.mailinator_utils import get_email_updates
 from tests.tests_web_platform.pages.login_page import LogInPage
+from src.test_utils.file_utils import get_account_details, write_file_result
 from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
 
 
@@ -44,8 +44,10 @@ class ResetPasswordEmailTest(unittest.TestCase):
             print(data)
         finally:
             if (result1 & result2 & result3) is True:
+                write_file_result("3669 - Passed \n", BaseConfig.TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:
+                write_file_result("3669 - Failed \n", BaseConfig.TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 0)
 
     @classmethod

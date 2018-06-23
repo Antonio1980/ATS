@@ -359,25 +359,25 @@ class Browser(object):
         except Exception as e:
             print('{}: TimeoutException element not found: {}'.format(self.__class__, e))
 
-    # def if_page_loaded(cls, delay, page_elements):
-    #     WebDriverWait(cls.get_driver(), delay).all_elements.get(0).get_locator_by()
+    # def if_page_loaded(self, delay, page_elements):
+    #     WebDriverWait(self.get_driver(), delay).all_elements.get(0).get_locator_by()
 
     # need to change for elements
-    # def print_objects_text(cls, delay, locator):
-    #     element = cls.wait_element_presented(delay, locator)
+    # def print_objects_text(self, delay, locator):
+    #     element = self.wait_element_presented(delay, locator)
     #     print(element.get_text())
 
     # need to change for elements
-    # def get_num_of_elements(cls, locator):
-    #     elements = cls.find_elements(locator)
+    # def get_num_of_elements(self, locator):
+    #     elements = self.find_elements(locator)
     #     return elements.size()
 
-    # def click_on_button(cls, locator, index):
-    #     cls.find_elements(locator).get(index).click()
+    # def click_on_button(self, locator, index):
+    #     self.find_elements(locator).get(index).click()
 
     # for purpose need to create check_checkbox method
-    # def if_parent_element_exists(cls, delay, locator, element):
-    #     cls.driver_wait(delay)
+    # def if_parent_element_exists(self, delay, locator, element):
+    #     self.driver_wait(delay)
     #     result = element.find_elements(locator).size() != 0
     #     return result
 
