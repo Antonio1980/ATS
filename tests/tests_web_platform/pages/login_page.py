@@ -16,7 +16,7 @@ class LogInPage(BasePage):
         details = get_account_details(BaseConfig.OPEN_ACCOUNT_DATA, 0, 0, 1, 2, 3)
         self.email = details['email']
         self.password = details['password']
-        self.script = '$(".formContainer.formBox input.captchaCode").val("sdfgsdfgsdfdfssdfgsdfg");'
+        self.script = '$(".formContainer.formBox input.captchaCode").val("test_test");'
 
     def login_positive(self, driver, delay =+ 1):
         try:

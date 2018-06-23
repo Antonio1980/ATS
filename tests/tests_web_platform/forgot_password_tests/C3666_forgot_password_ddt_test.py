@@ -39,10 +39,10 @@ class ForgotPasswordTestDDT(unittest.TestCase):
             result3 = self.forgot_password_page.fill_email_address_form_ddt(self.driver, email, delay)
         finally:
             if (result1 & result2 & result3) is True:
-                write_file_result("3666 - Passed \n", BaseConfig.TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result("3666 - Failed \n", BaseConfig.TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
