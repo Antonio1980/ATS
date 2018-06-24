@@ -14,6 +14,9 @@ class BaseConfig(object):
     BO_BASE_URL = parser.get('BASE_URL', 'base_url_bo')
     ME_BASE_URL = parser.get('BASE_URL', 'base_url_me')
     WTP_BASE_URL = parser.get('BASE_URL', 'base_url_wtp')
+    WTP_INTEGRATION_URL = parser.get('BASE_URL', 'wtp_integration_url')
+    WTP_STAGING_URL = parser.get('BASE_URL', 'wtp_staging_url')
+    CRM_STAGING_URL = parser.get('BASE_URL', 'crm_staging_url')
     CRM_INTEGRATION_URL = parser.get('BASE_URL', 'crm_integration_url')
     BO_INTEGRATION_URL = parser.get('BASE_URL', 'bo_integration_url')
 
@@ -26,6 +29,9 @@ class BaseConfig(object):
     L_CHROME_PATH = path_dir + parser.get('WEB_DRIVER_LIN', 'l_chrome')
     L_FIREFOX_PATH = path_dir + parser.get('WEB_DRIVER_LIN', 'l_firefox')
 
+    WTP_TESTS_RESULT = path_dir + parser.get('TEST_DATA', 'wtp_tests_result')
+    WTP_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'wtp_login_data_csv')
+    CRM_TESTS_RESULT = path_dir + parser.get('TEST_DATA', 'crm_tests_result')
     CRM_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'crm_login_data_csv')
     CRM_FORGOT_DATA = path_dir + parser.get('TEST_DATA', 'crm_forgot_data_csv')
     CRM_CREATE_USER = path_dir + parser.get('TEST_DATA', 'crm_create_user_csv')
@@ -45,6 +51,7 @@ class BaseConfig(object):
 
     CRM_CUSTOMER_ID = parser.get('USERS', 'crm_customer_id')
     CRM_CUSTOMER_EMAIL = parser.get('USERS', 'crm_customer_email')
+    WTP_USER_EMAIL = parser.get('USERS', 'wtp_user_email')
 
     BIN_CARD_NUMBER = parser.get('CREDIT_CARD', 'bin_number')
     CC_CARD_NUMBER = parser.get('CREDIT_CARD', 'cc_number')
