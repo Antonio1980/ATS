@@ -15,11 +15,11 @@ class LogInPage(BasePage):
         details = get_account_details(BaseConfig.OPEN_ACCOUNT_DATA, 0, 0, 1, 2, 3)
         self.email = details['email']
         self.password = details['password']
-        self.script = '$(".formContainer.formBox input.captchaCode").val("test_test");'
+
 
     def login_positive(self, driver, delay =+ 1):
         try:
-            self.driver_wait(driver, delay + 3)
+            self.wait_driver(driver, delay + 3)
             assert wtp_login_page_url == self.get_cur_url(driver)
             username_field = self.find_element(driver, LogInPageLocators.USERNAME_FIELD)
             self.click_on_element(username_field)
@@ -29,7 +29,7 @@ class LogInPage(BasePage):
             self.click_on_element(password_field)
             self.send_keys(password_true_field, self.password)
             self.driver_wait(driver, delay + 5)
-            self.execute_js(driver, self.script)
+            self.execute_js(driver, self.script_login)
             login_button = self.find_element(driver, LogInPageLocators.SIGNIN_BUTTON)
             self.click_on_element(login_button)
             self.driver_wait(driver, delay + 2)
@@ -42,7 +42,7 @@ class LogInPage(BasePage):
     def login_ddt(self, driver, email, password):
         delay = 1
         try:
-            self.driver_wait(driver, delay + 3)
+            self.wait_driver(driver, delay + 3)
             assert wtp_login_page_url == self.get_cur_url(driver)
             username_field = self.find_element(driver, LogInPageLocators.USERNAME_FIELD)
             self.click_on_element(username_field)
@@ -52,7 +52,7 @@ class LogInPage(BasePage):
             self.click_on_element(password_field)
             self.send_keys(password_true_field, password)
             self.driver_wait(driver, delay + 5)
-            self.execute_js(driver, self.script)
+            self.execute_js(driver, self.script_login)
             login_button = self.find_element(driver, LogInPageLocators.SIGNIN_BUTTON)
             self.click_on_element(login_button)
             self.driver_wait(driver, delay + 2)
@@ -64,7 +64,7 @@ class LogInPage(BasePage):
 
     def click_on_forgot_password(self, driver, delay =+ 1):
         try:
-            self.driver_wait(driver, delay)
+            self.wait_driver(driver, delay)
             assert wtp_login_page_url == self.get_cur_url(driver)
             forgot_link = self.find_element(driver, LogInPageLocators.FORGOT_PASSWORD_LINK)
             self.click_on_element(forgot_link)

@@ -27,18 +27,18 @@ class ForgotPasswordTestDDT(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @test(groups=['sanity', 'ddt', 'negative', ])
-    @data(*get_csv_data(BaseConfig.CRM_FORGOT_DATA))
+    @data(*get_csv_data(BaseConfig.FORGOT_PASSWORD_DATA))
     @unpack
     def test_forgot_password_ddt(self, email):
         delay = 1
-        result1, result2, result3 = False, False, False
+        result1, result2, result3 = False, False, True
         try:
             result1 = self.home_page.open_login_page(self.driver, delay)
             result2 = self.login_page.click_on_forgot_password(self.driver, delay)
             self.login_page.driver_wait(self.driver, delay)
-            result3 = self.forgot_password_page.fill_email_address_form_ddt(self.driver, email, delay)
+            result3 = self.forgot_password_page.fill_email_address_form(self.driver, email, delay)
         finally:
-            if (result1 & result2 & result3) is True:
+            if (result1 and result2 is True) and (result3 is False):
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:

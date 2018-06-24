@@ -2,8 +2,8 @@
 # -*- coding: utf8 -*-
 
 import unittest
-from ddt import unpack, ddt, data
 from proboscis import test
+from ddt import unpack, ddt, data
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
 from src.test_utils.testrail_utils import update_test_case
@@ -20,7 +20,7 @@ class LogInTest(unittest.TestCase):
     def setUpClass(cls):
         cls.home_page = HomePage()
         cls.login_page = LogInPage()
-        cls.test_case = '3690'
+        cls.test_case = '3832'
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 

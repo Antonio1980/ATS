@@ -13,9 +13,7 @@ def email_generator(size=8, chars=string.ascii_lowercase + string.digits):
 def get_email_updates(driver, email, action):
     change_password = "//a[contains(text(),'Change Password')]"
     verify_email = "//a[contains(text(),'Verify Email')]"
-    pattern = r"[a-zA-Z0-9]@$"
-    email_box = re.match(pattern, email)
-    mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}#".format(email_box)
+    mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}".format(email)
     driver.get(mailinator_box_url)
     pause_button = driver.find_element_by_xpath("//*[@id='play_button']")
     pause_button.click()

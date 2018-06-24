@@ -23,7 +23,6 @@ class OpenAccountPage(BasePage):
         self.email = email_generator() + email_suffix
         self.terms_url = "https://dx.exchange/terms-of-use/"
         self.privacy_url = "https://dx.exchange/privacy-policy/"
-        self.script = '$("input[name=\'captcha\']").val("sdfgsdfgsdfdfssdfgsdfg");'
         self.element = "//*[@class='userEmail'][contains(.,'')]"
 
     def registration_flow_ddt(self, driver, firstname, lastname, email, password):
@@ -43,11 +42,10 @@ class OpenAccountPage(BasePage):
             password_field = self.find_element(driver, OpenAccountPageLocators.PASSWORD_FIELD)
             self.click_on_element(password_field)
             self.send_keys(password_field, password)
-            logo = self.find_element(driver, OpenAccountPageLocators.OPEN_ACCOUNT_LOGO)
-            time.sleep(5)
-            self.click_with_offset(driver, logo, 3, 3)
-            # captcha = self.find_element(driver, OpenAccountPageLocators.CAPTCHA)
-            self.execute_js(driver, self.script)
+            #logo = self.find_element(driver, OpenAccountPageLocators.OPEN_ACCOUNT_LOGO)
+            #time.sleep(5)
+            #self.click_with_offset(driver, logo, 3, 3)
+            self.execute_js(driver, self.script_signup)
             create_account_button = self.find_element(driver, OpenAccountPageLocators.CREATE_ACCOUNT_BUTTON)
             self.click_on_element(create_account_button)
             self.driver_wait(driver, delay + 1)
@@ -78,14 +76,13 @@ class OpenAccountPage(BasePage):
             self.driver_wait(driver, delay + 3)
             certify_checkbox = self.find_element(driver, OpenAccountPageLocators.CERTIFY_CHECKBOX)
             self.click_on_element(certify_checkbox)
-            captcha_frame = self.find_element(driver, OpenAccountPageLocators.CAPTCHA_FRAME)
-            self.click_with_offset(driver, captcha_frame, 10, 10)
-            self.driver_wait(driver, delay + 5)
-            logo = self.find_element(driver, OpenAccountPageLocators.OPEN_ACCOUNT_LOGO)
-            time.sleep(4)
-            self.click_with_offset(driver, logo, 5, 5)
-            #captcha = self.find_element(driver, OpenAccountPageLocators.CAPTCHA)
-            self.execute_js(driver, self.script)
+            # captcha_frame = self.find_element(driver, OpenAccountPageLocators.CAPTCHA_FRAME)
+            # self.click_with_offset(driver, captcha_frame, 10, 10)
+            # self.driver_wait(driver, delay + 5)
+            # logo = self.find_element(driver, OpenAccountPageLocators.OPEN_ACCOUNT_LOGO)
+            #time.sleep(4)
+            #self.click_with_offset(driver, logo, 5, 5)
+            self.execute_js(driver, self.script_signup)
             create_account_button = self.find_element(driver, OpenAccountPageLocators.CREATE_ACCOUNT_BUTTON)
             self.click_on_element(create_account_button)
             self.driver_wait(driver, delay + 1)

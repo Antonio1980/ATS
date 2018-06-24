@@ -3,14 +3,16 @@
 
 import unittest
 from proboscis import test
+
+from src.base.data_base import DataBase
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
+from src.test_utils.file_utils import write_file_result
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from src.test_utils.mailinator_utils import get_email_updates
 from tests.tests_web_platform.pages.login_page import LogInPage
-from src.test_utils.file_utils import get_account_details, write_file_result
 from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
 
 
@@ -20,13 +22,14 @@ class ForgotPasswordTest(unittest.TestCase):
     def setUpClass(cls):
         cls.login_page = LogInPage()
         cls.home_page = HomePage()
+        cls.data_base = DataBase()
         cls.forgot_password_page = ForgotPasswordPage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3668'
         cls.test_run = BaseConfig.TESTRAIL_RUN
-        # data_file, row, column1, column2, column3, column4
-        details = get_account_details(BaseConfig.OPEN_ACCOUNT_DATA, 0, 0, 1, 2, 3)
-        cls.email = details['email']
+        rows = cls.data_base.run_query("SELECT c.email FROM customers c WHERE status=1;")
+        cls.email = rows[0]
+        #cls.email = "fresh_blood_34@mailinator.com"  # 1Aa@<>12
 
     @classmethod
     @test(groups=['sanity', 'functional', 'positive', ])
@@ -37,9 +40,9 @@ class ForgotPasswordTest(unittest.TestCase):
             result1 = cls.home_page.open_login_page(cls.driver, delay)
             result2 = cls.login_page.click_on_forgot_password(cls.driver, delay)
             cls.login_page.driver_wait(cls.driver, delay)
-            result3 = cls.forgot_password_page.fill_email_address_form(cls.driver, delay)
+            result3 = cls.forgot_password_page.fill_email_address_form(cls.driver, cls.email, delay)
             cls.login_page.driver_wait(cls.driver, delay)
-            # 1 - get_updates, 2 - click on change_pasword, 3 - click on verify_email
+            # 1 - get_updates, 2 - click on change_password, 3 - click on verify_email
             result4 = get_email_updates(cls.driver, cls.email, 3)
         finally:
             if (result1 & result2 is True) & (result3 & result4 is True):

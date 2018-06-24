@@ -23,7 +23,7 @@ class ForgotPasswordTestDDT(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @test(groups=['sanity', 'ddt', 'positive', ])
-    @data(*get_csv_data(BaseConfig.CRM_FORGOT_DATA))
+    @data(*get_csv_data(BaseConfig.FORGOT_PASSWORD_DATA))
     @unpack
     def test_forgot_password_ddt(self, email):
         delay = 1

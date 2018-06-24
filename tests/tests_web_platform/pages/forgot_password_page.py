@@ -11,34 +11,16 @@ from tests.tests_web_platform.locators.forgot_password_page_locators import Forg
 class ForgotPasswordPage(BasePage):
     def __init__(self):
         super(ForgotPasswordPage, self).__init__()
-        # data_file, row, column1, column2, column3, column4
-        details = get_account_details(BaseConfig.OPEN_ACCOUNT_DATA, 0, 0, 1, 2, 3)
-        email_suffix = "@mailinator"
-        self.negative_email = details['email']
-        self.email = email_generator() + email_suffix
 
-    def fill_email_address_form(self, driver, delay =+ 1):
-        try:
-            self.driver_wait(driver, delay)
-            assert forgot_password_page_url == self.get_cur_url(driver)
-            email_field = self.find_element(driver, ForgotPasswordPageLocators.EMAIL_TEXT_FIELD)
-            self.click_on_element(email_field)
-            self.send_keys(email_field, self.email)
-            submit_button = self.find_element(driver, ForgotPasswordPageLocators.SUBMIT_BUTTON)
-            self.click_on_element(submit_button)
-        finally:
-            if self.get_cur_url(driver) ==  forgot_password_page_url:
-                return True
-            else:
-                return False
-
-    def fill_email_address_form_ddt(self, driver, email, delay =+ 1):
+    def fill_email_address_form(self, driver, email, delay =+ 1):
         try:
             self.driver_wait(driver, delay)
             assert forgot_password_page_url == self.get_cur_url(driver)
             email_field = self.find_element(driver, ForgotPasswordPageLocators.EMAIL_TEXT_FIELD)
             self.click_on_element(email_field)
             self.send_keys(email_field, email)
+            self.wait_driver(driver, delay + 3)
+            self.execute_js(driver, self.script_forgot)
             submit_button = self.find_element(driver, ForgotPasswordPageLocators.SUBMIT_BUTTON)
             self.click_on_element(submit_button)
         finally:
@@ -47,17 +29,3 @@ class ForgotPasswordPage(BasePage):
             else:
                 return False
 
-    def fill_email_address_form_negative(self, driver, delay =+ 1):
-        try:
-            self.driver_wait(driver, delay)
-            assert forgot_password_page_url == self.get_cur_url(driver)
-            email_field = self.find_element(driver, ForgotPasswordPageLocators.EMAIL_TEXT_FIELD)
-            self.click_on_element(email_field)
-            self.send_keys(email_field, self.negative_email)
-            submit_button = self.find_element(driver, ForgotPasswordPageLocators.SUBMIT_BUTTON)
-            self.click_on_element(submit_button)
-        finally:
-            if self.get_cur_url(driver) ==  forgot_password_page_url:
-                return True
-            else:
-                return False
