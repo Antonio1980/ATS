@@ -3,42 +3,38 @@
 
 import unittest
 from proboscis import test
-from ddt import unpack, data, ddt
+from ddt import unpack, ddt, data
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.login_page import LogInPage
-from src.test_utils.file_utils import get_csv_data, write_file_result
-from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
+from src.test_utils.file_utils import write_file_result, get_csv_data
 
 
 @ddt
-@test(groups=['forgot_password_page', ])
-class ForgotPasswordTestDDT(unittest.TestCase):
+@test(groups=['open_account_page', ])
+class LogInTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.login_page = LogInPage()
         cls.home_page = HomePage()
-        cls.forgot_password_page = ForgotPasswordPage()
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = '3666'
+        cls.login_page = LogInPage()
+        cls.test_case = '3832'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', 'negative', ])
-    @data(*get_csv_data(BaseConfig.FORGOT_PASSWORD_DATA))
+    @data(*get_csv_data(BaseConfig.WTP_LOGIN_DATA))
     @unpack
-    def test_forgot_password_ddt(self, email):
+    def test_login_positive(self, email, password):
         delay = 1
-        result1, result2, result3 = False, False, True
+        result1, result2 = False, False
         try:
             result1 = self.home_page.open_login_page(self.driver, delay)
-            result2 = self.login_page.click_on_forgot_password(self.driver, delay)
-            self.login_page.driver_wait(self.driver, delay)
-            result3 = self.forgot_password_page.fill_email_address_form(self.driver, email, delay)
+            result2 = self.login_page.login_ddt(self.driver, email, password)
         finally:
-            if (result1 and result2 is True) and (result3 is False):
+            if result1 & result2 is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
@@ -47,4 +43,4 @@ class ForgotPasswordTestDDT(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        cls.home_page.close_browser(cls.driver)
+        cls.login_page.close_browser(cls.driver)

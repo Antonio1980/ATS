@@ -13,6 +13,6 @@ class LogInPageLocators(object):
     CAPTCHA_MAIN_FRAME = "//*[@class='g-recaptcha'][@data-theme='light']"
     SIGNIN_BUTTON = "//input[@class='formButton']" # "//input[@value='Sign In']"
     KEEP_ME_CHECKBOX = "//*[@class='checkmark']"
-    FORGOT_PASSWORD_LINK = "//*[@class='authPopupForgotPassword'][contains(text(),'Forgot you password?')]"
+    FORGOT_PASSWORD_LINK = "//*[@class='authPopupForgotPassword']" # [contains(text(),'Forgot you password?')]
     REGISTER_LINK = "//*[@class='authPopupRegister']"
 

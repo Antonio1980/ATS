@@ -2,24 +2,25 @@
 # -*- coding: utf8 -*-
 
 import pymysql
+from tests.test_definitions import BaseConfig
 
 
 class DataBase(object):
-    @classmethod
-    def setup_db(cls, host, username, password):
-        cls.host = host
-        cls.username = username
-        cls.password = password
+    def __init__(self):
+        _host = BaseConfig.DB_HOST
+        _username = BaseConfig.DB_USERNAME
+        _password = BaseConfig.DB_PASSWORD
+        _db_name = BaseConfig.DB_NAME
+        _port = 30002
+        self.connection = pymysql.connect(host=_host, port=_port, user=_username, passwd=_password, database=_db_name)
 
-    @classmethod
-    def run_query(cls, db_name, query):
-        cls.connection = pymysql.connect(host=cls.host, user=cls.username, passwd=cls.password, database=db_name)
-        cls.cursor = cls.connection.cursor()
-        cls.cursor.execute(query)
-        rows = cls.cursor.fetchall()
-        return rows
-
-    @classmethod
-    def close_db(cls):
-        cls.connection.commit()
-        cls.connection.close()
+    def run_query(self, query):
+        rows = []
+        try:
+            cursor = self.connection.cursor()
+            cursor.execute(query)
+            rows = cursor.fetchall()
+        finally:
+            self.connection.commit()
+            self.connection.close()
+            return rows
