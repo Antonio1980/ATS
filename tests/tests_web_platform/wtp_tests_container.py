@@ -2,9 +2,9 @@
 # -*- coding: utf8 -*-
 
 import unittest
-from tests.tests_web_platform.forgot_password_tests.C3558_forgot_password_ui_test import ForgotPasswordUiTest
-from tests.tests_web_platform.registration_tests.full_registration_flow_test import RegistrationFlowTest
 from tests.tests_web_platform.registration_tests.registration_ddt_test import RegistrationTestDDT
+from tests.tests_web_platform.forgot_password_tests.C3558_forgot_password_ui_test import ForgotPasswordUiTest
+from tests.tests_web_platform.registration_tests.C3750_full_registration_flow_test import RegistrationFlowTest
 
 
 # loading test cases

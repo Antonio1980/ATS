@@ -7,7 +7,7 @@ from src.base.enums import OperationSystem
 
 def detect_os():
     """
-    Checks the Operational Sysytem.
+    Checks the Operational System.
     :return: String with OS name.
     """
     if _is_mac():

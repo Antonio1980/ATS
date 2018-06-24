@@ -20,7 +20,7 @@ class LogInPage(BasePage):
 
     def login_positive(self, driver, delay =+ 1):
         try:
-            self.wait_driver(driver, delay + 5)
+            self.driver_wait(driver, delay + 3)
             assert wtp_login_page_url == self.get_cur_url(driver)
             username_field = self.find_element(driver, LogInPageLocators.USERNAME_FIELD)
             self.click_on_element(username_field)
@@ -29,7 +29,12 @@ class LogInPage(BasePage):
             password_field = self.find_element(driver, LogInPageLocators.PASSWORD_FIELD)
             self.click_on_element(password_field)
             self.send_keys(password_true_field, self.password)
+            #captcha_frame = self.find_element(driver, LogInPageLocators.CAPTCHA_FRAME)
+            #self.click_with_offset(driver, captcha_frame, 10, 10)
             self.driver_wait(driver, delay + 5)
+            #title = self.find_element(driver, LogInPageLocators.SIGNIN_BOX)
+            #time.sleep(5)
+            #self.click_with_offset(driver, title, 2, 2)
             self.execute_js(driver, self.script)
             login_button = self.find_element(driver, LogInPageLocators.SIGNIN_BUTTON)
             self.click_on_element(login_button)
@@ -49,29 +54,6 @@ class LogInPage(BasePage):
             self.driver_wait(driver, delay)
         finally:
             if self.get_cur_url(driver) == forgot_password_page_url:
-                return True
-            else:
-                return False
-
-    def login_ddt(self, driver, email, password):
-        delay = 1
-        try:
-            self.wait_driver(driver, delay + 5)
-            assert wtp_login_page_url == self.get_cur_url(driver)
-            username_field = self.find_element(driver, LogInPageLocators.USERNAME_FIELD)
-            self.click_on_element(username_field)
-            self.send_keys(username_field, email)
-            password_true_field = self.find_element(driver, LogInPageLocators.PASSWORD_TRUE_FIELD)
-            password_field = self.find_element(driver, LogInPageLocators.PASSWORD_FIELD)
-            self.click_on_element(password_field)
-            self.send_keys(password_true_field, password)
-            self.driver_wait(driver, delay + 5)
-            self.execute_js(driver, self.script)
-            login_button = self.find_element(driver, LogInPageLocators.SIGNIN_BUTTON)
-            self.click_on_element(login_button)
-            self.driver_wait(driver, delay + 2)
-        finally:
-            if self.get_cur_url(driver) == wtp_dashboard_url:
                 return True
             else:
                 return False

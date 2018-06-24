@@ -6,14 +6,14 @@ from proboscis import test
 from ddt import ddt, data, unpack
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
-from src.test_utils.file_utils import get_csv_data
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
+from src.test_utils.file_utils import get_csv_data, write_file_result
 
 
 @ddt
-@test(groups=['tests_end2end', 'functional', 'sanity'])
+@test(groups=['login_page', ])
 class ForgotPasswordTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -22,7 +22,7 @@ class ForgotPasswordTestDDT(unittest.TestCase):
         cls.test_case = '2694'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'ddt', 'positive', ])
     @data(*get_csv_data(BaseConfig.CRM_FORGOT_DATA))
     @unpack
     def test_forgot_password_ddt(self, email):
@@ -32,8 +32,10 @@ class ForgotPasswordTestDDT(unittest.TestCase):
             result = self.login_page.forgot_password(self.driver, delay, email)
         finally:
             if result is True:
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

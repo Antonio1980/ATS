@@ -30,7 +30,6 @@ class BaseConfig(object):
     L_FIREFOX_PATH = path_dir + parser.get('WEB_DRIVER_LIN', 'l_firefox')
 
     WTP_TESTS_RESULT = path_dir + parser.get('TEST_DATA', 'wtp_tests_result')
-    WTP_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'wtp_login_data_csv')
     CRM_TESTS_RESULT = path_dir + parser.get('TEST_DATA', 'crm_tests_result')
     CRM_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'crm_login_data_csv')
     CRM_FORGOT_DATA = path_dir + parser.get('TEST_DATA', 'crm_forgot_data_csv')

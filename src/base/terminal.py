@@ -3,9 +3,9 @@
 
 import os as _os
 import subprocess
+from src.base.enums import OperationSystem
 from src.test_utils.os_utils import detect_os
 from src.test_utils.file_utils import write_file_output
-from src.base.enums import OperationSystem
 
 
 class Terminal(object):

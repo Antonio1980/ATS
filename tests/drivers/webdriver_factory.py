@@ -1,7 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
-import selenium.webdriver as webdriver
+from selenium import webdriver
 from tests.test_definitions import BaseConfig
 from src.test_utils.os_utils import detect_os
 from src.base.enums import OperationSystem, Browsers
@@ -14,7 +14,7 @@ class WebDriverFactory():
             browser_name = "chrome"
         if detect_os() == OperationSystem.WINDOWS.value:
             return cls.get_browser_win(browser_name)
-        elif detect_os() == (OperationSystem.DARWIN.value | OperationSystem.LINUX.value):
+        elif (detect_os() == OperationSystem.DARWIN.value) | (detect_os() == OperationSystem.LINUX.value):
             return cls.get_browser_lin(browser_name)
         else:
             raise Exception("Operational System not detected.")

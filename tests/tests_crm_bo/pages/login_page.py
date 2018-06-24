@@ -15,8 +15,8 @@ class LogInPage(BasePage):
     credentials = get_crm_credentials_positive(BaseConfig.CRM_LOGIN_DATA, 0, 0, 1)
     email = BaseConfig.CRM_CUSTOMER_EMAIL
     email_text = "An email has been sent to {0} which is the email address for your account. " \
-                      "It includes information on changing and confirming your new password. " \
-                      "Please reset your password within the next 24 hours.".format(email)
+                 "It includes information on changing and confirming your new password. " \
+                 "Please reset your password within the next 24 hours.".format(email)
     username = credentials['username']
     password = credentials['password']
 
@@ -67,14 +67,13 @@ class LogInPage(BasePage):
             self.click_on_element_by_locator(driver, delay + 2, LogInPageLocators.FORGOT_PASSWORD_LINK)
             email_field = self.find_element_by(driver, LogInPageLocators.POPUP_EMAIL_FIELD_ID, "id")
             self.send_keys(email_field, email)
+            self.driver_wait(driver, delay)
             send_button = self.find_element_by(driver, LogInPageLocators.POPUP_SEND_BUTTON_ID, "id")
             self.click_on_element(send_button)
             self.driver_wait(driver, delay)
-            if self.wait_element_presented(driver, delay + 3, LogInPageLocators.POPUP_ERROR_MESSAGE_ID) is None:
-                self.click_on_element_by_locator(driver, delay + 1, LogInPageLocators.EMAIL_POPUP_CLOSE_BUTTON)
         finally:
-            self.driver_wait(driver, delay)
-            if self.wait_element_presented(driver, delay + 3, LogInPageLocators.POPUP_CHECK) is not None:
+            if self.wait_element_presented(driver, delay + 3, LogInPageLocators.POPUP_CHECK):
+                self.click_on_element_by_locator(driver, delay + 1, LogInPageLocators.EMAIL_POPUP_CLOSE_BUTTON)
                 return True
             else:
                 return False

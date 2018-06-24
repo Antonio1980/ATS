@@ -12,11 +12,12 @@ class LogInPageLocators(object):
     FORGOT_PASSWORD_LINK = "//*[@class='forgot help-block']" #"//*[@class='pull-left'][contains(.,'Forgot your password?')]"
 
     # Forgot password pop up
-    POPUP_ID = "myModal"
+    POPUP_ID = "myModal" # //*[@id='myModal']
     POPUP_FORGOT_PASSWORD = "//div[@id='myModal'][@aria-hidden='false']//div[@class='modal-content']"
     POPUP_CHECK = "//div[@id='myModal'][@aria-hidden='true']"
     POPUP_HEADER = POPUP_FORGOT_PASSWORD + "//h3[@id='forgetheader'][contains(text(),'Forgot your password?')]"
     POPUP_SEND_BUTTON_ID = "sendMail" #"//*[@id='sendMail']"
+    POPUP_SEND_BUTTON = "//*[@id='sendMail']"
     POPUP_CLOSE_BUTTON = "//button[@class='btn btn-default'][contains(text(),'Close')]"
     POPUP_EMAIL_FIELD_ID = "email" #"//input[@id='email']"
     POPUP_ERROR_MESSAGE_ID = "//span[@id='errorMsg'][contains(text(),'Please enter a valid email address')]"

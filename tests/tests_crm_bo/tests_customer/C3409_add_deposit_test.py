@@ -5,6 +5,7 @@ import unittest
 from proboscis import test
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
+from src.test_utils.file_utils import write_file_result
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.test_utils.testrail_utils import update_test_case
@@ -12,7 +13,7 @@ from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_crm_bo.pages.customer_page import CustomerPage
 
 
-@test(groups=['tests_end2end', 'functional', 'sanity'])
+@test(groups=['customer_page', ])
 class AddDepositTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -24,7 +25,7 @@ class AddDepositTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'functional', 'positive', ])
     def test_add_deposit(cls):
         delay = 1
         amount = 100
@@ -36,8 +37,10 @@ class AddDepositTest(unittest.TestCase):
             result4 = cls.customer_page.check_balance(cls.driver, delay)
         finally:
             if (result1 & result2 is True) & (result3 & result4 is True):
+                write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:
+                write_file_result(cls.test_case + "," + cls.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 0)
 
     @classmethod

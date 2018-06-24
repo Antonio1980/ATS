@@ -11,10 +11,11 @@ from tests.tests_web_platform.locators.forgot_password_page_locators import Forg
 class ForgotPasswordPage(BasePage):
     def __init__(self):
         super(ForgotPasswordPage, self).__init__()
+        # data_file, row, column1, column2, column3, column4
         details = get_account_details(BaseConfig.OPEN_ACCOUNT_DATA, 0, 0, 1, 2, 3)
         email_suffix = "@mailinator"
-        self.email = details['email']
-        self.negative_email = email_generator() + email_suffix
+        self.negative_email = details['email']
+        self.email = email_generator() + email_suffix
 
     def fill_email_address_form(self, driver, delay =+ 1):
         try:

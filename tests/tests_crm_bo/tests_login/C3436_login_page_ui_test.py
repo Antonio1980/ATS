@@ -5,13 +5,14 @@ import unittest
 from proboscis import test
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
+from src.test_utils.file_utils import write_file_result
 from tests.tests_crm_bo.pages.base_page import BasePage
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
 
 
-@test(groups=['functional', 'smoke', 'sanity'])
+@test(groups=['login_page', ])
 class LogInUiTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -21,7 +22,7 @@ class LogInUiTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['login_page', 'positive'])
+    @test(groups=['sanity', 'gui', 'positive', ])
     def test_login_page(cls):
         delay = 3
         result1, result2 = False, False
@@ -43,8 +44,10 @@ class LogInUiTest(unittest.TestCase):
                     result2 = True
         finally:
             if result1 & result2 is True:
+                write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:
+                write_file_result(cls.test_case + "," + cls.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 0)
 
     @classmethod
