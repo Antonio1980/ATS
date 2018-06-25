@@ -22,12 +22,11 @@ class ForgotPasswordTest(unittest.TestCase):
     def setUpClass(cls):
         cls.login_page = LogInPage()
         cls.home_page = HomePage()
-        cls.data_base = DataBase()
         cls.forgot_password_page = ForgotPasswordPage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3668'
         cls.test_run = BaseConfig.TESTRAIL_RUN
-        rows = cls.data_base.run_query("SELECT c.email FROM customers c WHERE status=1;")
+        rows = DataBase.run_mysql_query(cls, "SELECT c.email FROM customers c WHERE status=1;")
         cls.email = rows[0]
         #cls.email = "fresh_blood_34@mailinator.com"  # 1Aa@<>12
 

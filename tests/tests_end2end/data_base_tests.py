@@ -18,7 +18,7 @@ class DataBaseTest(unittest.TestCase, DataBase):
     def test_unit_db(cls):
         query = "Select * from " + BaseConfig.DB_TABLE + " ;"
         db_name = BaseConfig.DB_NAME
-        print(cls.run_query(db_name, query))
+        print(cls.run_mysql_query(db_name, query))
 
     @classmethod
     def tearDown(cls):

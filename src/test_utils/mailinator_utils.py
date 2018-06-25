@@ -1,7 +1,6 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
-import re
 import string
 import random
 
@@ -13,7 +12,8 @@ def email_generator(size=8, chars=string.ascii_lowercase + string.digits):
 def get_email_updates(driver, email, action):
     change_password = "//a[contains(text(),'Change Password')]"
     verify_email = "//a[contains(text(),'Verify Email')]"
-    mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}".format(email)
+    mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query=" + email
+    print(mailinator_box_url)
     driver.get(mailinator_box_url)
     pause_button = driver.find_element_by_xpath("//*[@id='play_button']")
     pause_button.click()
