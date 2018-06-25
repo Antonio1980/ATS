@@ -27,9 +27,9 @@ class LogInLogOutLogInTest(unittest.TestCase):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = cls.login_page.login_positive(cls.driver, delay)
+            result1 = cls.login_page.login(cls.driver, delay)
             result2 = cls.home_page.logout(cls.driver, delay)
-            result3 = cls.login_page.login_positive(cls.driver, delay)
+            result3 = cls.login_page.login(cls.driver, delay)
         finally:
             if (result1 & result2 & result3) is True:
                 write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)

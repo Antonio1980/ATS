@@ -4,6 +4,7 @@
 import re
 import string
 import random
+from tests.tests_web_platform.pages import wtp_open_account_url
 
 
 def email_generator(size=8, chars=string.ascii_lowercase + string.digits):
@@ -52,7 +53,7 @@ def _click_on(driver, locator):
         button.click()
         driver.implicitly_wait(3)
     finally:
-        if driver:
+        if driver.current_url() == wtp_open_account_url:
             return True
         else:
             return False

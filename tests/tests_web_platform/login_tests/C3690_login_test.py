@@ -21,6 +21,8 @@ class LogInTest(unittest.TestCase):
         cls.test_case = '3690'
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+        cls.email = "fresh_blood_31@mailinator.com"
+        cls.password = "1Aa@<>12"
 
     @classmethod
     @test(groups=['smoke', 'functional', 'positive', ])
@@ -29,7 +31,7 @@ class LogInTest(unittest.TestCase):
         result1, result2 = False, False
         try:
             result1 = cls.home_page.open_login_page(cls.driver, delay)
-            result2 = cls.login_page.login_positive(cls.driver, delay)
+            result2 = cls.login_page.login(cls.driver, cls.email, cls.password)
         finally:
             if result1 & result2 is True:
                 write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)

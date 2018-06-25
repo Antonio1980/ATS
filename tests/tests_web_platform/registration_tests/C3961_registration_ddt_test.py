@@ -21,7 +21,7 @@ class RegistrationTestDDT(unittest.TestCase):
         cls.home_page = HomePage()
         cls.open_account_page = OpenAccountPage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = ''
+        cls.test_case = '3961'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @test(groups=['sanity', 'ddt', 'negative', ])

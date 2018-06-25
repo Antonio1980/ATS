@@ -4,9 +4,8 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from src.base.data_base import DataBase
-from src.test_utils.db_utils import run_mysql_query
 from tests.test_definitions import BaseConfig
+from src.test_utils.db_utils import run_mysql_query
 from src.test_utils.file_utils import write_file_result
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory

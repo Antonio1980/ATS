@@ -24,14 +24,13 @@ class ForgotPasswordUiTest(unittest.TestCase):
         cls.test_case = '3558'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-
     @classmethod
     @test(groups=['smoke', 'gui', 'positive', ])
     def test_forgot_password_page_ui(cls):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = cls.home_page.open_login_page(cls.driver, delay)
+            result1 = cls.home_page.open_login_page(cls.driver, delay + 3)
             result2 = cls.login_page.click_on_forgot_password(cls.driver, delay)
             cls.login_page.driver_wait(cls.driver, delay)
             assert forgot_password_page_url == cls.login_page.get_cur_url(cls.driver)

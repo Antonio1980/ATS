@@ -26,7 +26,7 @@ class ChangePasswordForgottenUserTest(unittest.TestCase):
         delay = 1
         result = False
         try:
-            result = cls.login_page.login_positive(cls.driver, delay, cls.base_url)
+            result = cls.login_page.login(cls.driver, delay, cls.base_url)
         finally:
             if result is True:
                 write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)

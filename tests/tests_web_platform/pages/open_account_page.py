@@ -23,9 +23,9 @@ class OpenAccountPage(BasePage):
         self.email = email_generator() + email_suffix
         self.terms_url = "https://dx.exchange/terms-of-use/"
         self.privacy_url = "https://dx.exchange/privacy-policy/"
-        self.element = "//*[@class='userEmail'][contains(.,'')]"
+        self.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(self.email)
 
-    def registration_flow_ddt(self, driver, firstname, lastname, email, password):
+    def fill_signup_form_ddt(self, driver, firstname, lastname, email, password):
         delay = 3
         try:
             assert self.get_cur_url(driver) == wtp_open_account_url
@@ -42,9 +42,6 @@ class OpenAccountPage(BasePage):
             password_field = self.find_element(driver, OpenAccountPageLocators.PASSWORD_FIELD)
             self.click_on_element(password_field)
             self.send_keys(password_field, password)
-            #logo = self.find_element(driver, OpenAccountPageLocators.OPEN_ACCOUNT_LOGO)
-            #time.sleep(5)
-            #self.click_with_offset(driver, logo, 3, 3)
             self.execute_js(driver, self.script_signup)
             create_account_button = self.find_element(driver, OpenAccountPageLocators.CREATE_ACCOUNT_BUTTON)
             self.click_on_element(create_account_button)
@@ -55,7 +52,7 @@ class OpenAccountPage(BasePage):
             else:
                 return False
 
-    def registration_flow(self, driver, delay):
+    def fill_signup_form(self, driver, delay):
         try:
             assert self.get_cur_url(driver) == wtp_open_account_url
             self.driver_wait(driver, delay + 2)
@@ -76,12 +73,6 @@ class OpenAccountPage(BasePage):
             self.driver_wait(driver, delay + 3)
             certify_checkbox = self.find_element(driver, OpenAccountPageLocators.CERTIFY_CHECKBOX)
             self.click_on_element(certify_checkbox)
-            # captcha_frame = self.find_element(driver, OpenAccountPageLocators.CAPTCHA_FRAME)
-            # self.click_with_offset(driver, captcha_frame, 10, 10)
-            # self.driver_wait(driver, delay + 5)
-            # logo = self.find_element(driver, OpenAccountPageLocators.OPEN_ACCOUNT_LOGO)
-            #time.sleep(4)
-            #self.click_with_offset(driver, logo, 5, 5)
             self.execute_js(driver, self.script_signup)
             create_account_button = self.find_element(driver, OpenAccountPageLocators.CREATE_ACCOUNT_BUTTON)
             self.click_on_element(create_account_button)
