@@ -32,7 +32,7 @@ class LogInTest(unittest.TestCase):
         result1, result2 = False, False
         try:
             result1 = self.home_page.open_login_page(self.driver, delay)
-            result2 = self.login_page.login_ddt(self.driver, email, password)
+            result2 = self.login_page.login(self.driver, email, password)
         finally:
             if result1 & result2 is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)

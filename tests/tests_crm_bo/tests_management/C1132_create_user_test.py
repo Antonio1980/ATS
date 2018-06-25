@@ -32,7 +32,7 @@ class CreateNewUserTest(unittest.TestCase):
         delay = 3
         result1, result2, result3, result4 = False, False, False, False
         try:
-            result1 = cls.login_page.login_positive(cls.driver, delay)
+            result1 = cls.login_page.login(cls.driver, delay)
             result2 = cls.home_page.go_to_management_inset_with_users_option(cls.driver, delay)
             result3 = cls.user_management_page.click_on_create_new_user(cls.driver, delay)
             result4 = cls.create_user_page.fill_user_details(cls.driver, delay)

@@ -29,7 +29,7 @@ class RegistrationFlowTest(unittest.TestCase):
         result1, result2 = False, False
         try:
             result1 = cls.home_page.open_signup_page(cls.driver, delay)
-            result2 = cls.open_account_page.registration_flow(cls.driver, delay)
+            result2 = cls.open_account_page.fill_signup_form(cls.driver, delay)
         finally:
             if (result1 & result2) is True:
                 write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)

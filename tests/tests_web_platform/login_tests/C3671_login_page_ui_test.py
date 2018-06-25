@@ -36,7 +36,7 @@ class LogInPageUiTest(unittest.TestCase):
                 assert cls.login_page.search_element(cls.driver, delay, LogInPageLocators.SIGNIN_TITLE)
                 assert cls.login_page.search_element(cls.driver, delay, LogInPageLocators.USERNAME_FIELD)
                 assert cls.login_page.search_element(cls.driver, delay, LogInPageLocators.PASSWORD_FIELD)
-                assert cls.login_page.search_element(cls.driver, delay, LogInPageLocators.CAPTCHA)
+                assert cls.login_page.search_element(cls.driver, delay, LogInPageLocators.CAPTCHA_FRAME)
                 assert cls.login_page.search_element(cls.driver, delay, LogInPageLocators.KEEP_ME_CHECKBOX)
                 assert cls.login_page.search_element(cls.driver, delay, LogInPageLocators.SIGNIN_BUTTON)
                 assert cls.login_page.search_element(cls.driver, delay, LogInPageLocators.FORGOT_PASSWORD_LINK)

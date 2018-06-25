@@ -31,7 +31,7 @@ class AddNewLeadTest(unittest.TestCase):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = cls.login_page.login_positive(cls.driver, delay)
+            result1 = cls.login_page.login(cls.driver, delay)
 
         finally:
             if (result1 & result2 & result3) is True:

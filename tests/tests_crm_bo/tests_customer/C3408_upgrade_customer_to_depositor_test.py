@@ -30,7 +30,7 @@ class CustomerUpgradeStatusTest(unittest.TestCase):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = cls.login_page.login_positive(cls.driver, delay)
+            result1 = cls.login_page.login(cls.driver, delay)
             result2 = cls.home_page.choose_customer_by_name(cls.driver, delay)
             result3 = cls.customer_page.make_deposit(cls.driver, delay)
         finally:

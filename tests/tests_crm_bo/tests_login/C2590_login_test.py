@@ -42,7 +42,7 @@ class LogInTest(unittest.TestCase):
         try:
             # Calling login_positive method from LogInPage class
             # If login passed successfully it will return True
-            result = cls.login_page.login_positive(cls.driver, delay)
+            result = cls.login_page.login(cls.driver, delay)
         finally:
             # Result validation
             if result is True:

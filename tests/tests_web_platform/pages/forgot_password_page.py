@@ -1,9 +1,6 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
-from tests.test_definitions import BaseConfig
-from src.test_utils.file_utils import get_account_details
-from src.test_utils.mailinator_utils import email_generator
 from tests.tests_web_platform.pages import BasePage, forgot_password_page_url
 from tests.tests_web_platform.locators.forgot_password_page_locators import ForgotPasswordPageLocators
 
@@ -24,7 +21,7 @@ class ForgotPasswordPage(BasePage):
             submit_button = self.find_element(driver, ForgotPasswordPageLocators.SUBMIT_BUTTON)
             self.click_on_element(submit_button)
         finally:
-            if self.get_cur_url(driver) ==  forgot_password_page_url:
+            if self.check_element_not_visible(driver, delay, ForgotPasswordPageLocators.FORGOT_PASSWORD_TITLE):
                 return True
             else:
                 return False

@@ -9,7 +9,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
 
-class Browser(object):
+class Browser():
     def go_to_url(self, driver, url):
         """
         Browse the given url by passed driver instance.
