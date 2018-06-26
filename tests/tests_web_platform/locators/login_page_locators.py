@@ -16,3 +16,4 @@ class LogInPageLocators(object):
     FORGOT_PASSWORD_LINK = "//*[@class='authPopupForgotPassword']" # [contains(text(),'Forgot you password?')]
     REGISTER_LINK = "//*[@class='authPopupRegister']"
 
+

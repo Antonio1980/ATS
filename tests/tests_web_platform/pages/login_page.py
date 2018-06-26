@@ -2,7 +2,8 @@
 # -*- coding: utf8 -*-
 
 from tests.tests_web_platform.pages.base_page import BasePage
-from tests.tests_web_platform.pages import wtp_login_page_url, forgot_password_page_url, wtp_dashboard_url
+from tests.tests_web_platform.pages import wtp_login_page_url, forgot_password_page_url, wtp_dashboard_url, \
+    wtp_open_account_url
 from tests.tests_web_platform.locators.login_page_locators import LogInPageLocators
 
 
@@ -35,7 +36,7 @@ class LogInPage(BasePage):
             else:
                 return False
 
-    def click_on_forgot_password(self, driver, delay =+ 1):
+    def click_on_forgot_password(self, driver, delay=1):
         try:
             self.wait_driver(driver, delay)
             assert wtp_login_page_url == self.get_cur_url(driver)
@@ -44,6 +45,19 @@ class LogInPage(BasePage):
             self.driver_wait(driver, delay)
         finally:
             if self.get_cur_url(driver) == forgot_password_page_url:
+                return True
+            else:
+                return False
+
+    def click_on_register_link(self, driver, delay=1):
+        try:
+            self.wait_driver(driver, delay)
+            assert wtp_login_page_url == self.get_cur_url(driver)
+            register_link = self.find_element(driver, LogInPageLocators.REGISTER_LINK)
+            self.click_on_element(register_link)
+            self.driver_wait(driver, delay)
+        finally:
+            if self.get_cur_url(driver) == wtp_open_account_url:
                 return True
             else:
                 return False

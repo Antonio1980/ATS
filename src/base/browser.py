@@ -253,6 +253,30 @@ class Browser():
         driver.navigate().refresh()
         return self.driver_wait(driver, delay + 3)
 
+    def back_browser(self, driver, delay=1):
+        """
+        To go back on previous page using driver.
+        :return: driver state.
+        """
+        driver.navigate().back()
+        return self.driver_wait(driver, delay + 3)
+
+    def forward_browser(self, driver, delay=1):
+        """
+        To go forward on previous page using driver.
+        :return: driver state.
+        """
+        driver.navigate().forward()
+        return self.driver_wait(driver, delay + 3)
+
+    def go_back(self, driver):
+        """
+        To go back on previous page using js.
+        :param driver: web_driver instance.
+        :return: driver state.
+        """
+        return driver.execute_script("window.history.go(-1)")
+
     def check_element_not_visible(self, driver, delay, locator):
         """
         Wait and check than element not visible on the page.

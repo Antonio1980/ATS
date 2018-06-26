@@ -21,5 +21,10 @@ class OpenAccountPageLocators(object):
     TERM_OF_USE_LINK = "//a[@href='#'][contains(text(),'Terms of Use')]"
     PRIVACY_POLICY_LINK = "//a[@href='#'][contains(text(),'Privacy Policy')]"
     SIGNIN_LINK = "//a[@href='#'][contains(text(),'Sign in')]"
+
+    # Verify your email screen
+    EMAIL_NOT_ARRIVED = "//*[@class='resendBtn']"
+    EMAIL_ALREADY_VERIFIED = "//*[@class='reSyncBtn']"
+    GO_BACK_TO_DX = "//*[@class='emailVerification hidden']//a[@href='/']"
     
     

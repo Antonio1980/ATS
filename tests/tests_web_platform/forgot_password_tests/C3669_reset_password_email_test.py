@@ -10,7 +10,6 @@ from src.test_utils.file_utils import write_file_result
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
-from src.test_utils.mailinator_utils import get_email_updates
 from tests.tests_web_platform.pages.login_page import LogInPage
 from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
 
@@ -40,7 +39,7 @@ class ResetPasswordEmailTest(unittest.TestCase):
             result3 = cls.forgot_password_page.fill_email_address_form(cls.driver, cls.email, delay)
             cls.login_page.wait_driver(cls.driver, delay + 5)
             # 1 - get_updates, 2 - click on change_password, 3 - click on verify_email
-            result4 = get_email_updates(cls.driver, cls.email, 2)
+            result4 = cls.login_page.get_email_updates(cls.driver, cls.email, 2)
         finally:
             if (result1 & result2 is True) & (result3 & result4 is True):
                 write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)

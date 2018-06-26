@@ -14,7 +14,7 @@ from src.test_utils.file_utils import write_file_result, get_csv_data
 
 
 @ddt
-@test(groups=['open_account_page', ])
+@test(groups=['login_page', ])
 class LogInTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
