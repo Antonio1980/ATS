@@ -23,7 +23,7 @@ class RegistrationFlowTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['sanity', 'functional', 'positive', ])
+    @test(groups=['regression', 'functional', 'positive', ], depends_on_groups=["smoke", "sanity", ])
     def test_registration_flow(cls):
         delay = 1
         result1, result2 = False, False

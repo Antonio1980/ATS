@@ -4,9 +4,6 @@
 import re
 import string
 import random
-
-from robot.libraries import String
-
 from src.base.browser import Browser
 from tests.test_definitions import BaseConfig
 from tests.tests_web_platform.locators.base_page_locators import BasePageLocators
@@ -31,19 +28,19 @@ class BasePage(Browser):
         else:
             return False
 
-    def email_generator(self, size=8, chars=string.ascii_lowercase + string.digits):
+    def email_generator(self, size=8, chars=string.ascii_lowercase):
         return ''.join(random.choice(chars) for _ in range(size))
 
     def get_email_updates(self, driver, email, action):
         delay = 1
-        pattern2 = r"([\w\.-]+)"
-        if type(email) is not String:
-            _email, = email
-            _email = re.findall(pattern2, _email)
-            _email = _email[0]
+        pattern = r"([\w\.-]+)"
+        if not isinstance(email, str):
+            email, = email
         else:
             pass
-        mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}".format(_email)
+        email = re.findall(pattern, email)
+        email = email[0]
+        mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}".format(email)
         self.go_to_url(driver, mailinator_box_url)
         pause_button = self.find_element_by(driver, BasePageLocators.PAUSE_BUTTON_ID, "id")
         pause_button.click()
@@ -62,7 +59,7 @@ class BasePage(Browser):
         try:
             self.driver_wait(driver, delay)
         finally:
-            mail_content = self.find_element_by(driver, BasePageLocators.MAIL_CONTENT_ID, "id")
+            mail_content = self.find_element_by(driver, BasePageLocators.EMAIL_FRAME_ID, "id")
             self.driver_wait(driver, delay)
             if mail_content:
                 return mail_content
@@ -72,6 +69,8 @@ class BasePage(Browser):
     def _click_on(self, driver, locator, delay=1):
         try:
             self.driver_wait(driver, delay)
+            element = self.find_element_by(driver, BasePageLocators.EMAIL_FRAME_ID, "id")
+            self.switch_frame(driver, element)
             button = self.find_element(driver, locator)
             button.click()
             self.driver_wait(driver, delay)

@@ -15,7 +15,7 @@ from src.test_utils.file_utils import write_file_result, get_csv_data
 
 @ddt
 @test(groups=['login_page', ])
-class LogInTest(unittest.TestCase):
+class LogInTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()

@@ -10,37 +10,28 @@ from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.open_account_page import OpenAccountPage
-from tests.tests_web_platform.pages import wtp_login_page_url, wtp_dashboard_url, wtp_open_account_url
 
 
-@test(groups=['login_page', ])
-class LinksOnVerifyEmailScreenTest(unittest.TestCase):
+@test(groups=['open_account_page', 'e2e', ])
+class SignUpTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
         cls.open_account_page = OpenAccountPage()
-        cls.test_case = '3964'
-        cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+        cls.test_case = '3750'
+        cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @classmethod
-    @test(groups=['smoke', 'functional', 'positive', ])
-    def test_links_on_verify_email_screen(cls):
+    @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])
+    def test_signup_positive(cls):
         delay = 1
-        result1, result2, result3, result4, result5, result6 = False, False, False, False, False, False
+        result1, result2 = False, False
         try:
             result1 = cls.home_page.open_signup_page(cls.driver, delay)
             result2 = cls.open_account_page.fill_signup_form(cls.driver, delay)
-            # 1 - email verified link, 2 - go back link, 3 - email not sent link
-            result3 = cls.open_account_page.click_on_link(cls.driver, wtp_login_page_url, 1)
-            cls.home_page.go_back_and_wait(cls.driver, wtp_open_account_url, delay)
-            result4 = cls.open_account_page.click_on_link(cls.driver, wtp_dashboard_url, 2)
-            cls.home_page.go_back_and_wait(cls.driver, wtp_open_account_url, delay)
-            result5 = cls.open_account_page.click_on_link(cls.driver, wtp_login_page_url, 3)
-            # Opens email box, clicks on "Very email" button and checks that redirected to OpenAccountPage url.
-            result6 = cls.open_account_page.get_email_updates(cls.driver, cls.open_account_page.email, 3)
         finally:
-            if result1 and result2 and result3 and result4 and result5 and result6 is True:
+            if (result1 & result2) is True:
                 write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:

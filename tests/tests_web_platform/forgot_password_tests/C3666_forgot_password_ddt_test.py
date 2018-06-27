@@ -26,7 +26,7 @@ class ForgotPasswordTestDDT(unittest.TestCase):
         cls.test_case = '3666'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @test(groups=['sanity', 'ddt', 'negative', ])
+    @test(groups=['sanity', 'ddt', 'negative', ], depends_on_groups=["smoke", ])
     @data(*get_csv_data(BaseConfig.FORGOT_PASSWORD_DATA))
     @unpack
     def test_forgot_password_ddt(self, email):

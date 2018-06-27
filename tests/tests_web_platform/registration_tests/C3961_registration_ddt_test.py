@@ -24,7 +24,7 @@ class RegistrationTestDDT(unittest.TestCase):
         cls.test_case = '3961'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @test(groups=['sanity', 'ddt', 'negative', ])
+    @test(groups=['sanity', 'ddt', 'negative', ], depends_on_groups=["smoke", ])
     @data(*get_csv_data(BaseConfig.OPEN_ACCOUNT_DATA))
     @unpack
     def test_registration_ddt(self, firstname, lastname, email, password):

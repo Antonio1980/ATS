@@ -28,7 +28,7 @@ class WrongEmailTest(unittest.TestCase):
         cls.negative_email = email_generator() + email_suffix
 
     @classmethod
-    @test(groups=['sanity', 'functional', 'positive', ])
+    @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])
     def test_wrong_email(cls):
         delay = 1
         result1, result2, result3 = False, False, True
