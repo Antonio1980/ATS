@@ -12,27 +12,31 @@ from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.open_account_page import OpenAccountPage
 
 
-@test(groups=['login_page', ])
-class EmailVerificationScreenTest(unittest.TestCase):
+@test(groups=['open_account_page', 'e2e', ])
+class SignUpTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
         cls.open_account_page = OpenAccountPage()
+        cls.email = cls.open_account_page.email
+        cls.password = "1Aa@<>12"
+        cls.first_last_name = "QAtestQA"
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = '3963'
+        cls.test_case = '3750'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.flag = False
 
     @classmethod
-    @test(groups=['smoke', 'gui', 'positive', ])
-    def test_email_verification_screen(cls):
+    @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])
+    def test_signup_positive(cls):
         delay = 1
-        result1, result2, result3 = False, False, False
+        result1, result2 = False, False
         try:
             result1 = cls.home_page.open_signup_page(cls.driver, delay)
-            result2 = cls.open_account_page.fill_signup_form(cls.driver, delay)
-            result3 = cls.open_account_page.verify_email_screen_test(cls.driver, delay)
+            result2 = cls.open_account_page.fill_signup_form(cls.driver, cls.first_last_name, cls.email, cls.password)
         finally:
-            if result1 and result2 and result3 is True:
+            if (result1 & result2) is True:
+                cls.flag = True
                 write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:
@@ -41,4 +45,6 @@ class EmailVerificationScreenTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
+        if cls.flag is True:
+            write_file_result(cls.first_last_name + "," + cls.email + "," + cls.password + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
         cls.home_page.close_browser(cls.driver)

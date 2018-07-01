@@ -21,6 +21,8 @@ class OpenAccountPageLocators(object):
     TERM_OF_USE_LINK = "//a[@href='#'][contains(text(),'Terms of Use')]"
     PRIVACY_POLICY_LINK = "//a[@href='#'][contains(text(),'Privacy Policy')]"
     SIGNIN_LINK = "//a[@href='#'][contains(text(),'Sign in')]"
+    EMAIL_ERROR = "//*[@class='text'][contains(.,'Incorrect email format')]"
+    EMAIL_ERROR2 = "//*[@class='text'][contains(.,'Password is not secure')]"
 
     # Verify your email screen
     EMAIL_NOT_ARRIVED = "//*[@class='resendBtn']"

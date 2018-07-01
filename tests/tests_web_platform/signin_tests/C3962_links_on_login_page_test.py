@@ -8,32 +8,33 @@ from tests.test_definitions import BaseConfig
 from src.test_utils.file_utils import write_file_result
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
+from tests.tests_web_platform.pages import wtp_login_page_url
 from tests.tests_web_platform.pages.home_page import HomePage
-from tests.tests_web_platform.pages.login_page import LogInPage
+from tests.tests_web_platform.pages.signin_page import LogInPage
 
 
 @test(groups=['login_page', ])
-class LogInTest(unittest.TestCase):
+class LinksOnLogInPageTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
         cls.login_page = LogInPage()
-        cls.test_case = '3690'
+        cls.test_case = '3962'
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.email = "fresh_blood_31@mailinator.com"
-        cls.password = "1Aa@<>12"
 
     @classmethod
     @test(groups=['smoke', 'functional', 'positive', ])
-    def test_login_positive(cls):
+    def test_links_on_login_page(cls):
         delay = 1
-        result1, result2 = False, False
+        result1, result2, result3, result4 = False, False, False, False
         try:
             result1 = cls.home_page.open_login_page(cls.driver, delay)
-            result2 = cls.login_page.login(cls.driver, cls.email, cls.password)
+            result2 = cls.login_page.click_on_forgot_password(cls.driver, delay)
+            result3 = cls.login_page.go_back_and_wait(cls.driver, wtp_login_page_url, delay)
+            result4 = cls.login_page.click_on_register_link(cls.driver, delay)
         finally:
-            if result1 & result2 is True:
+            if result1 and result2 and result3 and result4 is True:
                 write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(cls.test_run, cls.test_case, 1)
             else:

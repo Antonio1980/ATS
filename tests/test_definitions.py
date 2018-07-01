@@ -43,6 +43,7 @@ class BaseConfig(object):
     CRM_CREATE_USER = path_dir + parser.get('TEST_DATA', 'crm_create_user_csv')
     ME_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'me_login_data_csv')
     OPEN_ACCOUNT_DATA = path_dir + parser.get('TEST_DATA', 'open_account_data_csv')
+    WTP_TESTS_CUSTOMERS = path_dir + parser.get('TEST_DATA', 'wtp_tests_customers_csv')
 
     DB_HOST = parser.get('DATA_BASE', 'host')
     DB_PORT = parser.get('DATA_BASE', 'port')

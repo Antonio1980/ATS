@@ -2,16 +2,18 @@
 # -*- coding: utf8 -*-
 
 import re
+import time
 import string
 import random
 from src.base.browser import Browser
+from selenium.webdriver import ActionChains
 from tests.test_definitions import BaseConfig
 from tests.tests_web_platform.locators.base_page_locators import BasePageLocators
 
 
 class BasePage(Browser):
     def __init__(self):
-        self.wtp_base_url = BaseConfig.WTP_INTEGRATION_URL
+        self.wtp_base_url = BaseConfig.WTP_BASE_URL
         _self_account_url = "/openAccountDx.html"
         self.wtp_open_account_url = self.wtp_base_url + _self_account_url
         self.script_login = '$(".formContainer.formBox input.captchaCode").val("test_QA_test");'
@@ -43,6 +45,7 @@ class BasePage(Browser):
         mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}".format(email)
         self.go_to_url(driver, mailinator_box_url)
         pause_button = self.find_element_by(driver, BasePageLocators.PAUSE_BUTTON_ID, "id")
+        time.sleep(5)
         pause_button.click()
         email_item = self.find_element(driver, BasePageLocators.FIRST_EMAIL)
         email_item.click()
@@ -69,11 +72,15 @@ class BasePage(Browser):
     def _click_on(self, driver, locator, delay=1):
         try:
             self.driver_wait(driver, delay)
-            element = self.find_element_by(driver, BasePageLocators.EMAIL_FRAME_ID, "id")
-            self.switch_frame(driver, element)
+            frame = self.find_element_by(driver, BasePageLocators.EMAIL_FRAME_ID, "id")
+            actions = ActionChains(driver)
+            actions.move_to_element(frame)
             button = self.find_element(driver, locator)
-            button.click()
+            actions.click(button)
+            actions.perform()
             self.driver_wait(driver, delay)
+            new_window = driver.window_handles
+            self.switch_frame(driver, new_window)
         finally:
             if self.get_cur_url(driver) == self.wtp_open_account_url:
                 return True

@@ -9,7 +9,7 @@ from tests.test_definitions import BaseConfig
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
-from tests.tests_web_platform.pages.login_page import LogInPage
+from tests.tests_web_platform.pages.signin_page import LogInPage
 
 
 @test(groups=['login_page', ])

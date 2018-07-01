@@ -15,5 +15,4 @@ class LogInPageLocators(object):
     KEEP_ME_CHECKBOX = "//*[@class='checkmark']"
     FORGOT_PASSWORD_LINK = "//*[@class='authPopupForgotPassword']" # [contains(text(),'Forgot you password?')]
     REGISTER_LINK = "//*[@class='authPopupRegister']"
-
-
+    CAPTCHA_ERROR = "//*[@class='errorText'][contains(.,'Captcha required')]"

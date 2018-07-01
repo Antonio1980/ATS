@@ -10,7 +10,7 @@ from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages import wtp_login_page_url
 from tests.tests_web_platform.pages.home_page import HomePage
-from tests.tests_web_platform.pages.login_page import LogInPage
+from tests.tests_web_platform.pages.signin_page import LogInPage
 from tests.tests_web_platform.locators.login_page_locators import LogInPageLocators
 
 
