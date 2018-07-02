@@ -76,7 +76,7 @@ class BasePage(Browser):
             button = self.search_element(driver, delay, locator)
             actions = ActionChains(driver)
             actions.move_to_element(frame)
-            #button = self.find_element(driver, locator)
+            # button = self.find_element(driver, locator)
             actions.click(button)
             actions.perform()
             new_window = driver.window_handles

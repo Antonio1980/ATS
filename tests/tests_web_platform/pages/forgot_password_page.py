@@ -21,7 +21,7 @@ class ForgotPasswordPage(BasePage):
             submit_button = self.find_element(driver, ForgotPasswordPageLocators.SUBMIT_BUTTON)
             self.click_on_element(submit_button)
         finally:
-            if self.check_element_not_visible(driver, delay, ForgotPasswordPageLocators.FORGOT_PASSWORD_TITLE):
+            if self.check_element_not_visible(driver, delay, ForgotPasswordPageLocators.EMAIL_ERROR_MESSAGE) or not self.wait_element_clickable(driver, delay, ForgotPasswordPageLocators.SUBMIT_BUTTON):
                 return True
             else:
                 return False

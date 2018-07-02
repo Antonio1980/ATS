@@ -6,7 +6,7 @@ from proboscis import test
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
 from src.test_utils.db_utils import run_mysql_query
-from src.test_utils.file_utils import write_file_result
+from src.test_utils.file_utils import write_file_result, get_account_details
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
@@ -22,10 +22,14 @@ class ResetPasswordEmailTest(unittest.TestCase):
         cls.home_page = HomePage()
         cls.forgot_password_page = ForgotPasswordPage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = '3668'
+        cls.test_case = '3669'
         cls.test_run = BaseConfig.TESTRAIL_RUN
-        rows = run_mysql_query(cls, "SELECT c.email FROM customers c WHERE status=1;")
-        cls.email = rows[0]
+        # 1- Data file, 2- Row, 3- First column, 4- Second column, 5- Third column
+        details = get_account_details(BaseConfig.WTP_TESTS_CUSTOMERS, 0, 0, 1, 2)
+        cls.email = details['email']
+        print(cls.email)
+        #rows = run_mysql_query(cls, "SELECT c.email FROM customers c WHERE status=1;")
+        #cls.email = rows[0]
 
     @classmethod
     @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])

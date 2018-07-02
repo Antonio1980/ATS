@@ -7,3 +7,5 @@ class ForgotPasswordPageLocators(object):
     EMAIL_TEXT_FIELD = "//input[@class='popupTextInput'][@name='email']"
     SUBMIT_BUTTON = "//input[@class='forgotPasswordSubmit formButton'][@value='Submit']"
     ERROR_MESSAGE = "//*[@id='forgotPasswordForm']/div[@class='generalFormError generalFormMessage hidden']"
+    EMAIL_ERROR_MESSAGE = "//*[@class='fieldError emailError hidden']/span[@class='errorText']"
+    TEXT = "//*[@class='resetMessage formBox hidden']/div[@class='text']"
