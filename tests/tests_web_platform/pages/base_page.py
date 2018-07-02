@@ -73,14 +73,15 @@ class BasePage(Browser):
         try:
             self.driver_wait(driver, delay)
             frame = self.find_element_by(driver, BasePageLocators.EMAIL_FRAME_ID, "id")
+            button = self.search_element(driver, delay, locator)
             actions = ActionChains(driver)
             actions.move_to_element(frame)
-            button = self.find_element(driver, locator)
+            #button = self.find_element(driver, locator)
             actions.click(button)
             actions.perform()
-            self.driver_wait(driver, delay)
             new_window = driver.window_handles
-            self.switch_frame(driver, new_window)
+            # self.driver_wait(driver, delay)
+            self.switch_frame(driver, new_window[1])
         finally:
             if self.get_cur_url(driver) == self.wtp_open_account_url:
                 return True
