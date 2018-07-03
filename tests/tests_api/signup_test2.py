@@ -1,6 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 import unittest
 import requests
 from proboscis import test
@@ -24,10 +21,9 @@ class SignUpTest2(unittest.TestCase):
                       "\n\t\t\"receivePromoSMS\": false,\n\t\t\"receivePromoPushToMobile\": false," \
                       "\n\t\t\"receiveTradingEmail\": false \n\t}],\n\t\"id\": \"1\"\n}"
 
-    @classmethod
     @test(groups=['smoke', 'auth_service', 'positive', ])
-    def test_signup2(cls):
-        response = requests.request("POST", cls.url, data=cls.payload, headers=cls.headers)
+    def test_signup2(self):
+        response = requests.request("POST", self.url, data=self.payload, headers=self.headers)
         print(response.text)
 
     @classmethod

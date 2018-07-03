@@ -1,6 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 from src.base.http_client import APIClient
 from tests.test_definitions import BaseConfig
 

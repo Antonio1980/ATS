@@ -24,24 +24,23 @@ class AddDepositTest(unittest.TestCase):
         cls.test_case = '3409'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @classmethod
     @test(groups=['sanity', 'functional', 'positive', ])
-    def test_add_deposit(cls):
+    def test_add_deposit(self):
         delay = 1
         amount = 100
         result1, result2, result3, result4 = False, False, False, False
         try:
-            result1 = cls.login_page.login(cls.driver, delay)
-            result2 = cls.home_page.choose_customer_by_name(cls.driver, delay)
-            result3 = cls.customer_page.make_deposit(cls.driver, delay, amount)
-            result4 = cls.customer_page.check_balance(cls.driver, delay)
+            result1 = self.login_page.login(self.driver, delay)
+            result2 = self.home_page.choose_customer_by_name(self.driver, delay)
+            result3 = self.customer_page.make_deposit(self.driver, delay, amount)
+            result4 = self.customer_page.check_balance(self.driver, delay)
         finally:
             if (result1 & result2 is True) & (result3 & result4 is True):
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
-                update_test_case(cls.test_run, cls.test_case, 1)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
+                update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
-                update_test_case(cls.test_run, cls.test_case, 0)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
+                update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDownClass(cls):

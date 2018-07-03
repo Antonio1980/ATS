@@ -1,7 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
-
 class HomePageLocators(object):
     # Home page header
     SETTINGS_DROPDOWN = "//i[@class='fas fa-cogs fa-2x']"

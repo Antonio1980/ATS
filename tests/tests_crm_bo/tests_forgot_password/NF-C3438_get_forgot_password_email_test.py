@@ -20,21 +20,20 @@ class ForgotPasswordEmailTest(unittest.TestCase):
         cls.test_case = '3438'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @classmethod
     @test(groups=['sanity', 'functional', 'positive', ])
-    def test_forgot_password_email(cls):
+    def test_forgot_password_email(self):
         email = "roman@spotoption.com"
         delay = 1
         result = False
         try:
-            result = cls.forgot_password(cls.driver, delay, email)
+            result = self.forgot_password(self.driver, delay, email)
         finally:
             if result is True:
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
-                update_test_case(cls.test_run, cls.test_case, 1)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
+                update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
-                update_test_case(cls.test_run, cls.test_case, 0)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
+                update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDownClass(cls):

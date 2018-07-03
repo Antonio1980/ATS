@@ -1,12 +1,8 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
-
-class OpenAccountPageLocators(object):
+class SignUpPageLocators(object):
     OPEN_ACCOUNT_FRAME = "//*[@id='platformAuthDialog']"
     OPEN_ACCOUNT_BOX_ID = "openAccountDxForm"
     OPEN_ACCOUNT_BOX = "//*[@id='openAccountDxForm']"
-    OPEN_ACCOUNT_LOGO = "//div[@class='title'][contains(text(),'Create your account')]"
+    OPEN_ACCOUNT_LOGO = "//*[@class='registration hidden']/div[@class='title']"
     FIRST_NAME_FIELD = "//input[@name='firstName'][@placeholder='First name']"
     LAST_NAME_FIELD = "//input[@name='lastName'][@placeholder='Last name']"
     EMAIL_FIELD = "//input[@name='email'][@placeholder='Email address']"
@@ -17,12 +13,11 @@ class OpenAccountPageLocators(object):
     CREATE_ACCOUNT_BUTTON = "//*[@class='registration-form-wrapper']//input[@class='formButton']" # "//input[@class='formButton'][@value='Create Account']"
     NEWSLETTERS_CHECKBOX = "//div[@class='receivePromoEmail']//span[@class='checkmark']"
     CERTIFY_CHECKBOX = "//div[@class='acceptTerms']//span[@class='checkmark']"
-    PASSWORD_NOT_SECURE = "//span[@class='text'][contains(text(),'Password is not secure')]"
-    TERM_OF_USE_LINK = "//a[@href='#'][contains(text(),'Terms of Use')]"
-    PRIVACY_POLICY_LINK = "//a[@href='#'][contains(text(),'Privacy Policy')]"
-    SIGNIN_LINK = "//a[@href='#'][contains(text(),'Sign in')]"
-    EMAIL_ERROR = "//*[@class='text'][contains(.,'Incorrect email format')]"
-    EMAIL_ERROR2 = "//*[@class='text'][contains(.,'Password is not secure')]"
+    PASSWORD_ERROR = "//*[@class='password']/div[@class='error fieldError hidden']/span"
+    TERM_OF_USE_LINK = "//a[@class='termOfUse']"
+    PRIVACY_POLICY_LINK = "//a[@class='privacyPolicy']"
+    SIGNIN_LINK = "//a[@class='custom loginLink']"
+    EMAIL_ERROR = "//div[@class='email']/div[@class='error fieldError hidden']/span"
 
     # Verify your email screen
     EMAIL_NOT_ARRIVED = "//*[@class='resendBtn']"

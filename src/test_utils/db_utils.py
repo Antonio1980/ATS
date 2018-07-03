@@ -1,6 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 import pymysql
 from tests.test_definitions import BaseConfig
 

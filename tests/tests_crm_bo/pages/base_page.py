@@ -1,12 +1,13 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
+import string
+import random
 from src.base.browser import Browser
 from tests.test_definitions import BaseConfig
 
 
 class BasePage(Browser):
-    crm_base_url = BaseConfig.CRM_STAGING_URL
-
     def __init__(self):
         super(BasePage, self).__init__()
+        self.crm_base_url = BaseConfig.CRM_STAGING_URL
+
+    def email_generator(self, size=8, chars=string.ascii_lowercase):
+        return ''.join(random.choice(chars) for _ in range(size))

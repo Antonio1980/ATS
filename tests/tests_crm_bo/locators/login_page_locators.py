@@ -1,7 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
-
 class LogInPageLocators(object):
     #
     USERNAME_FIELD_ID = "username" #"//*[@id='username']"

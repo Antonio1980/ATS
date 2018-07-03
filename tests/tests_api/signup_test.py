@@ -23,11 +23,10 @@ class SignUpTest(unittest.TestCase):
                       "\r\n\t\t\"receivePromoSMS\": false,\r\n\t\t\"receivePromoPushToMobile\": false,\r\n\t\t\"" \
                       "receiveTradingEmail\": false \r\n\t}],\r\n\t\"id\": \"1\"\r\n}\r\n"
 
-    @classmethod
     @test(groups=['smoke', 'auth_service', 'positive', ])
-    def test_signup(cls):
-        cls.conn.request("POST", "https://acl.dx.exchange", cls.payload, cls.headers)
-        res = cls.conn.getresponse()
+    def test_signup(self):
+        self.conn.request("POST", "https://acl.dx.exchange", self.payload, self.headers)
+        res = self.conn.getresponse()
         data = res.read()
         print(data.decode("utf-8"))
 

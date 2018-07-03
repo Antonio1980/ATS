@@ -1,6 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 from src.base.enums import DriverHelper
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By

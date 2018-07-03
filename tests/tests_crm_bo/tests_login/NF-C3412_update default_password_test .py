@@ -24,21 +24,20 @@ class UpdateDefaultPasswordTest(unittest.TestCase):
         cls.test_case = '3412'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @classmethod
     @test(groups=['sanity', 'functional', 'positive', ])
-    def test_update_default_password(cls):
+    def test_update_default_password(self):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = cls.login_page.login(cls.driver, delay)
+            result1 = self.login_page.login(self.driver, delay)
 
         finally:
             if (result1 & result2 & result3) is True:
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
-                update_test_case(cls.test_run, cls.test_case, 1)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
+                update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
-                update_test_case(cls.test_run, cls.test_case, 0)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
+                update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDown(cls):

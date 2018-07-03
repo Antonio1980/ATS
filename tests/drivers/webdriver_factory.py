@@ -1,6 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 from selenium import webdriver
 from tests.test_definitions import BaseConfig
 from src.test_utils.os_utils import detect_os

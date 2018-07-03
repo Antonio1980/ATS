@@ -1,7 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
-
 class HomePageLocators(object):
     SIGN_UP_BUTTON = "//*[@class='signUpLink']"
     LOGIN_BUTTON = "//*[@class='loginButton']"

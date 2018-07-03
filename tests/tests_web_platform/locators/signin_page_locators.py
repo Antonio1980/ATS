@@ -1,10 +1,6 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
-
-class LogInPageLocators(object):
+class SignInPageLocators(object):
     SIGNIN_BOX = "//*[@class='content']" # "//*[@id='dialogBody']" "//*[@class='authForm popupForm']" "//*[@class='formContainer formBox']"
-    SIGNIN_TITLE = "//*[@class='loginTitle'][contains(text(),'Sign in')]"
+    SIGNIN_TITLE = "//*[@class='loginTitle']"
     USERNAME_FIELD = "//input[@name='email']"
     PASSWORD_FIELD = "//input[@name='passwordPopupFake']"
     PASSWORD_TRUE_FIELD = "//input[@name='password']"
@@ -15,4 +11,4 @@ class LogInPageLocators(object):
     KEEP_ME_CHECKBOX = "//*[@class='checkmark']"
     FORGOT_PASSWORD_LINK = "//*[@class='authPopupForgotPassword']" # [contains(text(),'Forgot you password?')]
     REGISTER_LINK = "//*[@class='authPopupRegister']"
-    CAPTCHA_ERROR = "//*[@class='errorText'][contains(.,'Captcha required')]"
+    CAPTCHA_ERROR = "//*[@class='fieldError hidden captchaError']//span[@class='errorText']"

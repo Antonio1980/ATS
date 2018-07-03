@@ -1,8 +1,4 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 from tests.tests_crm_bo.pages.base_page import BasePage
-from src.test_utils.mailinator_utils import email_generator
 from tests.tests_crm_bo.pages import create_user_page_url, user_index_page_url
 from tests.tests_crm_bo.locators.create_user_page_locators import CreateUserPageLocators
 
@@ -10,7 +6,7 @@ from tests.tests_crm_bo.locators.create_user_page_locators import CreateUserPage
 class CreateUserPage(BasePage):
     def __init__(self):
         super(CreateUserPage, self).__init__()
-        self.email_suffix = email_generator()
+        self.email_suffix = self.email_generator()
         self.email = self.email_suffix + "@mailinator.com"
         self.first_name = "Jason"
         self.last_name = "Born"
