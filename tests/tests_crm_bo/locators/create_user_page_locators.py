@@ -1,7 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
-
 class CreateUserPageLocators(object):
 
     FIRST_NAME_ID = "userFirstNameInput" # //*[@id='userFirstNameInput']

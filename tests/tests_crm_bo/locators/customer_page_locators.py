@@ -1,7 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
-
 class CustomerPageLocators(object):
     # customer page locators
     CUSTOMER_ID_TEXT = "//*[@class='customerIdtext'][contains(text(),'Customer ID ')]"

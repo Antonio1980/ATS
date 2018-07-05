@@ -30,11 +30,10 @@ class LogInTest(unittest.TestCase):
         cls.test_case = '2590'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @classmethod
     # Low level tests ordering - per test suites
     @test(groups=['smoke', 'functional', 'positive', ])
     # Test method, name must start with "test..."
-    def test_login_positive(cls):
+    def test_login_positive(self):
         # Default time out for Browser methods in seconds
         delay = 1
         # Test result befor execution
@@ -42,19 +41,19 @@ class LogInTest(unittest.TestCase):
         try:
             # Calling login_positive method from LogInPage class
             # If login passed successfully it will return True
-            result = cls.login_page.login(cls.driver, delay)
+            result = self.login_page.login(self.driver, delay)
         finally:
             # Result validation
             if result is True:
                 # Save test result into csv file.
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
                 # Update test rail report with "Passed"
-                update_test_case(cls.test_run, cls.test_case, 1)
+                update_test_case(self.test_run, self.test_case, 1)
             else:
                 # Save test result into csv file.
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
                 # Update test rail report with "Failure"
-                update_test_case(cls.test_run, cls.test_case, 0)
+                update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     # CleanUp method executes after test

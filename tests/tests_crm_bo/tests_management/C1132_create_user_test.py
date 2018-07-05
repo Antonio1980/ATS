@@ -26,23 +26,22 @@ class CreateNewUserTest(unittest.TestCase):
         cls.test_case = '1132'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @classmethod
     @test(groups=['sanity', 'functional', 'positive', ])
-    def test_create_new_user(cls):
+    def test_create_new_user(self):
         delay = 3
         result1, result2, result3, result4 = False, False, False, False
         try:
-            result1 = cls.login_page.login(cls.driver, delay)
-            result2 = cls.home_page.go_to_management_inset_with_users_option(cls.driver, delay)
-            result3 = cls.user_management_page.click_on_create_new_user(cls.driver, delay)
-            result4 = cls.create_user_page.fill_user_details(cls.driver, delay)
+            result1 = self.login_page.login(self.driver, delay)
+            result2 = self.home_page.go_to_management_inset_with_users_option(self.driver, delay)
+            result3 = self.user_management_page.click_on_create_new_user(self.driver, delay)
+            result4 = self.create_user_page.fill_user_details(self.driver, delay)
         finally:
             if result1 & result2 is True & result3 & result4 is True:
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
-                update_test_case(cls.test_run, cls.test_case, 1)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
+                update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
-                update_test_case(cls.test_run, cls.test_case, 0)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
+                update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDownClass(cls):

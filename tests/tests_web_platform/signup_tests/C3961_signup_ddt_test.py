@@ -3,38 +3,38 @@
 
 import unittest
 from proboscis import test
-from ddt import unpack, ddt, data
+from ddt import data, unpack, ddt
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
-from tests.tests_web_platform.pages.login_page import LogInPage
-from src.test_utils.file_utils import write_file_result, get_csv_data
+from src.test_utils.file_utils import get_csv_data, write_file_result
+from tests.tests_web_platform.pages.signup_page import SignUpPage
 
 
 @ddt
 @test(groups=['open_account_page', ])
-class LogInTest(unittest.TestCase):
+class RegistrationTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
-        cls.login_page = LogInPage()
-        cls.test_case = '3832'
-        cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.open_account_page = SignUpPage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+        cls.test_case = '3961'
+        cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @test(groups=['sanity', 'ddt', 'negative', ])
-    @data(*get_csv_data(BaseConfig.WTP_LOGIN_DATA))
+    @test(groups=['sanity', 'ddt', 'negative', ], depends_on_groups=["smoke", ])
+    @data(*get_csv_data(BaseConfig.OPEN_ACCOUNT_DATA))
     @unpack
-    def test_login_positive(self, email, password):
+    def test_registration_ddt(self, first_last_name, email, password):
         delay = 1
-        result1, result2 = False, False
+        result1, result2 = False, True
         try:
-            result1 = self.home_page.open_login_page(self.driver, delay)
-            result2 = self.login_page.login(self.driver, email, password)
+            result1 = self.home_page.open_signup_page(self.driver, delay)
+            result2 = self.open_account_page.fill_signup_form(self.driver, first_last_name, email, password)
         finally:
-            if result1 & result2 is True:
+            if result1 is True and result2 is False:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
@@ -43,4 +43,4 @@ class LogInTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        cls.login_page.close_browser(cls.driver)
+        cls.home_page.close_browser(cls.driver)

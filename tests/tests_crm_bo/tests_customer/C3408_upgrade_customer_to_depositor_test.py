@@ -24,23 +24,22 @@ class CustomerUpgradeStatusTest(unittest.TestCase):
         cls.test_case = '3408'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @classmethod
     @test(groups=['sanity', 'functional', 'positive', ])
-    def test_customer_status_upgrade(cls):
+    def test_customer_status_upgrade(self):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = cls.login_page.login(cls.driver, delay)
-            result2 = cls.home_page.choose_customer_by_name(cls.driver, delay)
-            result3 = cls.customer_page.make_deposit(cls.driver, delay)
+            result1 = self.login_page.login(self.driver, delay)
+            result2 = self.home_page.choose_customer_by_name(self.driver, delay)
+            result3 = self.customer_page.make_deposit(self.driver, delay)
         finally:
             if (result1 & result2 & result3) is True:
-                if cls.customer_page.check_customer_icon(cls.driver) == 'Depositor':
-                    write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
-                    update_test_case(cls.test_run, cls.test_case, 1)
+                if self.customer_page.check_customer_icon(self.driver) == 'Depositor':
+                    write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
+                    update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
-                update_test_case(cls.test_run, cls.test_case, 0)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
+                update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDown(cls):

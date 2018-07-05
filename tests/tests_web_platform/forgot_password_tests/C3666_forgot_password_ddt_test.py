@@ -9,7 +9,7 @@ from tests.test_definitions import BaseConfig
 from src.test_utils.testrail_utils import update_test_case
 from tests.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
-from tests.tests_web_platform.pages.login_page import LogInPage
+from tests.tests_web_platform.pages.signin_page import SignInPage
 from src.test_utils.file_utils import get_csv_data, write_file_result
 from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
 
@@ -19,14 +19,14 @@ from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPa
 class ForgotPasswordTestDDT(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.login_page = LogInPage()
+        cls.login_page = SignInPage()
         cls.home_page = HomePage()
         cls.forgot_password_page = ForgotPasswordPage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3666'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @test(groups=['sanity', 'ddt', 'negative', ])
+    @test(groups=['sanity', 'ddt', 'negative', ], depends_on_groups=["smoke", ])
     @data(*get_csv_data(BaseConfig.FORGOT_PASSWORD_DATA))
     @unpack
     def test_forgot_password_ddt(self, email):
@@ -34,8 +34,8 @@ class ForgotPasswordTestDDT(unittest.TestCase):
         result1, result2, result3 = False, False, True
         try:
             result1 = self.home_page.open_login_page(self.driver, delay)
-            result2 = self.login_page.click_on_forgot_password(self.driver, delay)
-            self.login_page.driver_wait(self.driver, delay)
+            # Option 1- forgot password, Option 2- register link
+            result2 = self.login_page.click_on_link(self.driver, 1, delay)
             result3 = self.forgot_password_page.fill_email_address_form(self.driver, email, delay)
         finally:
             if (result1 and result2 is True) and (result3 is False):

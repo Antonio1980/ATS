@@ -1,3 +1,14 @@
-firstname,lastname,email,password
-Test,Test,fresh_blood_34@mailinator.com,1Aa@<>12
-sadkjasjhd,sdfs,18621,saljdsak
+firstname,email,password
+Antonio,ab(c)de:f;g<h>i[jk]l@example.com,1Aa@<>12
+Test,AsDc123DDc2,1Aa@<>12
+sadkjasjhd,!#$%&*+-/=?^_{}`|~"@example.org,1Aa@<>12
+Antonio,üñîçøðé@üñîçøðé.com,1Aa@<>12
+Antonio,Abc.example.com,1Aa@<>12
+ , ,
+Antonio,<h1>Test</h1>@spotoption.com,1Aa@<>12
+Antonio,ust"not"right@example.com,1Aa@<>12
+Antonio,this is"notallowed@example.com,1Aa@<>12
+Antonio,this()stillnotallowed@example.com,1Aa@<>12
+test,tencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharact@spotoption.com,1Aa@<>12
+test,testexampl@exam.net.co.il,aaaaaaA
+test,testexampl@tgs-systems.co.com,aaaaaaA!
