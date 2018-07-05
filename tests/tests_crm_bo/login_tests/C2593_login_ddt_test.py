@@ -9,7 +9,7 @@ from tests.test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.test_utils.testrail_utils import update_test_case
-from tests.drivers.webdriver_factory import WebDriverFactory
+from src.drivers.webdriver_factory import WebDriverFactory
 from src.test_utils.file_utils import get_csv_data, write_file_result
 
 

@@ -8,7 +8,7 @@ from tests.test_definitions import BaseConfig
 from src.test_utils.file_utils import write_file_result
 from tests.tests_crm_bo.pages.base_page import BasePage
 from src.test_utils.testrail_utils import update_test_case
-from tests.drivers.webdriver_factory import WebDriverFactory
+from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
 
 
