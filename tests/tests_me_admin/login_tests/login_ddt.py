@@ -9,10 +9,10 @@ from tests.test_definitions import BaseConfig
 from src.test_utils.file_utils import get_csv_data
 from tests.tests_me_admin.pages.home_page import HomePage
 from tests.tests_me_admin.pages.login_page import LogInPage
-from tests.drivers.webdriver_factory import WebDriverFactory
+from src.drivers.webdriver_factory import WebDriverFactory
 
 
-@test(groups=['end2end'])
+@test(groups=['login_page', ])
 @ddt
 class LogInTest(unittest.TestCase):
     @classmethod
@@ -21,7 +21,7 @@ class LogInTest(unittest.TestCase):
         cls.home_page = HomePage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
-    @test(groups=['login'])
+    @test(groups=['sanity', 'ddt', 'negative', ])
     @data(*get_csv_data(BaseConfig.ME_LOGIN_DATA))
     @unpack
     def test_login(self, username, password):

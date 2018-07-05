@@ -1,6 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 from tests.tests_me_admin.locators.home_page_locators import HomePageLocators
 from tests.tests_me_admin.locators.login_page_locators import LogInPageLocators
 from tests.tests_me_admin.pages.base_page import BasePage

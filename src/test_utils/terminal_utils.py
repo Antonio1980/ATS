@@ -1,8 +1,5 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 import os
-from tests.repository.data_helper import test_data_dir
+from src.repository import test_data_dir
 from tests.test_definitions import BaseConfig
 
 test_utils_dir = os.path.abspath(os.path.dirname(__file__))

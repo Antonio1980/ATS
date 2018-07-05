@@ -1,7 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
-
 class HomePageLocators(object):
     SETTINGS_DROPDOWN = "//*[@class='dropdown-toggle'][contains(.,'XAISupervisor ')]"
     LOGOFF_BUTTON = "//*[@role='menuitem'][contains(text(),'  Logoff ')]"

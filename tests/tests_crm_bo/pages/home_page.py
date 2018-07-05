@@ -1,20 +1,12 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 from tests.test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.locators.home_page_locators import HomePageLocators
 from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
 from tests.tests_crm_bo.locators.customer_page_locators import CustomerPageLocators
-from tests.tests_crm_bo.pages import users_management_page, customer_page
+from tests.tests_crm_bo.pages import home_page_url, user_management_page_url, customer_admin_url
 
 
 class HomePage(BasePage):
-    customer_admin_url = customer_page.CustomerPage.customer_admin_url
-    user_page_url = users_management_page.user_management_page_url
-    self_url = "/dx/dashboard"
-    home_page_url = BasePage.crm_base_url + self_url
-
     def __init__(self):
         super(HomePage, self).__init__()
 
@@ -34,7 +26,7 @@ class HomePage(BasePage):
 
     def choose_customer_by_name(self, driver, delay):
         try:
-            assert self.home_page_url == self.get_cur_url(driver)
+            assert home_page_url == self.get_cur_url(driver)
             customer_field = self.find_element(driver, HomePageLocators.CUSTOMER_DROPDOWN)
             self.click_on_element(customer_field)
             self.driver_wait(driver, delay)
@@ -50,14 +42,14 @@ class HomePage(BasePage):
             self.driver_wait(driver, delay)
             assert self.wait_element_visible(driver, delay + 1, CustomerPageLocators.CUSTOMER_ID_TEXT)
         finally:
-            if self.customer_admin_url == self.get_cur_url(driver):
+            if customer_admin_url == self.get_cur_url(driver):
                 return True
             else:
                 return False
 
     def go_to_management_inset_with_users_option(self, driver, delay):
         try:
-            assert self.home_page_url == self.get_cur_url(driver)
+            assert home_page_url == self.get_cur_url(driver)
             self.driver_wait(driver, delay)
             management_dropdown = self.find_element(driver, HomePageLocators.MANAGEMENT_DROPDOWN)
             self.driver_wait(driver, delay)
@@ -67,7 +59,7 @@ class HomePage(BasePage):
             self.click_on_element(users_option)
             self.driver_wait(driver, delay)
         finally:
-            if self.user_page_url == self.get_cur_url(driver):
+            if user_management_page_url == self.get_cur_url(driver):
                 return True
             else:
                 return False

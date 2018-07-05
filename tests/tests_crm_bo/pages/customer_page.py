@@ -1,19 +1,10 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 from tests.test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.locators.customer_page_locators import CustomerPageLocators
+from tests.tests_crm_bo.pages import customer_admin_url, customer_deposit_url, customer_balance_url
 
 
 class CustomerPage(BasePage):
-    customer_id = BaseConfig.CRM_CUSTOMER_ID
-    self_url = "/dx/customers/page/"
-    customer_page_url = BasePage.crm_base_url + self_url
-    customer_admin_url = customer_page_url + "{0}#customer_admin_status".format(customer_id)
-    customer_deposit_url = customer_page_url + "{0}#customer_dw".format(customer_id)
-    customer_balance_url = customer_page_url + "{0}#customer_balance".format(customer_id)
-
     def __init__(self):
         super(CustomerPage, self).__init__()
 
@@ -24,13 +15,12 @@ class CustomerPage(BasePage):
 
     def make_deposit(self, driver, delay=1, amount=100):
         try:
-            assert self.customer_admin_url == self.get_cur_url(driver)
+            assert customer_admin_url == self.get_cur_url(driver)
             self.go_to_inset_id(driver, CustomerPageLocators.DEPOSIT_WITHDRAWALS_INSET_ID, delay)
-            assert self.customer_deposit_url == self.get_cur_url(driver)
+            assert customer_deposit_url == self.get_cur_url(driver)
             add_deposit_button = self.find_element_by(driver, CustomerPageLocators.ADD_DEPOSIT_BUTTON_ID, "id")
             self.click_on_element(add_deposit_button)
             self.wait_element_presented(driver, delay, CustomerPageLocators.NEW_DEPOSIT_POPUP)
-            #new_deposit_popup_title = self.find_element_by(CustomerPageLocators.NEW_DEPOSIT_POPUP_TITLE_ID, "id")
             payment_dropdown = self.find_element(driver, CustomerPageLocators.PAYMENT_METHOD_DROPDOWN)
             self.click_on_element(payment_dropdown)
             self.driver_wait(driver, delay)
@@ -82,7 +72,7 @@ class CustomerPage(BasePage):
             self.go_to_inset_id(driver, CustomerPageLocators.BALANCE_INSET_ID, delay)
         finally:
             self.driver_wait(driver, delay)
-            if self.customer_balance_url == self.get_cur_url(driver) is True:
+            if customer_balance_url == self.get_cur_url(driver) is True:
                 return True
             else:
                 return False

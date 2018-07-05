@@ -7,10 +7,9 @@ from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
 from src.test_utils.file_utils import write_file_result
 from src.test_utils.testrail_utils import update_test_case
-from src.test_utils.mailinator_utils import email_generator
-from tests.drivers.webdriver_factory import WebDriverFactory
+from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
-from tests.tests_web_platform.pages.login_page import LogInPage
+from tests.tests_web_platform.pages.signin_page import SignInPage
 from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
 
 
@@ -18,32 +17,31 @@ from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPa
 class WrongEmailTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.login_page = LogInPage()
+        cls.login_page = SignInPage()
         cls.home_page = HomePage()
         cls.forgot_password_page = ForgotPasswordPage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3667'
         cls.test_run = BaseConfig.TESTRAIL_RUN
         email_suffix = "@mailinator.com"
-        cls.negative_email = email_generator() + email_suffix
+        cls.negative_email = cls.login_page.email_generator() + email_suffix
 
-    @classmethod
-    @test(groups=['sanity', 'functional', 'positive', ])
-    def test_wrong_email(cls):
+    @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])
+    def test_wrong_email(self):
         delay = 1
-        result1, result2, result3 = False, False, True
+        result1, result2, result3 = False, False, False
         try:
-            result1 = cls.home_page.open_login_page(cls.driver, delay)
-            result2 = cls.login_page.click_on_forgot_password(cls.driver, delay)
-            cls.login_page.driver_wait(cls.driver, delay)
-            result3 = cls.forgot_password_page.fill_email_address_form(cls.driver, cls.negative_email, delay)
+            result1 = self.home_page.open_login_page(self.driver, delay + 3)
+            # Option 1- forgot password, Option 2- register link
+            result2 = self.login_page.click_on_link(self.driver, 1, delay + 3)
+            result3 = self.forgot_password_page.fill_email_address_form(self.driver, self.negative_email, delay + 3)
         finally:
-            if (result1 and result2 is True) and (result3 is False):
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
-                update_test_case(cls.test_run, cls.test_case, 1)
+            if result1 and result2 and result3 is True:
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
+                update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(cls.test_case + "," + cls.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
-                update_test_case(cls.test_run, cls.test_case, 0)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
+                update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDownClass(cls):
