@@ -10,7 +10,7 @@ from tests.tests_web_platform.locators.base_page_locators import BasePageLocator
 
 class BasePage(Browser):
     def __init__(self):
-        self.wtp_base_url = BaseConfig.WTP_BASE_URL
+        self.wtp_base_url = BaseConfig.WTP_STAGING_URL
         _self_account_url = "/openAccountDx.html"
         self.wtp_open_account_url = self.wtp_base_url + _self_account_url
         self.script_login = '$(".formContainer.formBox input.captchaCode").val("test_QA_test");'
