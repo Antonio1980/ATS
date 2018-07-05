@@ -1,3 +1,6 @@
+# !/usr/bin/env python
+# -*- coding: utf8 -*-
+
 import platform
 from src.base.enums import OperationSystem
 

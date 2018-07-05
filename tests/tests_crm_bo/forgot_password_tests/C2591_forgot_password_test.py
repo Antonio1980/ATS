@@ -20,6 +20,7 @@ class ForgotPasswordTest(unittest.TestCase):
         cls.test_case = '2591'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
+    @classmethod
     @test(groups=['sanity', 'functional', 'positive', ])
     def test_forgot_password(self):
         email = "roman@spotoption.com"

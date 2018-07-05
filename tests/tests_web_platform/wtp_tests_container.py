@@ -50,7 +50,6 @@ login_suite = unittest.TestSuite([login_ui, login, login_ddt, login_links, login
 signup_suite = unittest.TestSuite([signup_email_links, registration_ddt, email_screen_ui, signup, signup_ui, signup_links, ])
 
 # execute test suite according "one by one" ordering.
-# unittest.TextTestRunner(verbosity=2).run(login_suite)
-# unittest.TextTestRunner(verbosity=2).run(forgot_password_suite)
-# unittest.TextTestRunner(verbosity=2).run(registration_suite)
-# unittest.TextTestRunner(verbosity=2).run(signup_suite)
+unittest.TextTestRunner(verbosity=2).run(login_suite)
+unittest.TextTestRunner(verbosity=2).run(forgot_password_suite)
+unittest.TextTestRunner(verbosity=2).run(signup_suite)

@@ -1,3 +1,6 @@
+# !/usr/bin/env python
+# -*- coding: utf8 -*-
+
 import os
 from tests.repository.data_helper import test_data_dir
 from tests.test_definitions import BaseConfig

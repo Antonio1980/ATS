@@ -49,7 +49,7 @@ management_suite = unittest.TestSuite([create_new_user, create_new_user_ddt, ])
 customer_suite = unittest.TestSuite([upgrade_customer, add_deposit, ])
 
 # execute test suite
-# unittest.TextTestRunner(verbosity=2).run(login_suite)
-# unittest.TextTestRunner(verbosity=2).run(forgot_password_suite)
-# unittest.TextTestRunner(verbosity=2).run(management_suite)
-# unittest.TextTestRunner(verbosity=2).run(customer_suite)
+unittest.TextTestRunner(verbosity=2).run(login_suite)
+unittest.TextTestRunner(verbosity=2).run(forgot_password_suite)
+unittest.TextTestRunner(verbosity=2).run(management_suite)
+unittest.TextTestRunner(verbosity=2).run(customer_suite)

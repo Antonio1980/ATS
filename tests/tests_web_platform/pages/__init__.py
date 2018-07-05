@@ -1,3 +1,6 @@
+# !/usr/bin/env python
+# -*- coding: utf8 -*-
+
 from tests.tests_web_platform.pages.base_page import BasePage
 
 

@@ -1,4 +1,4 @@
-from selenium import webdriver
+import selenium.webdriver as webdriver
 from tests.test_definitions import BaseConfig
 from src.test_utils.os_utils import detect_os
 from src.base.enums import OperationSystem, Browsers

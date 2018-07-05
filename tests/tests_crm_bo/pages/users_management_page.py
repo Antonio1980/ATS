@@ -1,3 +1,6 @@
+# !/usr/bin/env python
+# -*- coding: utf8 -*-
+
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.locators.users_page_locators import UsersPageLocators
 from tests.tests_crm_bo.pages import user_management_page_url, create_user_page_url
