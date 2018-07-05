@@ -9,7 +9,7 @@ from tests.test_definitions import BaseConfig
 from src.test_utils.file_utils import write_file_result
 from src.test_utils.testrail_utils import update_test_case
 from tests.tests_web_platform.pages import wtp_dashboard_url
-from tests.drivers.webdriver_factory import WebDriverFactory
+from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signup_page import SignUpPage
 

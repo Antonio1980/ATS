@@ -7,7 +7,7 @@ from ddt import data, unpack, ddt
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
 from src.test_utils.testrail_utils import update_test_case
-from tests.drivers.webdriver_factory import WebDriverFactory
+from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from src.test_utils.file_utils import get_csv_data, write_file_result
 from tests.tests_web_platform.pages.signup_page import SignUpPage

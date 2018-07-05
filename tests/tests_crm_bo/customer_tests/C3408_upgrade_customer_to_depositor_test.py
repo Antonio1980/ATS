@@ -24,8 +24,6 @@ class CustomerUpgradeStatusTest(unittest.TestCase):
         cls.test_case = '3408'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-
-    @classmethod
     @test(groups=['sanity', 'functional', 'positive', ])
     def test_customer_status_upgrade(self):
         delay = 1

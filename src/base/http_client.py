@@ -1,6 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 import json, base64
 import urllib.request, urllib.error
 

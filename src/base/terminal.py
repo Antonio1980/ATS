@@ -1,6 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 import os as _os
 import subprocess
 from src.base.enums import OperationSystem

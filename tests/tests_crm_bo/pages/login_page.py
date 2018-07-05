@@ -1,6 +1,3 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 from tests.test_definitions import BaseConfig
 from tests.tests_crm_bo.pages import login_page_url
 from tests.tests_crm_bo.pages.base_page import BasePage

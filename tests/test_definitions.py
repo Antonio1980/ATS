@@ -2,6 +2,8 @@
 # -*- coding: utf8 -*-
 
 import os
+from src.drivers import drivers_dir
+from src.repository import repository_dir
 from src.test_utils.file_utils import config_parse
 
 
@@ -26,24 +28,24 @@ class BaseConfig(object):
     WTP_INTEGRATION_URL = parser.get('BASE_URL', 'wtp_integration_url')
     WTP_STAGING_URL = parser.get('BASE_URL', 'wtp_staging_url')
 
-    W_CHROME_PATH = path_dir + parser.get('WEB_DRIVER_WIN', 'w_chrome')
-    W_FIREFOX_PATH = path_dir + parser.get('WEB_DRIVER_WIN', 'w_firefox')
-    W_IE_PATH = path_dir + parser.get('WEB_DRIVER_WIN', 'w_ie')
-    W_EDGE_PATH = path_dir + parser.get('WEB_DRIVER_WIN', 'w_edge')
-    W_JS_PATH = path_dir + parser.get('WEB_DRIVER_WIN', 'w_js')
+    W_CHROME_PATH = drivers_dir + parser.get('WEB_DRIVER_WIN', 'w_chrome')
+    W_FIREFOX_PATH = drivers_dir + parser.get('WEB_DRIVER_WIN', 'w_firefox')
+    W_IE_PATH = drivers_dir + parser.get('WEB_DRIVER_WIN', 'w_ie')
+    W_EDGE_PATH = drivers_dir + parser.get('WEB_DRIVER_WIN', 'w_edge')
+    W_JS_PATH = drivers_dir + parser.get('WEB_DRIVER_WIN', 'w_js')
 
-    L_CHROME_PATH = path_dir + parser.get('WEB_DRIVER_LIN', 'l_chrome')
-    L_FIREFOX_PATH = path_dir + parser.get('WEB_DRIVER_LIN', 'l_firefox')
+    L_CHROME_PATH = drivers_dir + parser.get('WEB_DRIVER_LIN', 'l_chrome')
+    L_FIREFOX_PATH = drivers_dir + parser.get('WEB_DRIVER_LIN', 'l_firefox')
 
-    WTP_TESTS_RESULT = path_dir + parser.get('TEST_DATA', 'wtp_tests_result')
-    CRM_TESTS_RESULT = path_dir + parser.get('TEST_DATA', 'crm_tests_result')
-    WTP_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'me_login_data_csv')
-    CRM_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'crm_login_data_csv')
-    FORGOT_PASSWORD_DATA = path_dir + parser.get('TEST_DATA', 'forgot_data_csv')
-    CRM_CREATE_USER = path_dir + parser.get('TEST_DATA', 'crm_create_user_csv')
-    ME_LOGIN_DATA = path_dir + parser.get('TEST_DATA', 'me_login_data_csv')
-    OPEN_ACCOUNT_DATA = path_dir + parser.get('TEST_DATA', 'open_account_data_csv')
-    WTP_TESTS_CUSTOMERS = path_dir + parser.get('TEST_DATA', 'wtp_tests_customers_csv')
+    WTP_TESTS_RESULT = repository_dir + parser.get('TEST_DATA', 'wtp_tests_result')
+    CRM_TESTS_RESULT = repository_dir + parser.get('TEST_DATA', 'crm_tests_result')
+    WTP_LOGIN_DATA = repository_dir + parser.get('TEST_DATA', 'me_login_data_csv')
+    CRM_LOGIN_DATA = repository_dir + parser.get('TEST_DATA', 'crm_login_data_csv')
+    FORGOT_PASSWORD_DATA = repository_dir + parser.get('TEST_DATA', 'forgot_data_csv')
+    CRM_CREATE_USER = repository_dir + parser.get('TEST_DATA', 'crm_create_user_csv')
+    ME_LOGIN_DATA = repository_dir + parser.get('TEST_DATA', 'me_login_data_csv')
+    OPEN_ACCOUNT_DATA = repository_dir + parser.get('TEST_DATA', 'open_account_data_csv')
+    WTP_TESTS_CUSTOMERS = repository_dir + parser.get('TEST_DATA', 'wtp_tests_customers_csv')
 
     DB_HOST = parser.get('DATA_BASE', 'host')
     DB_PORT = parser.get('DATA_BASE', 'port')
@@ -63,3 +65,7 @@ class BaseConfig(object):
 
     BIN_CARD_NUMBER = parser.get('CREDIT_CARD', 'bin_number')
     CC_CARD_NUMBER = parser.get('CREDIT_CARD', 'cc_number')
+
+
+if __name__ == '__main__':
+    print(BaseConfig().W_CHROME_PATH)

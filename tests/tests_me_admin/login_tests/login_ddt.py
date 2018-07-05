@@ -9,7 +9,7 @@ from tests.test_definitions import BaseConfig
 from src.test_utils.file_utils import get_csv_data
 from tests.tests_me_admin.pages.home_page import HomePage
 from tests.tests_me_admin.pages.login_page import LogInPage
-from tests.drivers.webdriver_factory import WebDriverFactory
+from src.drivers.webdriver_factory import WebDriverFactory
 
 
 @test(groups=['login_page', ])

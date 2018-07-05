@@ -1,12 +1,9 @@
-# !/usr/bin/env python
-# -*- coding: utf8 -*-
-
 from src.base.enums import DriverHelper
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
-import selenium.webdriver.support.expected_conditions as ec
+from selenium.webdriver.support import expected_conditions as ec
 
 
 class Browser():
