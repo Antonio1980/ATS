@@ -1,13 +1,12 @@
 from tests.test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.locators.customer_page_locators import CustomerPageLocators
-from tests.tests_crm_bo.pages import customer_balance_url, customer_admin_url, customer_deposit_url
+from tests.tests_crm_bo.pages import customer_admin_url, customer_deposit_url, customer_balance_url
 
 
 class CustomerPage(BasePage):
     def __init__(self):
         super(CustomerPage, self).__init__()
-        self.customer_id = BaseConfig.CRM_CUSTOMER_ID
 
     def go_to_inset_id(self, driver, locator, delay=1):
         deposit_inset = self.find_element_by(driver, locator, "id")

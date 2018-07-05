@@ -30,7 +30,7 @@ class SignUpPageUiTest(unittest.TestCase):
             result1 = self.home_page.open_signup_page(self.driver, delay)
             result2 = self.signup_page.signup_ui_test(self.driver, delay)
         finally:
-            if (result1 & result2) is True:
+            if result1 and result2 is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:

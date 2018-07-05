@@ -33,7 +33,7 @@ class LeadLimitationsTest(unittest.TestCase):
             result1 = self.login_page.login(self.driver, delay)
 
         finally:
-            if (result1 & result2 & result3) is True:
+            if result1 and result2 and result3 is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:

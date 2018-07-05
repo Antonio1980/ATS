@@ -34,7 +34,7 @@ class SignUpTest(unittest.TestCase):
             result1 = self.home_page.open_signup_page(self.driver, delay)
             result2 = self.open_account_page.fill_signup_form(self.driver, self.first_last_name, self.email, self.password)
         finally:
-            if (result1 & result2) is True:
+            if result1 and result2 is True:
                 self.flag = True
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)

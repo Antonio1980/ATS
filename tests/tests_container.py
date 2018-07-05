@@ -2,11 +2,11 @@
 # -*- coding: utf8 -*-
 
 import unittest
-from tests.tests_crm_bo.tests_login.C2590_login_test import LogInTest as crm_login_test
-from tests.tests_crm_bo.tests_login.C2593_login_ddt_test import LogInTestDDT
-from tests.tests_crm_bo.tests_login.C2598_login_logout_test import LogInLogOutLogInTest
-from tests.tests_crm_bo.tests_forgot_password.C2591_forgot_password_test import ForgotPasswordTest
-from tests.tests_crm_bo.tests_forgot_password.C2694_forgot_password_ddt_test import ForgotPasswordTestDDT
+from tests.tests_crm_bo.login_tests.C2590_login_test import LogInTest as crm_login_test
+from tests.tests_crm_bo.login_tests.C2593_login_ddt_test import LogInTestDDT
+from tests.tests_crm_bo.login_tests.C2598_login_logout_test import LogInLogOutLogInTest
+from tests.tests_crm_bo.forgot_password_tests.C2591_forgot_password_test import ForgotPasswordTest
+from tests.tests_crm_bo.forgot_password_tests.C2694_forgot_password_ddt_test import ForgotPasswordTestDDT
 from tests.tests_me_admin.login_tests.login_ddt import LogInTest
 
 

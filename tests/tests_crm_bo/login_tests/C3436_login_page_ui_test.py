@@ -42,7 +42,7 @@ class LogInUiTest(unittest.TestCase):
                 if login_button_pos == 215:
                     result2 = True
         finally:
-            if result1 & result2 is True:
+            if result1 and result2 is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:

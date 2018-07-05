@@ -27,8 +27,8 @@ class ResetPasswordEmailTest(unittest.TestCase):
         # 1- Data file, 2- Row, 3- First column, 4- Second column, 5- Third column
         details = get_account_details(BaseConfig.WTP_TESTS_CUSTOMERS, 0, 0, 1, 2)
         cls.email = details['email']
-        #rows = run_mysql_query(cls, "SELECT c.email FROM customers c WHERE status=1;")
-        #cls.email = rows[0]
+        # rows = run_mysql_query(cls, "SELECT c.email FROM customers c WHERE status=1;")
+        # cls.email = rows[0]
 
     @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])
     def test_forgot_password(self):
