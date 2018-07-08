@@ -26,6 +26,7 @@ class Browser(object):
         """
         driver.delete_all_cookies()
         driver.close()
+        driver.quit()
 
     def driver_wait(self, driver, delay=1):
         """
@@ -227,7 +228,16 @@ class Browser(object):
 
     def switch_frame(self, driver, element):
         """
-        Switch window frame to another page frame.
+        Switch current frame to another page frame.
+        :param driver: web_driver instance.
+        :param element: web element.
+        :return: driver state on switched frame.
+        """
+        return driver.switch_to.frame(element)
+
+    def switch_window(self, driver, element):
+        """
+        Switch current browser window to another window.
         :param driver: web_driver instance.
         :param element: web element.
         :return: driver state on switched frame.

@@ -40,9 +40,10 @@ class ResetPasswordEmailTest(unittest.TestCase):
             result2 = self.login_page.click_on_link(self.driver, 1, delay)
             result3 = self.forgot_password_page.fill_email_address_form(self.driver, self.email, delay)
             # 1 - get_updates, 2 - click on change_password, 3 - click on verify_email
-            result4 = self.login_page.get_email_updates(self.driver, self.email, 2)
+            new_password_url = self.login_page.get_email_updates(self.driver, self.email, 1)
+            result4 = self.login_page.get_email_updates(self.driver, self.email, 2, new_password_url)
         finally:
-            if (result1 & result2 is True) & (result3 & result4 is True):
+            if result1 and result2 and result3 and result4 is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:

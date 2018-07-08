@@ -32,7 +32,7 @@ class SignUpPage(BasePage):
             self.click_on_element(password_field)
             self.send_keys(password_field, password)
             self.driver_wait(driver, delay)
-            assert self.check_element_not_visible(driver, delay, SignUpPageLocators.PASSWORD_ERROR)
+            # assert self.check_element_not_visible(driver, delay, SignUpPageLocators.PASSWORD_ERROR)
             self.driver_wait(driver, delay)
             certify_checkbox = self.find_element(driver, SignUpPageLocators.CERTIFY_CHECKBOX)
             self.click_on_element(certify_checkbox)
@@ -43,8 +43,7 @@ class SignUpPage(BasePage):
             self.click_on_element(create_account_button)
             self.driver_wait(driver, delay + 5)
         finally:
-            if (self.wait_element_presented(driver, delay, self.element) and self.check_element_not_visible(driver, delay, SignUpPageLocators.EMAIL_ERROR)) \
-                    or self.check_element_not_visible(driver, delay, SignUpPageLocators.PASSWORD_ERROR):
+            if self.wait_element_presented(driver, delay, self.element) and self.check_element_not_visible(driver, delay, SignUpPageLocators.EMAIL_ERROR and self.check_element_not_visible(driver, delay, SignUpPageLocators.PASSWORD_ERROR)):
                 return True
             else:
                 return False

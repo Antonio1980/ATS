@@ -10,7 +10,7 @@ from tests.tests_web_platform.locators.base_page_locators import BasePageLocator
 
 class BasePage(Browser):
     def __init__(self):
-        self.wtp_base_url = BaseConfig.WTP_STAGING_URL
+        self.wtp_base_url = BaseConfig.WTP_BASE_URL
         _self_account_url = "/openAccountDx.html"
         self.wtp_open_account_url = self.wtp_base_url + _self_account_url
         self.script_login = '$(".formContainer.formBox input.captchaCode").val("test_QA_test");'
@@ -27,10 +27,10 @@ class BasePage(Browser):
         else:
             return False
 
-    def email_generator(self, size=8, chars=string.ascii_lowercase):
+    def email_generator(self, size=8, chars=string.ascii_lowercase + string.digits):
         return ''.join(random.choice(chars) for _ in range(size))
 
-    def get_email_updates(self, driver, email, action):
+    def get_email_updates(self, driver, email, action, *args):
         delay = 1
         pattern = r"([\w\.-]+)"
         if not isinstance(email, str):
@@ -51,36 +51,38 @@ class BasePage(Browser):
         if action == 1:
             return self._get_updates(driver, delay)
         elif action == 2:
-            return self._click_on(driver, BasePageLocators.CHANGE_PASSWORD_BUTTON, delay)
+            return self._click_on(driver, BasePageLocators.CHANGE_PASSWORD_BUTTON, args, delay)
         elif action == 3:
-            return self._click_on(driver, BasePageLocators.VERIFY_EMAIL_BUTTON, delay)
+            return self._click_on(driver, BasePageLocators.VERIFY_EMAIL_BUTTON, args, delay)
 
     def _get_updates(self, driver, delay=1):
+        button = None
         try:
             self.driver_wait(driver, delay)
+            self.switch_frame(driver, BasePageLocators.EMAIL_FRAME_ID)
+            button = self.search_element(driver, delay, BasePageLocators.CHANGE_PASSWORD_BUTTON)
         finally:
-            mail_content = self.find_element_by(driver, BasePageLocators.EMAIL_FRAME_ID, "id")
             self.driver_wait(driver, delay)
-            if mail_content:
-                return mail_content
+            if button:
+                content = self.get_attribute_from_element(button, "href")
+                return content
             else:
-                return False
+                return None
 
-    def _click_on(self, driver, locator, delay=1):
+    def _click_on(self, driver, locator, args, delay=1):
+        new_password_url = args[0]
         try:
             self.driver_wait(driver, delay)
             frame = self.find_element_by(driver, BasePageLocators.EMAIL_FRAME_ID, "id")
+            self.switch_frame(driver, BasePageLocators.EMAIL_FRAME_ID)
             button = self.search_element(driver, delay, locator)
-            actions = ActionChains(driver)
-            actions.move_to_element(frame)
-            # button = self.find_element(driver, locator)
-            actions.click(button)
-            actions.perform()
+            button.click()
+            self.driver_wait(driver, delay)
             new_window = driver.window_handles
-            # self.driver_wait(driver, delay)
-            self.switch_frame(driver, new_window[1])
+            self.switch_window(driver, new_window[1])
         finally:
-            if self.get_cur_url(driver) == self.wtp_open_account_url:
+            cur_url = self.get_cur_url(driver)
+            if cur_url == self.wtp_open_account_url or cur_url == new_password_url:
                 return True
             else:
                 return False
