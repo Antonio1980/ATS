@@ -17,8 +17,8 @@ class SignUpTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
-        cls.open_account_page = SignUpPage()
-        cls.email = cls.open_account_page.email
+        cls.signup_page = SignUpPage()
+        cls.email = cls.signup_page.email
         cls.password = "1Aa@<>12"
         cls.first_last_name = "QAtestQA"
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
@@ -32,7 +32,7 @@ class SignUpTest(unittest.TestCase):
         result1, result2 = False, False
         try:
             result1 = self.home_page.open_signup_page(self.driver, delay)
-            result2 = self.open_account_page.fill_signup_form(self.driver, self.first_last_name, self.email, self.password)
+            result2 = self.signup_page.fill_signup_form(self.driver, self.first_last_name, self.email, self.password)
         finally:
             if result1 and result2 is True:
                 self.flag = True

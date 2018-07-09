@@ -24,6 +24,20 @@ class SignUpPageLocators(object):
     # Verify your email screen
     EMAIL_NOT_ARRIVED = "//*[@class='resendBtn']"
     EMAIL_ALREADY_VERIFIED = "//*[@class='reSyncBtn']"
-    GO_BACK_TO_DX = "//*[@class='emailVerification hidden']//a[@href='/']"
+    GO_BACK_LINK = "//*[@class='emailVerification hidden']//a[@href='/']"
+
+    # Add phone number screen
+    SELECT_COUNTRY_DROPDOWN = "//a[@class='chzn-single chzn-default']"
+    SELECT_COUNTRY_FIELD = "//div[@class='chzn-search']/input"
+    PHONE_FIELD = "//div[@class='phoneNumber']/input[@name='phone']"
+    PHONE_PREFIX = "//div[@class='phoneNumber']/input[@name='phonePrefix']"
+    SEND_BUTTON = "//input[@value='Send']"
+    GO_BACK_LINK_P = "//*[@class='validatePhoneNumber hidden']/div[@class='subscription']/a"
+    
+    # Verify phone number screen
+    CODE_FIELD = "//input[@name='code']"
+    SUBMIT_BUTTON = "//input[@value='Submit']"
+    RESEND_LINK = "//*[@class='resend']"
+    ANOTHER_PHONE_LINK = "//*[@class='resetPhone']/a"
     
     

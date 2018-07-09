@@ -25,7 +25,7 @@ class ResetPasswordEmailTest(unittest.TestCase):
         cls.test_case = '3669'
         cls.test_run = BaseConfig.TESTRAIL_RUN
         # 1- Data file, 2- Row, 3- First column, 4- Second column, 5- Third column
-        details = get_account_details(BaseConfig.WTP_TESTS_CUSTOMERS, 0, 0, 1, 2)
+        details = get_account_details(BaseConfig.WTP_TESTS_CUSTOMERS, 3, 0, 1, 2)
         cls.email = details['email']
         # rows = run_mysql_query(cls, "SELECT c.email FROM customers c WHERE status=1;")
         # cls.email = rows[0]

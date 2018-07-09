@@ -12,3 +12,5 @@ class SignInPageLocators(object):
     FORGOT_PASSWORD_LINK = "//*[@class='authPopupForgotPassword']" # [contains(text(),'Forgot you password?')]
     REGISTER_LINK = "//*[@class='authPopupRegister']"
     CAPTCHA_ERROR = "//*[@class='fieldError hidden captchaError']//span[@class='errorText']"
+
+    

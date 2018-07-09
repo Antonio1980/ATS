@@ -3,14 +3,14 @@ import time
 import string
 import random
 from src.base.browser import Browser
-from selenium.webdriver import ActionChains
 from tests.test_definitions import BaseConfig
 from tests.tests_web_platform.locators.base_page_locators import BasePageLocators
 
 
 class BasePage(Browser):
     def __init__(self):
-        self.wtp_base_url = BaseConfig.WTP_BASE_URL
+        self.wtp_base_url = BaseConfig.WTP_STAGING_URL
+        self.locators = BasePageLocators()
         _self_account_url = "/openAccountDx.html"
         self.wtp_open_account_url = self.wtp_base_url + _self_account_url
         self.script_login = '$(".formContainer.formBox input.captchaCode").val("test_QA_test");'
@@ -31,7 +31,8 @@ class BasePage(Browser):
         return ''.join(random.choice(chars) for _ in range(size))
 
     def get_email_updates(self, driver, email, action, *args):
-        delay = 1
+        delay = 5
+        self.driver_wait(driver, delay)
         pattern = r"([\w\.-]+)"
         if not isinstance(email, str):
             email, = email
@@ -41,48 +42,61 @@ class BasePage(Browser):
         email = email[0]
         mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}".format(email)
         self.go_to_url(driver, mailinator_box_url)
-        pause_button = self.find_element_by(driver, BasePageLocators.PAUSE_BUTTON_ID, "id")
-        time.sleep(5)
+        pause_button = self.find_element_by(driver, self.locators.PAUSE_BUTTON_ID, "id")
+        time.sleep(delay)
         pause_button.click()
-        email_item = self.find_element(driver, BasePageLocators.FIRST_EMAIL)
+        email_item = self.find_element(driver, self.locators.FIRST_EMAIL)
         email_item.click()
         self.driver_wait(driver, delay)
-        # 1 - get_updates, 2 - click on change_password, 3 - click on verify_email
-        if action == 1:
-            return self._get_updates(driver, delay)
-        elif action == 2:
-            return self._click_on(driver, BasePageLocators.CHANGE_PASSWORD_BUTTON, args, delay)
-        elif action == 3:
-            return self._click_on(driver, BasePageLocators.VERIFY_EMAIL_BUTTON, args, delay)
+        # 0 - get_token for verify email, 1 - get_token for forgot password, 2 - click on change_password, 3 - click on verify_email
+        if action == 1 or action == 0:
+            return self._get_token(driver, action)
+        elif action == 2 or action == 3:
+            return self._click_on(driver, action, args)
 
-    def _get_updates(self, driver, delay=1):
+    def _get_token(self, driver, action):
+        delay = 5
         button = None
         try:
             self.driver_wait(driver, delay)
-            self.switch_frame(driver, BasePageLocators.EMAIL_FRAME_ID)
-            button = self.search_element(driver, delay, BasePageLocators.CHANGE_PASSWORD_BUTTON)
+            self.switch_frame(driver, self.locators.EMAIL_FRAME_ID)
+            if action == 0:
+                button = self.search_element(driver, delay, self.locators.VERIFY_EMAIL_BUTTON)
+            else:
+                button = self.search_element(driver, delay, self.locators.CHANGE_PASSWORD_BUTTON)
         finally:
             self.driver_wait(driver, delay)
-            if button:
+            if button is not None:
                 content = self.get_attribute_from_element(button, "href")
                 return content
-            else:
-                return None
 
-    def _click_on(self, driver, locator, args, delay=1):
+    def _click_on(self, driver, action, args):
+        delay = 5
         new_password_url = args[0]
         try:
             self.driver_wait(driver, delay)
-            frame = self.find_element_by(driver, BasePageLocators.EMAIL_FRAME_ID, "id")
-            self.switch_frame(driver, BasePageLocators.EMAIL_FRAME_ID)
+            self.switch_frame(driver, self.locators.EMAIL_FRAME_ID)
+            if action == 2:
+                locator = self.locators.CHANGE_PASSWORD_BUTTON
+            else:
+                locator = self.locators.VERIFY_EMAIL_BUTTON
             button = self.search_element(driver, delay, locator)
             button.click()
-            self.driver_wait(driver, delay)
+            self.driver_wait(driver, delay + 5)
             new_window = driver.window_handles
             self.switch_window(driver, new_window[1])
         finally:
+            time.sleep(10)
             cur_url = self.get_cur_url(driver)
             if cur_url == self.wtp_open_account_url or cur_url == new_password_url:
                 return True
             else:
                 return False
+
+
+# if __name__ == '__main__':
+#     #RegistrationFlowTest.setUpClass()
+#     url = "https://plat.dx.exchange/appProxy/forgotPasswordDx.html?validation_token=ff4a558a-2267-4443-85e8-6c5bbfef48e5&email=wovqfphw%40mailinator.com"
+#     token = url.split('=')
+#     token = token[1].split('&')
+#     print(token, type(token))

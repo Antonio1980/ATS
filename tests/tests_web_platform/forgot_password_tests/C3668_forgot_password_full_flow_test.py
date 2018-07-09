@@ -1,6 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
+import time
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
@@ -23,9 +24,10 @@ class ResetPasswordEmailTest(unittest.TestCase):
         cls.forgot_password_page = ForgotPasswordPage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3669'
+        cls.flag = False
         cls.test_run = BaseConfig.TESTRAIL_RUN
         # 1- Data file, 2- Row, 3- First column, 4- Second column, 5- Third column
-        details = get_account_details(BaseConfig.WTP_TESTS_CUSTOMERS, 4, 0, 1, 2)
+        details = get_account_details(BaseConfig.WTP_TESTS_CUSTOMERS, 1, 0, 1, 2)
         cls.email = details['email']
         cls.new_password = cls.login_page.email_generator() + "A"
         # rows = run_mysql_query(cls, "SELECT c.email FROM customers c WHERE status=1;")
@@ -34,7 +36,7 @@ class ResetPasswordEmailTest(unittest.TestCase):
     @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])
     def test_forgot_password(self):
         delay = 1
-        result1, result2, result3, result4, result5, result6 = False, False, False, False, False, False
+        result1, result2, result3, result4, result5 = False, False, False, False, False
         try:
             result1 = self.home_page.open_login_page(self.driver, delay)
             # Option 1- forgot password, Option 2- register link
@@ -42,10 +44,12 @@ class ResetPasswordEmailTest(unittest.TestCase):
             result3 = self.forgot_password_page.fill_email_address_form(self.driver, self.email, delay)
             # 1 - get_updates, 2 - click on change_password, 3 - click on verify_email
             new_password_url = self.forgot_password_page.get_email_updates(self.driver, self.email, 1)
+            time.sleep(10)
             result4 = self.forgot_password_page.get_email_updates(self.driver, self.email, 2, new_password_url)
-            result5 = self.set_new_password(self.driver, self.new_password, new_password_url)
+            result5 = self.forgot_password_page.set_new_password(self.driver, self.new_password, new_password_url)
         finally:
             if result1 and result2 and result3 and result4 and result5 is True:
+                self.flag = True
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
@@ -54,4 +58,6 @@ class ResetPasswordEmailTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
+        if cls.flag is True:
+            write_file_result(cls.first_last_name + "," + cls.email + "," + cls.new_password + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
         cls.home_page.close_browser(cls.driver)

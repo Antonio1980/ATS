@@ -17,7 +17,7 @@ class EmailVerificationScreenTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
-        cls.open_account_page = SignUpPage()
+        cls.signup_page = SignUpPage()
         cls.email = cls.open_account_page.email
         cls.password = "1Aa@<>12"
         cls.first_last_name = "QAtestQA"
@@ -31,8 +31,8 @@ class EmailVerificationScreenTest(unittest.TestCase):
         result1, result2, result3 = False, False, False
         try:
             result1 = self.home_page.open_signup_page(self.driver, delay)
-            result2 = self.open_account_page.fill_signup_form(self.driver, self.first_last_name, self.email, self.password)
-            result3 = self.open_account_page.verify_email_screen_test(self.driver, delay)
+            result2 = self.signup_page.fill_signup_form(self.driver, self.first_last_name, self.email, self.password)
+            result3 = self.signup_page.verify_email_screen_test(self.driver, delay)
         finally:
             if result1 and result2 and result3 is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)

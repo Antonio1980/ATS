@@ -30,7 +30,7 @@ class LinksOnSignUpPageTest(unittest.TestCase):
             result1 = self.home_page.open_signup_page(self.driver, delay)
             # 1 - Terms link, 2 - Privacy link
             result2 = self.signup_page.click_on_link_on_signup_page(self.driver, 1)
-            res1 = self.home_page.go_back_and_wait(self.driver, self.home_page.wtp_open_account_url, delay + 5)
+            self.home_page.go_back_and_wait(self.driver, self.home_page.wtp_open_account_url, delay + 5)
             result3 = self.signup_page.click_on_link_on_signup_page(self.driver, 2)
         finally:
             if result1 and result2 and result3 is True:

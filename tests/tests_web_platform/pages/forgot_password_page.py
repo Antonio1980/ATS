@@ -16,9 +16,9 @@ class ForgotPasswordPage(BasePage):
             self.wait_driver(driver, delay + 3)
             self.execute_js(driver, self.script_forgot)
             submit_button = self.find_element(driver, ForgotPasswordPageLocators.SUBMIT_BUTTON)
-            self.wait_driver(driver, delay + 3)
+            self.wait_driver(driver, delay + 5)
             self.click_on_element(submit_button)
-            self.driver_wait(driver, delay + 5)
+            self.wait_driver(driver, delay + 5)
         finally:
             if not self.wait_element_clickable(driver, delay, ForgotPasswordPageLocators.SUBMIT_BUTTON):
                 return True
@@ -26,7 +26,7 @@ class ForgotPasswordPage(BasePage):
                 return False
 
     def set_new_password(self, driver, password, new_password_url):
-        delay, flag = 3, False
+        delay, flag = 5, False
         try:
             self.driver_wait(driver, delay)
             assert self.get_cur_url(driver) == new_password_url
@@ -40,7 +40,7 @@ class ForgotPasswordPage(BasePage):
             assert self.check_element_not_visible(driver, delay, ForgotPasswordPageLocators.CONFIRM_PASSWORD_ERROR)
             confirm_button = self.find_element(driver, ForgotPasswordPageLocators.CONFIRM_BUTTON)
             self.click_on_element(confirm_button)
-            self.driver_wait(driver, delay + 2)
+            self.wait_driver(driver, delay + 5)
             if self.wait_element_presented(driver, delay, ForgotPasswordPageLocators.CONTINUE_BUTTON):
                 flag = True
                 continue_button = self.find_element(driver, ForgotPasswordPageLocators.CONTINUE_BUTTON)
