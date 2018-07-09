@@ -18,9 +18,9 @@ class LinksOnVerifyEmailScreenTest(unittest.TestCase):
     def setUpClass(cls):
         cls.home_page = HomePage()
         cls.signup_page = SignUpPage()
-        cls.email = cls.open_account_page.email
-        cls.password = "1Aa@<>12"
-        cls.first_last_name = "QAtestQA"
+        cls.email = cls.signup_page.email
+        cls.password = cls.signup_page.password
+        cls.first_last_name = cls.signup_page.first_last_name
         cls.test_case = '3964'
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
@@ -34,7 +34,6 @@ class LinksOnVerifyEmailScreenTest(unittest.TestCase):
             result2 = self.signup_page.fill_signup_form(self.driver, self.first_last_name, self.email, self.password)
             # 1 - email verified link, 2 - go back link, 3 - email not sent link
             result3 = self.signup_page.click_on_link_on_email_screen(self.driver, self.home_page.wtp_open_account_url, 1)
-            # self.home_page.go_back_and_wait(self.driver, wtp_open_account_url, delay)
             result4 = self.signup_page.click_on_link_on_email_screen(self.driver, self.home_page.wtp_open_account_url, 2)
             self.home_page.go_back_and_wait(self.driver, self.home_page.wtp_open_account_url, delay)
             result5 = self.signup_page.click_on_link_on_email_screen(self.driver, self.home_page.wtp_open_account_url, 3)

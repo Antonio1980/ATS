@@ -17,20 +17,21 @@ class RegistrationFlowTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.flag = False
+        cls.test_case = '3750'
         cls.home_page = HomePage()
         cls.signup_page = SignUpPage()
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = '3750'
         cls.email = cls.signup_page.email
-        cls.password = "1Aa@<>12"
-        cls.first_last_name = "QAtestQA"
-        cls.phone = "528259547"
+        cls.phone = cls.signup_page.phone
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.password = cls.signup_page.password
+        cls.first_last_name = cls.signup_page.first_last_name
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+
 
     @test(groups=['regression', 'functional', 'positive', ], depends_on_groups=["smoke", "sanity", ])
     def test_registration_flow(self):
         delay = 1
-        result1, result2, result3 = False, False, False
+        result1, result2, result3, result4 = False, False, False, False
         try:
             result1 = self.home_page.open_signup_page(self.driver, delay)
             result2 = self.signup_page.fill_signup_form(self.driver, self.first_last_name, self.email, self.password)
@@ -41,7 +42,7 @@ class RegistrationFlowTest(unittest.TestCase):
             result3 = self.signup_page.get_email_updates(self.driver, self.email, 3, new_password_url)
             result4 = self.signup_page.add_phone(self.driver, self.phone)
         finally:
-            if result1 and result2 and result3 is True:
+            if result1 and result2 and result3 and result4 is True:
                 self.flag = True
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)

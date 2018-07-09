@@ -21,8 +21,8 @@ class LogInTest(unittest.TestCase):
         cls.test_case = '3690'
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.email = "fresh_blood_31@mailinator.com"
-        cls.password = "1Aa@<>12"
+        cls.email = cls.login_page.email
+        cls.password = cls.login_page.password
 
     @test(groups=['smoke', 'functional', 'positive', ])
     def test_login_positive(self):

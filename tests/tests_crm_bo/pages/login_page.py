@@ -59,7 +59,7 @@ class LogInPage(BasePage):
         try:
             self.go_to_login_page(driver, self.crm_base_url)
             assert login_page_url == self.get_cur_url(driver)
-            self.click_on_element_by_locator(driver, delay + 2, LogInPageLocators.FORGOT_PASSWORD_LINK)
+            self.click_on_element_by_locator(driver, LogInPageLocators.FORGOT_PASSWORD_LINK, delay + 2)
             email_field = self.find_element_by(driver, LogInPageLocators.POPUP_EMAIL_FIELD_ID, "id")
             self.send_keys(email_field, email)
             self.driver_wait(driver, delay)
@@ -67,8 +67,8 @@ class LogInPage(BasePage):
             self.click_on_element(send_button)
             self.driver_wait(driver, delay)
         finally:
-            if self.wait_element_presented(driver, delay + 3, LogInPageLocators.POPUP_CHECK):
-                self.click_on_element_by_locator(driver, delay + 1, LogInPageLocators.EMAIL_POPUP_CLOSE_BUTTON)
+            if self.wait_element_presented(driver, LogInPageLocators.POPUP_CHECK, delay + 3):
+                self.click_on_element_by_locator(driver, LogInPageLocators.EMAIL_POPUP_CLOSE_BUTTON, delay + 1)
                 return True
             else:
                 return False

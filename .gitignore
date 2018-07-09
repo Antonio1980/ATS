@@ -215,3 +215,7 @@ $RECYCLE.BIN/
 
 
 /.idea/
+/exportToHTML/
+exportToHTML/*
+*.html
+exportToHTML/

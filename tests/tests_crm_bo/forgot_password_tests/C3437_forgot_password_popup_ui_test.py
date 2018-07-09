@@ -33,13 +33,14 @@ class ForgotPasswordPopUpTest(unittest.TestCase):
             self.base_page.go_to_url(self.driver, self.base_page.crm_base_url)
             self.base_page.driver_wait(self.driver, delay)
             assert login_page_url == self.base_page.get_cur_url(self.driver)
-            assert self.base_page.wait_element_visible(self.driver, delay + 1, LogInPageLocators.FORGOT_PASSWORD_LINK)
-            self.base_page.click_on_element_by_locator(self.driver, delay + 2, LogInPageLocators.FORGOT_PASSWORD_LINK)
-            popup = self.base_page.wait_element_presented(self.driver, delay + 2, LogInPageLocators.POPUP_FORGOT_PASSWORD)
-            message = self.base_page.wait_element_presented(self.driver, delay + 2, LogInPageLocators.POPUP_MESSAGE)
+            assert self.base_page.wait_element_visible(self.driver, LogInPageLocators.FORGOT_PASSWORD_LINK, delay + 1)
+            self.base_page.click_on_element_by_locator(self.driver, LogInPageLocators.FORGOT_PASSWORD_LINK, delay + 2)
+            popup = self.base_page.wait_element_presented(self.driver, LogInPageLocators.POPUP_FORGOT_PASSWORD,
+                                                          delay + 2)
+            message = self.base_page.wait_element_presented(self.driver, LogInPageLocators.POPUP_MESSAGE, delay + 2)
             send = self.base_page.find_element_by(self.driver, LogInPageLocators.POPUP_SEND_BUTTON_ID, "id")
-            note = self.base_page.wait_element_presented(self.driver, delay + 2, LogInPageLocators.POPUP_NOTE_MESSAGE)
-            close = self.base_page.wait_element_presented(self.driver, delay + 1, LogInPageLocators.POPUP_CLOSE_BUTTON)
+            note = self.base_page.wait_element_presented(self.driver, LogInPageLocators.POPUP_NOTE_MESSAGE, delay + 2)
+            close = self.base_page.wait_element_presented(self.driver, LogInPageLocators.POPUP_CLOSE_BUTTON, delay + 1)
             popup_html = self.base_page.get_element_span_html(popup)
             if header in popup_html:
                 if (message is not None) & (send is not None):

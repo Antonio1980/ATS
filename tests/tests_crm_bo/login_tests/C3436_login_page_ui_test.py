@@ -27,7 +27,7 @@ class LogInUiTest(unittest.TestCase):
         result1, result2 = False, False
         try:
             self.base_page.go_to_url(self.driver, self.base_page.crm_base_url)
-            assert self.base_page.wait_element_visible(self.driver, delay, LogInPageLocators.CRM_LOGO)
+            assert self.base_page.wait_element_visible(self.driver, LogInPageLocators.CRM_LOGO, delay)
             assert self.base_page.find_element_by(self.driver, LogInPageLocators.USERNAME_FIELD_ID, "id")
             assert self.base_page.find_element_by(self.driver, LogInPageLocators.PASSWORD_FIELD_ID, "id")
             assert self.base_page.find_element_by(self.driver, LogInPageLocators.LOGIN_BUTTON_ID, "id")

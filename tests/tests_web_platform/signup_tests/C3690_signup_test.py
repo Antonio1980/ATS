@@ -19,8 +19,8 @@ class SignUpTest(unittest.TestCase):
         cls.home_page = HomePage()
         cls.signup_page = SignUpPage()
         cls.email = cls.signup_page.email
-        cls.password = "1Aa@<>12"
-        cls.first_last_name = "QAtestQA"
+        cls.password = cls.signup_page.password
+        cls.first_last_name = cls.signup_page.first_last_name
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3690'
         cls.test_run = BaseConfig.TESTRAIL_RUN

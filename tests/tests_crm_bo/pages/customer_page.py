@@ -20,7 +20,7 @@ class CustomerPage(BasePage):
             assert customer_deposit_url == self.get_cur_url(driver)
             add_deposit_button = self.find_element_by(driver, CustomerPageLocators.ADD_DEPOSIT_BUTTON_ID, "id")
             self.click_on_element(add_deposit_button)
-            self.wait_element_presented(driver, delay, CustomerPageLocators.NEW_DEPOSIT_POPUP)
+            self.wait_element_presented(driver, CustomerPageLocators.NEW_DEPOSIT_POPUP, delay)
             payment_dropdown = self.find_element(driver, CustomerPageLocators.PAYMENT_METHOD_DROPDOWN)
             self.click_on_element(payment_dropdown)
             self.driver_wait(driver, delay)
@@ -62,7 +62,7 @@ class CustomerPage(BasePage):
             self.click_on_element(save_button)
             self.driver_wait(driver, delay)
         finally:
-            if self.wait_element_presented(driver, delay, CustomerPageLocators.NEW_DEPOSIT_POPUP) is None:
+            if self.wait_element_presented(driver, CustomerPageLocators.NEW_DEPOSIT_POPUP, delay) is None:
                 return True
             else:
                 return False

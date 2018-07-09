@@ -12,7 +12,7 @@ class HomePage(BasePage):
     def logout(self, driver, delay):
         try:
             assert self.get_cur_url(driver) == self.home_page_url
-            self.wait_element_visible(driver, delay + 1, HomePageLocators.HOME_PAGE_LOGO)
+            self.wait_element_visible(driver, HomePageLocators.HOME_PAGE_LOGO, delay + 1)
             settings_dropdown = self.find_element(driver, HomePageLocators.SETTINGS_DROPDOWN)
             self.click_on_element(settings_dropdown)
             self.driver_wait(driver, delay + 3)
@@ -23,7 +23,7 @@ class HomePage(BasePage):
             self.click_on_element(confirm_button)
             self.driver_wait(driver, delay + 3)
         finally:
-            if self.wait_element_visible(driver, delay + 1, LogInPageLocators.NASDAQ_LOGO):
+            if self.wait_element_visible(driver, LogInPageLocators.NASDAQ_LOGO, delay + 1):
                 return True
             else:
                 return False

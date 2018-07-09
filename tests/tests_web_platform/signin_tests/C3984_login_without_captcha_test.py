@@ -21,10 +21,11 @@ class LogInWithoutCaptchaTest(unittest.TestCase):
         cls.home_page = HomePage()
         cls.login_page = SignInPage()
         cls.test_case = '3984'
+        cls.locators = SignInPageLocators()
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.email = "fresh_blood_31@mailinator.com"
-        cls.password = "1Aa@<>12"
+        cls.email = cls.login_page.email
+        cls.password = cls.login_page.password
 
     @test(groups=['smoke', 'functional', 'negative', ])
     def test_login_negative(self):
@@ -33,18 +34,18 @@ class LogInWithoutCaptchaTest(unittest.TestCase):
         try:
             result1 = self.home_page.open_login_page(self.driver, delay)
             self.login_page.wait_driver(self.driver, delay + 3)
-            username_field = self.login_page.find_element(self.driver, SignInPageLocators.USERNAME_FIELD)
+            username_field = self.login_page.find_element(self.driver, self.locators.USERNAME_FIELD)
             self.login_page.click_on_element(username_field)
             self.login_page.send_keys(username_field, self.email)
-            password_true_field = self.login_page.find_element(self.driver, SignInPageLocators.PASSWORD_TRUE_FIELD)
-            password_field = self.login_page.find_element(self.driver, SignInPageLocators.PASSWORD_FIELD)
+            password_true_field = self.login_page.find_element(self.driver, self.locators.PASSWORD_TRUE_FIELD)
+            password_field = self.login_page.find_element(self.driver, self.locators.PASSWORD_FIELD)
             self.login_page.click_on_element(password_field)
             self.login_page.send_keys(password_true_field, self.password)
             self.login_page.driver_wait(self.driver, delay + 5)
-            login_button = self.login_page.find_element(self.driver, SignInPageLocators.SIGNIN_BUTTON)
+            login_button = self.login_page.find_element(self.driver, self.locators.SIGNIN_BUTTON)
             self.login_page.click_on_element(login_button)
             self.login_page.driver_wait(self.driver, delay + 2)
-            if self.login_page.find_element(self.driver, SignInPageLocators.CAPTCHA_ERROR):
+            if self.login_page.find_element(self.driver, self.locators.CAPTCHA_ERROR):
                 result2 = True
         finally:
             if result1 and result2 is True:

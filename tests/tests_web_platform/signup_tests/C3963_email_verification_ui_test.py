@@ -18,9 +18,9 @@ class EmailVerificationScreenTest(unittest.TestCase):
     def setUpClass(cls):
         cls.home_page = HomePage()
         cls.signup_page = SignUpPage()
-        cls.email = cls.open_account_page.email
-        cls.password = "1Aa@<>12"
-        cls.first_last_name = "QAtestQA"
+        cls.email = cls.signup_page.email
+        cls.password = cls.signup_page.email
+        cls.first_last_name = cls.signup_page.first_last_name
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3963'
         cls.test_run = BaseConfig.TESTRAIL_RUN

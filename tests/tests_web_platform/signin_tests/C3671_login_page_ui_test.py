@@ -20,6 +20,7 @@ class LogInPageUiTest(unittest.TestCase):
     def setUpClass(cls):
         cls.home_page = HomePage()
         cls.login_page = SignInPage()
+        cls.locators = SignInPageLocators()
         cls.test_case = '3671'
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
@@ -32,14 +33,14 @@ class LogInPageUiTest(unittest.TestCase):
             result1 = self.home_page.open_login_page(self.driver, delay)
             try:
                 assert wtp_login_page_url == self.login_page.get_cur_url(self.driver)
-                assert self.login_page.search_element(self.driver, delay, SignInPageLocators.SIGNIN_TITLE)
-                assert self.login_page.search_element(self.driver, delay, SignInPageLocators.USERNAME_FIELD)
-                assert self.login_page.search_element(self.driver, delay, SignInPageLocators.PASSWORD_FIELD)
-                assert self.login_page.search_element(self.driver, delay, SignInPageLocators.CAPTCHA_FRAME)
-                assert self.login_page.search_element(self.driver, delay, SignInPageLocators.KEEP_ME_CHECKBOX)
-                assert self.login_page.search_element(self.driver, delay, SignInPageLocators.SIGNIN_BUTTON)
-                assert self.login_page.search_element(self.driver, delay, SignInPageLocators.FORGOT_PASSWORD_LINK)
-                assert self.login_page.search_element(self.driver, delay, SignInPageLocators.REGISTER_LINK)
+                assert self.login_page.search_element(self.driver, self.locators.SIGNIN_TITLE, delay)
+                assert self.login_page.search_element(self.driver, self.locators.USERNAME_FIELD, delay)
+                assert self.login_page.search_element(self.driver, self.locators.PASSWORD_FIELD, delay)
+                assert self.login_page.search_element(self.driver, self.locators.CAPTCHA_FRAME, delay)
+                assert self.login_page.search_element(self.driver, self.locators.KEEP_ME_CHECKBOX, delay)
+                assert self.login_page.search_element(self.driver, self.locators.SIGNIN_BUTTON, delay)
+                assert self.login_page.search_element(self.driver, self.locators.FORGOT_PASSWORD_LINK, delay)
+                assert self.login_page.search_element(self.driver, self.locators.REGISTER_LINK, delay)
                 result2 = True
             except TimeoutError:
                 print("Time out occurred.")

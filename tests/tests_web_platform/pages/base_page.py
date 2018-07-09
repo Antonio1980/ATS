@@ -18,7 +18,7 @@ class BasePage(Browser):
         self.script_signup = '$("#openAccountDxForm .captchaCode").val("test_QA_test");'
         self.script_forgot = '$("#dxPackageContainer_forgotPassword .captchaCode").val("test_QA_test");'
 
-    def go_back_and_wait(self, driver, previous_url, delay=3):
+    def go_back_and_wait(self, driver, previous_url, delay=+3):
         self.driver_wait(driver, delay)
         self.go_back(driver)
         self.wait_driver(driver, delay)
@@ -61,9 +61,9 @@ class BasePage(Browser):
             self.driver_wait(driver, delay)
             self.switch_frame(driver, self.locators.EMAIL_FRAME_ID)
             if action == 0:
-                button = self.search_element(driver, delay, self.locators.VERIFY_EMAIL_BUTTON)
+                button = self.search_element(driver, self.locators.VERIFY_EMAIL_BUTTON, delay)
             else:
-                button = self.search_element(driver, delay, self.locators.CHANGE_PASSWORD_BUTTON)
+                button = self.search_element(driver, self.locators.CHANGE_PASSWORD_BUTTON, delay)
         finally:
             self.driver_wait(driver, delay)
             if button is not None:
@@ -80,7 +80,7 @@ class BasePage(Browser):
                 locator = self.locators.CHANGE_PASSWORD_BUTTON
             else:
                 locator = self.locators.VERIFY_EMAIL_BUTTON
-            button = self.search_element(driver, delay, locator)
+            button = self.search_element(driver, locator, delay)
             button.click()
             self.driver_wait(driver, delay + 5)
             new_window = driver.window_handles

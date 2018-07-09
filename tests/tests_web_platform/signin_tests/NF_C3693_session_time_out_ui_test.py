@@ -19,6 +19,8 @@ class LogInTest(unittest.TestCase):
         cls.home_page = HomePage()
         cls.login_page = SignInPage()
         cls.test_case = '3693'
+        cls.email = cls.login_page.email
+        cls.password = cls.login_page.password
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
@@ -28,10 +30,10 @@ class LogInTest(unittest.TestCase):
         result1, result2, result3 = False, False, False
         try:
             result1 = self.home_page.open_login_page(self.driver, delay)
-            result2 = self.login_page.login(self.driver, delay)
+            result2 = self.login_page.login(self.driver, self.email, self.password)
             result3 = ""
         finally:
-            if (result1 & result2 & result3) is True:
+            if result1 and result2 and result3 is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:

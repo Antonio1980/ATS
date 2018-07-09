@@ -14,11 +14,11 @@ class HomePage(BasePage):
         try:
             self.driver_wait(driver, delay + 3)
             assert self.find_element_by(driver, HomePageLocators.HOME_PAGE_LOGO_ID, "id")
-            self.click_on_element_by_locator(driver, delay + 5, HomePageLocators.SETTINGS_DROPDOWN)
-            self.click_on_element_by_locator(driver, delay + 5, HomePageLocators.LANGUAGE_ICON)
-            self.click_on_element_by_locator(driver, delay + 3, HomePageLocators.LOGOUT_LINK)
+            self.click_on_element_by_locator(driver, HomePageLocators.SETTINGS_DROPDOWN, delay + 5)
+            self.click_on_element_by_locator(driver, HomePageLocators.LANGUAGE_ICON, delay + 5)
+            self.click_on_element_by_locator(driver, HomePageLocators.LOGOUT_LINK, delay + 3)
         finally:
-            if self.wait_element_presented(driver, delay + 1, LogInPageLocators.CRM_LOGO):
+            if self.wait_element_presented(driver, LogInPageLocators.CRM_LOGO, delay + 1):
                 self.driver_wait(driver, delay)
                 return True
             else:
@@ -40,7 +40,7 @@ class HomePage(BasePage):
             show_button = self.find_element_by(driver, HomePageLocators.SHOW_RESULTS_BUTTON_ID, "id")
             self.click_on_element(show_button)
             self.driver_wait(driver, delay)
-            assert self.wait_element_visible(driver, delay + 1, CustomerPageLocators.CUSTOMER_ID_TEXT)
+            assert self.wait_element_visible(driver, CustomerPageLocators.CUSTOMER_ID_TEXT, delay + 1)
         finally:
             if customer_admin_url == self.get_cur_url(driver):
                 return True

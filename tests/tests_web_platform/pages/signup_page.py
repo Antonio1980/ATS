@@ -8,6 +8,9 @@ class SignUpPage(BasePage):
         self.locators = SignUpPageLocators()
         email_suffix = "@mailinator.com"
         self.email = self.email_generator() + email_suffix
+        self.password = "1Aa@<>12"
+        self.first_last_name = "QA_test_QA"
+        self.phone = "528259547"
         self.terms_url = self.wtp_base_url + "/termsOfUse.html"
         self.privacy_url = self.wtp_base_url + "/privacyPolicy.html"
         self.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(self.email)
@@ -30,8 +33,6 @@ class SignUpPage(BasePage):
             self.click_on_element(password_field)
             self.send_keys(password_field, password)
             self.driver_wait(driver, delay)
-            # assert self.check_element_not_visible(driver, delay, SignUpPageLocators.PASSWORD_ERROR)
-            self.driver_wait(driver, delay)
             certify_checkbox = self.find_element(driver, self.locators.CERTIFY_CHECKBOX)
             self.click_on_element(certify_checkbox)
             newsletters_checkbox = self.find_element(driver, self.locators.NEWSLETTERS_CHECKBOX)
@@ -41,33 +42,36 @@ class SignUpPage(BasePage):
             self.click_on_element(create_account_button)
             self.driver_wait(driver, delay + 5)
         finally:
-            if self.find_element(driver, self.element) and self.check_element_not_visible(driver, delay, self.locators.EMAIL_ERROR) and self.check_element_not_visible(driver, delay, self.locators.PASSWORD_ERROR):
+            if self.find_element(driver, self.element) and self.check_element_not_visible(driver,
+                                                                                          self.locators.EMAIL_ERROR,
+                                                                                          delay) and self.check_element_not_visible(
+                    driver, self.locators.PASSWORD_ERROR, delay):
                 return True
             else:
                 return False
 
-    def signup_ui_test(self, driver, delay=1):
+    def signup_ui_test(self, driver, delay=+1):
         assert self.get_cur_url(driver) == self.wtp_open_account_url
         self.driver_wait(driver, delay + 2)
-        assert self.wait_element_presented(driver, delay, self.locators.FIRST_NAME_FIELD)
-        assert self.wait_element_presented(driver, delay, self.locators.LAST_NAME_FIELD)
-        assert self.wait_element_presented(driver, delay, self.locators.EMAIL_FIELD)
-        assert self.wait_element_presented(driver, delay, self.locators.PASSWORD_FIELD)
-        assert self.wait_element_presented(driver, delay, self.locators.CAPTCHA_FRAME)
-        assert self.wait_element_presented(driver, delay, self.locators.NEWSLETTERS_CHECKBOX)
-        assert self.wait_element_presented(driver, delay, self.locators.CERTIFY_CHECKBOX)
-        assert self.wait_element_presented(driver, delay, self.locators.TERM_OF_USE_LINK)
-        assert self.wait_element_presented(driver, delay, self.locators.PRIVACY_POLICY_LINK)
-        assert self.wait_element_presented(driver, delay, self.locators.SIGNIN_LINK)
-        assert self.wait_element_clickable(driver, delay, self.locators.CREATE_ACCOUNT_BUTTON)
+        assert self.wait_element_presented(driver, self.locators.FIRST_NAME_FIELD, delay)
+        assert self.wait_element_presented(driver, self.locators.LAST_NAME_FIELD, delay)
+        assert self.wait_element_presented(driver, self.locators.EMAIL_FIELD, delay)
+        assert self.wait_element_presented(driver, self.locators.PASSWORD_FIELD, delay)
+        assert self.wait_element_presented(driver, self.locators.CAPTCHA_FRAME, delay)
+        assert self.wait_element_presented(driver, self.locators.NEWSLETTERS_CHECKBOX, delay)
+        assert self.wait_element_presented(driver, self.locators.CERTIFY_CHECKBOX, delay)
+        assert self.wait_element_presented(driver, self.locators.TERM_OF_USE_LINK, delay)
+        assert self.wait_element_presented(driver, self.locators.PRIVACY_POLICY_LINK, delay)
+        assert self.wait_element_presented(driver, self.locators.SIGNIN_LINK, delay)
+        assert self.wait_element_clickable(driver, self.locators.CREATE_ACCOUNT_BUTTON, delay)
         return True
 
-    def verify_email_screen_test(self, driver, delay=1):
+    def verify_email_screen_test(self, driver, delay=+1):
         assert self.get_cur_url(driver) == self.wtp_open_account_url
         self.driver_wait(driver, delay + 2)
-        assert self.wait_element_presented(driver, delay, self.locators.EMAIL_NOT_ARRIVED)
-        assert self.wait_element_presented(driver, delay, self.locators.EMAIL_ALREADY_VERIFIED)
-        assert self.wait_element_presented(driver, delay, self.locators.GO_BACK_LINK)
+        assert self.wait_element_presented(driver, self.locators.EMAIL_NOT_ARRIVED, delay)
+        assert self.wait_element_presented(driver, self.locators.EMAIL_ALREADY_VERIFIED, delay)
+        assert self.wait_element_presented(driver, self.locators.GO_BACK_LINK, delay)
         return True
 
     def click_on_link_on_email_screen(self, driver, url_to_check, option):
@@ -128,7 +132,7 @@ class SignUpPage(BasePage):
             self.click_on_element(send_button)
             self.driver_wait(driver, delay)
         finally:
-            if self.wait_element_clickable(driver, delay, self.locators.ANOTHER_PHONE_LINK):
+            if self.wait_element_clickable(driver, self.locators.ANOTHER_PHONE_LINK, delay):
                 return True
             else:
                 return False

@@ -20,6 +20,7 @@ class ForgotPasswordUiTest(unittest.TestCase):
     def setUpClass(cls):
         cls.login_page = SignInPage()
         cls.home_page = HomePage()
+        cls.locators = ForgotPasswordPageLocators()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3558'
         cls.test_run = BaseConfig.TESTRAIL_RUN
@@ -34,12 +35,12 @@ class ForgotPasswordUiTest(unittest.TestCase):
             result2 = self.login_page.click_on_link(self.driver, 1, delay + 1)
             assert forgot_password_page_url == self.login_page.get_cur_url(self.driver)
             self.login_page.wait_driver(self.driver, delay + 3)
-            if self.login_page.wait_element_presented(self.driver, delay, ForgotPasswordPageLocators.FORGOT_PASSWORD_TITLE):
-                if self.login_page.wait_element_presented(self.driver, delay, ForgotPasswordPageLocators.EMAIL_TEXT_FIELD):
+            if self.login_page.wait_element_presented(self.driver, self.locators.FORGOT_PASSWORD_TITLE, delay):
+                if self.login_page.wait_element_presented(self.driver, self.locators.EMAIL_TEXT_FIELD, delay):
                     result3 = True
         finally:
             if result1 and result2 and result3 is True:
-                if self.login_page.wait_element_presented(self.driver, delay, ForgotPasswordPageLocators.SUBMIT_BUTTON):
+                if self.login_page.wait_element_presented(self.driver, self.locators.SUBMIT_BUTTON, delay):
                     write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                     update_test_case(self.test_run, self.test_case, 1)
             else:
