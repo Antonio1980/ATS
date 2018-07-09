@@ -31,7 +31,7 @@ class LogInTestDDT(unittest.TestCase):
         delay = 1
         result1, result2 = False, False
         try:
-            result1 = self.login_page.login(self.driver, delay, username, password)
+            result1 = self.login_page.login(self.driver, username, password)
             result2 = self.home_page.logout(self.driver, delay)
         finally:
             if result1 and result2 is True:

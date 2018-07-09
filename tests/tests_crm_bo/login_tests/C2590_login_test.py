@@ -29,6 +29,8 @@ class LogInTest(unittest.TestCase):
         # Class attributes
         cls.test_case = '2590'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.email = cls.login_page.email
+        cls.password = cls.login_page.password
 
     # Low level tests ordering - per test suites
     @test(groups=['smoke', 'functional', 'positive', ])
@@ -41,7 +43,7 @@ class LogInTest(unittest.TestCase):
         try:
             # Calling login_positive method from LogInPage class
             # If login passed successfully it will return True
-            result = self.login_page.login_positive(self.driver, delay)
+            result = self.login_page.login(self.driver, self.email, self.password)
         finally:
             # Result validation
             if result is True:

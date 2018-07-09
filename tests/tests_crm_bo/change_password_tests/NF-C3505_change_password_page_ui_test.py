@@ -19,13 +19,15 @@ class ChangePasswordPageUiTest(unittest.TestCase):
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3502'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.email = cls.login_page.email
+        cls.password = cls.login_page.password
 
     @test(groups=['sanity', 'gui', 'positive', ])
     def test_change_password_page(self):
         delay = 1
         result = False
         try:
-            result = self.login_page.login(self.driver, delay, self.base_url)
+            result = self.login_page.login(self.driver, self.login_page.email, self.login_page.password)
         finally:
             if result is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)

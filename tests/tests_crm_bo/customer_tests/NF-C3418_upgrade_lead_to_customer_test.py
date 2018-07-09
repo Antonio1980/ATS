@@ -23,13 +23,15 @@ class LeadUpgradeStatusTest(unittest.TestCase):
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3418'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.email = cls.login_page.email
+        cls.password = cls.login_page.password
 
     @test(groups=['sanity', 'functional', 'positive', ])
     def test_upgrade_lead_status(self):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = self.login_page.login(self.driver, delay)
+            result1 = self.login_page.login(self.driver, self.login_page.email, self.login_page.password)
 
         finally:
             if result1 and result2 and result3 is True:

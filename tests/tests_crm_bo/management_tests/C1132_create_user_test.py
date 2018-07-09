@@ -25,13 +25,15 @@ class CreateNewUserTest(unittest.TestCase):
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '1132'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.email = cls.login_page.email
+        cls.password = cls.login_page.password
 
     @test(groups=['sanity', 'functional', 'positive', ])
     def test_create_new_user(self):
         delay = 3
         result1, result2, result3, result4 = False, False, False, False
         try:
-            result1 = self.login_page.login_positive(self.driver, delay)
+            result1 = self.login_page.login(self.driver, self.email, self.password)
             result2 = self.home_page.go_to_management_inset_with_users_option(self.driver, delay)
             result3 = self.user_management_page.click_on_create_new_user(self.driver, delay)
             result4 = self.create_user_page.fill_user_details(self.driver, delay)

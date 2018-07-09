@@ -6,12 +6,13 @@ from tests.tests_crm_bo.pages import user_management_page_url, create_user_page_
 class UsersManagementPage(BasePage):
     def __init__(self):
         super(UsersManagementPage, self).__init__()
+        self.locators = UsersPageLocators()
 
     def click_on_create_new_user(self, driver, delay):
         try:
             self.driver_wait(driver, delay)
             assert self.get_cur_url(driver) == user_management_page_url
-            new_user_button = self.find_element_by(driver, UsersPageLocators.CREATE_NEW_USER_BUTTON_ID, "id")
+            new_user_button = self.find_element_by(driver, self.locators.CREATE_NEW_USER_BUTTON_ID, "id")
             self.click_on_element(new_user_button)
             self.driver_wait(driver, delay)
         finally:
