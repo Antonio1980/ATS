@@ -3,7 +3,6 @@ import codecs
 import pymysql
 import argparse
 import platform
-import configparser
 from test_definitions import BaseConfig
 from src.base.enums import OperationSystem
 from src.base.http_client import APIClient

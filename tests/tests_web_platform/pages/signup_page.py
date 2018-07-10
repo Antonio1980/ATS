@@ -39,13 +39,12 @@ class SignUpPage(BasePage):
             self.click_on_element(newsletters_checkbox)
             self.execute_js(driver, self.script_signup)
             create_account_button = self.find_element(driver, self.locators.CREATE_ACCOUNT_BUTTON)
-            self.click_on_element(create_account_button)
+            click = self.click_on_element(create_account_button)
             self.driver_wait(driver, delay + 5)
         finally:
-            if self.find_element(driver, self.element) and self.check_element_not_visible(driver,
-                                                                                          self.locators.EMAIL_ERROR,
-                                                                                          delay) and self.check_element_not_visible(
-                    driver, self.locators.PASSWORD_ERROR, delay):
+            if self.find_element(driver, self.element) and \
+                    self.check_element_not_visible(driver, self.locators.EMAIL_ERROR, delay) and \
+                    self.check_element_not_visible(driver, self.locators.PASSWORD_ERROR, delay):
                 return True
             else:
                 return False
@@ -124,8 +123,7 @@ class SignUpPage(BasePage):
             assert self.wtp_open_account_url == self.get_cur_url(driver)
             country_dropdown = self.find_element(driver, self.locators.SELECT_COUNTRY_DROPDOWN)
             self.click_on_element(country_dropdown)
-            self.send_keys(country_dropdown, "isra")
-            self.send_enter_key(country_dropdown)
+            country_field = self.type_text_by_locator(driver, self.locators.SELECT_COUNTRY_FIELD, "isra")
             phone_field = self.find_element(driver, self.locators.PHONE_FIELD)
             self.send_keys(phone_field, phone)
             send_button = self.find_element(driver, self.locators.SEND_BUTTON)

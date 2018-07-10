@@ -2,6 +2,7 @@ from src.base.enums import DriverHelper
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
@@ -171,7 +172,8 @@ class Browser(object):
             element = self.search_element(driver, locator, delay)
             element.click()
             element.clear()
-            return element.send_keys(query)
+            element.send_keys(query)
+            return self.send_enter_key(element)
         except Exception as e:
             print("{0} Element not click able. {0}").format(self.__class__, e)
 
@@ -389,6 +391,13 @@ class Browser(object):
                 return driver.find_element(By.XPATH, locator)
         except Exception as e:
             print('{}: TimeoutException element not found: {}'.format(self.__class__, e))
+
+    def select_by_option(self, driver, element, locator, option):
+        selector = Select(element)
+        for index in range(len(selector.options)):
+            selector = Select(self.find_element_by(driver, locator, option))
+            selector.select_by_index(index)
+        
 
     # def if_page_loaded(self, delay, page_elements):
     #     WebDriverWait(self.get_driver(), delay).all_elements.get(0).get_locator_by()

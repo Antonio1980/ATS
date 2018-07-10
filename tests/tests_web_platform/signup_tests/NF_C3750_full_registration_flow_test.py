@@ -15,7 +15,6 @@ from tests.tests_web_platform.pages.signup_page import SignUpPage
 class RegistrationFlowTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.flag = False
         cls.test_case = '3750'
         cls.home_page = HomePage()
         cls.signup_page = SignUpPage()
@@ -25,7 +24,6 @@ class RegistrationFlowTest(unittest.TestCase):
         cls.password = cls.signup_page.password
         cls.first_last_name = cls.signup_page.first_last_name
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-
 
     @test(groups=['regression', 'functional', 'positive', ], depends_on_groups=["smoke", "sanity", ])
     def test_registration_flow(self):
@@ -42,17 +40,14 @@ class RegistrationFlowTest(unittest.TestCase):
             result4 = self.signup_page.add_phone(self.driver, self.phone)
         finally:
             if result1 and result2 and result3 and result4 is True:
-                self.flag = True
+                write_file_result(self.first_last_name + "," + self.email + "," + self.password + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
-                update_test_case(self.test_run, self.test_case, 1)
+                response = update_test_case(self.test_run, self.test_case, 1)
             else:
                 write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
-                update_test_case(self.test_run, self.test_case, 0)
+                response = update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDownClass(cls):
-        if cls.flag is True:
-            write_file_result(cls.first_last_name + "," + cls.email + "," + cls.password + "\n",
-                              BaseConfig.WTP_TESTS_CUSTOMERS)
         cls.home_page.close_browser(cls.driver)
 

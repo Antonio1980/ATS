@@ -39,10 +39,10 @@ class ForgotPasswordTestDDT(unittest.TestCase):
         finally:
             if (result1 and result2 is True) and (result3 is False):
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
-                #update_test_case(self.test_run, self.test_case, 1)
+                update_test_case(self.test_run, self.test_case, 1)
             else:
                 write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
-                #update_test_case(self.test_run, self.test_case, 0)
+                update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDownClass(cls):

@@ -27,7 +27,7 @@ class SignUpPageLocators(object):
     GO_BACK_LINK = "//*[@class='emailVerification hidden']//a[@href='/']"
 
     # Add phone number screen
-    SELECT_COUNTRY_DROPDOWN = "//a[@class='chzn-single chzn-default']"
+    SELECT_COUNTRY_DROPDOWN = "//a[@class='chzn-single chzn-default']/span"
     SELECT_COUNTRY_FIELD = "//div[@class='chzn-search']/input"
     PHONE_FIELD = "//div[@class='phoneNumber']/input[@name='phone']"
     PHONE_PREFIX = "//div[@class='phoneNumber']/input[@name='phonePrefix']"
