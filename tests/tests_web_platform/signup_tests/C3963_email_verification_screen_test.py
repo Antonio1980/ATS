@@ -11,7 +11,7 @@ from src.base.engine import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signup_page import SignUpPage
 
 
-@test(groups=['login_page', ])
+@test(groups=['sign_up_page', ])
 class EmailVerificationScreenTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

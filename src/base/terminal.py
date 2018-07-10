@@ -59,9 +59,9 @@ class Terminal(object):
     @classmethod
     def run_command_out(cls, command, file, *option, **option2):
         command = list(command)
-        if (option):
+        if option:
             command.append(option)
-        if (option2):
+        if option2:
             command.append(option2)
         try:
             proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True).communicate(
@@ -74,7 +74,7 @@ class Terminal(object):
 
     @classmethod
     def run_command_in(cls, command, *option):
-        if(option):
+        if option:
             list(command)
             command.append(option)
         else:

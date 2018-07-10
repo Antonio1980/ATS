@@ -14,7 +14,7 @@ from tests.tests_web_platform.locators.forgot_password_page_locators import Forg
 
 
 @test(groups=['forgot_password_page', ])
-class ForgotPasswordUiTest(unittest.TestCase):
+class ForgotPasswordUITest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.login_page = SignInPage()

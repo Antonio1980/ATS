@@ -11,7 +11,7 @@ from src.base.engine import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signup_page import SignUpPage
 
 
-@test(groups=['open_account_page', 'e2e', ])
+@test(groups=['sign_up_page', 'e2e', ])
 class LinksOnSignUpPageTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -22,7 +22,7 @@ class LinksOnSignUpPageTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @test(groups=['smoke', 'functional', 'positive', ])
-    def test_links_on_signup_page(self):
+    def test_links_on_sign_up_page(self):
         delay = 1
         result1, result2, result3 = False, False, False
         try:

@@ -12,8 +12,8 @@ from src.base.engine import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signin_page import SignInPage
 
 
-@test(groups=['login_page', ])
-class LinksOnLogInPageTest(unittest.TestCase):
+@test(groups=['sign_in_page', ])
+class LinksOnSignInPageTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
@@ -23,7 +23,7 @@ class LinksOnLogInPageTest(unittest.TestCase):
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['smoke', 'functional', 'positive', ])
-    def test_links_on_login_page(self):
+    def test_links_on_sign_in_page(self):
         delay = 1
         result1, result2, result3, result4 = False, False, False, False
         try:

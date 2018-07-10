@@ -11,8 +11,8 @@ from src.base.engine import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signup_page import SignUpPage
 
 
-@test(groups=['open_account_page', 'e2e', ])
-class SignUpPageUiTest(unittest.TestCase):
+@test(groups=['sign_up_page', 'e2e', ])
+class SignUpPageUITest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
@@ -22,7 +22,7 @@ class SignUpPageUiTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])
-    def test_signup_page_ui(self):
+    def test_sign_up_page_ui(self):
         delay = 1
         result1, result2 = False, False
         try:

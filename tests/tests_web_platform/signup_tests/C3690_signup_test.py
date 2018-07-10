@@ -11,7 +11,7 @@ from src.base.engine import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signup_page import SignUpPage
 
 
-@test(groups=['open_account_page', 'e2e', ])
+@test(groups=['sign_up_page', 'e2e', ])
 class SignUpTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -23,10 +23,9 @@ class SignUpTest(unittest.TestCase):
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3690'
         cls.test_run = BaseConfig.TESTRAIL_RUN
-        cls.flag = False
 
     @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])
-    def test_signup_positive(self):
+    def test_sign_up_positive(self):
         delay = 1
         result1, result2 = False, False
         try:
@@ -34,7 +33,8 @@ class SignUpTest(unittest.TestCase):
             result2 = self.signup_page.fill_signup_form(self.driver, self.first_last_name, self.email, self.password)
         finally:
             if result1 and result2 is True:
-                self.flag = True
+                write_file_result(self.first_last_name + "," + self.email + "," + self.password + "\n",
+                                  BaseConfig.WTP_TESTS_CUSTOMERS)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
@@ -43,6 +43,4 @@ class SignUpTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        if cls.flag is True:
-            write_file_result(cls.first_last_name + "," + cls.email + "," + cls.password + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
         cls.home_page.close_browser(cls.driver)

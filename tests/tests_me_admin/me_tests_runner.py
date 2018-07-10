@@ -4,7 +4,7 @@
 
 # python wtp_tests_runner.py --group=smoke
 # python wtp_tests_runner.py --show-plan
-# @test(depends_on=[LogInTest])
+# @test(depends_on=[SignInTest])
 # @test(groups=["sanity", "registration_ddt_test"], depends_on=[full_registration_flow_test])
 # @test(groups=["sanity", "registration_ddt_test"], depends_on_groups=["smoke"])
 def run_tests():

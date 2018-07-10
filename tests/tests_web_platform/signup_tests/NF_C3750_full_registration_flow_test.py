@@ -11,8 +11,8 @@ from src.base.engine import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signup_page import SignUpPage
 
 
-@test(groups=['open_account_page', 'e2e', ])
-class RegistrationFlowTest(unittest.TestCase):
+@test(groups=['sign_up_page', 'e2e', ])
+class SignUpFullFlowTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.test_case = '3750'
@@ -26,7 +26,7 @@ class RegistrationFlowTest(unittest.TestCase):
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['regression', 'functional', 'positive', ], depends_on_groups=["smoke", "sanity", ])
-    def test_registration_flow(self):
+    def test_sign_up_full_flow(self):
         delay = 1
         result1, result2, result3, result4 = False, False, False, False
         try:

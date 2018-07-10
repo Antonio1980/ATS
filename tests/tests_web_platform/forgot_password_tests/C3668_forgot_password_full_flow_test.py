@@ -14,15 +14,14 @@ from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPa
 
 
 @test(groups=['forgot_password_page', 'e2e', ])
-class ResetPasswordEmailTest(unittest.TestCase):
+class ForgotPasswordFullFlowTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.login_page = SignInPage()
         cls.home_page = HomePage()
         cls.forgot_password_page = ForgotPasswordPage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = '3669'
-        cls.flag = False
+        cls.test_case = '3668'
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.email = cls.forgot_password_page.email
         cls.new_password = cls.login_page.email_generator() + "A"
@@ -30,7 +29,7 @@ class ResetPasswordEmailTest(unittest.TestCase):
         # cls.email = rows[0]
 
     @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])
-    def test_forgot_password(self):
+    def test_forgot_password_full_flow(self):
         delay = 1
         result1, result2, result3, result4, result5 = False, False, False, False, False
         try:
@@ -45,7 +44,8 @@ class ResetPasswordEmailTest(unittest.TestCase):
             result5 = self.forgot_password_page.set_new_password(self.driver, self.new_password, new_password_url)
         finally:
             if result1 and result2 and result3 and result4 and result5 is True:
-                self.flag = True
+                write_file_result(self.first_last_name + "," + self.email + "," + self.new_password + "\n",
+                                  BaseConfig.WTP_TESTS_CUSTOMERS)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
@@ -54,6 +54,4 @@ class ResetPasswordEmailTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        if cls.flag is True:
-            write_file_result(cls.first_last_name + "," + cls.email + "," + cls.new_password + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
         cls.home_page.close_browser(cls.driver)

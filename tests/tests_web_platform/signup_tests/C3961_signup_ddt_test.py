@@ -13,8 +13,8 @@ from src.base.engine import write_file_result, update_test_case, get_csv_data
 
 
 @ddt
-@test(groups=['open_account_page', ])
-class RegistrationTestDDT(unittest.TestCase):
+@test(groups=['sign_up_page', ])
+class SignUpDDTTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
@@ -26,7 +26,7 @@ class RegistrationTestDDT(unittest.TestCase):
     @test(groups=['sanity', 'ddt', 'negative', ], depends_on_groups=["smoke", ])
     @data(*get_csv_data(BaseConfig.OPEN_ACCOUNT_DATA))
     @unpack
-    def test_registration_ddt(self, first_last_name, email, password):
+    def test_sign_up_ddt(self, first_last_name, email, password):
         delay = 1
         result1, result2 = False, True
         try:

@@ -12,7 +12,7 @@ from tests.tests_web_platform.pages.signin_page import SignInPage
 from tests.tests_web_platform.locators.signin_page_locators import SignInPageLocators
 
 
-@test(groups=['login_page', ])
+@test(groups=['sign_in_page', ])
 class LogInWithoutCaptchaTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -26,7 +26,7 @@ class LogInWithoutCaptchaTest(unittest.TestCase):
         cls.password = cls.login_page.password
 
     @test(groups=['smoke', 'functional', 'negative', ])
-    def test_login_negative(self):
+    def test_sign_in_negative(self):
         delay = 1
         result1, result2 = False, False
         try:

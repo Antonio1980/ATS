@@ -4,7 +4,7 @@ from test_definitions import BaseConfig
 from src.base.enums import OperationSystem, Browsers
 
 
-class WebDriverFactory():
+class WebDriverFactory:
     @classmethod
     def get_browser(cls, browser_name):
         if browser_name is None:

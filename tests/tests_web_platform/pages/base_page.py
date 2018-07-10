@@ -96,7 +96,7 @@ class BasePage(Browser):
 
 
 # if __name__ == '__main__':
-#     #RegistrationFlowTest.setUpClass()
+#     #SignUpFullFlowTest.setUpClass()
 #     url = "https://plat.dx.exchange/appProxy/forgotPasswordDx.html?validation_token=ff4a558a-2267-4443-85e8-6c5bbfef48e5&email=wovqfphw%40mailinator.com"
 #     token = url.split('=')
 #     token = token[1].split('&')

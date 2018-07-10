@@ -13,7 +13,7 @@ from src.base.engine import write_file_result, update_test_case
 
 # High level tests ordering - per page
 @test(groups=['login_page', ])
-# LogInTest class declaration
+# SignInTest class declaration
 # Inheritance from unittest framework class
 class LogInTest(unittest.TestCase):
     # Anotation for unittest framework

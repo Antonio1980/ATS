@@ -2,46 +2,46 @@
 # -*- coding: utf8 -*-
 
 import unittest
-from tests.tests_web_platform.forgot_password_tests.C3558_forgot_password_ui_test import ForgotPasswordUiTest
-from tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test import ForgotPasswordTestDDT
+from tests.tests_web_platform.forgot_password_tests.C3558_forgot_password_ui_test import ForgotPasswordUITest
+from tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test import ForgotPasswordDDTTest
 from tests.tests_web_platform.forgot_password_tests.C3667_wrong_email_test import WrongEmailTest
 from tests.tests_web_platform.forgot_password_tests.C3669_reset_password_email_test import ResetPasswordEmailTest
 
-from tests.tests_web_platform.signin_tests.C3671_login_page_ui_test import LogInPageUiTest
-from tests.tests_web_platform.signin_tests.C3983_login_test import LogInTest
-from tests.tests_web_platform.signin_tests.C3966_login_ddt_test import LogInTestDDT
-from tests.tests_web_platform.signin_tests.C3962_links_on_login_page_test import LinksOnLogInPageTest
+from tests.tests_web_platform.signin_tests.C3671_login_page_ui_test import SignInPageUITest
+from tests.tests_web_platform.signin_tests.C3983_login_test import SignInTest
+from tests.tests_web_platform.signin_tests.C3966_login_ddt_test import SignInDDTTest
+from tests.tests_web_platform.signin_tests.C3962_links_on_login_page_test import LinksOnSignInPageTest
 from tests.tests_web_platform.signin_tests.C3984_login_without_captcha_test import LogInWithoutCaptchaTest
 
-from tests.tests_web_platform.signup_tests.C3963_email_verification_ui_test import EmailVerificationScreenTest
-from tests.tests_web_platform.signup_tests.C3961_signup_ddt_test import RegistrationTestDDT
+from tests.tests_web_platform.signup_tests.C3963_email_verification_screen_test import EmailVerificationScreenTest
+from tests.tests_web_platform.signup_tests.C3961_signup_ddt_test import SignUpDDTTest
 from tests.tests_web_platform.signup_tests.C3964_links_on_email_verification_screen_test import LinksOnVerifyEmailScreenTest
 from tests.tests_web_platform.signup_tests.C3690_signup_test import SignUpTest
-from tests.tests_web_platform.signup_tests.C4431_signup_page_ui_test import SignUpPageUiTest
+from tests.tests_web_platform.signup_tests.C4431_signup_page_ui_test import SignUpPageUITest
 from tests.tests_web_platform.signup_tests.C4432_links_on_signup_page_test import LinksOnSignUpPageTest
 
 
 # loading test cases
 
 # forgot password suite
-forgot_password_ui = unittest.TestLoader().loadTestsFromTestCase(ForgotPasswordUiTest)
-forgot_password_ddt = unittest.TestLoader().loadTestsFromTestCase(ForgotPasswordTestDDT)
+forgot_password_ui = unittest.TestLoader().loadTestsFromTestCase(ForgotPasswordUITest)
+forgot_password_ddt = unittest.TestLoader().loadTestsFromTestCase(ForgotPasswordDDTTest)
 wrong_email = unittest.TestLoader().loadTestsFromTestCase(WrongEmailTest)
 reset_password = unittest.TestLoader().loadTestsFromTestCase(ResetPasswordEmailTest)
 
 # login suite
-login_ui = unittest.TestLoader().loadTestsFromTestCase(LogInPageUiTest)
-login = unittest.TestLoader().loadTestsFromTestCase(LogInTest)
-login_ddt = unittest.TestLoader().loadTestsFromTestCase(LogInTestDDT)
-login_links = unittest.TestLoader().loadTestsFromTestCase(LinksOnLogInPageTest)
+login_ui = unittest.TestLoader().loadTestsFromTestCase(SignInPageUITest)
+login = unittest.TestLoader().loadTestsFromTestCase(SignInTest)
+login_ddt = unittest.TestLoader().loadTestsFromTestCase(SignInDDTTest)
+login_links = unittest.TestLoader().loadTestsFromTestCase(LinksOnSignInPageTest)
 login_without_captcha = unittest.TestLoader().loadTestsFromTestCase(LogInWithoutCaptchaTest)
 
 # signup suite
 signup_email_links = unittest.TestLoader().loadTestsFromTestCase(LinksOnVerifyEmailScreenTest)
-registration_ddt = unittest.TestLoader().loadTestsFromTestCase(RegistrationTestDDT)
+registration_ddt = unittest.TestLoader().loadTestsFromTestCase(SignUpDDTTest)
 email_screen_ui = unittest.TestLoader().loadTestsFromTestCase(EmailVerificationScreenTest)
 signup = unittest.TestLoader().loadTestsFromTestCase(SignUpTest)
-signup_ui = unittest.TestLoader().loadTestsFromTestCase(SignUpPageUiTest)
+signup_ui = unittest.TestLoader().loadTestsFromTestCase(SignUpPageUITest)
 signup_links = unittest.TestLoader().loadTestsFromTestCase(LinksOnSignUpPageTest)
 
 # create test suites

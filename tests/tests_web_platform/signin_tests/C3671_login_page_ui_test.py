@@ -13,8 +13,8 @@ from tests.tests_web_platform.pages.signin_page import SignInPage
 from tests.tests_web_platform.locators.signin_page_locators import SignInPageLocators
 
 
-@test(groups=['login_page', ])
-class LogInPageUiTest(unittest.TestCase):
+@test(groups=['sign_in_page', ])
+class SignInPageUITest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
@@ -25,7 +25,7 @@ class LogInPageUiTest(unittest.TestCase):
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['smoke', 'gui', 'positive', ])
-    def test_login_page_ui(self):
+    def test_sign_in_page_ui(self):
         delay = 3
         result1, result2 = False, False
         try:

@@ -13,20 +13,20 @@ from src.base.engine import write_file_result, update_test_case, get_csv_data
 
 
 @ddt
-@test(groups=['login_page', ])
-class LogInTestDDT(unittest.TestCase):
+@test(groups=['sign_in_page', ])
+class SignInDDTTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
         cls.login_page = SignInPage()
-        cls.test_case = '3832'
+        cls.test_case = '3966'
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', 'negative', ])
     @data(*get_csv_data(BaseConfig.WTP_LOGIN_DATA))
     @unpack
-    def test_login_positive(self, email, password):
+    def test_sign_in_ddt(self, email, password):
         delay = 1
         result1, result2 = False, False
         try:

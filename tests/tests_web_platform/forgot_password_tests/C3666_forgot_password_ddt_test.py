@@ -15,7 +15,7 @@ from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPa
 
 @ddt
 @test(groups=['forgot_password_page', ])
-class ForgotPasswordTestDDT(unittest.TestCase):
+class ForgotPasswordDDTTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.login_page = SignInPage()

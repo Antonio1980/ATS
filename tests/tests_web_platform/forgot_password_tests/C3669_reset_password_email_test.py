@@ -29,7 +29,7 @@ class ResetPasswordEmailTest(unittest.TestCase):
         # cls.email = rows[0]
 
     @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])
-    def test_forgot_password(self):
+    def test_reset_password_email(self):
         delay = 1
         result1, result2, result3, result4 = False, False, False, False
         try:

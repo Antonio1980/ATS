@@ -11,20 +11,20 @@ from src.base.engine import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signin_page import SignInPage
 
 
-@test(groups=['login_page', ])
-class LogInTest(unittest.TestCase):
+@test(groups=['sign_in_page', ])
+class SignInTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
         cls.login_page = SignInPage()
-        cls.test_case = '3690'
+        cls.test_case = '3983'
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.email = cls.login_page.email
         cls.password = cls.login_page.password
 
     @test(groups=['smoke', 'functional', 'positive', ])
-    def test_login_positive(self):
+    def test_sign_in_positive(self):
         delay = 1
         result1, result2 = False, False
         try:
