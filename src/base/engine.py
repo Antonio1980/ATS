@@ -4,12 +4,31 @@ import pymysql
 import argparse
 import platform
 import configparser
+from test_definitions import BaseConfig
 from src.base.enums import OperationSystem
 from src.base.http_client import APIClient
-from tests.test_definitions import BaseConfig
 
 
 client = APIClient(BaseConfig.TESTRAIL_URL, BaseConfig.TESTRAIL_USER, BaseConfig.TESTRAIL_PASSWORD)
+
+
+def update_test_case(test_run, test_case, status):
+    if status == 1:
+        # 'add_result_for_case/'-run, -38 / 2590
+        return client.send_post(
+            'add_result_for_case/' + test_run + '/' + test_case,
+            {'status_id': status, 'comment': 'This test ' + test_case + ' PASSED !'}
+        )
+    else:
+        return client.send_post(
+            'add_result_for_case/' + test_run + '/' + test_case,
+            {'status_id': status, 'comment': 'This test ' + test_case + ' FAILED !'}
+        )
+
+
+def get_test_case(test_case):
+    case = client.send_get('get_case/' + test_case)
+    return case
 
 
 def run_mysql_query(self, query):
@@ -29,18 +48,6 @@ def run_mysql_query(self, query):
         connection.commit()
         connection.close()
         return rows
-
-
-def config_parse(config_file):
-    """
-    Method allows to get configuration data.
-    :param config_file: configuration file.
-    :return: configuration data as ConfigParser object.
-    """
-    parser = configparser.ConfigParser()
-    with open(config_file, mode='r', buffering=-1, closefd=True):
-        parser.read(config_file)
-        return parser
 
 
 def parse_args(run_number):
@@ -158,22 +165,3 @@ def _is_win():
 
 def _is_lin():
     return platform.system().lower() == OperationSystem.LINUX.value
-
-
-def update_test_case(test_run, test_case, status):
-    if status == 1:
-        # 'add_result_for_case/'-run, -38 / 2590
-        return client.send_post(
-            'add_result_for_case/' + test_run + '/' + test_case,
-            {'status_id': status, 'comment': 'This test ' + test_case + ' PASSED !'}
-        )
-    else:
-        return client.send_post(
-            'add_result_for_case/' + test_run + '/' + test_case,
-            {'status_id': status, 'comment': 'This test ' + test_case + ' FAILED !'}
-        )
-
-
-def get_test_case(test_case):
-    case = client.send_get('get_case/' + test_case)
-    return case

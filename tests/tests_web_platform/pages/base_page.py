@@ -3,13 +3,13 @@ import time
 import string
 import random
 from src.base.browser import Browser
-from tests.test_definitions import BaseConfig
+from test_definitions import BaseConfig
 from tests.tests_web_platform.locators.base_page_locators import BasePageLocators
 
 
 class BasePage(Browser):
     def __init__(self):
-        self.wtp_base_url = BaseConfig.WTP_STAGING_URL
+        self.wtp_base_url = BaseConfig.WTP_BASE_URL
         self.locators = BasePageLocators()
         _self_account_url = "/openAccountDx.html"
         self.wtp_open_account_url = self.wtp_base_url + _self_account_url

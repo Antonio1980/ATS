@@ -1,6 +1,6 @@
 from selenium import webdriver
-from tests.test_definitions import BaseConfig
-from src.test_utils.os_utils import detect_os
+from src.base.engine import detect_os
+from test_definitions import BaseConfig
 from src.base.enums import OperationSystem, Browsers
 
 

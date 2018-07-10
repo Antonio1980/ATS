@@ -1,7 +1,7 @@
-from tests.test_definitions import BaseConfig
+from test_definitions import BaseConfig
 from tests.tests_crm_bo.pages import login_page_url
 from tests.tests_crm_bo.pages.base_page import BasePage
-from src.test_utils.file_utils import get_crm_credentials_positive
+from src.base.engine import get_crm_credentials_positive
 from tests.tests_crm_bo.locators.home_page_locators import HomePageLocators
 from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
 

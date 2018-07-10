@@ -4,13 +4,12 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from tests.test_definitions import BaseConfig
+from test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.home_page import HomePage
-from src.test_utils.file_utils import write_file_result
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from tests.tests_crm_bo.pages.customer_page import CustomerPage
 from src.drivers.webdriver_factory import WebDriverFactory
-from src.test_utils.testrail_utils import update_test_case
+from src.base.engine import write_file_result, update_test_case
 
 
 @test(groups=['customer_page', ])

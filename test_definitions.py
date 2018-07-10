@@ -2,15 +2,21 @@
 # -*- coding: utf8 -*-
 
 import os
+import configparser
 from src.drivers import drivers_dir
 from src.repository import repository_dir
-from src.test_utils.file_utils import config_parse
 
+
+def get_parser(config_file):
+    parser = configparser.ConfigParser()
+    with open(config_file, mode='r', buffering=-1, closefd=True):
+        parser.read(config_file)
+        return parser
 
 class BaseConfig(object):
     config_file = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'base_config.cfg')
     path_dir = os.path.abspath(os.path.dirname(__file__))
-    parser = config_parse(config_file)
+    parser = get_parser(config_file)
 
     ME_BASE_URL = parser.get('BASE_URL', 'base_url_me')
     CRM_BASE_URL = parser.get('BASE_URL', 'base_url_crm')

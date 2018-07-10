@@ -1,7 +1,7 @@
 import string
 import random
 from src.base.browser import Browser
-from tests.test_definitions import BaseConfig
+from test_definitions import BaseConfig
 from tests.tests_crm_bo.locators.base_page_locators import BasePageLocators
 
 

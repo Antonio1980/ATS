@@ -1,7 +1,7 @@
 import unittest
 import requests
 from proboscis import test
-from tests.test_definitions import BaseConfig
+from test_definitions import BaseConfig
 
 
 @test(groups=['api', ])

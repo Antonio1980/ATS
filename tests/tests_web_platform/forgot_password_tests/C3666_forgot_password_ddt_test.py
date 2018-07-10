@@ -5,11 +5,11 @@ import unittest
 from proboscis import test
 from ddt import unpack, data, ddt
 from src.base.enums import Browsers
-from tests.test_definitions import BaseConfig
+from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signin_page import SignInPage
-from src.base.engine import write_file_result, update_test_case, get_csv_data
+from src.base.engine import write_file_result, get_csv_data, update_test_case
 from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
 
 
@@ -39,10 +39,10 @@ class ForgotPasswordTestDDT(unittest.TestCase):
         finally:
             if (result1 and result2 is True) and (result3 is False):
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
-                update_test_case(self.test_run, self.test_case, 1)
+                #update_test_case(self.test_run, self.test_case, 1)
             else:
                 write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
-                update_test_case(self.test_run, self.test_case, 0)
+                #update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDownClass(cls):

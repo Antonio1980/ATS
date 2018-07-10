@@ -1,7 +1,6 @@
-from tests.test_definitions import BaseConfig
+from test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.locators.home_page_locators import HomePageLocators
-from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
 from tests.tests_crm_bo.locators.customer_page_locators import CustomerPageLocators
 from tests.tests_crm_bo.pages import home_page_url, user_management_page_url, customer_admin_url
 

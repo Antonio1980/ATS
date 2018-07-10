@@ -1,5 +1,5 @@
-from tests.test_definitions import BaseConfig
-from src.test_utils.file_utils import get_account_details
+from test_definitions import BaseConfig
+from src.base.engine import get_account_details
 from tests.tests_web_platform.pages import BasePage, forgot_password_page_url, wtp_dashboard_url
 from tests.tests_web_platform.locators.forgot_password_page_locators import ForgotPasswordPageLocators
 
