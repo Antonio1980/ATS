@@ -6,11 +6,10 @@ from proboscis import test
 from ddt import unpack, data, ddt
 from src.base.enums import Browsers
 from tests.test_definitions import BaseConfig
-from src.test_utils.testrail_utils import update_test_case
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signin_page import SignInPage
-from src.test_utils.file_utils import get_csv_data, write_file_result
+from src.base.engine import write_file_result, update_test_case, get_csv_data
 from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
 
 

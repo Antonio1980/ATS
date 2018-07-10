@@ -1,7 +1,34 @@
 import csv
 import codecs
+import pymysql
 import argparse
+import platform
 import configparser
+from src.base.enums import OperationSystem
+from src.base.http_client import APIClient
+from tests.test_definitions import BaseConfig
+
+
+client = APIClient(BaseConfig.TESTRAIL_URL, BaseConfig.TESTRAIL_USER, BaseConfig.TESTRAIL_PASSWORD)
+
+
+def run_mysql_query(self, query):
+    _host = BaseConfig.DB_HOST
+    _username = BaseConfig.DB_USERNAME
+    _password = BaseConfig.DB_PASSWORD
+    _db_name = BaseConfig.DB_NAME
+    _port = 30002
+    connection = pymysql.connect(host=_host, port=_port, user=_username, passwd=_password,
+                                 database=_db_name)
+    rows = []
+    try:
+        cursor = connection.cursor()
+        cursor.execute(query)
+        rows = cursor.fetchall()
+    finally:
+        connection.commit()
+        connection.close()
+        return rows
 
 
 def config_parse(config_file):
@@ -104,3 +131,49 @@ def write_file_result(result, file):
     """
     with open(file, "a") as myfile:
         myfile.write(result)
+
+
+def detect_os():
+    """
+    Checks the Operational System.
+    :return: String with OS name.
+    """
+    if _is_mac():
+        return OperationSystem.DARWIN.value
+    elif _is_win():
+        return OperationSystem.WINDOWS.value
+    elif _is_lin():
+        return OperationSystem.LINUX.value
+    else:
+        raise Exception("The OS is not detected")
+
+
+def _is_mac():
+    return platform.system().lower() == OperationSystem.DARWIN.value
+
+
+def _is_win():
+    return platform.system().lower() == OperationSystem.WINDOWS.value
+
+
+def _is_lin():
+    return platform.system().lower() == OperationSystem.LINUX.value
+
+
+def update_test_case(test_run, test_case, status):
+    if status == 1:
+        # 'add_result_for_case/'-run, -38 / 2590
+        return client.send_post(
+            'add_result_for_case/' + test_run + '/' + test_case,
+            {'status_id': status, 'comment': 'This test ' + test_case + ' PASSED !'}
+        )
+    else:
+        return client.send_post(
+            'add_result_for_case/' + test_run + '/' + test_case,
+            {'status_id': status, 'comment': 'This test ' + test_case + ' FAILED !'}
+        )
+
+
+def get_test_case(test_case):
+    case = client.send_get('get_case/' + test_case)
+    return case
