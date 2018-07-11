@@ -10,7 +10,7 @@ class SignUpPage(BasePage):
         self.email = self.email_generator() + email_suffix
         self.password = "1Aa@<>12"
         self.first_last_name = "QA_test_QA"
-        self.phone = "528259547"
+        self.phone = "0528259547"
         self.terms_url = self.wtp_base_url + "/termsOfUse.html"
         self.privacy_url = self.wtp_base_url + "/privacyPolicy.html"
         self.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(self.email)

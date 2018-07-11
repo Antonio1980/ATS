@@ -13,7 +13,7 @@ from src.base.engine import write_file_result, update_test_case, get_csv_data
 
 @ddt
 @test(groups=['login_page', ])
-class ForgotPasswordTestDDT(unittest.TestCase):
+class ForgotPasswordDDTTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.login_page = LogInPage()

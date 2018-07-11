@@ -15,7 +15,7 @@ class SignInPage(BasePage):
         self.email = self.account_details['email']
         self.password = self.account_details['password']
 
-    def login(self, driver, email, password):
+    def sign_in(self, driver, email, password):
         delay = 1
         try:
             self.wait_driver(driver, delay + 3)

@@ -3,16 +3,16 @@
 
 import unittest
 from tests.tests_crm_bo.login_tests.C2590_login_test import LogInTest
-from tests.tests_crm_bo.login_tests.C2593_login_ddt_test import LogInTestDDT
+from tests.tests_crm_bo.login_tests.C2593_login_ddt_test import LogInDDTTest
 from tests.tests_crm_bo.login_tests.C2598_login_logout_test import LogInLogOutLogInTest
-from tests.tests_crm_bo.login_tests.C3436_login_page_ui_test import LogInUiTest
+from tests.tests_crm_bo.login_tests.C3436_login_page_ui_test import LogInUITest
 
 from tests.tests_crm_bo.forgot_password_tests.C2591_forgot_password_test import ForgotPasswordTest
-from tests.tests_crm_bo.forgot_password_tests.C2694_forgot_password_ddt_test import ForgotPasswordTestDDT
-from tests.tests_crm_bo.forgot_password_tests.C3437_forgot_password_popup_ui_test import ForgotPasswordPopUpTest
+from tests.tests_crm_bo.forgot_password_tests.C2694_forgot_password_ddt_test import ForgotPasswordDDTTest
+from tests.tests_crm_bo.forgot_password_tests.C3437_forgot_password_po_pup_test import ForgotPasswordPopUpTest
 
 from tests.tests_crm_bo.management_tests.C1132_create_user_test import CreateNewUserTest
-from tests.tests_crm_bo.management_tests.C1132_create_user_ddt_test import CreateNewUserTestDDT
+from tests.tests_crm_bo.management_tests.C1132_create_user_ddt_test import CreateNewUserDDTTest
 
 from tests.tests_crm_bo.customer_tests.C3408_upgrade_customer_to_depositor_test import CustomerUpgradeStatusTest
 from tests.tests_crm_bo.customer_tests.C3409_add_deposit_test import AddDepositTest
@@ -20,20 +20,20 @@ from tests.tests_crm_bo.customer_tests.C3409_add_deposit_test import AddDepositT
 
 # loading test cases
 
-# login test suite
+# sign_in test suite
 login = unittest.TestLoader().loadTestsFromTestCase(LogInTest)
 login_logout = unittest.TestLoader().loadTestsFromTestCase(LogInLogOutLogInTest)
-login_ddt = unittest.TestLoader().loadTestsFromTestCase(LogInTestDDT)
-login_ui = unittest.TestLoader().loadTestsFromTestCase(LogInUiTest)
+login_ddt = unittest.TestLoader().loadTestsFromTestCase(LogInDDTTest)
+login_ui = unittest.TestLoader().loadTestsFromTestCase(LogInUITest)
 
 # forgot password test suite
 forgot_password = unittest.TestLoader().loadTestsFromTestCase(ForgotPasswordTest)
-forgot_password_ddt = unittest.TestLoader().loadTestsFromTestCase(ForgotPasswordTestDDT)
+forgot_password_ddt = unittest.TestLoader().loadTestsFromTestCase(ForgotPasswordDDTTest)
 forgot_password_popup = unittest.TestLoader().loadTestsFromTestCase(ForgotPasswordPopUpTest)
 
 # management test suite
 create_new_user = unittest.TestLoader().loadTestsFromTestCase(CreateNewUserTest)
-create_new_user_ddt = unittest.TestLoader().loadTestsFromTestCase(CreateNewUserTestDDT)
+create_new_user_ddt = unittest.TestLoader().loadTestsFromTestCase(CreateNewUserDDTTest)
 
 # customer test suite
 upgrade_customer = unittest.TestLoader().loadTestsFromTestCase(CustomerUpgradeStatusTest)

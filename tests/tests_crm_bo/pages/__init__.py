@@ -16,7 +16,7 @@ user_index_page_url = user_management_page_url + self_index_url
 self_home_url = "/dx/dashboard"
 home_page_url = base_url + self_home_url
 
-self_login_url = "/dx/login"
+self_login_url = "/dx/sign_in"
 login_page_url = base_url + self_login_url
 
 self_customer_url = "/dx/customers/page/"

@@ -7,7 +7,7 @@ from tests.tests_me_admin.login_tests.login_ddt import LogInTest
 
 # loading test cases
 
-# login test suite
+# sign_in test suite
 login = unittest.TestLoader().loadTestsFromTestCase(LogInTest)
 
 # create test suites

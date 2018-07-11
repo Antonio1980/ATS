@@ -12,7 +12,7 @@ from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
 
 
 @test(groups=['login_page', ])
-class LogInUiTest(unittest.TestCase):
+class LogInUITest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.base_page = BasePage()

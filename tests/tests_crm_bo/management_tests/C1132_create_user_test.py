@@ -29,13 +29,15 @@ class CreateNewUserTest(unittest.TestCase):
 
     @test(groups=['sanity', 'functional', 'positive', ])
     def test_create_new_user(self):
+        details = {'first_last_name': self.create_user_page.first_last_name, 'phone': '0547324546',
+                   'username': self.create_user_page.email_prefix}
         delay = 3
         result1, result2, result3, result4 = False, False, False, False
         try:
             result1 = self.login_page.login(self.driver, self.email, self.password)
             result2 = self.home_page.go_to_management_inset_with_users_option(self.driver, delay)
             result3 = self.user_management_page.click_on_create_new_user(self.driver, delay)
-            result4 = self.create_user_page.fill_user_details(self.driver, delay)
+            result4 = self.create_user_page.fill_user_details(self.driver, self.email, details)
         finally:
             if result1 and result2 and result3 and result4 is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)

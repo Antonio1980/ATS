@@ -29,7 +29,7 @@ class SessionTimeOutUITest(unittest.TestCase):
         result1, result2, result3 = False, False, False
         try:
             result1 = self.home_page.open_login_page(self.driver, delay)
-            result2 = self.login_page.login(self.driver, self.email, self.password)
+            result2 = self.login_page.sign_in(self.driver, self.email, self.password)
             result3 = ""
         finally:
             if result1 and result2 and result3 is True:

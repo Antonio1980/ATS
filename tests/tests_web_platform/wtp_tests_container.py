@@ -29,7 +29,7 @@ forgot_password_ddt = unittest.TestLoader().loadTestsFromTestCase(ForgotPassword
 wrong_email = unittest.TestLoader().loadTestsFromTestCase(WrongEmailTest)
 reset_password = unittest.TestLoader().loadTestsFromTestCase(ResetPasswordEmailTest)
 
-# login suite
+# sign_in suite
 login_ui = unittest.TestLoader().loadTestsFromTestCase(SignInPageUITest)
 login = unittest.TestLoader().loadTestsFromTestCase(SignInTest)
 login_ddt = unittest.TestLoader().loadTestsFromTestCase(SignInDDTTest)

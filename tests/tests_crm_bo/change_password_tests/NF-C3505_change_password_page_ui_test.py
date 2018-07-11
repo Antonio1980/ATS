@@ -11,7 +11,7 @@ from src.base.engine import write_file_result, update_test_case
 
 
 @test(groups=['change_password_page', ])
-class ChangePasswordPageUiTest(unittest.TestCase):
+class ChangePasswordPageUITest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.login_page = LogInPage()

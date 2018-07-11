@@ -3,7 +3,7 @@ class LogInPageLocators(object):
     USERNAME_FIELD_ID = "username" #"//*[@id='username']"
     PASSWORD_FIELD_ID = "password" #"//*[@id='password']"
     LOGIN_BUTTON_ID = "loginBtn" #"//*[@id='loginBtn']"
-    PASSWORD_INCORRECT_MESSAGE = "//*[@class='alert alert-danger'][contains(.,' The login details you are using are incorrect.')]"
+    PASSWORD_INCORRECT_MESSAGE = "//*[@class='alert alert-danger'][contains(.,' The sign_in details you are using are incorrect.')]"
     FORGOT_PASSWORD_LINK = "//*[@class='forgot help-block']" #"//*[@class='pull-left'][contains(.,'Forgot your password?')]"
 
     # Forgot password pop up

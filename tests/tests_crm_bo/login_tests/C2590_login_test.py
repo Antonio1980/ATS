@@ -41,7 +41,7 @@ class LogInTest(unittest.TestCase):
         result = False
         try:
             # Calling login_positive method from LogInPage class
-            # If login passed successfully it will return True
+            # If sign_in passed successfully it will return True
             result = self.login_page.login(self.driver, self.email, self.password)
         finally:
             # Result validation
