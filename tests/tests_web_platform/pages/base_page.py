@@ -9,7 +9,7 @@ from tests.tests_web_platform.locators.base_page_locators import BasePageLocator
 
 class BasePage(Browser):
     def __init__(self):
-        self.wtp_base_url = BaseConfig.WTP_BASE_URL
+        self.wtp_base_url = BaseConfig.WTP_STAGING_URL
         self.base_locators = BasePageLocators()
         _self_account_url = "/openAccountDx.html"
         self.wtp_open_account_url = self.wtp_base_url + _self_account_url
@@ -42,7 +42,7 @@ class BasePage(Browser):
         email = email[0]
         mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}".format(email)
         self.go_to_url(driver, mailinator_box_url)
-        time.sleep(5)
+        time.sleep(10)
         self.driver_wait(driver, delay)
         pause_button = self.find_element_by(driver, self.base_locators.PAUSE_BUTTON_ID, "id")
         pause_button.click()

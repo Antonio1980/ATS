@@ -4,3 +4,4 @@ ddt
 proboscis
 pymysql
 requests
+redis

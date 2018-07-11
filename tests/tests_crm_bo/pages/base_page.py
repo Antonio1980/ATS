@@ -9,7 +9,7 @@ class BasePage(Browser):
     def __init__(self):
         super(BasePage, self).__init__()
         self.crm_base_url = BaseConfig.CRM_STAGING_URL
-        self.customer_id = BaseConfig.CRM_CUSTOMER_ID
+        self.customer_id = 1
         self.base_locators = BasePageLocators()
 
     def email_generator(self, size=8, chars=string.ascii_lowercase):

@@ -23,7 +23,7 @@ class LogInDDTTest(unittest.TestCase):
         cls.test_case = '2593'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @test(groups=['sanity', 'ddt', 'positive', ])
+    @test(groups=['sanity', 'ddt', 'negative', ])
     @data(*get_csv_data(BaseConfig.CRM_LOGIN_DATA))
     @unpack
     def test_login(self, username, password):

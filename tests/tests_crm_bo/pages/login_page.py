@@ -1,7 +1,7 @@
 from test_definitions import BaseConfig
+from src.base.engine import get_account_details
 from tests.tests_crm_bo.pages import login_page_url
 from tests.tests_crm_bo.pages.base_page import BasePage
-from src.base.engine import get_crm_credentials_positive
 from tests.tests_crm_bo.locators.home_page_locators import HomePageLocators
 from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
 
@@ -11,13 +11,14 @@ class LogInPage(BasePage):
         super(LogInPage, self).__init__()
         self.locators = LogInPageLocators()
         # data_file, row, column1, column2
-        credentials = get_crm_credentials_positive(BaseConfig.CRM_LOGIN_DATA, 0, 0, 1)
-        self.email = BaseConfig.CRM_CUSTOMER_EMAIL
+        # 1- Data file, 2- Row, 3- First column, 4- Second column, 5- Third column
+        self.account_details = get_account_details(BaseConfig.CRM_TESTS_USERS, 0, 0, 1, 2)
+        self.username = self.account_details['first_last_name']
+        self.email = self.account_details['email']
+        self.password = self.account_details['password']
         self.email_text = "An email has been sent to {0} which is the email address for your account. " \
-                     "It includes information on changing and confirming your new password. " \
-                     "Please reset your password within the next 24 hours.".format(self.email)
-        self.username = credentials['username']
-        self.password = credentials['password']
+                          "It includes information on changing and confirming your new password. " \
+                          "Please reset your password within the next 24 hours.".format(self.email)
 
     def go_to_login_page(self, driver, url):
         self.go_to_url(driver, url)
@@ -42,18 +43,25 @@ class LogInPage(BasePage):
 
     def forgot_password(self, driver, email, delay=+1):
         try:
+            self.driver_wait(driver, delay + 5)
             self.go_to_login_page(driver, self.crm_base_url)
+            self.driver_wait(driver, delay + 5)
             assert login_page_url == self.get_cur_url(driver)
-            self.click_on_element_by_locator(driver, self.locators.FORGOT_PASSWORD_LINK, delay + 2)
-            email_field = self.find_element_by(driver, self.locators.POPUP_EMAIL_FIELD_ID, "id")
+            forgot_password_link = self.wait_element_clickable(driver, self.locators.FORGOT_PASSWORD_LINK, delay)
+            self.click_on_element(forgot_password_link)
+            self.driver_wait(driver, delay + 10)
+            email_field = self.wait_element_clickable(driver, self.locators.POPUP_EMAIL_FIELD, delay)
             self.send_keys(email_field, email)
-            self.driver_wait(driver, delay)
+            self.driver_wait(driver, delay + 5)
             send_button = self.find_element_by(driver, self.locators.POPUP_SEND_BUTTON_ID, "id")
             self.click_on_element(send_button)
-            self.driver_wait(driver, delay)
+            self.driver_wait(driver, delay + 5)
         finally:
-            if self.wait_element_presented(driver, self.locators.POPUP_CHECK, delay + 3):
-                self.click_on_element_by_locator(driver, self.locators.EMAIL_POPUP_CLOSE_BUTTON, delay + 1)
-                return True
+            if self.check_element_not_visible(driver, self.locators.POPUP_CHECK, delay + 3):
+                if self.check_element_not_visible(driver, self.locators.POPUP_ERROR_MESSAGE_CLOSE_BUTTON, delay + 3):
+                    self.click_on_element_by_locator(driver, self.locators.EMAIL_POPUP_CLOSE_BUTTON, delay + 3)
+                    return True
+                else:
+                    return False
             else:
                 return False

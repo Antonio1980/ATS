@@ -28,7 +28,7 @@ class LogInTest(unittest.TestCase):
         # Class attributes
         cls.test_case = '2590'
         cls.test_run = BaseConfig.TESTRAIL_RUN
-        cls.email = cls.login_page.email
+        cls.username = cls.login_page.username
         cls.password = cls.login_page.password
 
     # Low level tests ordering - per test suites
@@ -42,7 +42,7 @@ class LogInTest(unittest.TestCase):
         try:
             # Calling login_positive method from LogInPage class
             # If sign_in passed successfully it will return True
-            result = self.login_page.login(self.driver, self.email, self.password)
+            result = self.login_page.login(self.driver, self.username, self.password)
         finally:
             # Result validation
             if result is True:

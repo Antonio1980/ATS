@@ -1,8 +1,10 @@
 import csv
+import redis
 import codecs
 import pymysql
 import argparse
 import platform
+from pprint import pprint
 from test_definitions import BaseConfig
 from src.base.enums import OperationSystem
 from src.base.http_client import APIClient
@@ -30,7 +32,7 @@ def get_test_case(test_case):
     return case
 
 
-def run_mysql_query(self, query):
+def run_mysql_query(query):
     _host = BaseConfig.DB_HOST
     _username = BaseConfig.DB_USERNAME
     _password = BaseConfig.DB_PASSWORD
@@ -47,6 +49,11 @@ def run_mysql_query(self, query):
         connection.commit()
         connection.close()
         return rows
+
+
+def run_redis_query(host, port):
+    redis_db = redis.StrictRedis(host=host, port=port, db=0)
+    return redis_db.keys('reset-password:neau9hiv@mailinator.com:*')
 
 
 def parse_args(run_number):
@@ -76,26 +83,6 @@ def get_csv_data(data_file):
     return rows
 
 
-def get_crm_credentials_positive(data_file, row, column1, column2):
-    """
-    Allows to get data from csv file.
-    :param data_file: csv data file.
-    :param row: specific row in csv file.
-    :param column1: first column in csv file.
-    :param column2: second column in csv file.
-    :return: dictionary object with username and password.
-    """
-    rows = []
-    with open(data_file, "r") as csv_data:
-        content = csv.reader(csv_data)
-        next(content, None)
-        for item in content:
-            rows.append(item)
-    username = rows[row][column1]
-    password = rows[row][column2]
-    return {'username': username, 'password': password}
-
-
 def get_account_details(data_file, row, column1, column2, column3):
     """
     Allows to get data from csv file.
@@ -115,7 +102,7 @@ def get_account_details(data_file, row, column1, column2, column3):
     first_last_name = rows[row][column1]
     email = rows[row][column2]
     password = rows[row][column3]
-    return {'firstname': first_last_name, 'email': email, 'password': password}
+    return {'first_last_name': first_last_name, 'email': email, 'password': password}
 
 
 def write_file_output(process, file):
@@ -164,3 +151,9 @@ def _is_win():
 
 def _is_lin():
     return platform.system().lower() == OperationSystem.LINUX.value
+
+
+# if __name__ == '__main__':
+#     pprint(run_redis_query("10.100.1.11", "30001"))
+#     #pprint(redis(host="10.100.1.11", port="30001", db=0).keys('reset-password:neau9hiv@mailinator.com:*'))
+#     #pprint(red.get('reset-password:neau9hiv@mailinator.com:*'))

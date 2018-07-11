@@ -21,16 +21,16 @@ class ForgotPasswordDDTTest(unittest.TestCase):
         cls.test_case = '2694'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @test(groups=['sanity', 'ddt', 'positive', ])
+    @test(groups=['sanity', 'ddt', 'negative', ])
     @data(*get_csv_data(BaseConfig.FORGOT_PASSWORD_DATA))
     @unpack
     def test_forgot_password_ddt(self, email):
         delay = 1
-        result = False
+        result = True
         try:
             result = self.login_page.forgot_password(self.driver, email, delay)
         finally:
-            if result is True:
+            if result is False:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:

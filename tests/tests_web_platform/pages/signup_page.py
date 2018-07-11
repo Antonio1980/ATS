@@ -39,7 +39,7 @@ class SignUpPage(BasePage):
             self.click_on_element(newsletters_checkbox)
             self.execute_js(driver, self.script_signup)
             create_account_button = self.find_element(driver, self.locators.CREATE_ACCOUNT_BUTTON)
-            click = self.click_on_element(create_account_button)
+            self.click_on_element(create_account_button)
             self.driver_wait(driver, delay + 5)
         finally:
             if self.find_element(driver, self.element) and \

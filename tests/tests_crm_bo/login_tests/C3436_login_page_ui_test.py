@@ -36,7 +36,7 @@ class LogInUITest(unittest.TestCase):
                                      .get('left'))
             login_button_pos = int(self.driver.execute_script("return window.$(\'button[id=\"loginBtn\"]\').position()")
                                    .get('left'))
-            if username_field_pos == 20 & password_field_pos == 20:
+            if username_field_pos == 20 and password_field_pos == 20:
                 result1 = True
                 if login_button_pos == 215:
                     result2 = True
