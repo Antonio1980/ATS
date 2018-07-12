@@ -34,9 +34,8 @@ class SignUpFullFlowTest(unittest.TestCase):
             result2 = self.signup_page.fill_signup_form(self.driver, self.first_last_name, self.email, self.password)
             # 1 - get_updates, 2 - click on change_password, 3 - click on verify_email
             new_password_url = self.signup_page.get_email_updates(self.driver, self.email, 0)
-            token = new_password_url.split('=')
-            token = token[1].split('&')[0]
-            result3 = self.signup_page.get_email_updates(self.driver, self.email, 3, new_password_url)
+            token = new_password_url.split('=')[1].split('&')[0]
+            result3 = self.signup_page.go_to_url(self.driver, new_password_url)
             customer_id = self.signup_page.execute_js(self.driver, 'return SO.model.Customer.getCustomerId();')
             result4 = self.signup_page.add_phone(self.driver, self.phone)
             sms_code = get_redis_value(customer_id)
