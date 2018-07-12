@@ -31,7 +31,7 @@ class BasePage(Browser):
         return ''.join(random.choice(chars) for _ in range(size))
 
     def get_email_updates(self, driver, email, action, *args):
-        delay = 3
+        delay = 5
         self.driver_wait(driver, delay)
         pattern = r"([\w\.-]+)"
         if not isinstance(email, str):
@@ -42,7 +42,7 @@ class BasePage(Browser):
         email = email[0]
         mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}".format(email)
         self.go_to_url(driver, mailinator_box_url)
-        time.sleep(10)
+        time.sleep(5)
         self.driver_wait(driver, delay)
         pause_button = self.find_element_by(driver, self.base_locators.PAUSE_BUTTON_ID, "id")
         pause_button.click()
@@ -82,7 +82,7 @@ class BasePage(Browser):
             else:
                 locator = self.base_locators.VERIFY_EMAIL_BUTTON
             button = self.search_element(driver, locator, delay)
-            button.click()
+            self.click_on_element(button)
             self.driver_wait(driver, delay + 5)
             new_window = driver.window_handles
             self.switch_window(driver, new_window[1])
