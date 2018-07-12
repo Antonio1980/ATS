@@ -44,7 +44,7 @@ class APIClient:
 
 
 class APIError(Exception):
-    print("Error occurred...")
+    pass
 
 
 class FixClient:

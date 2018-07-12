@@ -134,3 +134,20 @@ class SignUpPage(BasePage):
                 return True
             else:
                 return False
+
+    def enter_phone_code(self, driver, code):
+        delay = 3
+        try:
+            self.driver_wait(driver, delay)
+            assert self.wtp_open_account_url == self.get_cur_url(driver)
+            code_field = self.find_element(driver, SignUpPageLocators.CODE_FIELD)
+            self.click_on_element(code_field)
+            self.send_keys(code_field, code)
+            submit_button = self.find_element(driver, SignUpPageLocators.SUBMIT_BUTTON)
+            self.click_on_element(submit_button)
+            self.driver_wait(driver, delay)
+        finally:
+            if self.wait_element_clickable(driver, SignUpPageLocators.NEXT_BUTTON, delay):
+                return True
+            else:
+                return False

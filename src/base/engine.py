@@ -66,16 +66,11 @@ def run_mysql_query(query):
         return rows
 
 
-def run_redis_query(host, port, key):
-    """
-    To connect and execute command on Redis DB.
-    :param host: Redis host.
-    :param port: Redis port.
-    :param key: Redis key to look for.
-    :return: Result of the query.
-    """
+def get_redis_value(key, host='10.100.1.11', port='30001'):
     redis_db = redis.StrictRedis(host=host, port=port, db=0)
-    return redis_db.keys(key)
+    #keys = redis_db.sort("phone:confirm:*", alpha=True, desc=True)  # redis_db.keys("phone:confirm:*")
+    value = redis_db.get("phone:confirm:" + key)
+    return int(value)
 
 
 def parse_args(run_number):
@@ -174,12 +169,4 @@ def _is_win():
 def _is_lin():
     return platform.system().lower() == OperationSystem.LINUX.value
 
-
-# if __name__ == '__main__':
-#     pprint(run_redis_query("10.100.1.11", "30001", 'reset-password:neau9hiv@mailinator.com:*'))
-#     #pprint(redis(host="10.100.1.11", port="30001", db=0).keys('reset-password:neau9hiv@mailinator.com:*'))
-#     #pprint(red.get('reset-password:neau9hiv@mailinator.com:*'))
-
-if __name__ == '__main__':
-    update_test_case('41', '2590', 1)
 

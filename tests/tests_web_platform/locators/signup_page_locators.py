@@ -39,5 +39,8 @@ class SignUpPageLocators(object):
     SUBMIT_BUTTON = "//input[@value='Submit']"
     RESEND_LINK = "//*[@class='resend']"
     ANOTHER_PHONE_LINK = "//*[@class='resetPhone']/a"
+
+    # Personal details screen
+    NEXT_BUTTON = "//input[@value='Sign Up']"
     
     

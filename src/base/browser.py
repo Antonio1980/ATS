@@ -132,7 +132,7 @@ class Browser(object):
         :param driver: web_driver instance.
         :param script: java script code passed as string.
         """
-        driver.execute_script(script)
+        return driver.execute_script(script)
 
     def execute_js_on_element(self, driver, element, script):
         """

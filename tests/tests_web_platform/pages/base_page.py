@@ -31,7 +31,7 @@ class BasePage(Browser):
         return ''.join(random.choice(chars) for _ in range(size))
 
     def get_email_updates(self, driver, email, action, *args):
-        delay = 10
+        delay = 3
         self.driver_wait(driver, delay)
         pattern = r"([\w\.-]+)"
         if not isinstance(email, str):
