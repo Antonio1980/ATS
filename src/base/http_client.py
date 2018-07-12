@@ -44,16 +44,16 @@ class APIClient:
 
 
 class APIError(Exception):
+    print("Error occurred...")
+
+
+class FixClient:
     pass
 
 
-class FixClient():
+class ItchClient:
     pass
 
 
-class ItchClient():
-    pass
-
-
-class HurlClient():
+class HurlClient:
     pass

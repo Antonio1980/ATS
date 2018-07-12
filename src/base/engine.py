@@ -1,10 +1,10 @@
 import csv
+import ast
 import redis
 import codecs
 import pymysql
 import argparse
 import platform
-from pprint import pprint
 from test_definitions import BaseConfig
 from src.base.enums import OperationSystem
 from src.base.http_client import APIClient
@@ -14,6 +14,13 @@ client = APIClient(BaseConfig.TESTRAIL_URL, BaseConfig.TESTRAIL_USER, BaseConfig
 
 
 def update_test_case(test_run, test_case, status):
+    """
+    Calls API client to send HTTP request.
+    :param test_run: Current test run.
+    :param test_case: Current test case.
+    :param status: test actual result.
+    :return: API response.
+    """
     if status == 1:
         # 'add_result_for_case/'-run, -38 / 2590
         return client.send_post(
@@ -28,18 +35,26 @@ def update_test_case(test_run, test_case, status):
 
 
 def get_test_case(test_case):
-    case = client.send_get('get_case/' + test_case)
-    return case
+    """
+    Send GET request to TestRail.
+    :param test_case: Test case ID.
+    :return: API response.
+    """
+    return client.send_get('get_case/' + test_case)
 
 
 def run_mysql_query(query):
+    """
+    To run SQL query on MySQL DB.
+    :param query: SQL query.
+    :return: Data from executed query.
+    """
     _host = BaseConfig.DB_HOST
     _username = BaseConfig.DB_USERNAME
     _password = BaseConfig.DB_PASSWORD
     _db_name = BaseConfig.DB_NAME
     _port = 30002
-    connection = pymysql.connect(host=_host, port=_port, user=_username, passwd=_password,
-                                 database=_db_name)
+    connection = pymysql.connect(host=_host, port=_port, user=_username, passwd=_password, database=_db_name)
     rows = []
     try:
         cursor = connection.cursor()
@@ -51,9 +66,16 @@ def run_mysql_query(query):
         return rows
 
 
-def run_redis_query(host, port):
+def run_redis_query(host, port, key):
+    """
+    To connect and execute command on Redis DB.
+    :param host: Redis host.
+    :param port: Redis port.
+    :param key: Redis key to look for.
+    :return: Result of the query.
+    """
     redis_db = redis.StrictRedis(host=host, port=port, db=0)
-    return redis_db.keys('reset-password:neau9hiv@mailinator.com:*')
+    return redis_db.keys(key)
 
 
 def parse_args(run_number):
@@ -154,6 +176,10 @@ def _is_lin():
 
 
 # if __name__ == '__main__':
-#     pprint(run_redis_query("10.100.1.11", "30001"))
+#     pprint(run_redis_query("10.100.1.11", "30001", 'reset-password:neau9hiv@mailinator.com:*'))
 #     #pprint(redis(host="10.100.1.11", port="30001", db=0).keys('reset-password:neau9hiv@mailinator.com:*'))
 #     #pprint(red.get('reset-password:neau9hiv@mailinator.com:*'))
+
+if __name__ == '__main__':
+    update_test_case('41', '2590', 1)
+
