@@ -22,6 +22,8 @@ class AddDepositTest(unittest.TestCase):
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3409'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.username = cls.login_page.username
+        cls.password = cls.login_page.password
 
     @test(groups=['sanity', 'functional', 'positive', ])
     def test_add_deposit(self):
@@ -29,7 +31,7 @@ class AddDepositTest(unittest.TestCase):
         amount = 100
         result1, result2, result3, result4 = False, False, False, False
         try:
-            result1 = self.login_page.login_positive(self.driver, delay)
+            result1 = self.login_page.login(self.driver, self.username, self.password)
             result2 = self.home_page.choose_customer_by_name(self.driver, delay)
             result3 = self.customer_page.make_deposit(self.driver, delay, amount)
             result4 = self.customer_page.check_balance(self.driver, delay)

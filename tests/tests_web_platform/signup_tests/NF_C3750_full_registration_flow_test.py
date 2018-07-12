@@ -34,8 +34,8 @@ class SignUpFullFlowTest(unittest.TestCase):
             result2 = self.signup_page.fill_signup_form(self.driver, self.first_last_name, self.email, self.password)
             # 1 - get_updates, 2 - click on change_password, 3 - click on verify_email
             new_password_url = self.signup_page.get_email_updates(self.driver, self.email, 0)
-            token = new_password_url.split('=')
-            token = token[1].split('&')[0]
+            token = new_password_url.split('=')[1].split('&')[0]
+            #token = token[1].split('&')[0]
             result3 = self.signup_page.get_email_updates(self.driver, self.email, 3, new_password_url)
             customer_id = self.signup_page.execute_js(self.driver, 'return SO.model.Customer.getCustomerId();')
             result4 = self.signup_page.add_phone(self.driver, self.phone)
@@ -46,9 +46,11 @@ class SignUpFullFlowTest(unittest.TestCase):
                 write_file_result(self.first_last_name + "," + self.email + "," + self.password + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 response = update_test_case(self.test_run, self.test_case, 1)
+                write_file_result(response, BaseConfig.WTP_LOG_FILE)
             else:
                 write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
                 response = update_test_case(self.test_run, self.test_case, 0)
+                write_file_result(response, BaseConfig.WTP_LOG_FILE)
 
     @classmethod
     def tearDownClass(cls):

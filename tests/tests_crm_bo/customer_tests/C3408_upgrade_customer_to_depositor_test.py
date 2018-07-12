@@ -22,13 +22,15 @@ class CustomerUpgradeStatusTest(unittest.TestCase):
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3408'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.username = cls.login_page.username
+        cls.password = cls.login_page.password
 
     @test(groups=['sanity', 'functional', 'positive', ])
     def test_customer_status_upgrade(self):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = self.login_page.login_positive(self.driver, delay)
+            result1 = self.login_page.login(self.driver, self.username, self.password)
             result2 = self.home_page.choose_customer_by_name(self.driver, delay)
             result3 = self.customer_page.make_deposit(self.driver, delay)
         finally:

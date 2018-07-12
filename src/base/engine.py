@@ -1,5 +1,4 @@
 import csv
-import ast
 import redis
 import codecs
 import pymysql
@@ -9,15 +8,15 @@ from test_definitions import BaseConfig
 from src.base.enums import OperationSystem
 from src.base.http_client import APIClient
 
-
+# API client- connector for TaseRail manager.
 client = APIClient(BaseConfig.TESTRAIL_URL, BaseConfig.TESTRAIL_USER, BaseConfig.TESTRAIL_PASSWORD)
 
 
 def update_test_case(test_run, test_case, status):
     """
     Calls API client to send HTTP request.
-    :param test_run: Current test run.
-    :param test_case: Current test case.
+    :param test_run: current test run.
+    :param test_case: current test case.
     :param status: test actual result.
     :return: API response.
     """
@@ -37,7 +36,7 @@ def update_test_case(test_run, test_case, status):
 def get_test_case(test_case):
     """
     Send GET request to TestRail.
-    :param test_case: Test case ID.
+    :param test_case: test case ID.
     :return: API response.
     """
     return client.send_get('get_case/' + test_case)
@@ -47,7 +46,7 @@ def run_mysql_query(query):
     """
     To run SQL query on MySQL DB.
     :param query: SQL query.
-    :return: Data from executed query.
+    :return: data from executed query.
     """
     _host = BaseConfig.DB_HOST
     _username = BaseConfig.DB_USERNAME
@@ -67,8 +66,14 @@ def run_mysql_query(query):
 
 
 def get_redis_value(key, host='10.100.1.11', port='30001'):
+    """
+    Connects to Redis DB to get value by provided key.
+    :param key: second part of the searched key (customer_id).
+    :param host: Redis DB host.
+    :param port: Redis DB port.
+    :return:
+    """
     redis_db = redis.StrictRedis(host=host, port=port, db=0)
-    #keys = redis_db.sort("phone:confirm:*", alpha=True, desc=True)  # redis_db.keys("phone:confirm:*")
     value = redis_db.get("phone:confirm:" + key)
     return int(value)
 
