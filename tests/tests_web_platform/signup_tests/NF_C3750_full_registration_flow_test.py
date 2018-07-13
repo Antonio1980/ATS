@@ -7,8 +7,8 @@ from src.base.enums import Browsers
 from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
-from src.base.engine import write_file_result, update_test_case, get_redis_value
 from tests.tests_web_platform.pages.signup_page import SignUpPage
+from src.base.engine import write_file_result, update_test_case, get_redis_value
 
 
 @test(groups=['sign_up_page', 'e2e', ])
@@ -35,7 +35,7 @@ class SignUpFullFlowTest(unittest.TestCase):
             # 1 - get_updates, 2 - click on change_password, 3 - click on verify_email
             new_password_url = self.signup_page.get_email_updates(self.driver, self.email, 0)
             token = new_password_url.split('=')[1].split('&')[0]
-            result3 = self.signup_page.go_to_url(self.driver, new_password_url)
+            result3 = self.signup_page.go_by_token_url(self.driver, new_password_url)
             customer_id = self.signup_page.execute_js(self.driver, 'return SO.model.Customer.getCustomerId();')
             result4 = self.signup_page.add_phone(self.driver, self.phone)
             sms_code = get_redis_value(customer_id)
@@ -45,9 +45,11 @@ class SignUpFullFlowTest(unittest.TestCase):
                 write_file_result(self.first_last_name + "," + self.email + "," + self.password + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 response = update_test_case(self.test_run, self.test_case, 1)
+                write_file_result(str(response), BaseConfig.WTP_LOG_FILE)
             else:
                 write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
                 response = update_test_case(self.test_run, self.test_case, 0)
+                write_file_result(str(response), BaseConfig.WTP_LOG_FILE)
 
     @classmethod
     def tearDownClass(cls):

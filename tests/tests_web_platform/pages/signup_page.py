@@ -151,3 +151,15 @@ class SignUpPage(BasePage):
                 return True
             else:
                 return False
+
+    def go_by_token_url(self, driver, token):
+        delay = 3
+        if token is not None:
+            try:
+                self.driver_wait(driver, delay)
+                self.go_to_url(driver, token)
+            finally:
+                if self.wait_element_clickable(driver, self.locators.SEND_BUTTON, delay + 5):
+                    return True
+                else:
+                    return False

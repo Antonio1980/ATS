@@ -45,9 +45,9 @@ class BasePage(Browser):
         time.sleep(5)
         self.driver_wait(driver, delay)
         pause_button = self.find_element_by(driver, self.base_locators.PAUSE_BUTTON_ID, "id")
-        pause_button.click()
+        self.click_on_element(pause_button)
         email_item = self.find_element(driver, self.base_locators.FIRST_EMAIL)
-        email_item.click()
+        self.click_on_element(email_item)
         self.driver_wait(driver, delay)
         # 0 - get_token for verify email, 1 - get_token for forgot password, 2 - click on change_password, 3 - click on verify_email
         if action == 1 or action == 0:
