@@ -35,8 +35,6 @@ class LogInTest(unittest.TestCase):
     @test(groups=['smoke', 'functional', 'positive', ])
     # Test method, name must start with "test..."
     def test_login_positive(self):
-        # Default time out for Browser methods in seconds.
-        delay = 1
         # Test result befor execution.
         result = False
         try:
