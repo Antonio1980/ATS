@@ -411,8 +411,10 @@ class Browser(object):
                 print(cells)
                 for item in cell.find_elements_by_xpath("//a[@class='ui-state-default']"):
                     items.append(item)
-                    if item.text() == text:
-                        return self.click_on_element(item)
+        for i in items:
+            if i.text() == text:
+                return self.click_on_element(i)
+
                     
 
 
