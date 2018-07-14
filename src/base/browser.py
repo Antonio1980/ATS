@@ -392,34 +392,23 @@ class Browser(object):
         except Exception as e:
             print('{}: TimeoutException element not found: {}'.format(self.__class__, e))
 
-    def select_by_option(self, driver, element, locator, option):
+    def select_by_value(self, element, value):
+        # if value is not str:
+        #     str(value)
         selector = Select(element)
-        for index in range(len(selector.options)):
-            selector = Select(self.find_element_by(driver, locator, option))
-            selector.select_by_index(index)
+        selector.select_by_value(str(value))
+        #self.click_on_element(option)
 
-    def select_from_table(self, table, text):
-        rows = []
-        cells = []
-        items = []
-        for row in table.find_elements_by_xpath(".//tr"):
-            rows.append(row)
-            print(rows)
-            # print([td.text for td in row.find_elements_by_xpath("//td[@class=' ui-datepicker-week-end ']")
-            for cell in row.find_elements_by_xpath("//td[@class=' ui-datepicker-week-end ']"):
-                cells.append(cell)
-                print(cells)
-                for item in cell.find_elements_by_xpath("//a[@class='ui-state-default']"):
-                    items.append(item)
-        for i in items:
-            if i.text() == text:
-                return self.click_on_element(i)
-
-                    
-
-
-
-            
+    def find_elements(self, driver, locator):
+        delay = 3
+        elements = []
+        try:
+            self.driver_wait(driver, delay)
+            for i in driver.find_elements_by_xpath(locator):
+                elements.append(i)
+            return elements
+        except TimeoutError as e:
+            print('{}: TimeoutException element not found: {}'.format(self.__class__, e))
 
 
     # def if_page_loaded(self, delay, page_elements):

@@ -166,15 +166,23 @@ class SignUpPage(BasePage):
 
     def fill_personal_details(self, driver, birthday, zip, city):
         delay = 3
-        # 13/07/2000
+        # 13/07/1980
         try:
             _birthday, _zip, _city = birthday, zip, city
-            _text = _birthday.split('/')[0]
+            _day = _birthday.split('/')[0]
+            _month = int(_birthday.split('/')[1])-1
+            _year = _birthday.split('/')[2]
             self.driver_wait(driver, delay)
             date_field = self.find_element(driver, self.locators.DATE_OF_BIRTH)
             self.click_on_element(date_field)
+            year_selector = self.find_element(driver, self.locators.YEAR_SELECT)
+            self.select_by_value(year_selector, _year)
+            month_selector = self.find_element(driver, self.locators.MONTH_SELECT)
+            self.select_by_value(month_selector, _month)
             calendar_table = self.find_element(driver, self.locators.CALENDAR_TABLE)
-            self.select_from_table(calendar_table, _text)
+            self._select_from_calendar_table(calendar_table, _day, _month)
+            name_field = self.find_element(driver, self.locators.NAME_FIELD)
+            self.click_on_element(name_field)
             city_field = self.find_element(driver, self.locators.CITY_FIELD)
             self.click_on_element(city_field)
             self.send_keys(city_field, _city)
@@ -191,6 +199,18 @@ class SignUpPage(BasePage):
             else:
                 return False
 
+    def _select_from_calendar_table(self, table, day, month):
+        rows = []
+        cells = []
+        for row in table.find_elements_by_xpath(".//tr"):
+            rows.append(row)
+            for cell in row.find_elements_by_xpath("//td[@data-handler='selectDay'][@data-month='{0}']".format(month-1)):
+                cells.append(cell)
+        for item in cells:
+            # item.find_element_by_xpath("//a[@class='ui-state-default ui-state-active'][contains(text(),'{0}')]".format(day)).click()
+            if item.text == day:
+                item.click()
 
 
-        
+
+

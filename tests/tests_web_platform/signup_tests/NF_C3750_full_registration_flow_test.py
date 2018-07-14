@@ -41,7 +41,7 @@ class SignUpFullFlowTest(unittest.TestCase):
             sms_code = get_redis_value(customer_id)
             result5 = self.signup_page.enter_phone_code(self.driver, sms_code)
             # birthday, zip, city
-            result6 = self.signup_page.fill_personal_details(self.driver, "13/07/2000", "45263", "Ashdod")
+            result6 = self.signup_page.fill_personal_details(self.driver, "13/08/1980", "45263", "Ashdod")
         finally:
             if result1 and result2 and result3 and result4 and result5 and result6 is True:
                 write_file_result(self.first_last_name + "," + self.email + "," + self.password + "," + self.token+"\n",

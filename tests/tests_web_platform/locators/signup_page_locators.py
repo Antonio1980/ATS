@@ -47,6 +47,7 @@ class SignUpPageLocators(object):
     CALENDAR_TABLE = "//table[@class='ui-datepicker-calendar']"
     CALENDAR = "//*[@id='ui-datepicker-div']"
     CALENDAR_ID = "ui-datepicker-div"
+    DATE = "//a[@class='ui-state-default'][contains(.,'')]"
     MONTH_SELECT = "//select[@class='ui-datepicker-month']"
     YEAR_SELECT = "//select[@class='ui-datepicker-year']"
     DAY = "//td[@class=' ui-datepicker-week-end ']/a[@class='ui-state-default'][contains(.,'2')]"
