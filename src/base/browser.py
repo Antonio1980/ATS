@@ -397,7 +397,28 @@ class Browser(object):
         for index in range(len(selector.options)):
             selector = Select(self.find_element_by(driver, locator, option))
             selector.select_by_index(index)
-        
+
+    def select_from_table(self, table, text):
+        rows = []
+        cells = []
+        items = []
+        for row in table.find_elements_by_xpath(".//tr"):
+            rows.append(row)
+            print(rows)
+            # print([td.text for td in row.find_elements_by_xpath("//td[@class=' ui-datepicker-week-end ']")
+            for cell in row.find_elements_by_xpath("//td[@class=' ui-datepicker-week-end ']"):
+                cells.append(cell)
+                print(cells)
+                for item in cell.find_elements_by_xpath("//a[@class='ui-state-default']"):
+                    items.append(item)
+                    if item.text() == text:
+                        return self.click_on_element(item)
+                    
+
+
+
+            
+
 
     # def if_page_loaded(self, delay, page_elements):
     #     WebDriverWait(self.get_driver(), delay).all_elements.get(0).get_locator_by()

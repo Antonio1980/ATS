@@ -163,3 +163,34 @@ class SignUpPage(BasePage):
                     return True
                 else:
                     return False
+
+    def fill_personal_details(self, driver, birthday, zip, city):
+        delay = 3
+        # 13/07/2000
+        try:
+            _birthday, _zip, _city = birthday, zip, city
+            _text = _birthday.split('/')[0]
+            self.driver_wait(driver, delay)
+            date_field = self.find_element(driver, self.locators.DATE_OF_BIRTH)
+            self.click_on_element(date_field)
+            calendar_table = self.find_element(driver, self.locators.CALENDAR_TABLE)
+            self.select_from_table(calendar_table, _text)
+            city_field = self.find_element(driver, self.locators.CITY_FIELD)
+            self.click_on_element(city_field)
+            self.send_keys(city_field, _city)
+            zip_field = self.find_element(driver, self.locators.ZIP_FIELD)
+            self.send_keys(zip_field, _zip)
+            address_field = self.find_element(driver, self.locators.ADDRESS_FIELD)
+            self.send_keys(address_field, _city)
+            next_button = self.find_element(driver, self.locators.NEXT_BUTTON)
+            self.click_on_element(next_button)
+            self.driver_wait(driver, delay)
+        finally:
+            if self.wait_element_clickable(driver, self.locators.EMPLOYMENT_SELECT, delay+2):
+                return True
+            else:
+                return False
+
+
+
+        

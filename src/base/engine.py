@@ -175,3 +175,5 @@ def _is_lin():
     return platform.system().lower() == OperationSystem.LINUX.value
 
 
+# if __name__ == '__main__':
+#     print(get_redis_value("100001100000000115"))

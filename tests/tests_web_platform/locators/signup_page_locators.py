@@ -41,6 +41,24 @@ class SignUpPageLocators(object):
     ANOTHER_PHONE_LINK = "//*[@class='resetPhone']/a"
 
     # Personal details screen
-    NEXT_BUTTON = "//input[@value='Sign Up']"
+    NEXT_BUTTON = "//*[@id='openAccountDxDetailsForm']/div/div[1]/input"
+    NAME_FIELD = "//*[@name='firstName'][@placeholder='First name']"
+    DATE_OF_BIRTH = "//input[@class='formField hasDatepicker']"
+    CALENDAR_TABLE = "//table[@class='ui-datepicker-calendar']"
+    CALENDAR = "//*[@id='ui-datepicker-div']"
+    CALENDAR_ID = "ui-datepicker-div"
+    MONTH_SELECT = "//select[@class='ui-datepicker-month']"
+    YEAR_SELECT = "//select[@class='ui-datepicker-year']"
+    DAY = "//td[@class=' ui-datepicker-week-end ']/a[@class='ui-state-default'][contains(.,'2')]"
+    CITY_FIELD = "//input[@name='city']"
+    ZIP_FIELD = "//input[@name='postCode']"
+    ADDRESS_FIELD = "//input[@name='street']"
+    ADDRESS_2_FIELD = "//input[@name='streetTwo']"
+    US_CHECKNOX = "//div[@class='uSTaxReportable']//span[@class='checkmark']"
+    POLITICAL_CHECKBOX = "//div[@class='politicallyExposed']//span[@class='checkmark']"
+
+    # Client Checklist
+    EMPLOYMENT_SELECT= "//*[@id='employmentStatusPlatformSelect_1_chzn']/a[@class='chzn-single chzn-default']"
+    
     
     
