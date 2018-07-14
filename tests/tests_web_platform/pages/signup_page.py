@@ -99,9 +99,9 @@ class SignUpPage(BasePage):
             self.wait_driver(driver, delay)
             assert self.wtp_open_account_url == self.get_cur_url(driver)
             if option == 1:
-                element = self.find_element(driver, SignUpPageLocators.TERM_OF_USE_LINK)
+                element = self.find_element(driver, self.locators.TERM_OF_USE_LINK)
             else:
-                element = self.find_element(driver, SignUpPageLocators.PRIVACY_POLICY_LINK)
+                element = self.find_element(driver, self.locators.PRIVACY_POLICY_LINK)
             self.click_on_element(element)
             self.driver_wait(driver, delay + 1)
         finally:
@@ -140,14 +140,14 @@ class SignUpPage(BasePage):
         try:
             self.driver_wait(driver, delay)
             assert self.wtp_open_account_url == self.get_cur_url(driver)
-            code_field = self.find_element(driver, SignUpPageLocators.CODE_FIELD)
+            code_field = self.find_element(driver, self.locators.CODE_FIELD)
             self.click_on_element(code_field)
             self.send_keys(code_field, code)
-            submit_button = self.find_element(driver, SignUpPageLocators.SUBMIT_BUTTON)
+            submit_button = self.find_element(driver, self.locators.SUBMIT_BUTTON)
             self.click_on_element(submit_button)
             self.driver_wait(driver, delay)
         finally:
-            if self.wait_element_clickable(driver, SignUpPageLocators.NEXT_BUTTON, delay):
+            if self.wait_element_clickable(driver, self.locators.NEXT_BUTTON, delay):
                 return True
             else:
                 return False
