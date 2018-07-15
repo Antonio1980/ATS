@@ -180,7 +180,7 @@ class SignUpPage(BasePage):
             month_selector = self.find_element(driver, self.locators.MONTH_SELECT)
             self.select_by_value(month_selector, _month)
             calendar_table = self.find_element(driver, self.locators.CALENDAR_TABLE)
-            self._select_from_calendar_table(calendar_table, _day, _month)
+            self._select_from_calendar(calendar_table, _day, _month)
             name_field = self.find_element(driver, self.locators.NAME_FIELD)
             self.click_on_element(name_field)
             city_field = self.find_element(driver, self.locators.CITY_FIELD)
@@ -199,17 +199,16 @@ class SignUpPage(BasePage):
             else:
                 return False
 
-    def _select_from_calendar_table(self, table, day, month):
-        rows = []
-        cells = []
+    def _select_from_calendar(self, table, day, month):
+        items = []
         for row in table.find_elements_by_xpath(".//tr"):
-            rows.append(row)
-            for cell in row.find_elements_by_xpath("//td[@data-handler='selectDay'][@data-month='{0}']".format(month-1)):
-                cells.append(cell)
-        for item in cells:
-            # item.find_element_by_xpath("//a[@class='ui-state-default ui-state-active'][contains(text(),'{0}')]".format(day)).click()
-            if item.text == day:
-                item.click()
+            for cell in row.find_elements_by_xpath("//td[@data-handler='selectDay'][@data-month='{0}']".format(month)):
+                for item in cell.find_elements_by_xpath("//a[@class='ui-state-default'][contains(text(),'')]"):
+                    items.append(item)
+        for i in items:
+            text = i.text
+            if text.lower() == day.lower():
+                return self.click_on_element(i)
 
 
 

@@ -393,11 +393,16 @@ class Browser(object):
             print('{}: TimeoutException element not found: {}'.format(self.__class__, e))
 
     def select_by_value(self, element, value):
-        # if value is not str:
-        #     str(value)
+        if value is not str:
+            value = str(value)
         selector = Select(element)
-        selector.select_by_value(str(value))
-        #self.click_on_element(option)
+        selector.select_by_value(value)
+
+    def select_by_index(self, element, index):
+        if index is not int:
+            index = int(index)
+        selector = Select(element)
+        selector.select_by_index(index)
 
     def find_elements(self, driver, locator):
         delay = 3
