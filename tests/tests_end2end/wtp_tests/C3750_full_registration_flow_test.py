@@ -7,9 +7,8 @@ from proboscis import test
 from src.base.enums import Browsers
 from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
-from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signup_page import SignUpPage
-from src.base.engine import write_file_result, update_test_case, get_redis_value
+from src.base.engine import write_file_result, update_test_case, get_redis_keys, get_redis_value
 
 
 @test(groups=['sign_up_page', 'e2e', ])
@@ -19,6 +18,7 @@ class RegistrationFullFlowTest(unittest.TestCase):
         cls.url = BaseConfig.API_STAGING_URL
         cls.signup_page = SignUpPage()
         cls.test_case = '3750'
+        cls.prefix = cls.signup_page.prefix
         cls.email = cls.signup_page.email
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.password = cls.signup_page.password
@@ -36,6 +36,7 @@ class RegistrationFullFlowTest(unittest.TestCase):
 
     @test(groups=['regression', 'functional', 'positive', ], depends_on_groups=["smoke", "sanity", ])
     def test_registration_full_flow(self):
+        temp, temp2, temp3 = [], [], []
         delay = 1
         result1, result2, result3, result4, result5, result6, result7, result8 = False, False, False, False, False, False, False, False
         try:
@@ -43,8 +44,20 @@ class RegistrationFullFlowTest(unittest.TestCase):
             json_body = result1.json()
             authorization_token = json_body['result']['authToken']
             customer_id = json_body['result']['customerId']
-            url = get_redis_value(customer_id)
-            self.token = url.split('=')[1].split('&')[0]
+            keys = get_redis_keys("email_validation_token*")
+            for i in keys:
+                i = str(i)
+                temp.append(i.split("b'email_validation_token_"))
+            for j in temp:
+                for k in j[::1]:
+                    temp2.append(k)
+            while '' in temp2:
+                temp2.remove('')
+            for x in temp2:
+                temp3.append(x[:-1])
+            print(temp3)
+            url = self.signup_page.wtp_open_account_url + "?validation_token=" + temp3[0] + "&email=" + self.prefix + "%40mailinator.com"
+            print(url)
             result2 = self.signup_page.go_by_token_url(self.driver, url)
             result3 = self.signup_page.add_phone(self.driver, self.phone)
             sms_code = get_redis_value(customer_id)

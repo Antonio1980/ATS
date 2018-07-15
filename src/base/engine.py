@@ -204,29 +204,10 @@ def _is_lin():
 
 
 if __name__ == '__main__':
-    temp = []
-    temp2 = []
-    temp3 = []
-    #print(get_redis_keys("email_validation_token*"))
-    #print(get_redis_value("email_validation_token_00feac33-bd96-4369-a9c9-11cb36a0ad59"))
-    keys = get_redis_keys("email_validation_token*")
-    print("keys: ", keys, type(keys), len(keys))
-    for i in keys:
-        i = str(i)
-        temp.append(i.split("b'email_validation_token_"))
-    print("temp: ", temp, type(temp), len(temp))
-    for j in temp:
-        for k in j[::1]:
-            temp2.append(k)
-    print("temp2: ", temp2, type(temp2), len(temp2))
-    #temp3 = sorted(temp2, key=lambda x: (x is '', x))
-    while '' in temp2:
-        temp2.remove('')
-    print("temp2_1: ", temp2, type(temp2), len(temp2))
-    pattern = r"([...]$)"
-    for x in temp2:
-        x = re.findall(pattern, x)
-    print("temp2_2: ", temp2, type(temp2), len(temp2))
+    print(get_redis_keys("email_validation_token*"))
+    # print(get_redis_value("email_validation_token_00feac33-bd96-4369-a9c9-11cb36a0ad59"))
+
+
 
 
         

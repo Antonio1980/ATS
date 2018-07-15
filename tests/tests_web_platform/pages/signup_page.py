@@ -7,7 +7,8 @@ class SignUpPage(BasePage):
         super(SignUpPage, self).__init__()
         self.locators = SignUpPageLocators()
         email_suffix = "@mailinator.com"
-        self.email = self.email_generator() + email_suffix
+        self.prefix = self.email_generator()
+        self.email = self.prefix + email_suffix
         self.password = "1Aa@<>12"
         self.first_last_name = "QA_test_QA"
         self.phone = "0528259547"
