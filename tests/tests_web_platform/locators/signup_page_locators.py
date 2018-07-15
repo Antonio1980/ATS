@@ -58,8 +58,26 @@ class SignUpPageLocators(object):
     US_CHECKNOX = "//div[@class='uSTaxReportable']//span[@class='checkmark']"
     POLITICAL_CHECKBOX = "//div[@class='politicallyExposed']//span[@class='checkmark']"
 
-    # Client Checklist
-    EMPLOYMENT_SELECT= "//*[@id='employmentStatusPlatformSelect_1_chzn']/a[@class='chzn-single chzn-default']"
-    
-    
+    # Client Checklist 1
+    EMPLOYMENT_DROPDOWN= "//*[@id='employmentStatusPlatformSelect_1_chzn']/a[@class='chzn-single chzn-default']"
+    EMPLOYMENT_OPTION = "//*[@id='employmentStatusPlatformSelect_1_chzn']//ul[@class='chzn-results']/li[@id='employmentStatusPlatformSelect_1_chzn_o_2']"
+    BUSINESS_NAME_ID = "businessNameSelfEmployed_3"
+    BUSINESS_NAME = "//*[@id='businessNameSelfEmployed_3']"
+    OCCUPATION = "//*[@id='occupationSelfEmployed_5']"
+    OCCUPATION_ID = "occupationSelfEmployed_5"
+    INDUSTRY_DROPDOWN = "//*[@class='chzn-single chzn-default chzn-single-with-drop']"
+    INDUSTRY_OPTION = "//*[@id='industrySectorEmployedPlatformSelect_6_chzn']//li[@id='industrySectorEmployedPlatformSelect_6_chzn_o_7']"
+
+    # Client Checklist 2
+    ANNUAL_INCOME = "//*[@id='annualIncomePlatformSelect_11_chzn']//span"
+    ANNUAL_INCOME_ID = "annualIncomePlatformSelect_11_chzn"
+    ANNUAL_OPTION = "//*[@id='annualIncomePlatformSelect_11_chzn']//li[@id='annualIncomePlatformSelect_11_chzn_o_2']"
+    SOURCE_SELECT = "//*[@id='sourceOfDealingFundsPlatformSelect_12']"
+    SOURCE_ID = "sourceOfDealingFundsPlatformSelect_12"
+    INHERITANCE_CHECKBOX = "//*[@for='mainActivityGeneratedWealth_65']/span[@class='checkmark']"
+    NEXT_BUTTON_CHECKLIST2 = "//*[@id='dxPackageContainer_openAccountDx']//div[@class='dynamicQuestions hidden']//li[@class='stepContainer hidden step_1']//input[@class='submitInput']"
+
+    # Client Checklist 3
+    NEXT_BUTTON_CHECKLIST3 = "//*[@id='openAccountUploadDocumentsForm']//input[@class='formButton']"
+
     

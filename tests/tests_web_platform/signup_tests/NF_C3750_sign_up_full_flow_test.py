@@ -28,22 +28,25 @@ class SignUpFullFlowTest(unittest.TestCase):
     @test(groups=['regression', 'functional', 'positive', ], depends_on_groups=["smoke", "sanity", ])
     def test_sign_up_full_flow(self):
         delay = 1
-        result1, result2, result3, result4, result5, result6 = False, False, False, False, False, False
+        result1, result2, result3, result4, result5, result6, result7, result8, result9 = False, False, False, False, False, False, False, False, False
         try:
             result1 = self.home_page.open_signup_page(self.driver, delay)
             result2 = self.signup_page.fill_signup_form(self.driver, self.first_last_name, self.email, self.password)
-            # 1 - get_updates, 2 - click on change_password, 3 - click on verify_email
-            new_password_url = self.signup_page.get_email_updates(self.driver, self.email, 0)
-            self.token = new_password_url.split('=')[1].split('&')[0]
-            result3 = self.signup_page.go_by_token_url(self.driver, new_password_url)
+            # 0 - verify email, 1 - change password, 2 - click on change_password, 3 - click on verify_email
+            url = self.signup_page.get_email_updates(self.driver, self.email, 0)
+            self.token = url.split('=')[1].split('&')[0]
+            result3 = self.signup_page.go_by_token_url(self.driver, url)
             customer_id = self.signup_page.execute_js(self.driver, 'return SO.model.Customer.getCustomerId();')
             result4 = self.signup_page.add_phone(self.driver, self.phone)
             sms_code = get_redis_value(customer_id)
             result5 = self.signup_page.enter_phone_code(self.driver, sms_code)
             # birthday, zip, city
             result6 = self.signup_page.fill_personal_details(self.driver, "13/08/1980", "45263", "Ashdod")
+            result7 = self.signup_page.fill_client_checklist_1(self.driver, "Federation of Federations", "freestyle")
+            result8 = self.signup_page.fill_client_checklist_2(self.driver, "61")
+            result9 = self.signup_page.fill_client_checklist_3(self.driver)
         finally:
-            if result1 and result2 and result3 and result4 and result5 and result6 is True:
+            if result1 and result2 and result3 and result4 and result5 and result6 and result7 and result8 and result9 is True:
                 write_file_result(self.first_last_name + "," + self.email + "," + self.password + "," + self.token+"\n",
                                   BaseConfig.WTP_TESTS_CUSTOMERS)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)

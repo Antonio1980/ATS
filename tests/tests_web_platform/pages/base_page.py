@@ -10,6 +10,7 @@ from tests.tests_web_platform.locators.base_page_locators import BasePageLocator
 class BasePage(Browser):
     def __init__(self):
         self.wtp_base_url = BaseConfig.WTP_STAGING_URL
+        self.api_base_url = BaseConfig.API_STAGING_URL
         self.base_locators = BasePageLocators()
         _self_account_url = "/openAccountDx.html"
         self.wtp_open_account_url = self.wtp_base_url + _self_account_url
@@ -32,7 +33,7 @@ class BasePage(Browser):
 
     def get_email_updates(self, driver, email, action, *args):
         delay = 5
-        self.driver_wait(driver, delay)
+        self.driver_wait(driver, delay+5)
         pattern = r"([\w\.-]+)"
         if not isinstance(email, str):
             email, = email
@@ -93,6 +94,35 @@ class BasePage(Browser):
                 return True
             else:
                 return False
+
+    def go_to_gmail(self, driver):
+        delay = 5
+        button = None
+        try:
+            self.driver_wait(driver, delay)
+            self.go_to_url(driver, "https://gmail.com")
+            email_field = self.find_element_by(driver, "identifierId", "id")
+            self.click_on_element(email_field)
+            self.send_keys(email_field, "qa.mailfortest@gmail.com")
+            self.send_enter_key(email_field)
+            password_field = self.find_element(driver, "//*[@id='password']//input")
+            self.click_on_element(password_field)
+            self.send_keys(password_field, "test@1248")
+            self.send_enter_key(password_field)
+            self.driver_wait(driver, delay)
+            last_email = self.search_element(driver, "//*[@id=':3c']//span[@email='noreply@dx.exchange']", delay+5)
+            self.click_on_element(last_email)
+            self.driver_wait(driver, delay)
+            button = self.search_element(driver, self.base_locators.VERIFY_EMAIL_BUTTON)
+        finally:
+            if button is not None:
+                content = self.get_attribute_from_element(button, "href")
+                return content
+
+            
+            
+            
+
 
 
 # if __name__ == '__main__':
