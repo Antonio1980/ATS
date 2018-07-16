@@ -198,7 +198,7 @@ class Browser(object):
         :return: driver state.
         """
         try:
-            return element.click()
+            element.click()
         except Exception as e:
             print("{0} Element not click able. {0}").format(self.__class__, e)
 

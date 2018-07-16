@@ -59,23 +59,22 @@ class SignUpPageLocators(object):
     POLITICAL_CHECKBOX = "//div[@class='politicallyExposed']//span[@class='checkmark']"
 
     # Client Checklist 1
-    EMPLOYMENT_DROPDOWN= "//*[@id='employmentStatusPlatformSelect_1_chzn']/a[@class='chzn-single chzn-default']"
-    EMPLOYMENT_OPTION = "//*[@id='employmentStatusPlatformSelect_1_chzn']//ul[@class='chzn-results']/li[@id='employmentStatusPlatformSelect_1_chzn_o_2']"
-    BUSINESS_NAME_ID = "businessNameSelfEmployed_3"
-    BUSINESS_NAME = "//*[@id='businessNameSelfEmployed_3']"
-    OCCUPATION = "//*[@id='occupationSelfEmployed_5']"
-    OCCUPATION_ID = "occupationSelfEmployed_5"
-    INDUSTRY_DROPDOWN = "//*[@class='chzn-single chzn-default chzn-single-with-drop']"
-    INDUSTRY_OPTION = "//*[@id='industrySectorEmployedPlatformSelect_6_chzn']//li[@id='industrySectorEmployedPlatformSelect_6_chzn_o_7']"
+    EMPLOYMENT_DROPDOWN= "//*[@class='employmentStatusTr']//a"
+    EMPLOYMENT_OPTIONS = "//*[@class='employmentStatusTr']//li"
+    BUSINESS_NAME_INPUT = "//input[@name='businessNameEmployed']"
+    OCCUPATION_INPUT = "//input[@name='occupationEmployed']"
+    BUSINESS_YEAR_INPUT = "//input[@name='businessSetupYear']"
+    INDUSTRY_DROPDOWN = "//*[@class='industrySectorEmployedTr']//a[@class='chzn-single chzn-default']"
+    INDUSTRY_OPTIONS = "//*[@class='industrySectorEmployedTr']//li"
+    NEXT_BUTTON_CHECKLIST1 = "//*[@id='dxPackageContainer_openAccountDx']//div[@class='dynamicQuestions hidden']//li[@class='stepContainer hidden step_1']//input[@class='submitInput']"
 
     # Client Checklist 2
-    ANNUAL_INCOME = "//*[@id='annualIncomePlatformSelect_11_chzn']//span"
-    ANNUAL_INCOME_ID = "annualIncomePlatformSelect_11_chzn"
-    ANNUAL_OPTION = "//*[@id='annualIncomePlatformSelect_11_chzn']//li[@id='annualIncomePlatformSelect_11_chzn_o_2']"
-    SOURCE_SELECT = "//*[@id='sourceOfDealingFundsPlatformSelect_12']"
-    SOURCE_ID = "sourceOfDealingFundsPlatformSelect_12"
+    ANNUAL_INCOME = "//*[@class='annualIncomeTr']//a"
+    ANNUAL_OPTIONS = "//*[@class='annualIncomeTr']//li"
+    SOURCE_SELECT = "//*[@class='sourceOfDealingFundsTr']//a"
+    SOURCE_OPTIONS = "//*[@class='sourceOfDealingFundsTr']//li"
     INHERITANCE_CHECKBOX = "//*[@for='mainActivityGeneratedWealth_65']/span[@class='checkmark']"
-    NEXT_BUTTON_CHECKLIST2 = "//*[@id='dxPackageContainer_openAccountDx']//div[@class='dynamicQuestions hidden']//li[@class='stepContainer hidden step_1']//input[@class='submitInput']"
+    NEXT_BUTTON_CHECKLIST2 = "//*[@class='stepContainer hidden step_2']//td[@class='submitTd']/input"
 
     # Client Checklist 3
     NEXT_BUTTON_CHECKLIST3 = "//*[@id='openAccountUploadDocumentsForm']//input[@class='formButton']"

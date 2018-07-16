@@ -93,6 +93,17 @@ def get_redis_key(key, host='10.100.1.11', port='30001'):
     return value
 
 
+def get_redis_token(tokens_list, customer_id):
+    if tokens_list is not None:
+        for i in tokens_list:
+            key = get_redis_key(i)
+            if len(key) != 0:
+                if int(key[b'customerId']) == int(customer_id):
+                    return i.split('_')[3]
+            else:
+                continue
+
+
 def get_redis_keys(key, host='10.100.1.11', port='30001'):
     """
     Connects to Redis DB to get value by provided key.
@@ -103,7 +114,22 @@ def get_redis_keys(key, host='10.100.1.11', port='30001'):
     """
     redis_db = redis.StrictRedis(host=host, port=port, db=0)
     value = redis_db.keys(key)
-    return list(value)
+    return value
+
+
+def parse_redis_token(tokens, pattern):
+    temp, temp1, temp2 = [], [], []
+    for i in tokens:
+        i = str(i)
+        temp.append(i.split(pattern))
+    for j in temp:
+        for k in j[::1]:
+            temp1.append(k)
+    while '' in temp1:
+        temp1.remove('')
+    for x in temp1:
+        temp2.append(x[:-1])
+    return temp2
 
 
 def parse_args(run_number):
@@ -203,8 +229,13 @@ def _is_lin():
     return platform.system().lower() == OperationSystem.LINUX.value
 
 
-if __name__ == '__main__':
-    print(get_redis_keys("email_validation_token*"))
+# if __name__ == '__main__':
+#     list = ['email_validation_token_2dc0c3db-b1cb-400e-aa2d-d3cf6b3d8591', 'email_validation_token_615a68d5-d4c5-4cfb-98eb-7d94e4d373ae',
+#             'email_validation_token_1865deeb-2e00-496d-9fe5-1975a8b23bb4', 'email_validation_token_02420cbe-65d2-4c07-b6e8-e5d9006a112e', ]
+#     x = get_redis_token(list, 100001100000000155)
+#     print(x)
+    # x = x.split('_')[3]
+    # print(get_redis_keys("email_validation_token*"))
     # print(get_redis_value("email_validation_token_00feac33-bd96-4369-a9c9-11cb36a0ad59"))
 
 
