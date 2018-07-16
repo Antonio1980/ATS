@@ -50,7 +50,7 @@ class RegistrationFullFlowTest(unittest.TestCase):
             result8 = self.signup_page.fill_client_checklist_3(self.driver)
         finally:
             if result0 and result1 and result2 and result3 and result4 and result5 and result6 and result7 and result8 is True:
-                write_file_result(self.first_last_name + "," + self.email + "," + self.password + "," + self.token+"\n",
+                write_file_result(self.first_last_name + "," + self.email + "," + self.password + "," + token + "\n",
                                   BaseConfig.WTP_TESTS_CUSTOMERS)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 response = update_test_case(self.test_run, self.test_case, 1)

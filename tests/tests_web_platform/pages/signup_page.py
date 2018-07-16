@@ -187,8 +187,6 @@ class SignUpPage(BasePage):
             self._select_from_calendar(calendar_table, _day, _month)
             self.driver_wait(driver, delay)
             city_field = self.find_element(driver, self.locators.CITY_FIELD)
-            #time.sleep(3)
-            #self.click_on_element(city_field)
             self.send_keys(city_field, _city)
             zip_field = self.find_element(driver, self.locators.ZIP_FIELD)
             self.send_keys(zip_field, _zip)
