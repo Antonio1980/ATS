@@ -23,10 +23,10 @@ class RegistrationFullFlowTest(unittest.TestCase):
         cls.home_page = HomePage()
         cls.signin_page = SignInPage()
         cls.signup_page = SignUpPage()
-        cls.name = cls.signup_page.username
         cls.email = cls.signup_page.email
         cls.phone = cls.signup_page.phone
         cls.prefix = cls.signup_page.prefix
+        cls.username = cls.signup_page.username
         cls.password = cls.signup_page.password
         cls.url = BaseConfig.API_STAGING_URL
         cls.test_run = BaseConfig.TESTRAIL_RUN
@@ -40,7 +40,7 @@ class RegistrationFullFlowTest(unittest.TestCase):
             False, False, False, False, False, False, False, False, False, False, False, False
         try:
             result1 = self.home_page.open_signup_page(self.driver, delay)
-            result2 = self.signup_page.fill_signup_form(self.driver, self.name, self.email, self.password)
+            result2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password)
             customer_id = self.signup_page.execute_js(self.driver, self.signup_page.script_customer_id)
             keys = get_redis_keys("email_validation_token*")
             token_keys = parse_redis_token(keys, "b'")
@@ -60,8 +60,8 @@ class RegistrationFullFlowTest(unittest.TestCase):
             result11 = self.home_page.open_login_page(self.driver, delay)
             result12 = self.signin_page.sign_in(self.driver, self.email, self.password)
         finally:
-            if result1 and result2 and result3 and result4 and result5 and result6 and result7 and result8 and result9 \
-                    and result10 and result11 and result12 is True:
+            if result1 and result2 and result3 and result4 and result5 and result6 and result7\
+                    and result8 and result9 and result10 and result11 and result12 is True:
                 write_file_result(self.email + "," + self.password + "," + token + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 response = update_test_case(self.test_run, self.test_case, 1)

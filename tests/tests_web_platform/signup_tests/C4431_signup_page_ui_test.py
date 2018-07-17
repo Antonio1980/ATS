@@ -15,11 +15,11 @@ from tests.tests_web_platform.pages.signup_page import SignUpPage
 class SignUpPageUITest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        cls.test_case = '4431'
         cls.home_page = HomePage()
         cls.signup_page = SignUpPage()
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = '4431'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])
     def test_sign_up_page_ui(self):

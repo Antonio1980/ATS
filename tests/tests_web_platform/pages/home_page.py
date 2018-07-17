@@ -1,6 +1,6 @@
 from tests.tests_web_platform.pages.base_page import BasePage
 from tests.tests_web_platform.locators.home_page_locators import HomePageLocators
-from tests.tests_web_platform.pages import wtp_login_page_url, wtp_home_page_url
+from tests.tests_web_platform.pages import wtp_signin_page_url, wtp_home_page_url
 
 
 class HomePage(BasePage):
@@ -26,12 +26,13 @@ class HomePage(BasePage):
 
     def open_login_page(self, driver, delay):
         try:
+            self.driver_wait(driver, delay + 5)
             self.open_home_page(driver, delay)
             assert wtp_home_page_url == self.get_cur_url(driver)
             self.click_on_element_by_locator(driver, self.locators.LOGIN_BUTTON, delay + 5)
-            self.driver_wait(driver, delay + 3)
+            self.driver_wait(driver, delay + 10)
         finally:
-            if self.get_cur_url(driver) == wtp_login_page_url:
+            if self.get_cur_url(driver) == wtp_signin_page_url:
                 return True
             else:
                 return False

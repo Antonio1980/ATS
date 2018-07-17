@@ -8,11 +8,11 @@ class SignUpPage(BasePage):
     def __init__(self):
         super(SignUpPage, self).__init__()
         self.locators = SignUpPageLocators()
-        email_suffix = "@mailinator.com"
+        self.suffix = "@mailinator.com"
         self.prefix = self.email_generator()
-        self.email = self.prefix + email_suffix
+        self.email = self.prefix + self.suffix
         self.password = "1Aa@<>12"
-        self.first_last_name = "QA_test_QA"
+        self.username = "QA_test_QA"
         self.phone = "0528259547"
         self.terms_url = self.wtp_base_url + "/termsOfUse.html"
         self.privacy_url = self.wtp_base_url + "/privacyPolicy.html"
@@ -77,6 +77,7 @@ class SignUpPage(BasePage):
         return True
 
     def click_on_link_on_email_screen(self, driver, url_to_check, option):
+        # 1 - Email verified link, 2 - Go back link, 3 - Resend email
         delay = 3
         try:
             self.wait_driver(driver, delay)
@@ -120,7 +121,7 @@ class SignUpPage(BasePage):
                     return False
 
     def add_phone(self, driver, phone):
-        delay = 10
+        delay = 5
         try:
             self.wait_driver(driver, delay)
             assert self.wtp_open_account_url == self.get_cur_url(driver)
@@ -139,14 +140,16 @@ class SignUpPage(BasePage):
                 return False
 
     def enter_phone_code(self, driver, code):
-        delay = 10
+        delay = 5
+        dr_delay = self.driver_wait(driver, delay)
         try:
             self.driver_wait(driver, delay)
             assert self.wtp_open_account_url == self.get_cur_url(driver)
             code_field = self.find_element(driver, self.locators.CODE_FIELD)
             self.click_on_element(code_field)
             self.send_keys(code_field, code)
-            submit_button = self.find_element(driver, self.locators.SUBMIT_BUTTON)
+            submit_button = self.wait_element_clickable(driver, self.locators.SUBMIT_BUTTON, delay+5)
+            self.driver_wait(driver, delay+5)
             self.click_on_element(submit_button)
             self.driver_wait(driver, delay)
         finally:
@@ -156,7 +159,7 @@ class SignUpPage(BasePage):
                 return False
 
     def go_by_token_url(self, driver, token):
-        delay = 10
+        delay = 5
         if token is not None:
             try:
                 self.driver_wait(driver, delay)
@@ -169,7 +172,7 @@ class SignUpPage(BasePage):
                     return False
 
     def fill_personal_details(self, driver, birthday, zip, city):
-        delay = 10
+        delay = 5
         # 13/07/1980
         try:
             _birthday, _zip, _city = birthday, zip, city
@@ -239,7 +242,7 @@ class SignUpPage(BasePage):
                 return False
 
     def fill_client_checklist_2(self, driver, value):
-        delay = 3
+        delay = 5
         try:
             self.driver_wait(driver, delay)
             annual_dropdown = self.find_element(driver, self.locators.ANNUAL_INCOME)
@@ -262,12 +265,27 @@ class SignUpPage(BasePage):
                 return False
 
     def fill_client_checklist_3(self, driver):
-        delay = 3
+        delay = 5
         try:
             self.driver_wait(driver, delay)
-
+            next_button = self.find_element(driver, self.locators.NEXT_BUTTON_CHECKLIST3)
+            self.click_on_element(next_button)
+            self.driver_wait(driver, delay)
         finally:
-            if True:
+            if self.wait_element_clickable(driver, self.locators.FINISH_BUTTON, delay):
+                return True
+            else:
+                return False
+
+    def finish_registration(self, driver):
+        delay = 5
+        try:
+            self.driver_wait(driver, delay)
+            finish_button = self.find_element(driver, self.locators.FINISH_BUTTON)
+            self.click_on_element(finish_button)
+            self.driver_wait(driver, delay)
+        finally:
+            if self.wait_element_clickable(driver, "//*[@class='signUpLink']", delay):
                 return True
             else:
                 return False

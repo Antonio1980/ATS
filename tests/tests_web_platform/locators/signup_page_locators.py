@@ -79,4 +79,6 @@ class SignUpPageLocators(object):
     # Client Checklist 3
     NEXT_BUTTON_CHECKLIST3 = "//*[@id='openAccountUploadDocumentsForm']//input[@class='formButton']"
 
+    FINISH_BUTTON = "//*[@class='registerDone hidden']//input"
+
     

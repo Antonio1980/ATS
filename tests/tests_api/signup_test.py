@@ -14,7 +14,7 @@ class SignUpTest(unittest.TestCase):
         cls.email = cls.signup_page.email
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.password = cls.signup_page.password
-        cls.first_last_name = cls.signup_page.first_last_name
+        cls.first_last_name = cls.signup_page.username
         cls.headers = {'Content-Type': "application/json"}
         cls.payload = "{\n\t\"jsonrpc\": \"2.0\",\n\t\"method\": \"Authorization.SignUp\"," \
                       "\n\t\"params\": [{\n\t\t\"FirstName\": \"%s\",\n\t\t\"LastName\": \"%s\"," \

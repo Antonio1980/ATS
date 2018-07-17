@@ -15,13 +15,13 @@ from tests.tests_web_platform.pages.signin_page import SignInPage
 class SignInTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.home_page = HomePage()
-        cls.login_page = SignInPage()
         cls.test_case = '3983'
+        cls.home_page = HomePage()
+        cls.signin_page = SignInPage()
+        cls.email = cls.signin_page.email
+        cls.password = cls.signin_page.password
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.email = cls.login_page.email
-        cls.password = cls.login_page.password
 
     @test(groups=['smoke', 'functional', 'positive', ])
     def test_sign_in_positive(self):
@@ -29,7 +29,7 @@ class SignInTest(unittest.TestCase):
         result1, result2 = False, False
         try:
             result1 = self.home_page.open_login_page(self.driver, delay)
-            result2 = self.login_page.sign_in(self.driver, self.email, self.password)
+            result2 = self.signin_page.sign_in(self.driver, self.email, self.password)
         finally:
             if result1 & result2 is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
@@ -40,4 +40,4 @@ class SignInTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        cls.login_page.close_browser(cls.driver)
+        cls.signin_page.close_browser(cls.driver)

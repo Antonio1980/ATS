@@ -19,7 +19,7 @@ class SignUpTest(unittest.TestCase):
         cls.signup_page = SignUpPage()
         cls.email = cls.signup_page.email
         cls.password = cls.signup_page.password
-        cls.first_last_name = cls.signup_page.first_last_name
+        cls.username = cls.signup_page.username
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3690'
         cls.test_run = BaseConfig.TESTRAIL_RUN
@@ -30,11 +30,10 @@ class SignUpTest(unittest.TestCase):
         result1, result2 = False, False
         try:
             result1 = self.home_page.open_signup_page(self.driver, delay)
-            result2 = self.signup_page.fill_signup_form(self.driver, self.first_last_name, self.email, self.password)
+            result2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password)
         finally:
             if result1 and result2 is True:
-                write_file_result(self.first_last_name + "," + self.email + "," + self.password + "\n",
-                                  BaseConfig.WTP_TESTS_CUSTOMERS)
+                write_file_result(self.email + "," + self.password + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:

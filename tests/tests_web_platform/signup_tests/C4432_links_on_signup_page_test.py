@@ -15,11 +15,11 @@ from tests.tests_web_platform.pages.signup_page import SignUpPage
 class LinksOnSignUpPageTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        cls.test_case = '4432'
         cls.home_page = HomePage()
         cls.signup_page = SignUpPage()
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = '4432'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['smoke', 'functional', 'positive', ])
     def test_links_on_sign_up_page(self):

@@ -6,7 +6,7 @@ from proboscis import test
 from src.base.enums import Browsers
 from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
-from tests.tests_web_platform.pages import wtp_login_page_url
+from tests.tests_web_platform.pages import wtp_signin_page_url
 from tests.tests_web_platform.pages.home_page import HomePage
 from src.base.engine import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signin_page import SignInPage
@@ -31,7 +31,7 @@ class SignInPageUITest(unittest.TestCase):
         try:
             result1 = self.home_page.open_login_page(self.driver, delay)
             try:
-                assert wtp_login_page_url == self.login_page.get_cur_url(self.driver)
+                assert wtp_signin_page_url == self.login_page.get_cur_url(self.driver)
                 assert self.login_page.search_element(self.driver, self.locators.SIGNIN_TITLE, delay)
                 assert self.login_page.search_element(self.driver, self.locators.USERNAME_FIELD, delay)
                 assert self.login_page.search_element(self.driver, self.locators.PASSWORD_FIELD, delay)

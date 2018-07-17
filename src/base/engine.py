@@ -175,10 +175,10 @@ def get_account_details(data_file, row, column1, column2, column3):
         next(content, None)
         for item in content:
             rows.append(item)
-    first_last_name = rows[row][column1]
-    email = rows[row][column2]
-    password = rows[row][column3]
-    return {'first_last_name': first_last_name, 'email': email, 'password': password}
+    email = rows[row][column1]
+    password = rows[row][column2]
+    token = rows[row][column3]
+    return {'email': email, 'password': password, 'token': token}
 
 
 def write_file_output(process, file):

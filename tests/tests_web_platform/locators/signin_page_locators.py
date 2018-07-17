@@ -3,7 +3,7 @@ class SignInPageLocators(object):
     SIGNIN_TITLE = "//*[@class='loginTitle']"
     USERNAME_FIELD = "//input[@name='email']"
     PASSWORD_FIELD = "//input[@name='passwordPopupFake']"
-    PASSWORD_TRUE_FIELD = "//input[@name='password']"
+    PASSWORD_FIELD_TRUE = "//input[@name='password']"
     CAPTCHA = "//input[@name='captcha']"  # "//div[@class='recaptcha-checkbox-checkmark'][@role='presentation']"
     CAPTCHA_FRAME = "//*[@class='g-recaptcha']//iframe"
     CAPTCHA_MAIN_FRAME = "//*[@class='g-recaptcha'][@data-theme='light']"
