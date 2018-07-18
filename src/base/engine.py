@@ -80,25 +80,16 @@ def get_redis_value(key, host='10.100.1.11', port='30001'):
     return int(value)
 
 
-def get_redis_key(key, host='10.100.1.11', port='30001'):
-    """
-    Connects to Redis DB to get value by provided key.
-    :param key: second part of the searched key (customer_id).
-    :param host: Redis DB host.
-    :param port: Redis DB port.
-    :return:
-    """
-    redis_db = redis.StrictRedis(host=host, port=port, db=0)
-    value = redis_db.hgetall(key)
-    return value
-
-
 def get_redis_token(tokens_list, customer_id):
     if tokens_list is not None:
+        redis_db = redis.StrictRedis(host='10.100.1.11', port='30001', db=0)
+        def get_redis_key(key):
+            value = redis_db.hgetall(key)
+            return value
         for i in tokens_list:
-            key = get_redis_key(i)
-            if len(key) != 0:
-                if int(key[b'customerId']) == int(customer_id):
+            _key = get_redis_key(i)
+            if len(_key) != 0:
+                if int(_key[b'customerId']) == int(customer_id):
                     return i.split('_')[3]
             else:
                 continue
