@@ -14,7 +14,7 @@ class LogInPage(BasePage):
         try:
             self.go_to_url(driver, self.me_base_url)
             assert self.get_cur_url(driver) == self.login_page_url
-            assert self.wait_element_visible(driver, delay + 1, LogInPageLocators.NASDAQ_LOGO)
+            assert self.wait_element_visible(driver, LogInPageLocators.NASDAQ_LOGO, delay + 1)
             username_field = self.find_element_by(driver, LogInPageLocators.USERNAME_FIELD, "id")
             self.send_keys(username_field, username)
             password_field = self.find_element_by(driver, LogInPageLocators.PASSWORD_FIELD, "id")
@@ -22,7 +22,7 @@ class LogInPage(BasePage):
             login_button = self.find_element(driver, LogInPageLocators.LOGIN_BUTTON)
             self.click_on_element(login_button)
         finally:
-            if self.wait_element_visible(driver, delay + 1, HomePageLocators.HOME_PAGE_LOGO):
+            if self.wait_element_visible(driver, HomePageLocators.HOME_PAGE_LOGO, delay + 1):
                 return True
             else:
                 return False

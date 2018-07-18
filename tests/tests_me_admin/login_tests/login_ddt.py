@@ -5,8 +5,8 @@ import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
 from src.base.enums import Browsers
-from tests.test_definitions import BaseConfig
-from src.test_utils.file_utils import get_csv_data
+from src.base.engine import get_csv_data
+from test_definitions import BaseConfig
 from tests.tests_me_admin.pages.home_page import HomePage
 from tests.tests_me_admin.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory

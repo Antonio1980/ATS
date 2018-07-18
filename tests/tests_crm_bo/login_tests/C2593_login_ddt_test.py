@@ -5,17 +5,16 @@ import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
 from src.base.enums import Browsers
-from tests.test_definitions import BaseConfig
+from test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
-from src.test_utils.testrail_utils import update_test_case
 from src.drivers.webdriver_factory import WebDriverFactory
-from src.test_utils.file_utils import get_csv_data, write_file_result
+from src.base.engine import write_file_result, update_test_case, get_csv_data
 
 
 @ddt
 @test(groups=['login_page', ])
-class LogInTestDDT(unittest.TestCase):
+class LogInDDTTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.login_page = LogInPage()
@@ -24,14 +23,14 @@ class LogInTestDDT(unittest.TestCase):
         cls.test_case = '2593'
         cls.test_run = BaseConfig.TESTRAIL_RUN
 
-    @test(groups=['sanity', 'ddt', 'positive', ])
+    @test(groups=['sanity', 'ddt', 'negative', ])
     @data(*get_csv_data(BaseConfig.CRM_LOGIN_DATA))
     @unpack
     def test_login(self, username, password):
         delay = 1
         result1, result2 = False, False
         try:
-            result1 = self.login_page.login(self.driver, delay, username, password)
+            result1 = self.login_page.login(self.driver, username, password)
             result2 = self.home_page.logout(self.driver, delay)
         finally:
             if result1 and result2 is True:

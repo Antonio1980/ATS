@@ -4,33 +4,32 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from tests.test_definitions import BaseConfig
-from src.test_utils.file_utils import write_file_result
-from src.test_utils.testrail_utils import update_test_case
+from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
+from src.base.engine import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signin_page import SignInPage
 
 
-@test(groups=['login_page', ])
-class LogInTest(unittest.TestCase):
+@test(groups=['sign_in_page', ])
+class SignInTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        cls.test_case = '3983'
         cls.home_page = HomePage()
-        cls.login_page = SignInPage()
-        cls.test_case = '3690'
+        cls.signin_page = SignInPage()
+        cls.email = cls.signin_page.email
+        cls.password = cls.signin_page.password
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.email = "fresh_blood_31@mailinator.com"
-        cls.password = "1Aa@<>12"
 
     @test(groups=['smoke', 'functional', 'positive', ])
-    def test_login_positive(self):
+    def test_sign_in_positive(self):
         delay = 1
         result1, result2 = False, False
         try:
             result1 = self.home_page.open_login_page(self.driver, delay)
-            result2 = self.login_page.login(self.driver, self.email, self.password)
+            result2 = self.signin_page.sign_in(self.driver, self.email, self.password)
         finally:
             if result1 & result2 is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
@@ -41,4 +40,4 @@ class LogInTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        cls.login_page.close_browser(cls.driver)
+        cls.signin_page.close_browser(cls.driver)

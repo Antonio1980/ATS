@@ -3,22 +3,28 @@ import time
 import string
 import random
 from src.base.browser import Browser
-from selenium.webdriver import ActionChains
-from tests.test_definitions import BaseConfig
+from test_definitions import BaseConfig
 from tests.tests_web_platform.locators.base_page_locators import BasePageLocators
 
 
-class BasePage(Browser):
+class BasePage(Browser, BaseConfig):
     def __init__(self):
-        self.wtp_base_url = BaseConfig.WTP_STAGING_URL
+        self.wtp_base_url = self.WTP_STAGING_URL
+        self.api_base_url = self.API_STAGING_URL
+        self.base_locators = BasePageLocators()
         _self_account_url = "/openAccountDx.html"
         self.wtp_open_account_url = self.wtp_base_url + _self_account_url
         self.script_login = '$(".formContainer.formBox input.captchaCode").val("test_QA_test");'
         # self.script_signup = '$("input[name=\'captcha\']").val("test_QA_test");'
         self.script_signup = '$("#openAccountDxForm .captchaCode").val("test_QA_test");'
         self.script_forgot = '$("#dxPackageContainer_forgotPassword .captchaCode").val("test_QA_test");'
+        self.script_customer_id = 'return SO.model.Customer.getCustomerId();'
+        self.script_registration_step = 'return SO.model.Customer.currentCustomer.registrationStep'
+        self.script_document_1 = "$('.doc_1_1_0Hidden.hidden').show();"
+        self.script_document_2 = "$('.doc_1_2_0Hidden.hidden').show();"
+        self.script_document_3 = "$('.doc_2_1_0Hidden.hidden').show();"
 
-    def go_back_and_wait(self, driver, previous_url, delay=3):
+    def go_back_and_wait(self, driver, previous_url, delay=+3):
         self.driver_wait(driver, delay)
         self.go_back(driver)
         self.wait_driver(driver, delay)
@@ -27,11 +33,12 @@ class BasePage(Browser):
         else:
             return False
 
-    def email_generator(self, size=8, chars=string.ascii_lowercase):
+    def email_generator(self, size=8, chars=string.ascii_lowercase + string.digits):
         return ''.join(random.choice(chars) for _ in range(size))
 
-    def get_email_updates(self, driver, email, action):
-        delay = 1
+    def get_email_updates(self, driver, email, action, *args):
+        delay = 5
+        self.driver_wait(driver, delay+5)
         pattern = r"([\w\.-]+)"
         if not isinstance(email, str):
             email, = email
@@ -41,46 +48,91 @@ class BasePage(Browser):
         email = email[0]
         mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}".format(email)
         self.go_to_url(driver, mailinator_box_url)
-        pause_button = self.find_element_by(driver, BasePageLocators.PAUSE_BUTTON_ID, "id")
         time.sleep(5)
-        pause_button.click()
-        email_item = self.find_element(driver, BasePageLocators.FIRST_EMAIL)
-        email_item.click()
         self.driver_wait(driver, delay)
-        # 1 - get_updates, 2 - click on change_password, 3 - click on verify_email
-        if action == 1:
-            return self._get_updates(driver, delay)
-        elif action == 2:
-            return self._click_on(driver, BasePageLocators.CHANGE_PASSWORD_BUTTON, delay)
-        elif action == 3:
-            return self._click_on(driver, BasePageLocators.VERIFY_EMAIL_BUTTON, delay)
+        pause_button = self.find_element_by(driver, self.base_locators.PAUSE_BUTTON_ID, "id")
+        self.click_on_element(pause_button)
+        email_item = self.find_element(driver, self.base_locators.FIRST_EMAIL)
+        self.click_on_element(email_item)
+        self.driver_wait(driver, delay)
+        # 0 - get_token for verify email, 1 - get_token for forgot password, 2 - click on change_password, 3 - click on verify_email
+        if action == 1 or action == 0:
+            return self._get_token(driver, action)
+        elif action == 2 or action == 3:
+            return self._click_on(driver, action, args)
 
-    def _get_updates(self, driver, delay=1):
+    def _get_token(self, driver, action):
+        delay = 5
+        button = None
         try:
             self.driver_wait(driver, delay)
-        finally:
-            mail_content = self.find_element_by(driver, BasePageLocators.EMAIL_FRAME_ID, "id")
-            self.driver_wait(driver, delay)
-            if mail_content:
-                return mail_content
+            self.switch_frame(driver, self.base_locators.EMAIL_FRAME_ID)
+            if action == 0:
+                button = self.search_element(driver, self.base_locators.VERIFY_EMAIL_BUTTON, delay)
             else:
-                return False
+                button = self.search_element(driver, self.base_locators.CHANGE_PASSWORD_BUTTON, delay)
+        finally:
+            self.driver_wait(driver, delay)
+            if button is not None:
+                content = self.get_attribute_from_element(button, "href")
+                return content
 
-    def _click_on(self, driver, locator, delay=1):
+    def _click_on(self, driver, action, args):
+        delay = 5
+        new_password_url = args[0]
         try:
             self.driver_wait(driver, delay)
-            frame = self.find_element_by(driver, BasePageLocators.EMAIL_FRAME_ID, "id")
-            button = self.search_element(driver, delay, locator)
-            actions = ActionChains(driver)
-            actions.move_to_element(frame)
-            # button = self.find_element(driver, locator)
-            actions.click(button)
-            actions.perform()
+            self.switch_frame(driver, self.base_locators.EMAIL_FRAME_ID)
+            if action == 2:
+                locator = self.base_locators.CHANGE_PASSWORD_BUTTON
+            else:
+                locator = self.base_locators.VERIFY_EMAIL_BUTTON
+            button = self.search_element(driver, locator, delay)
+            self.click_on_element(button)
+            self.driver_wait(driver, delay + 5)
             new_window = driver.window_handles
-            # self.driver_wait(driver, delay)
-            self.switch_frame(driver, new_window[1])
+            self.switch_window(driver, new_window[1])
         finally:
-            if self.get_cur_url(driver) == self.wtp_open_account_url:
+            time.sleep(10)
+            cur_url = self.get_cur_url(driver)
+            if cur_url == self.wtp_open_account_url or cur_url == new_password_url:
                 return True
             else:
                 return False
+
+    def go_to_gmail(self, driver):
+        delay = 5
+        button = None
+        try:
+            self.driver_wait(driver, delay)
+            self.go_to_url(driver, "https://gmail.com")
+            email_field = self.find_element_by(driver, "identifierId", "id")
+            self.click_on_element(email_field)
+            self.send_keys(email_field, "qa.mailfortest@gmail.com")
+            self.send_enter_key(email_field)
+            password_field = self.find_element(driver, "//*[@id='password']//input")
+            self.click_on_element(password_field)
+            self.send_keys(password_field, "test@1248")
+            self.send_enter_key(password_field)
+            self.driver_wait(driver, delay)
+            last_email = self.search_element(driver, "//*[@id=':3c']//span[@email='noreply@dx.exchange']", delay+5)
+            self.click_on_element(last_email)
+            self.driver_wait(driver, delay)
+            button = self.search_element(driver, self.base_locators.VERIFY_EMAIL_BUTTON)
+        finally:
+            if button is not None:
+                content = self.get_attribute_from_element(button, "href")
+                return content
+
+            
+            
+            
+
+
+
+# if __name__ == '__main__':
+#     #SignUpFullFlowTest.setUpClass()
+#     url = "https://plat.dx.exchange/appProxy/forgotPasswordDx.html?validation_token=ff4a558a-2267-4443-85e8-6c5bbfef48e5&email=wovqfphw%40mailinator.com"
+#     token = url.split('=')
+#     token = token[1].split('&')
+#     print(token, type(token))

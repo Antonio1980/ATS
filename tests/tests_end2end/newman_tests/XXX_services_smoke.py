@@ -3,43 +3,43 @@
 
 import unittest
 from proboscis import test
-from src.base.terminal import Terminal
-from src.test_utils.terminal_utils import *
+from src.base.terminal import Terminal, test_utils_dir
 
 
-class SmokeTest(unittest.TestCase, Terminal):
+class SmokeTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.set_up_class()
+        cls.terminal = Terminal()
+        cls.terminal.set_up_class()
 
     @classmethod
     @test(groups=['services', 'smoke'])
     def test_smoke_services(cls):
-        print(NEWMAN_RUN)
-        print(CURL_RUN+HOST)
-        cls.run_newman(NEWMAN_RUN)
-        cls.run_command_out(CURL_RUN, CURL_HTML, HOST)
-        cls.run_command_in(SEND_MAIL_REPORT, NEWMAN_OUTPUT)
+        print(Terminal.NEWMAN_RUN)
+        print(Terminal.CURL_RUN + Terminal.HOST)
+        cls.terminal.run_newman(Terminal.NEWMAN_RUN)
+        cls.terminal.run_command_out(Terminal.CURL_RUN, Terminal.CURL_HTML, Terminal.HOST)
+        cls.terminal.run_command_in(Terminal.SEND_MAIL_REPORT, Terminal.NEWMAN_OUTPUT)
 
     @classmethod
     @test(groups=['unit'])
     def test_for_test_smoke(cls):
-        cls.get_cur_date()
+        cls.terminal.get_cur_date()
         print("OUTPUT______________________")
-        print(TERMINAL_OUTPUT)
+        print(Terminal.TERMINAL_OUTPUT)
         print("PING______________________")
-        print(cls.ping_host(HOST))
+        print(cls.terminal.ping_host(Terminal.HOST))
         print("PWD______________________")
-        print(cls.run_command_out(PWD, TERMINAL_OUTPUT))
+        print(cls.terminal.run_command_out(Terminal.PWD, Terminal.TERMINAL_OUTPUT))
         print("LS______________________")
-        print(cls.run_command_out(LS, TERMINAL_OUTPUT))
+        print(cls.terminal.run_command_out(Terminal.LS, Terminal.TERMINAL_OUTPUT))
         print("CD______________________")
-        print(cls.run_cd(test_utils_dir))
+        print(cls.terminal.run_cd(test_utils_dir))
         print("PWD______________________")
-        print(cls.run_command_out(PWD, TERMINAL_OUTPUT))
+        print(cls.terminal.run_command_out(Terminal.PWD, Terminal.TERMINAL_OUTPUT))
         print("LS______________________")
-        print(cls.run_command_out(LS, TERMINAL_OUTPUT))
+        print(cls.terminal.run_command_out(Terminal.LS, Terminal.TERMINAL_OUTPUT))
         print("CHMOD______________________")
-        print(cls.run_command_in(CHMOD, NEWMAN_BASH))
+        print(cls.terminal.run_command_in(Terminal.CHMOD, Terminal.NEWMAN_BASH))
 
 

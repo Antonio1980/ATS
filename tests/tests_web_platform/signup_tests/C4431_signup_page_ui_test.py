@@ -4,26 +4,25 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from tests.test_definitions import BaseConfig
-from src.test_utils.file_utils import write_file_result
-from src.test_utils.testrail_utils import update_test_case
+from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
+from src.base.engine import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signup_page import SignUpPage
 
 
-@test(groups=['open_account_page', 'e2e', ])
-class SignUpPageUiTest(unittest.TestCase):
+@test(groups=['sign_up_page', 'e2e', ])
+class SignUpPageUITest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        cls.test_case = '4431'
         cls.home_page = HomePage()
         cls.signup_page = SignUpPage()
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = '4431'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])
-    def test_signup_page_ui(self):
+    def test_sign_up_page_ui(self):
         delay = 1
         result1, result2 = False, False
         try:

@@ -4,16 +4,15 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from tests.test_definitions import BaseConfig
-from src.test_utils.file_utils import write_file_result
+from test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.base_page import BasePage
-from src.test_utils.testrail_utils import update_test_case
 from src.drivers.webdriver_factory import WebDriverFactory
+from src.base.engine import write_file_result, update_test_case
 from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
 
 
 @test(groups=['login_page', ])
-class LogInUiTest(unittest.TestCase):
+class LogInUITest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.base_page = BasePage()
@@ -27,7 +26,7 @@ class LogInUiTest(unittest.TestCase):
         result1, result2 = False, False
         try:
             self.base_page.go_to_url(self.driver, self.base_page.crm_base_url)
-            assert self.base_page.wait_element_visible(self.driver, delay, LogInPageLocators.CRM_LOGO)
+            assert self.base_page.wait_element_visible(self.driver, self.base_page.base_locators.CRM_LOGO, delay)
             assert self.base_page.find_element_by(self.driver, LogInPageLocators.USERNAME_FIELD_ID, "id")
             assert self.base_page.find_element_by(self.driver, LogInPageLocators.PASSWORD_FIELD_ID, "id")
             assert self.base_page.find_element_by(self.driver, LogInPageLocators.LOGIN_BUTTON_ID, "id")
@@ -37,7 +36,7 @@ class LogInUiTest(unittest.TestCase):
                                      .get('left'))
             login_button_pos = int(self.driver.execute_script("return window.$(\'button[id=\"loginBtn\"]\').position()")
                                    .get('left'))
-            if username_field_pos == 20 & password_field_pos == 20:
+            if username_field_pos == 20 and password_field_pos == 20:
                 result1 = True
                 if login_button_pos == 215:
                     result2 = True

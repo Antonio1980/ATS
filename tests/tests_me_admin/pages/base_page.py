@@ -1,5 +1,5 @@
 from src.base.browser import Browser
-from tests.test_definitions import BaseConfig
+from test_definitions import BaseConfig
 
 
 class BasePage(Browser):

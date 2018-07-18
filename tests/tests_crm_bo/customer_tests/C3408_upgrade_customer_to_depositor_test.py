@@ -4,13 +4,12 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from tests.test_definitions import BaseConfig
-from src.test_utils.file_utils import write_file_result
+from test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
-from src.test_utils.testrail_utils import update_test_case
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_crm_bo.pages.customer_page import CustomerPage
+from src.base.engine import write_file_result, update_test_case
 
 
 @test(groups=['customer_page', ])
@@ -23,13 +22,15 @@ class CustomerUpgradeStatusTest(unittest.TestCase):
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3408'
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.username = cls.login_page.username
+        cls.password = cls.login_page.password
 
     @test(groups=['sanity', 'functional', 'positive', ])
     def test_customer_status_upgrade(self):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = self.login_page.login_positive(self.driver, delay)
+            result1 = self.login_page.login(self.driver, self.username, self.password)
             result2 = self.home_page.choose_customer_by_name(self.driver, delay)
             result3 = self.customer_page.make_deposit(self.driver, delay)
         finally:

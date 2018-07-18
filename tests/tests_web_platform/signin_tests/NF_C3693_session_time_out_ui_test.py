@@ -4,34 +4,35 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from tests.test_definitions import BaseConfig
-from src.test_utils.file_utils import write_file_result
-from src.test_utils.testrail_utils import update_test_case
+from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
+from src.base.engine import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signin_page import SignInPage
 
 
-@test(groups=['login_page', ])
-class LogInTest(unittest.TestCase):
+@test(groups=['sign_in_page', ])
+class SessionTimeOutUITest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.home_page = HomePage()
         cls.login_page = SignInPage()
         cls.test_case = '3693'
+        cls.email = cls.login_page.email
+        cls.password = cls.login_page.password
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
-    @test(groups=['sanity', 'functional', 'positive', ])
-    def test_session_time_out(self):
+    @test(groups=['smoke', 'gui', 'positive', ])
+    def test_session_time_out_ui(self):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
             result1 = self.home_page.open_login_page(self.driver, delay)
-            result2 = self.login_page.login(self.driver, delay)
+            result2 = self.login_page.sign_in(self.driver, self.email, self.password)
             result3 = ""
         finally:
-            if (result1 & result2 & result3) is True:
+            if result1 and result2 and result3 is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 update_test_case(self.test_run, self.test_case, 1)
             else:

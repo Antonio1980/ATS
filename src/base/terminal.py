@@ -1,8 +1,31 @@
 import os as _os
 import subprocess
+from test_definitions import BaseConfig
+from src.repository import repository_dir
 from src.base.enums import OperationSystem
-from src.test_utils.os_utils import detect_os
-from src.test_utils.file_utils import write_file_output
+from src.base.engine import detect_os, write_file_output
+
+
+test_utils_dir = _os.path.abspath(_os.path.dirname(__file__))
+UTILS_HOME_DIR = test_utils_dir
+DATA_HOME_DIR = repository_dir
+HOST = BaseConfig.CRM_BASE_URL
+
+LS = ['ls', '-ltr']
+CHMOD = ['chmod', '+x']
+PWD = ['pwd']
+
+COLLECTION = repository_dir + '/services_collection.json'
+ENVIRONMENT = repository_dir + '/services_environment.json'
+TERMINAL_OUTPUT = repository_dir + '/logs/terminal.log'
+NEWMAN_OUTPUT = repository_dir + '/logs/newman.log'
+NEWMAN_REPORTER_OUTPUT = repository_dir + '/logs/newman_report.json'
+CURL_HTML = repository_dir + '/logs/curl_output.html'
+NEWMAN_BASH = repository_dir + '/run_newman.sh'
+CURL_RUN = 'curl '
+NEWMAN_RUN = 'newman run ' + COLLECTION + ' -r cli,json --reporter-json-export ' + NEWMAN_REPORTER_OUTPUT + ' | tee ' + NEWMAN_OUTPUT
+SEND_MAIL_REPORT = ['mail -s  "Report Postman" antons@coins.exchange < ']
+NEWMAN_RUN2 = 'newman run ' + COLLECTION + ' -r cli,json --reporter-json-export ' + NEWMAN_REPORTER_OUTPUT
 
 
 class Terminal(object):
@@ -36,9 +59,9 @@ class Terminal(object):
     @classmethod
     def run_command_out(cls, command, file, *option, **option2):
         command = list(command)
-        if (option):
+        if option:
             command.append(option)
-        if (option2):
+        if option2:
             command.append(option2)
         try:
             proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True).communicate(
@@ -51,7 +74,7 @@ class Terminal(object):
 
     @classmethod
     def run_command_in(cls, command, *option):
-        if(option):
+        if option:
             list(command)
             command.append(option)
         else:
