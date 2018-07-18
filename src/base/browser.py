@@ -126,24 +126,27 @@ class Browser(object):
         except Exception as e:
             print("{0} Element not click able. {0}").format(self.__class__, e)
 
-    def execute_js(self, driver, script):
+    def execute_js(self, driver, script, *args):
         """
         Injection js code into current driver state.
         :param driver: web_driver instance.
         :param script: java script code passed as string.
         """
-        return driver.execute_script(script)
+        return driver.execute_script(script, args)
 
-    def execute_js_on_element(self, driver, element, script):
-        """
-        Injection js code on a passed web element.
-        :param driver: web_driver instance.
-        :param script: java script code passed as string.
-        :param element: web element.
-        """
-        WebDriverWait(driver, 10).until(
-            lambda d: driver.execute_script(script, element)
-        )
+    # def execute_js_on_element(self, driver, element, script):
+    #     """
+    #     Injection js code on a passed web element.
+    #     :param driver: web_driver instance.
+    #     :param script: java script code passed as string.
+    #     :param element: web element.
+    #     """
+    #     WebDriverWait(driver, 10).until(
+    #         lambda d: driver.execute_script(script, element)
+    #     )
+
+    def drag_and_drop(self, driver, source_element, destination_element):
+        ActionChains(driver).drag_and_drop(source_element, destination_element).perform()
 
     def search_element(self, driver, locator, delay=+1):
         """

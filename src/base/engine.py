@@ -81,8 +81,9 @@ def get_redis_value(key, host='10.100.1.11', port='30001'):
 
 
 def get_redis_token(tokens_list, customer_id):
+    redis_db = redis.StrictRedis(host='10.100.1.11', port='30001', db=0)
     if tokens_list is not None:
-        redis_db = redis.StrictRedis(host='10.100.1.11', port='30001', db=0)
+
         def get_redis_key(key):
             value = redis_db.hgetall(key)
             return value

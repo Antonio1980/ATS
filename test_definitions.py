@@ -60,6 +60,9 @@ class BaseConfig(object):
     DB_NAME = parser.get('DATA_BASE', 'db_name')
     DB_TABLE = parser.get('DATA_BASE', 'db_table')
 
+    DOCUMENT_JPG = repository_dir + parser.get('FILES', 'document_jpg')
+    DOCUMENT_PNG = repository_dir + parser.get('FILES', 'document_png')
+
     TESTRAIL_USER = parser.get('TESTRAIL', 'user')
     TESTRAIL_PASSWORD = parser.get('TESTRAIL', 'password')
     TESTRAIL_URL = parser.get('TESTRAIL', 'server_url')

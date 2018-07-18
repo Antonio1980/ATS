@@ -77,6 +77,10 @@ class SignUpPageLocators(object):
     NEXT_BUTTON_CHECKLIST2 = "//*[@class='stepContainer hidden step_2']//td[@class='submitTd']/input"
 
     # Client Checklist 3
+    DOCUMENTS = "//div[@class='uploadText']"
+    DOCUMENT_1 = "//*[@class='doc_1_1_0Hidden hidden']"
+    DOCUMENT_2 = "//*[@class='doc_1_2_0Hidden hidden']"
+    DOCUMENT_3 = "//*[@class='doc_2_1_0Hidden hidden']"
     NEXT_BUTTON_CHECKLIST3 = "//*[@id='openAccountUploadDocumentsForm']//input[@class='formButton']"
 
     FINISH_BUTTON = "//*[@class='registerDone hidden']//input"

@@ -7,10 +7,10 @@ from test_definitions import BaseConfig
 from tests.tests_web_platform.locators.base_page_locators import BasePageLocators
 
 
-class BasePage(Browser):
+class BasePage(Browser, BaseConfig):
     def __init__(self):
-        self.wtp_base_url = BaseConfig.WTP_STAGING_URL
-        self.api_base_url = BaseConfig.API_STAGING_URL
+        self.wtp_base_url = self.WTP_STAGING_URL
+        self.api_base_url = self.API_STAGING_URL
         self.base_locators = BasePageLocators()
         _self_account_url = "/openAccountDx.html"
         self.wtp_open_account_url = self.wtp_base_url + _self_account_url
@@ -20,6 +20,9 @@ class BasePage(Browser):
         self.script_forgot = '$("#dxPackageContainer_forgotPassword .captchaCode").val("test_QA_test");'
         self.script_customer_id = 'return SO.model.Customer.getCustomerId();'
         self.script_registration_step = 'return SO.model.Customer.currentCustomer.registrationStep'
+        self.script_document_1 = "$('.doc_1_1_0Hidden.hidden').show();"
+        self.script_document_2 = "$('.doc_1_2_0Hidden.hidden').show();"
+        self.script_document_3 = "$('.doc_2_1_0Hidden.hidden').show();"
 
     def go_back_and_wait(self, driver, previous_url, delay=+3):
         self.driver_wait(driver, delay)

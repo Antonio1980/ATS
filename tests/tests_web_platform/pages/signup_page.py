@@ -1,5 +1,3 @@
-import time
-
 from tests.tests_web_platform.pages.base_page import BasePage
 from tests.tests_web_platform.locators.signup_page_locators import SignUpPageLocators
 
@@ -268,7 +266,16 @@ class SignUpPage(BasePage):
         delay = 5
         try:
             self.driver_wait(driver, delay)
-            next_button = self.find_element(driver, self.locators.NEXT_BUTTON_CHECKLIST3)
+            document_1 = self.find_element(driver, self.locators.DOCUMENT_1)
+            self.execute_js(driver, self.script_document_1)
+            self.send_keys(document_1, self.DOCUMENT_JPG)
+            document_2 = self.find_element(driver, self.locators.DOCUMENT_2)
+            self.execute_js(driver, self.script_document_2)
+            self.send_keys(document_2, self.DOCUMENT_JPG)
+            document_3 = self.find_element(driver, self.locators.DOCUMENT_3)
+            self.execute_js(driver, self.script_document_3)
+            self.send_keys(document_3, self.DOCUMENT_JPG)
+            next_button = self.wait_element_clickable(driver, self.locators.NEXT_BUTTON_CHECKLIST3, delay)
             self.click_on_element(next_button)
             self.driver_wait(driver, delay)
         finally:
@@ -285,7 +292,7 @@ class SignUpPage(BasePage):
             self.click_on_element(finish_button)
             self.driver_wait(driver, delay)
         finally:
-            if self.wait_element_clickable(driver, "//*[@class='signUpLink']", delay):
+            if self.wait_element_clickable(driver, self.base_locators.SIGN_UP_BUTTON, delay):
                 return True
             else:
                 return False
