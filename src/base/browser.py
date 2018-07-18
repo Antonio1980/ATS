@@ -134,17 +134,6 @@ class Browser(object):
         """
         return driver.execute_script(script, args)
 
-    # def execute_js_on_element(self, driver, element, script):
-    #     """
-    #     Injection js code on a passed web element.
-    #     :param driver: web_driver instance.
-    #     :param script: java script code passed as string.
-    #     :param element: web element.
-    #     """
-    #     WebDriverWait(driver, 10).until(
-    #         lambda d: driver.execute_script(script, element)
-    #     )
-
     def drag_and_drop(self, driver, source_element, destination_element):
         ActionChains(driver).drag_and_drop(source_element, destination_element).perform()
 
@@ -396,18 +385,34 @@ class Browser(object):
             print('{}: TimeoutException element not found: {}'.format(self.__class__, e))
 
     def select_by_value(self, element, value):
+        """
+        Select option from selector by value.
+        :param element: selector web element.
+        :param value: value for option to select.
+        """
         if value is not str:
             value = str(value)
         selector = Select(element)
         selector.select_by_value(value)
 
     def select_by_index(self, element, index):
+        """
+        Select option from selector by index.
+        :param element: selector web element.
+        :param index: value for option to select.
+        """
         if index is not int:
             index = int(index)
         selector = Select(element)
         selector.select_by_index(index)
 
     def find_elements(self, driver, locator):
+        """
+        Find all duplicated elements in a DOM.
+        :param driver: web_driver instance.
+        :param locator: selector web element.
+        :return: list of web elements.
+        """
         delay = 3
         elements = []
         try:

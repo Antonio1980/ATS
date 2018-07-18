@@ -1,6 +1,4 @@
 import csv
-import re
-
 import redis
 import codecs
 import pymysql
@@ -81,6 +79,12 @@ def get_redis_value(key, host='10.100.1.11', port='30001'):
 
 
 def get_redis_token(tokens_list, customer_id):
+    """
+    Connect to Redis and search for a key.
+    :param tokens_list: list of tokens.
+    :param customer_id: customer id registered.
+    :return: verification token if found.
+    """
     redis_db = redis.StrictRedis(host='10.100.1.11', port='30001', db=0)
     if tokens_list is not None:
 
@@ -110,6 +114,12 @@ def get_redis_keys(key, host='10.100.1.11', port='30001'):
 
 
 def parse_redis_token(tokens, pattern):
+    """
+    Parser for Redis token (splitter).
+    :param tokens: list of tokens as is (from Redis).
+    :param pattern: regex pattern.
+    :return: list of cleared tokens.
+    """
     temp, temp1, temp2 = [], [], []
     for i in tokens:
         i = str(i)
