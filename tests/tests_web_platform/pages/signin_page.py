@@ -1,6 +1,4 @@
 import time
-
-from test_definitions import BaseConfig
 from src.base.engine import get_account_details
 from tests.tests_web_platform.pages.base_page import BasePage
 from tests.tests_web_platform.locators.signin_page_locators import SignInPageLocators
@@ -12,10 +10,10 @@ class SignInPage(BasePage):
         super(SignInPage, self).__init__()
         self.locators = SignInPageLocators()
         # 1- Data file, 2- Row, 3- First column, 4- Second column, 5- Third column
-        self.account_details = get_account_details(BaseConfig.WTP_TESTS_CUSTOMERS, 0, 0, 1, 2)
-        self.customer_id = self.account_details['customer_username']
+        self.account_details = get_account_details(self.WTP_TESTS_CUSTOMERS, 0, 0, 1, 2)
         self.email = self.account_details['email']
         self.password = self.account_details['password']
+        self.customer_id = self.account_details['customer_username']
 
     def sign_in(self, driver, email, password):
         delay = 5

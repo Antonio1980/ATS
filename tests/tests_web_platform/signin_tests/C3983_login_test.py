@@ -4,7 +4,6 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from src.base.engine import write_file_result, update_test_case
@@ -20,7 +19,8 @@ class SignInTest(unittest.TestCase):
         cls.signin_page = SignInPage()
         cls.email = cls.signin_page.email
         cls.password = cls.signin_page.password
-        cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.test_run = cls.home_page.TESTRAIL_RUN
+        cls.results = cls.home_page.WTP_TESTS_RESULT
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['smoke', 'functional', 'positive', ])
@@ -32,10 +32,10 @@ class SignInTest(unittest.TestCase):
             result2 = self.signin_page.sign_in(self.driver, self.email, self.password)
         finally:
             if result1 & result2 is True:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.test_run)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.test_run)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

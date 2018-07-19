@@ -4,7 +4,6 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -26,7 +25,8 @@ class CreateNewUserTest(unittest.TestCase):
         cls.password = cls.login_page.password
         cls.password_new = cls.password + "Az"
         cls.email_new = cls.create_user_page.email
-        cls.test_run = cls.create_user_page.TESTRAIL_RUN
+        cls.test_run = cls.login_page.TESTRAIL_RUN
+        cls.results = cls.login_page.CRM_TESTS_RESULT
         cls.username_new = cls.create_user_page.email_prefix
         cls.first_last_name = cls.create_user_page.first_last_name
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
@@ -43,10 +43,10 @@ class CreateNewUserTest(unittest.TestCase):
         finally:
             if result1 and result2 and result3 and result4 is True:
                 # write_file_user(self.email_new + "," + self.password_new + "," + self.username_new + " \n", BaseConfig.CRM_TESTS_USERS)
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

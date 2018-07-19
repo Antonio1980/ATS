@@ -4,8 +4,6 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from test_definitions import BaseConfig
-from tests.tests_crm_bo.pages import customer
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -21,10 +19,11 @@ class CustomerUpgradeStatusTest(unittest.TestCase):
         cls.home_page = HomePage()
         cls.login_page = LogInPage()
         cls.customer_page = CustomerPage()
-        cls.customer_name = customer
-        cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.username = cls.login_page.username
         cls.password = cls.login_page.password
+        cls.test_run = cls.home_page.TESTRAIL_RUN
+        cls.results = cls.home_page.CRM_TESTS_RESULT
+        cls.customer_id = cls.login_page.customer_id
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'functional', 'positive', ])
@@ -38,10 +37,10 @@ class CustomerUpgradeStatusTest(unittest.TestCase):
         finally:
             if result1 and result2 and result3 is True:
                 if self.customer_page.check_customer_icon(self.driver) == 'Depositor':
-                    write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
+                    write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                     update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

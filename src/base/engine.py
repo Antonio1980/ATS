@@ -1,6 +1,4 @@
 import csv
-import os
-
 import redis
 import codecs
 import pymysql
@@ -51,9 +49,9 @@ def run_mysql_query(query):
     :return: data from executed query.
     """
     _host = BaseConfig.DB_HOST
+    _db_name = BaseConfig.DB_NAME
     _username = BaseConfig.DB_USERNAME
     _password = BaseConfig.DB_PASSWORD
-    _db_name = BaseConfig.DB_NAME
     _port = 30002
     connection = pymysql.connect(host=_host, port=_port, user=_username, passwd=_password, database=_db_name)
     rows = []

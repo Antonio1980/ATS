@@ -28,6 +28,7 @@ class CreateNewUserDDTTest(unittest.TestCase):
         cls.username = cls.login_page.username
         cls.password = cls.login_page.password
         cls.test_run = cls.login_page.TESTRAIL_RUN
+        cls.results = cls.login_page.CRM_TESTS_RESULT
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', ])
@@ -95,10 +96,10 @@ class CreateNewUserDDTTest(unittest.TestCase):
                     result4 = False
         finally:
             if result1 and result2 and result3 and result4 is True:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

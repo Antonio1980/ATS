@@ -5,13 +5,13 @@ from tests.tests_web_platform.locators.signup_page_locators import SignUpPageLoc
 class SignUpPage(BasePage):
     def __init__(self):
         super(SignUpPage, self).__init__()
-        self.locators = SignUpPageLocators()
-        self.suffix = "@mailinator.com"
-        self.prefix = self.email_generator()
-        self.email = self.prefix + self.suffix
+        self.phone = "0528259547"
         self.password = "1Aa@<>12"
         self.username = "QA_test_QA"
-        self.phone = "0528259547"
+        self.suffix = "@mailinator.com"
+        self.prefix = self.email_generator()
+        self.locators = SignUpPageLocators()
+        self.email = self.prefix + self.suffix
         self.terms_url = self.wtp_base_url + "/termsOfUse.html"
         self.privacy_url = self.wtp_base_url + "/privacyPolicy.html"
         self.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(self.email)

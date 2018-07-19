@@ -1,7 +1,7 @@
 from tests.tests_crm_bo.pages.base_page import BasePage
 
 base_url = BasePage().crm_base_url
-customer = BasePage().customer_id
+customer_id = BasePage().customer_id
 
 self_management_url = "/dx/users/"
 user_management_page_url = base_url + self_management_url
@@ -20,6 +20,6 @@ login_page_url = base_url + self_login_url
 
 self_customer_url = "/dx/customers/page/"
 customer_page_url = base_url + self_customer_url
-customer_admin_url = customer_page_url + "{0}#customer_admin_status".format(customer)
-customer_deposit_url = customer_page_url + "{0}#customer_dw".format(customer)
-customer_balance_url = customer_page_url + "{0}#customer_balance".format(customer)
+customer_admin_url = customer_page_url + "{0}#customer_admin_status".format(customer_id)
+customer_deposit_url = customer_page_url + "{0}#customer_dw".format(customer_id)
+customer_balance_url = customer_page_url + "{0}#customer_balance".format(customer_id)

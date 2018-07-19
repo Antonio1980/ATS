@@ -17,11 +17,12 @@ from src.base.engine import write_file_result, update_test_case, get_csv_data
 class LogInDDTTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.login_page = LogInPage()
-        cls.home_page = HomePage()
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '2593'
-        cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.home_page = HomePage()
+        cls.login_page = LogInPage()
+        cls.test_run = cls.login_page.TESTRAIL_RUN
+        cls.results = cls.login_page.CRM_TESTS_RESULT
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', 'negative', ])
     @data(*get_csv_data(BaseConfig.CRM_LOGIN_DATA))
@@ -34,10 +35,10 @@ class LogInDDTTest(unittest.TestCase):
             result2 = self.home_page.logout(self.driver, delay)
         finally:
             if result1 and result2 is True:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

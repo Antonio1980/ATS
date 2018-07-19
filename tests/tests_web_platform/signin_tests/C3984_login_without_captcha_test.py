@@ -4,7 +4,6 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from src.base.engine import write_file_result, update_test_case
@@ -16,14 +15,15 @@ from tests.tests_web_platform.locators.signin_page_locators import SignInPageLoc
 class LogInWithoutCaptchaTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        cls.test_case = '3984'
         cls.home_page = HomePage()
         cls.login_page = SignInPage()
-        cls.test_case = '3984'
-        cls.locators = SignInPageLocators()
-        cls.test_run = BaseConfig.TESTRAIL_RUN
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.email = cls.login_page.email
+        cls.locators = SignInPageLocators()
         cls.password = cls.login_page.password
+        cls.test_run = cls.home_page.TESTRAIL_RUN
+        cls.results = cls.home_page.WTP_TESTS_RESULT
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['smoke', 'functional', 'negative', ])
     def test_sign_in_negative(self):
@@ -35,7 +35,7 @@ class LogInWithoutCaptchaTest(unittest.TestCase):
             username_field = self.login_page.find_element(self.driver, self.locators.USERNAME_FIELD)
             self.login_page.click_on_element(username_field)
             self.login_page.send_keys(username_field, self.email)
-            password_true_field = self.login_page.find_element(self.driver, self.locators.PASSWORD_TRUE_FIELD)
+            password_true_field = self.login_page.find_element(self.driver, self.locators.PASSWORD_FIELD_TRUE)
             password_field = self.login_page.find_element(self.driver, self.locators.PASSWORD_FIELD)
             self.login_page.click_on_element(password_field)
             self.login_page.send_keys(password_true_field, self.password)
@@ -47,10 +47,10 @@ class LogInWithoutCaptchaTest(unittest.TestCase):
                 result2 = True
         finally:
             if result1 and result2 is True:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

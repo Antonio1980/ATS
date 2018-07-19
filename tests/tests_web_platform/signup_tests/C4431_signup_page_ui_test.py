@@ -4,7 +4,6 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from src.base.engine import write_file_result, update_test_case
@@ -18,7 +17,8 @@ class SignUpPageUITest(unittest.TestCase):
         cls.test_case = '4431'
         cls.home_page = HomePage()
         cls.signup_page = SignUpPage()
-        cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.test_run = cls.home_page.TESTRAIL_RUN
+        cls.results = cls.home_page.WTP_TESTS_RESULT
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'functional', 'positive', ], depends_on_groups=["smoke", ])
@@ -30,10 +30,10 @@ class SignUpPageUITest(unittest.TestCase):
             result2 = self.signup_page.signup_ui_test(self.driver, delay)
         finally:
             if result1 and result2 is True:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

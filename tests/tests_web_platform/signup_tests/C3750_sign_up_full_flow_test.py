@@ -25,9 +25,12 @@ class SignUpFullFlowTest(unittest.TestCase):
         cls.signin_page = SignInPage()
         cls.email = cls.signup_page.email
         cls.phone = cls.signup_page.phone
-        cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.password = cls.signup_page.password
         cls.username = cls.signup_page.username
+        cls.test_run = cls.home_page.TESTRAIL_RUN
+        cls.log_file = cls.home_page.WTP_LOG_FILE
+        cls.results = cls.home_page.WTP_TESTS_RESULT
+        cls.customers = cls.home_page.WTP_TESTS_CUSTOMERS
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['regression', 'functional', 'positive', ], depends_on_groups=["smoke", "sanity", ])
@@ -57,14 +60,14 @@ class SignUpFullFlowTest(unittest.TestCase):
         finally:
             if result1 and result2 and result3 and result4 and result5 and result6 and result7 \
                     and result8 and result9 and result10 and result11 and result12 is True:
-                write_file_result(self.email + "," + self.password + "," + customer_id + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.email + "," + self.password + "," + customer_id + "\n", self.customers)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 response = update_test_case(self.test_run, self.test_case, 1)
-                write_file_result(str(response), BaseConfig.WTP_LOG_FILE)
+                write_file_result(str(response), self.log_file)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 response = update_test_case(self.test_run, self.test_case, 0)
-                write_file_result(str(response), BaseConfig.WTP_LOG_FILE)
+                write_file_result(str(response), self.log_file)
 
     @classmethod
     def tearDownClass(cls):
