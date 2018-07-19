@@ -4,7 +4,6 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signin_page import SignInPage
