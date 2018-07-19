@@ -24,18 +24,26 @@ class HomePage(BasePage):
             else:
                 return False
 
-    def choose_customer_by_name(self, driver, delay):
+    def choose_customer_by_option(self, driver, customer, option):
+        delay = 5
+        customer_option = None
         try:
             assert home_page_url == self.get_cur_url(driver)
             customer_field = self.find_element(driver, self.locators.CUSTOMER_DROPDOWN)
             self.click_on_element(customer_field)
             self.driver_wait(driver, delay)
-            customer_option = self.find_element(driver, self.locators.CUSTOMER_ID_OPTION)
-            self.click_on_element(customer_option)
+            if option == 1:
+                customer_option = self.find_element(driver, self.locators.CUSTOMER_ID_OPTION)
+            elif option == 2:
+                customer_option = self.find_element(driver, self.locators.CUSTOMER_ID_OPTION)
+            elif option == 3:
+                customer_option = self.find_element(driver, self.locators.CUSTOMER_ID_OPTION)
+            if customer_option is not None:
+                self.click_on_element(customer_option)
             self.driver_wait(driver, delay)
             customer_name_field = self.find_element_by(driver, self.locators.CUSTOMER_NAME_FIELD_ID, "id")
             self.click_on_element(customer_field)
-            self.send_keys(customer_name_field, BaseConfig.CRM_CUSTOMER_ID)
+            self.send_keys(customer_name_field, customer)
             self.driver_wait(driver, delay)
             show_button = self.find_element_by(driver, self.locators.SHOW_RESULTS_BUTTON_ID, "id")
             self.click_on_element(show_button)
@@ -47,17 +55,18 @@ class HomePage(BasePage):
             else:
                 return False
 
-    def go_to_management_inset_with_users_option(self, driver, delay):
+    def go_to_management_inset_with_users_option(self, driver):
+        delay = 5
         try:
             assert home_page_url == self.get_cur_url(driver)
-            self.driver_wait(driver, delay)
+            self.driver_wait(driver, delay + 5)
             management_dropdown = self.find_element(driver, self.locators.MANAGEMENT_DROPDOWN)
-            self.driver_wait(driver, delay)
+            self.driver_wait(driver, delay + 5)
             self.click_on_element(management_dropdown)
             users_option = self.find_element(driver, self.locators.MANAGEMENT_USERS_OPTION)
-            self.driver_wait(driver, delay)
+            self.driver_wait(driver, delay + 5)
             self.click_on_element(users_option)
-            self.driver_wait(driver, delay)
+            self.driver_wait(driver, delay + 5)
         finally:
             if user_management_page_url == self.get_cur_url(driver):
                 return True

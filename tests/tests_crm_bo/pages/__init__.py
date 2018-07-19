@@ -1,8 +1,7 @@
 from tests.tests_crm_bo.pages.base_page import BasePage
 
-base_page = BasePage()
-base_url = base_page.crm_base_url
-customer_id = base_page.customer_id
+base_url = BasePage().crm_base_url
+customer_id = BasePage().customer_id
 
 self_management_url = "/dx/users/"
 user_management_page_url = base_url + self_management_url

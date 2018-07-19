@@ -4,7 +4,6 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signin_page import SignInPage
@@ -16,15 +15,17 @@ from src.base.engine import write_file_result, update_test_case, get_account_det
 class ResetPasswordEmailTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.login_page = SignInPage()
-        cls.home_page = HomePage()
-        cls.forgot_password_page = ForgotPasswordPage()
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3669'
-        cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.home_page = HomePage()
+        cls.login_page = SignInPage()
+        cls.forgot_password_page = ForgotPasswordPage()
+        cls.test_run = cls.home_page.TESTRAIL_RUN
+        cls.results = cls.home_page.WTP_TESTS_RESULT
+        cls.customers = cls.home_page.WTP_TESTS_CUSTOMERS
         # 1- Data file, 2- Row, 3- First column, 4- Second column, 5- Third column
-        details = get_account_details(BaseConfig.WTP_TESTS_CUSTOMERS, 3, 0, 1, 2)
+        details = get_account_details(cls.customers, 3, 0, 1, 2)
         cls.email = details['email']
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         # rows = run_mysql_query(cls, "SELECT c.email FROM customers c WHERE status=1;")
         # cls.email = rows[0]
 
@@ -42,10 +43,10 @@ class ResetPasswordEmailTest(unittest.TestCase):
             result4 = self.login_page.get_email_updates(self.driver, self.email, 2, new_password_url)
         finally:
             if result1 and result2 and result3 and result4 is True:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

@@ -16,10 +16,11 @@ from src.base.engine import write_file_result, update_test_case, get_csv_data
 class ForgotPasswordDDTTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.login_page = LogInPage()
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '2694'
-        cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.login_page = LogInPage()
+        cls.test_run = cls.login_page.TESTRAIL_RUN
+        cls.results = cls.login_page.CRM_TESTS_RESULT
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', 'negative', ])
     @data(*get_csv_data(BaseConfig.FORGOT_PASSWORD_DATA))
@@ -31,10 +32,10 @@ class ForgotPasswordDDTTest(unittest.TestCase):
             result = self.login_page.forgot_password(self.driver, email, delay)
         finally:
             if result is False:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

@@ -18,12 +18,13 @@ from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPa
 class ForgotPasswordDDTTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.login_page = SignInPage()
+        cls.test_case = '3666'
         cls.home_page = HomePage()
+        cls.login_page = SignInPage()
+        cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.results = cls.home_page.WTP_TESTS_RESULT
         cls.forgot_password_page = ForgotPasswordPage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.test_case = '3666'
-        cls.test_run = BaseConfig.TESTRAIL_RUN
 
     @test(groups=['sanity', 'ddt', 'negative', ], depends_on_groups=["smoke", ])
     @data(*get_csv_data(BaseConfig.FORGOT_PASSWORD_DATA))
@@ -38,10 +39,10 @@ class ForgotPasswordDDTTest(unittest.TestCase):
             result3 = self.forgot_password_page.fill_email_address_form(self.driver, email, delay)
         finally:
             if (result1 and result2 is True) and (result3 is False):
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

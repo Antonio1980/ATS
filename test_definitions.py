@@ -13,6 +13,7 @@ def get_parser(config_file):
         parser.read(config_file)
         return parser
 
+
 class BaseConfig(object):
     config_file = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'base_config.cfg')
     path_dir = os.path.abspath(os.path.dirname(__file__))

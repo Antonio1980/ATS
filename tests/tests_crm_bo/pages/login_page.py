@@ -10,12 +10,11 @@ class LogInPage(BasePage):
     def __init__(self):
         super(LogInPage, self).__init__()
         self.locators = LogInPageLocators()
-        # data_file, row, column1, column2
-        # 1- Data file, 2- Row, 3- First column, 4- Second column, 5- Third column
+        # data_file, row, column1, column2, column3
         self.account_details = get_account_details(BaseConfig.CRM_TESTS_USERS, 0, 0, 1, 2)
-        self.username = self.account_details['first_last_name']
         self.email = self.account_details['email']
         self.password = self.account_details['password']
+        self.username = self.account_details['customer_username']
         self.email_text = "An email has been sent to {0} which is the email address for your account. " \
                           "It includes information on changing and confirming your new password. " \
                           "Please reset your password within the next 24 hours.".format(self.email)

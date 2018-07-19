@@ -1,3 +1,4 @@
+import time
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.pages import create_user_page_url, user_index_page_url
 from tests.tests_crm_bo.locators.create_user_page_locators import CreateUserPageLocators
@@ -6,14 +7,14 @@ from tests.tests_crm_bo.locators.create_user_page_locators import CreateUserPage
 class CreateUserPage(BasePage):
     def __init__(self):
         super(CreateUserPage, self).__init__()
+        self.first_last_name = "QA_test_QA"
         self.locators = CreateUserPageLocators()
         self.email_prefix = self.email_generator()
         self.email = self.email_prefix + "@mailinator.com"
-        self.first_last_name = "QA_test_QA"
 
-    def fill_user_details(self, driver, email, **kwargs):
-        delay = 3
-        first_last_name, phone, username = kwargs
+    def fill_user_details(self, driver, email, details):
+        delay = 5
+        first_last_name, phone, username = details['first_last_name'], details['phone'], details['username']
         try:
             assert self.get_cur_url(driver) == create_user_page_url
             first_name_field = self.find_element_by(driver, self.locators.FIRST_NAME_ID, "id")
@@ -63,6 +64,7 @@ class CreateUserPage(BasePage):
             self.click_on_element(create_user_button)
             self.driver_wait(driver, delay + 10)
         finally:
+            time.sleep(3)
             if self.get_cur_url(driver) == user_index_page_url:
                 return True
             else:

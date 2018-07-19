@@ -8,7 +8,7 @@ from test_definitions import BaseConfig
 from src.base.enums import OperationSystem
 from src.base.http_client import APIClient
 
-# API client- connector for TaseRail manager.
+# API client- connector for TestRail manager.
 client = APIClient(BaseConfig.TESTRAIL_URL, BaseConfig.TESTRAIL_USER, BaseConfig.TESTRAIL_PASSWORD)
 
 
@@ -49,9 +49,9 @@ def run_mysql_query(query):
     :return: data from executed query.
     """
     _host = BaseConfig.DB_HOST
+    _db_name = BaseConfig.DB_NAME
     _username = BaseConfig.DB_USERNAME
     _password = BaseConfig.DB_PASSWORD
-    _db_name = BaseConfig.DB_NAME
     _port = 30002
     connection = pymysql.connect(host=_host, port=_port, user=_username, passwd=_password, database=_db_name)
     rows = []
@@ -174,13 +174,14 @@ def get_account_details(data_file, row, column1, column2, column3):
     rows = []
     with open(data_file, "r") as csv_data:
         content = csv.reader(csv_data)
-        next(content, None)
+        # To skip first row
+        # next(content, None)
         for item in content:
             rows.append(item)
     email = rows[row][column1]
     password = rows[row][column2]
-    token = rows[row][column3]
-    return {'email': email, 'password': password, 'token': token}
+    customer_username = rows[row][column3]
+    return {'email': email, 'password': password, 'customer_username': customer_username}
 
 
 def write_file_output(process, file):
@@ -194,14 +195,28 @@ def write_file_output(process, file):
         f.flush()
 
 
+def write_file_user(result, file):
+    """
+    Allows to append a string into a file.
+    :param result: string to append.
+    :param file: file to append for.
+    """
+    # with open(file, "a") as my_file:
+    #     my_file.write(result)
+    with open(file, "r+") as f:
+        s = f.read()
+        f.seek(0)
+        f.write(result + s)
+
+
 def write_file_result(result, file):
     """
     Allows to append a string into a file.
     :param result: string to append.
     :param file: file to append for.
     """
-    with open(file, "a") as myfile:
-        myfile.write(result)
+    with open(file, "a") as my_file:
+        my_file.write(result)
 
 
 def detect_os():

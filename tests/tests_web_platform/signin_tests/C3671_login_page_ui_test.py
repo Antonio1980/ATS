@@ -4,10 +4,9 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
-from tests.tests_web_platform.pages import wtp_signin_page_url
 from tests.tests_web_platform.pages.home_page import HomePage
+from tests.tests_web_platform.pages import wtp_signin_page_url
 from src.base.engine import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signin_page import SignInPage
 from tests.tests_web_platform.locators.signin_page_locators import SignInPageLocators
@@ -17,11 +16,12 @@ from tests.tests_web_platform.locators.signin_page_locators import SignInPageLoc
 class SignInPageUITest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        cls.test_case = '3671'
         cls.home_page = HomePage()
         cls.login_page = SignInPage()
         cls.locators = SignInPageLocators()
-        cls.test_case = '3671'
-        cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.test_run = cls.login_page.TESTRAIL_RUN
+        cls.results =  cls.login_page.WTP_TESTS_RESULT
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['smoke', 'gui', 'positive', ])
@@ -45,10 +45,10 @@ class SignInPageUITest(unittest.TestCase):
                 print("Time out occurred.")
         finally:
             if result1 & result2 is True:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

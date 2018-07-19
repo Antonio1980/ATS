@@ -17,10 +17,11 @@ from src.base.engine import write_file_result, update_test_case, get_csv_data
 class SignInDDTTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        cls.test_case = '3966'
         cls.home_page = HomePage()
         cls.login_page = SignInPage()
-        cls.test_case = '3966'
-        cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.test_run = cls.login_page.TESTRAIL_RUN
+        cls.results = cls.login_page.WTP_TESTS_RESULT
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', 'negative', ])
@@ -34,10 +35,10 @@ class SignInDDTTest(unittest.TestCase):
             result2 = self.login_page.sign_in(self.driver, email, password)
         finally:
             if result1 and result2 is True:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

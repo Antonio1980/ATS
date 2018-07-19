@@ -5,7 +5,6 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
 from src.base.engine import write_file_result, update_test_case
@@ -23,19 +22,20 @@ class LogInTest(unittest.TestCase):
         # Composition technique:
         # Local instance of the LogInPage class.
         cls.login_page = LogInPage()
-        # Set up browser (chrome_driver current implementation) via WebDriverFactory class.
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         # Class attributes.
         cls.test_case = '2590'
-        cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.username = cls.login_page.username
         cls.password = cls.login_page.password
+        cls.test_run = cls.login_page.TESTRAIL_RUN
+        cls.results = cls.login_page.CRM_TESTS_RESULT
+        # Set up browser via WebDriverFactory class.
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     # Low level tests ordering - per test suites.
     @test(groups=['smoke', 'functional', 'positive', ])
     # Test method, name must start with "test..."
     def test_login_positive(self):
-        # Test result befor execution.
+        # Test result before execution.
         result = False
         try:
             # Calling login_positive method from LogInPage class,
@@ -45,12 +45,12 @@ class LogInTest(unittest.TestCase):
             # Result validation.
             if result is True:
                 # Save test result into csv file.
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 # Update test rail report with "Passed".
                 update_test_case(self.test_run, self.test_case, 1)
             else:
                 # Save test result into csv file.
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 # Update test rail report with "Failure".
                 update_test_case(self.test_run, self.test_case, 0)
 

@@ -5,7 +5,6 @@ import time
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
-from test_definitions import BaseConfig
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signin_page import SignInPage
@@ -17,14 +16,16 @@ from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPa
 class ForgotPasswordFullFlowTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.login_page = SignInPage()
-        cls.home_page = HomePage()
-        cls.forgot_password_page = ForgotPasswordPage()
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '3668'
-        cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.home_page = HomePage()
+        cls.login_page = SignInPage()
+        cls.forgot_password_page = ForgotPasswordPage()
+        cls.test_run = cls.home_page.TESTRAIL_RUN
+        cls.results = cls.home_page.WTP_TESTS_RESULT
         cls.email = cls.forgot_password_page.email
+        cls.customers = cls.home_page.WTP_TESTS_CUSTOMERS
         cls.new_password = cls.login_page.email_generator() + "A"
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         # rows = run_mysql_query(cls, "SELECT c.email FROM customers c WHERE status=1;")
         # cls.email = rows[0]
 
@@ -44,12 +45,11 @@ class ForgotPasswordFullFlowTest(unittest.TestCase):
             result5 = self.forgot_password_page.set_new_password(self.driver, self.new_password, new_password_url)
         finally:
             if result1 and result2 and result3 and result4 and result5 is True:
-                write_file_result(self.first_last_name + "," + self.email + "," + self.new_password + "\n",
-                                  BaseConfig.WTP_TESTS_CUSTOMERS)
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.first_last_name + "," + self.email + "," + self.new_password + "\n", self.customers)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
