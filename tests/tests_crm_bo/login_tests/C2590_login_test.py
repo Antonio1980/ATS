@@ -23,19 +23,19 @@ class LogInTest(unittest.TestCase):
         # Composition technique:
         # Local instance of the LogInPage class.
         cls.login_page = LogInPage()
-        # Set up browser (chrome_driver current implementation) via WebDriverFactory class.
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         # Class attributes.
         cls.test_case = '2590'
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.username = cls.login_page.username
         cls.password = cls.login_page.password
+        # Set up browser via WebDriverFactory class.
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     # Low level tests ordering - per test suites.
     @test(groups=['smoke', 'functional', 'positive', ])
     # Test method, name must start with "test..."
     def test_login_positive(self):
-        # Test result befor execution.
+        # Test result before execution.
         result = False
         try:
             # Calling login_positive method from LogInPage class,

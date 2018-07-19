@@ -35,7 +35,7 @@ class RegistrationFullFlowTest(unittest.TestCase):
     @test(groups=['regression', 'functional', 'positive', ], depends_on_groups=["smoke", "sanity", ])
     def test_registration_full_flow(self):
         delay = 3
-        token = ""
+        customer_id = ""
         result1, result2, result3, result4, result5, result6, result7, result8, result9, result10, result11, result12 =\
             False, False, False, False, False, False, False, False, False, False, True, True
         try:
@@ -62,7 +62,7 @@ class RegistrationFullFlowTest(unittest.TestCase):
         finally:
             if result1 and result2 and result3 and result4 and result5 and result6 and result7\
                     and result8 and result9 and result10 and result11 and result12 is True:
-                write_file_result(self.email + "," + self.password + "," + token + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
+                write_file_user(self.email + "," + self.password + "," + customer_id + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 response = update_test_case(self.test_run, self.test_case, 1)
                 write_file_result(str(response), BaseConfig.WTP_LOG_FILE)

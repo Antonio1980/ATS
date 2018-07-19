@@ -20,26 +20,25 @@ from tests.tests_crm_bo.pages.users_management_page import UsersManagementPage
 class CreateNewUserDDTTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.login_page = LogInPage()
-        cls.home_page = HomePage()
-        cls.user_management_page = UsersManagementPage()
-        cls.create_user_page = CreateUserPage()
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '1132'
-        cls.test_run = BaseConfig.TESTRAIL_RUN
-        cls.email = cls.login_page.email
+        cls.home_page = HomePage()
+        cls.login_page = LogInPage()
+        cls.create_user_page = CreateUserPage()
+        cls.user_management_page = UsersManagementPage()
+        cls.username = cls.login_page.username
         cls.password = cls.login_page.password
+        cls.test_run = cls.login_page.TESTRAIL_RUN
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', ])
     @data(*get_csv_data(BaseConfig.CRM_CREATE_USER))
     @unpack
     def test_create_new_user(self, first_name, last_name, email, username):
-        delay = 3
         result1, result2, result3, result4 = False, False, False, False
         try:
-            result1 = self.login_page.login(self.driver, self.email, self.password)
-            result2 = self.home_page.go_to_management_inset_with_users_option(self.driver, delay)
-            result3 = self.user_management_page.click_on_create_new_user(self.driver, delay)
+            result1 = self.login_page.login(self.driver, self.username, self.password)
+            result2 = self.home_page.go_to_management_inset_with_users_option(self.driver)
+            result3 = self.user_management_page.click_on_create_new_user(self.driver)
             try:
                 print(user_index_page_url)
                 assert self.get_cur_url(self.driver) == create_user_page_url
@@ -105,4 +104,3 @@ class CreateNewUserDDTTest(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.login_page.close_browser(cls.driver)
-

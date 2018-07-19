@@ -33,7 +33,7 @@ class SignUpFullFlowTest(unittest.TestCase):
     @test(groups=['regression', 'functional', 'positive', ], depends_on_groups=["smoke", "sanity", ])
     def test_sign_up_full_flow(self):
         delay = 3
-        token = ""
+        customer_id = ""
         result1, result2, result3, result4, result5, result6, result7, result8, result9, result10, result11, result12 =\
             False, False, False, False, False, False, False, False, False, False, False, False
         try:
@@ -42,7 +42,7 @@ class SignUpFullFlowTest(unittest.TestCase):
             customer_id = self.signup_page.execute_js(self.driver, self.signup_page.script_customer_id)
             # 0 - verify email, 1 - change password, 2 - click on change_password, 3 - click on verify_email
             url = self.signup_page.get_email_updates(self.driver, self.email, 0)
-            token = url.split('=')[1].split('&')[0]
+            # token = url.split('=')[1].split('&')[0]
             result3 = self.signup_page.go_by_token_url(self.driver, url)
             result4 = self.signup_page.add_phone(self.driver, self.phone)
             sms_code = get_redis_value(customer_id)
@@ -57,7 +57,7 @@ class SignUpFullFlowTest(unittest.TestCase):
         finally:
             if result1 and result2 and result3 and result4 and result5 and result6 and result7 \
                     and result8 and result9 and result10 and result11 and result12 is True:
-                write_file_result(self.email + "," + self.password + "," + token + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
+                write_file_result(self.email + "," + self.password + "," + customer_id + "\n", BaseConfig.WTP_TESTS_CUSTOMERS)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 response = update_test_case(self.test_run, self.test_case, 1)
                 write_file_result(str(response), BaseConfig.WTP_LOG_FILE)
@@ -69,4 +69,3 @@ class SignUpFullFlowTest(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.home_page.close_browser(cls.driver)
-

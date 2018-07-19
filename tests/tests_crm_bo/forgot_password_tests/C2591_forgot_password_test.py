@@ -15,10 +15,10 @@ class ForgotPasswordTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.login_page = LogInPage()
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.test_case = '2591'
         cls.email = cls.login_page.email
         cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'functional', 'positive', ])
     def test_forgot_password(self):

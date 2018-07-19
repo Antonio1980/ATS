@@ -13,7 +13,7 @@ class SignInPage(BasePage):
         self.locators = SignInPageLocators()
         # 1- Data file, 2- Row, 3- First column, 4- Second column, 5- Third column
         self.account_details = get_account_details(BaseConfig.WTP_TESTS_CUSTOMERS, 0, 0, 1, 2)
-        self.token = self.account_details['token']
+        self.customer_id = self.account_details['customer_username']
         self.email = self.account_details['email']
         self.password = self.account_details['password']
 

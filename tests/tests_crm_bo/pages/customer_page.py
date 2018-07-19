@@ -9,15 +9,18 @@ class CustomerPage(BasePage):
         super(CustomerPage, self).__init__()
         self.locators = CustomerPageLocators()
 
-    def go_to_inset_id(self, driver, locator, delay=1):
+    def go_to_inset_id(self, driver, locator, delay=+1):
         deposit_inset = self.find_element_by(driver, locator, "id")
         self.click_on_element(deposit_inset)
         return self.driver_wait(driver, delay)
 
-    def make_deposit(self, driver, delay=1, amount=100):
+    def make_deposit(self, driver, amount=100):
+        delay = 5
         try:
+            self.driver_wait(driver, delay)
             assert customer_admin_url == self.get_cur_url(driver)
             self.go_to_inset_id(driver, self.locators.DEPOSIT_WITHDRAWALS_INSET_ID, delay)
+            self.driver_wait(driver, delay + 5)
             assert customer_deposit_url == self.get_cur_url(driver)
             add_deposit_button = self.find_element_by(driver, self.locators.ADD_DEPOSIT_BUTTON_ID, "id")
             self.click_on_element(add_deposit_button)
@@ -68,7 +71,8 @@ class CustomerPage(BasePage):
             else:
                 return False
 
-    def check_balance(self, driver, delay=+1):
+    def check_balance(self, driver):
+        delay = 3
         try:
             self.go_to_inset_id(driver, self.locators.BALANCE_INSET_ID, delay)
         finally:
