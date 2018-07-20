@@ -32,10 +32,10 @@ class SignInTest(unittest.TestCase):
             result2 = self.signin_page.sign_in(self.driver, self.email, self.password)
         finally:
             if result1 & result2 is True:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.test_run)
+                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.test_run)
+                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

@@ -36,6 +36,8 @@ from tests.tests_web_platform.signup_tests.C3964_links_on_email_verification_scr
 from tests.tests_web_platform.signup_tests.C3690_signup_test import SignUpTest
 from tests.tests_web_platform.signup_tests.C4431_signup_page_ui_test import SignUpPageUITest
 from tests.tests_web_platform.signup_tests.C4432_links_on_signup_page_test import LinksOnSignUpPageTest
+from tests.tests_web_platform.signup_tests.C3750_sign_up_full_flow_test import SignUpFullFlowTest
+from tests.tests_web_platform.signup_tests.C3750_signup_with_redis_full_flow_test import SignUpFullFlowRedisTest
 
 
 # loading test cases
@@ -64,11 +66,13 @@ wtp_email_screen_ui = unittest.TestLoader().loadTestsFromTestCase(EmailVerificat
 wtp_signup = unittest.TestLoader().loadTestsFromTestCase(SignUpTest)
 wtp_signup_ui = unittest.TestLoader().loadTestsFromTestCase(SignUpPageUITest)
 wtp_signup_links = unittest.TestLoader().loadTestsFromTestCase(LinksOnSignUpPageTest)
+wtp_signup_full_flow = unittest.TestLoader().loadTestsFromTestCase(SignUpFullFlowTest)
+wtp_signup_full_flow_redis = unittest.TestLoader().loadTestsFromTestCase(SignUpFullFlowRedisTest)
 
 # create test suites
 wtp_forgot_password_suite = unittest.TestSuite([wtp_forgot_password_ui, wtp_forgot_password_ddt, wtp_wrong_email, wtp_reset_password, ])
 wtp_login_suite = unittest.TestSuite([wtp_login_ui, wtp_login, wtp_login_ddt, wtp_login_links, wtp_login_without_captcha, ])
-wtp_signup_suite = unittest.TestSuite([wtp_signup_email_links, wtp_signup_ddt, wtp_email_screen_ui, wtp_signup, wtp_signup_ui, wtp_signup_links, ])
+wtp_signup_suite = unittest.TestSuite([wtp_signup_email_links, wtp_signup_ddt, wtp_email_screen_ui, wtp_signup, wtp_signup_ui, wtp_signup_links, wtp_signup_full_flow, wtp_signup_full_flow_redis, ])
 
 # sign_in test suite crm
 crm_login_test = unittest.TestLoader().loadTestsFromTestCase(crm_login)

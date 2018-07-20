@@ -13,7 +13,7 @@ from src.base.engine import write_file_result, update_test_case, get_redis_keys,
 
 
 @test(groups=['sign_up_page', 'e2e', ])
-class RegistrationFullFlowTest(unittest.TestCase):
+class SignUpFullFlowRedisTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.zip = "45263"

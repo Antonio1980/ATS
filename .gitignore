@@ -215,6 +215,8 @@ $RECYCLE.BIN/
 
 
 /.idea/
+/src/repository/wtp_log.log
+src/repository/wtp_log.log
 /exportToHTML/
 exportToHTML/*
 *.html
