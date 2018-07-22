@@ -6,7 +6,7 @@ from proboscis import test
 from src.base.enums import Browsers
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
-from src.base.engine import write_file_result, update_test_case
+from src.base.instruments import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signup_page import SignUpPage
 
 

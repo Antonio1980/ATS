@@ -11,7 +11,7 @@ from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_crm_bo.pages.create_user_page import CreateUserPage
-from src.base.engine import write_file_result, update_test_case, get_csv_data
+from src.base.instruments import write_file_result, update_test_case, get_csv_data
 from tests.tests_crm_bo.pages.users_management_page import UsersManagementPage
 
 

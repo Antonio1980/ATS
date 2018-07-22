@@ -1,4 +1,4 @@
-from src.base.engine import get_account_details
+from src.base.instruments import get_account_details
 from tests.tests_crm_bo.pages import login_page_url
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.locators.home_page_locators import HomePageLocators

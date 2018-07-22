@@ -2,7 +2,7 @@ import string
 import random
 from src.base.browser import Browser
 from test_definitions import BaseConfig
-from src.base.engine import get_account_details
+from src.base.instruments import get_account_details
 from tests.tests_crm_bo.locators.base_page_locators import BasePageLocators
 
 

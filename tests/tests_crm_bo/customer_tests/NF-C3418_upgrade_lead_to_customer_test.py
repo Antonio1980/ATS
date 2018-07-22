@@ -9,7 +9,7 @@ from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from tests.tests_crm_bo.pages.customer_page import CustomerPage
 from src.drivers.webdriver_factory import WebDriverFactory
-from src.base.engine import write_file_result, update_test_case
+from src.base.instruments import write_file_result, update_test_case
 
 
 @test(groups=['customer_page', ])

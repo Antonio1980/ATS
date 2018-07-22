@@ -9,7 +9,7 @@ from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_crm_bo.pages.create_user_page import CreateUserPage
 from tests.tests_crm_bo.pages.users_management_page import UsersManagementPage
-from src.base.engine import write_file_result, update_test_case, write_file_user
+from src.base.instruments import write_file_result, update_test_case, write_file_user
 
 
 @test(groups=['create_user_page', ])

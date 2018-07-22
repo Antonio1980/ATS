@@ -1,4 +1,4 @@
-from src.base.engine import get_account_details
+from src.base.instruments import get_account_details
 from tests.tests_web_platform.pages import BasePage, forgot_password_page_url, wtp_dashboard_url
 from tests.tests_web_platform.locators.forgot_password_page_locators import ForgotPasswordPageLocators
 

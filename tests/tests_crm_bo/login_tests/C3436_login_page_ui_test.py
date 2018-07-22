@@ -6,7 +6,7 @@ from proboscis import test
 from src.base.enums import Browsers
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
-from src.base.engine import write_file_result, update_test_case
+from src.base.instruments import write_file_result, update_test_case
 from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
 
 

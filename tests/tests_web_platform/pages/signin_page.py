@@ -1,5 +1,5 @@
 import time
-from src.base.engine import get_account_details
+from src.base.instruments import get_account_details
 from tests.tests_web_platform.pages.base_page import BasePage
 from tests.tests_web_platform.locators.signin_page_locators import SignInPageLocators
 from tests.tests_web_platform.pages import wtp_signin_page_url, forgot_password_page_url, wtp_dashboard_url

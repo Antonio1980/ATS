@@ -8,7 +8,7 @@ from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signin_page import SignInPage
 from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
-from src.base.engine import write_file_result, update_test_case, get_account_details
+from src.base.instruments import write_file_result, update_test_case, get_account_details
 
 
 @test(groups=['forgot_password_page', 'e2e', ])
