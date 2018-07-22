@@ -18,6 +18,12 @@ home_page_url = base_url + self_home_url
 self_login_url = "/dx/login"
 login_page_url = base_url + self_login_url
 
+self_reset_password_url = "/resetpwd/"
+reset_password_url = login_page_url + self_reset_password_url
+
+self_new_password = "/newpwd"
+new_password_url = login_page_url + self_new_password
+
 self_customer_url = "/dx/customers/page/"
 customer_page_url = base_url + self_customer_url
 customer_admin_url = customer_page_url + "{0}#customer_admin_status".format(customer_id)

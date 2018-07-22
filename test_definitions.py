@@ -52,6 +52,7 @@ class BaseConfig(object):
     OPEN_ACCOUNT_DATA = repository_dir + parser.get('TEST_DATA', 'open_account_data')
     WTP_TESTS_CUSTOMERS = repository_dir + parser.get('TEST_DATA', 'wtp_tests_customers')
     CRM_TESTS_USERS = repository_dir + parser.get('TEST_DATA', 'crm_tests_users')
+    CRM_NEW_PASSWORD_DATA = repository_dir + parser.get('TEST_DATA', 'crm_new_passwords')
     WTP_LOG_FILE = repository_dir + parser.get('TEST_DATA', 'wtp_log_file')
 
     DB_HOST = parser.get('DATA_BASE', 'host')

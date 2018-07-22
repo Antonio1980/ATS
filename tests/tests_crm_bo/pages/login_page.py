@@ -1,8 +1,8 @@
 from src.base.instruments import get_account_details
-from tests.tests_crm_bo.pages import login_page_url
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.locators.home_page_locators import HomePageLocators
 from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
+from tests.tests_crm_bo.pages import login_page_url, new_password_url, home_page_url
 
 
 class LogInPage(BasePage):
@@ -34,7 +34,8 @@ class LogInPage(BasePage):
             self.click_on_element(login_button)
             self.driver_wait(driver, delay)
         finally:
-            if self.find_element_by(driver, HomePageLocators.HOME_PAGE_LOGO_ID, "id"):
+            if self.find_element_by(driver, HomePageLocators.HOME_PAGE_LOGO_ID, "id") \
+                    or self.get_cur_url(driver) == new_password_url:
                 return True
             else:
                 return False
@@ -63,3 +64,39 @@ class LogInPage(BasePage):
                     return False
             else:
                 return False
+
+    def set_new_password(self, driver, password, new_password):
+        delay = 5
+        try:
+            self.driver_wait(driver, delay)
+            assert self.get_cur_url(driver) == new_password_url
+            cur_password_field = self.find_element_by(driver, self.locators.CURRENT_PASSWORD_ID, "id")
+            self.click_on_element(cur_password_field)
+            self.send_keys(cur_password_field, password)
+            new_password_field = self.find_element_by(driver, self.locators.NEW_PASSWORD_ID, "id")
+            self.click_on_element(new_password_field)
+            self.send_keys(new_password_field, new_password)
+            confirm_password_field = self.find_element_by(driver, self.locators.CONFIRM_PASSWORD_ID, "id")
+            self.click_on_element(confirm_password_field)
+            self.send_keys(confirm_password_field, new_password)
+            confirm_button = self.find_element(driver, self.locators.CONFIRM_BUTTON)
+            self.click_on_element(confirm_button)
+            self.wait_driver(driver, delay + 5)
+        finally:
+            if self.get_cur_url(driver) == home_page_url:
+                return True
+            else:
+                return False
+
+    def go_by_token_url(self, driver, new_password_url):
+        delay = 5
+        if new_password_url is not None:
+            try:
+                self.driver_wait(driver, delay)
+                self.go_to_url(driver, new_password_url)
+                self.wait_driver(driver, delay)
+            finally:
+                if self.check_element_not_visible(driver, self.locators.PASSWORD_TOKEN_WARNING, delay + 5):
+                    return True
+                else:
+                    return False

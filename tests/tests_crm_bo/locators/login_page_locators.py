@@ -1,17 +1,17 @@
 class LogInPageLocators(object):
     #
-    USERNAME_FIELD_ID = "username" #"//*[@id='username']"
-    PASSWORD_FIELD_ID = "password" #"//*[@id='password']"
-    LOGIN_BUTTON_ID = "loginBtn" #"//*[@id='loginBtn']"
+    USERNAME_FIELD_ID = "username"
+    PASSWORD_FIELD_ID = "password"
+    LOGIN_BUTTON_ID = "loginBtn"
     PASSWORD_INCORRECT_MESSAGE = "//*[@class='alert alert-danger'][contains(.,' The sign_in details you are using are incorrect.')]"
-    FORGOT_PASSWORD_LINK = "//*[@class='forgot help-block']" #"//*[@class='pull-left'][contains(.,'Forgot your password?')]"
+    FORGOT_PASSWORD_LINK = "//*[@class='forgot help-block']"
 
     # Forgot password pop up
-    POPUP_ID = "myModal" # //*[@id='myModal']
+    POPUP_ID = "myModal"
     POPUP_FORGOT_PASSWORD = "//div[@id='myModal'][@aria-hidden='false']//div[@class='modal-content']"
     POPUP_CHECK = "//div[@id='myModal'][@aria-hidden='true']"
     POPUP_HEADER = "//h3[@id='forgetheader'][contains(text(),'Forgot your password?')]"
-    POPUP_SEND_BUTTON_ID = "sendMail" #"//*[@id='sendMail']"
+    POPUP_SEND_BUTTON_ID = "sendMail"
     POPUP_SEND_BUTTON = "//*[@id='sendMail']"
     POPUP_CLOSE_BUTTON = "//button[@class='btn btn-default'][contains(text(),'Close')]"
     POPUP_EMAIL_FIELD_ID = "email"
@@ -28,3 +28,15 @@ class LogInPageLocators(object):
     EMAIL_SENT_POPUP_HEADER = "forgetheader"
     EMAIL_MESSAGE_ID = "errorMsg"
     EMAIL_POPUP_CLOSE_BUTTON = "//*[@class='btn btn-default'][contains(text(),'Close')]"
+
+    # Change password screen
+    CURRENT_PASSWORD_ID = "old_password"
+    CURRENT_PASSWORD = "//input[@id='old_password']"
+    NEW_PASSWORD_ID = "new_password"
+    NEW_PASSWORD = "//input[@id='new_password']"
+    CONFIRM_PASSWORD_ID = "confirm_password"
+    CONFIRM_PASSWORD = "//input[@id='confirm_password']"
+    CONFIRM_BUTTON = "//button[@type='submit']"
+
+    # Wrong email
+    PASSWORD_TOKEN_WARNING = "//*[@class='errorMessagePass danger']"
