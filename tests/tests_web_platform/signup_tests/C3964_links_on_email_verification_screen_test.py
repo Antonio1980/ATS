@@ -6,8 +6,8 @@ from proboscis import test
 from src.base.enums import Browsers
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
-from src.base.engine import write_file_result, update_test_case, get_redis_keys, parse_redis_token, get_redis_token
 from tests.tests_web_platform.pages.signup_page import SignUpPage
+from src.base.engine import write_file_result, update_test_case, get_redis_keys, parse_redis_token, get_redis_token
 
 
 @test(groups=['sign_up_page', ])

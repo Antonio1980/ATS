@@ -1,4 +1,3 @@
-from test_definitions import BaseConfig
 from src.base.engine import get_account_details
 from tests.tests_crm_bo.pages import login_page_url
 from tests.tests_crm_bo.pages.base_page import BasePage
@@ -11,7 +10,7 @@ class LogInPage(BasePage):
         super(LogInPage, self).__init__()
         self.locators = LogInPageLocators()
         # data_file, row, column1, column2, column3
-        self.account_details = get_account_details(BaseConfig.CRM_TESTS_USERS, 0, 0, 1, 2)
+        self.account_details = get_account_details(self.CRM_TESTS_USERS, 0, 0, 1, 2)
         self.email = self.account_details['email']
         self.password = self.account_details['password']
         self.username = self.account_details['customer_username']

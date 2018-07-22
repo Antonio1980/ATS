@@ -1,4 +1,3 @@
-from test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.locators.home_page_locators import HomePageLocators
 from tests.tests_crm_bo.locators.customer_page_locators import CustomerPageLocators
