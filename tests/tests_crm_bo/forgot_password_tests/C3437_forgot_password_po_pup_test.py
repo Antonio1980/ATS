@@ -40,9 +40,9 @@ class ForgotPasswordPopUpTest(unittest.TestCase):
             close = self.login_page.wait_element_presented(self.driver, self.locators.POPUP_CLOSE_BUTTON, delay + 1)
             popup_html = self.login_page.get_element_span_html(popup)
             if header in popup_html:
-                if (message is not None) and (send is not None):
+                if message and send:
                     result1 = True
-                    if (note is not None) and (close is not None):
+                    if note and close:
                         result2 = True
         finally:
             if result1 and result2 is True:

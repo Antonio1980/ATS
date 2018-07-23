@@ -20,19 +20,24 @@ class LogInPage(BasePage):
 
     def go_to_login_page(self, driver, url):
         self.go_to_url(driver, url)
+        if self.get_cur_url(driver) == login_page_url:
+            return True
+        else:
+            return False
 
     def login(self, driver, username, password):
         delay = 5
         try:
-            self.go_to_login_page(driver, self.crm_base_url)
-            assert login_page_url == self.get_cur_url(driver)
-            username_field = self.find_element_by(driver, self.locators.USERNAME_FIELD_ID, "id")
-            self.send_keys(username_field, username)
-            password_field = self.find_element_by(driver, self.locators.PASSWORD_FIELD_ID, "id")
-            self.send_keys(password_field, password)
-            login_button = self.find_element_by(driver, self.locators.LOGIN_BUTTON_ID, "id")
-            self.click_on_element(login_button)
-            self.driver_wait(driver, delay)
+            result = self.go_to_login_page(driver, self.crm_base_url)
+            if result is True:
+                assert login_page_url == self.get_cur_url(driver)
+                username_field = self.find_element_by(driver, self.locators.USERNAME_FIELD_ID, "id")
+                self.send_keys(username_field, username)
+                password_field = self.find_element_by(driver, self.locators.PASSWORD_FIELD_ID, "id")
+                self.send_keys(password_field, password)
+                login_button = self.find_element_by(driver, self.locators.LOGIN_BUTTON_ID, "id")
+                self.click_on_element(login_button)
+                self.driver_wait(driver, delay)
         finally:
             if self.find_element_by(driver, HomePageLocators.HOME_PAGE_LOGO_ID, "id") \
                     or self.get_cur_url(driver) == new_password_url:
