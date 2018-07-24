@@ -317,7 +317,7 @@ class Browser(object):
         except Exception as e:
             print('{}: TimeoutException element not present: {}'.format(self.__class__, e))
 
-    def wait_element_selected(self, driver, locator, delay=+1):
+    def wait_element_to_be_selected(self, driver, locator, delay=+1):
         """
         Wait for element to be click able on the page.
         :param driver: web_driver instance.

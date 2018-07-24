@@ -35,6 +35,7 @@ Temporary Items
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
+*.log
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
@@ -221,3 +222,7 @@ src/repository/wtp_log.log
 exportToHTML/*
 *.html
 exportToHTML/
+tests/tests_web_platform/end2end_tests/debug.log
+tests/tests_web_platform/end2end_tests/generate_customers_test2.py
+tests/tests_web_platform/registration_tests_container.py
+!/tests/tests_web_platform/registration_tests_container.py

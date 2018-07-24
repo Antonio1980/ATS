@@ -44,14 +44,14 @@ class SignInPage(BasePage):
     def click_on_link(self, driver, option, delay=+3):
         # Option 1- forgot password, Option 2- register link
         try:
-            self.driver_wait(driver, delay)
+            self.wait_driver(driver, delay + 5)
             assert wtp_signin_page_url == self.get_cur_url(driver)
             if option == 1:
                 link = self.find_element(driver, self.locators.FORGOT_PASSWORD_LINK)
             else:
                 link = self.find_element(driver, self.locators.REGISTER_LINK)
             self.click_on_element(link)
-            self.driver_wait(driver, delay + 3)
+            self.wait_driver(driver, delay + 5)
         finally:
             if option == 1:
                 if self.get_cur_url(driver) == forgot_password_page_url:

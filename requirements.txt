@@ -1,7 +1,8 @@
-behave==1.2.6
 selenium==3.13.0
-ddt
+behave==1.2.6
 proboscis
-pymysql
 requests
+pymysql
+pytest
 redis
+ddt

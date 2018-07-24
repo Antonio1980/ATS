@@ -6,9 +6,9 @@ from proboscis import test
 from src.base.enums import Browsers
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
-from src.base.instruments import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signin_page import SignInPage
 from tests.tests_web_platform.pages import forgot_password_page_url
+from src.base.instruments import write_file_result, update_test_case
 from tests.tests_web_platform.locators.forgot_password_page_locators import ForgotPasswordPageLocators
 
 
@@ -26,12 +26,12 @@ class ForgotPasswordUITest(unittest.TestCase):
 
     @test(groups=['smoke', 'gui', 'positive', ])
     def test_forgot_password_page_ui(self):
-        delay = 1
+        delay = 5
         result1, result2, result3 = False, False, False
         try:
             result1 = self.home_page.open_login_page(self.driver, delay + 3)
             # Option 1- forgot password, Option 2- register link
-            result2 = self.login_page.click_on_link(self.driver, 1, delay + 1)
+            result2 = self.login_page.click_on_link(self.driver, 1, delay + 5)
             assert forgot_password_page_url == self.login_page.get_cur_url(self.driver)
             self.login_page.wait_driver(self.driver, delay + 3)
             if self.login_page.wait_element_presented(self.driver, self.locators.FORGOT_PASSWORD_TITLE, delay):

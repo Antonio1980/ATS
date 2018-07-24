@@ -8,7 +8,7 @@ from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signin_page import SignInPage
 from tests.tests_web_platform.pages.signup_page import SignUpPage
-from src.base.instruments import write_file_result, update_test_case, get_redis_value
+from src.base.instruments import write_file_result, update_test_case, get_redis_value, write_file_user
 
 
 @test(groups=['sign_up_page', 'e2e', ])
@@ -59,7 +59,7 @@ class SignUpFullFlowTest(unittest.TestCase):
         finally:
             if result1 and result2 and result3 and result4 and result5 and result6 and result7 \
                     and result8 and result9 and result10 and result11 and result12 is True:
-                write_file_result(self.email + "," + self.password + "," + customer_id + "\n", self.customers)
+                write_file_user(self.email + "," + self.password + "," + customer_id + "\n", self.customers)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 response = update_test_case(self.test_run, self.test_case, 1)
                 write_file_result(str(response), self.log_file)

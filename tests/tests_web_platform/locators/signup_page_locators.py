@@ -14,12 +14,12 @@ class SignUpPageLocators(object):
     NEWSLETTERS_CHECKBOX = "//div[@class='receivePromoEmail']//span[@class='checkmark']"
     CERTIFY_CHECKBOX = "//div[@class='acceptTerms']//span[@class='checkmark']"
     # "//*[@class='password']/div[@class='error fieldError hidden']/span"
-    PASSWORD_ERROR = "//*[@id='openAccountDxForm']/div[@class='password']//div[@class='error fieldError hidden'][@style='display: block;']"
+    PASSWORD_ERROR = "//*[@id='openAccountDxForm']/div[@class='password']//div[@class='error fieldError hidden']"
     TERM_OF_USE_LINK = "//a[@class='termOfUse']"
     PRIVACY_POLICY_LINK = "//a[@class='privacyPolicy']"
     SIGNIN_LINK = "//a[@class='custom loginLink']"
     # "//div[@class='email']/div[@class='error fieldError hidden']/span"
-    EMAIL_ERROR = "//*[@id='openAccountDxForm']/div[@class='email']//div[@class='error fieldError hidden'][@style='display: block;']"
+    EMAIL_ERROR = "//*[@id='openAccountDxForm']/div[@class='email']//div[@class='error fieldError hidden']"
 
     # Verify your email screen
     EMAIL_NOT_ARRIVED = "//*[@class='resendBtn']"

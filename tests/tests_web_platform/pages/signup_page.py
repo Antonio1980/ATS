@@ -1,3 +1,5 @@
+import time
+
 from tests.tests_web_platform.pages.base_page import BasePage
 from tests.tests_web_platform.locators.signup_page_locators import SignUpPageLocators
 
@@ -17,7 +19,7 @@ class SignUpPage(BasePage):
         self.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(self.email)
 
     def fill_signup_form(self, driver, first_last_name, email, password):
-        delay = 3
+        delay = 5
         try:
             self.driver_wait(driver, delay)
             assert self.get_cur_url(driver) == self.wtp_open_account_url
@@ -43,7 +45,7 @@ class SignUpPage(BasePage):
             self.click_on_element(create_account_button)
             self.driver_wait(driver, delay + 5)
         finally:
-            if self.find_element(driver, self.element) and \
+            if self.wait_element_visible(driver, self.element, delay) and \
                     self.check_element_not_visible(driver, self.locators.EMAIL_ERROR, delay) and \
                     self.check_element_not_visible(driver, self.locators.PASSWORD_ERROR, delay):
                 return True
@@ -265,7 +267,7 @@ class SignUpPage(BasePage):
     def fill_client_checklist_3(self, driver):
         delay = 5
         try:
-            self.driver_wait(driver, delay)
+            wait = self.driver_wait(driver, delay)
             document_1 = self.find_element(driver, self.locators.DOCUMENT_1)
             self.execute_js(driver, self.script_document_1)
             self.send_keys(document_1, self.DOCUMENT_JPG)
@@ -275,6 +277,7 @@ class SignUpPage(BasePage):
             document_3 = self.find_element(driver, self.locators.DOCUMENT_3)
             self.execute_js(driver, self.script_document_3)
             self.send_keys(document_3, self.DOCUMENT_JPG)
+            time.sleep(3)
             next_button = self.wait_element_clickable(driver, self.locators.NEXT_BUTTON_CHECKLIST3, delay)
             self.click_on_element(next_button)
             self.driver_wait(driver, delay)
