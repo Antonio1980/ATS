@@ -82,17 +82,17 @@ def get_redis_token(tokens_list, customer_id):
     """
     Connect to Redis and search for a key.
     :param tokens_list: list of tokens.
-    :param customer_id: customer id registered.
+    :param customer_id: string of customer id registered.
     :return: verification token if found.
     """
     redis_db = redis.StrictRedis(host='10.100.1.11', port='30001', db=0)
     if tokens_list is not None:
 
-        def get_redis_key(key):
+        def _get_redis_key(key):
             value = redis_db.hgetall(key)
             return value
         for i in tokens_list:
-            _key = get_redis_key(i)
+            _key = _get_redis_key(i)
             if len(_key) != 0:
                 if int(_key[b'customerId']) == int(customer_id):
                     return i.split('_')[3]
@@ -244,18 +244,3 @@ def _is_win():
 
 def _is_lin():
     return platform.system().lower() == OperationSystem.LINUX.value
-
-
-# if __name__ == '__main__':
-#     list = ['email_validation_token_2dc0c3db-b1cb-400e-aa2d-d3cf6b3d8591', 'email_validation_token_615a68d5-d4c5-4cfb-98eb-7d94e4d373ae',
-#             'email_validation_token_1865deeb-2e00-496d-9fe5-1975a8b23bb4', 'email_validation_token_02420cbe-65d2-4c07-b6e8-e5d9006a112e', ]
-#     x = get_redis_token(list, 100001100000000155)
-#     print(x)
-    # x = x.split('_')[3]
-    # print(get_redis_keys("email_validation_token*"))
-    # print(get_redis_value("email_validation_token_00feac33-bd96-4369-a9c9-11cb36a0ad59"))
-
-
-
-
-        

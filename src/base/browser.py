@@ -29,6 +29,12 @@ class Browser(object):
         driver.close()
         driver.quit()
 
+    def close_browser(self, driver):
+        """
+        Calling self method to close driver instance.
+        """
+        self.close_driver_instance(driver)
+
     def driver_wait(self, driver, delay=+1):
         """
         Explicit wait for given driver with delay.
@@ -445,9 +451,3 @@ class Browser(object):
     #     self.driver_wait(delay)
     #     result = element.find_elements(locator).size() != 0
     #     return result
-
-    def close_browser(self, driver):
-        """
-        Calling self method to close driver instance.
-        """
-        self.close_driver_instance(driver)
