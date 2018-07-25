@@ -1,5 +1,4 @@
 import time
-
 from tests.tests_web_platform.pages.base_page import BasePage
 from tests.tests_web_platform.locators.signup_page_locators import SignUpPageLocators
 
@@ -21,7 +20,6 @@ class SignUpPage(BasePage):
     def fill_signup_form(self, driver, first_last_name, email, password):
         delay = 5
         try:
-            self.driver_wait(driver, delay)
             assert self.get_cur_url(driver) == self.wtp_open_account_url
             firstname_field = self.find_element(driver, self.locators.FIRST_NAME_FIELD)
             self.click_on_element(firstname_field)
@@ -35,19 +33,15 @@ class SignUpPage(BasePage):
             password_field = self.find_element(driver, self.locators.PASSWORD_FIELD)
             self.click_on_element(password_field)
             self.send_keys(password_field, password)
-            self.driver_wait(driver, delay)
             certify_checkbox = self.find_element(driver, self.locators.CERTIFY_CHECKBOX)
             self.click_on_element(certify_checkbox)
             newsletters_checkbox = self.find_element(driver, self.locators.NEWSLETTERS_CHECKBOX)
             self.click_on_element(newsletters_checkbox)
             self.execute_js(driver, self.script_signup)
-            create_account_button = self.find_element(driver, self.locators.CREATE_ACCOUNT_BUTTON)
+            create_account_button = self.search_element(driver, self.locators.CREATE_ACCOUNT_BUTTON, delay + 5)
             self.click_on_element(create_account_button)
-            self.driver_wait(driver, delay + 5)
         finally:
-            if self.wait_element_visible(driver, self.element, delay) and \
-                    self.check_element_not_visible(driver, self.locators.EMAIL_ERROR, delay) and \
-                    self.check_element_not_visible(driver, self.locators.PASSWORD_ERROR, delay):
+            if self.wait_element_visible(driver, self.element, delay):
                 return True
             else:
                 return False

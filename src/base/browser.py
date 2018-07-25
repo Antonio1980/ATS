@@ -143,7 +143,21 @@ class Browser(object):
     def drag_and_drop(self, driver, source_element, destination_element):
         ActionChains(driver).drag_and_drop(source_element, destination_element).perform()
 
-    def search_element(self, driver, locator, delay=+1):
+    # def search_element(self, driver, locator, delay=+1):
+    #     """
+    #     Search a web element on a page.
+    #     :param driver: web_driver instance.
+    #     :param delay: seconds to wait an element.
+    #     :param locator: xpath of a element.
+    #     :return: web element.
+    #     """
+    #     try:
+    #         if self.wait_element_presented(driver, locator, delay):
+    #             return self.wait_element_clickable(driver, locator, delay)
+    #     except Exception as e:
+    #         print("{0} Element not visible. {0}").format(self.__class__, e)
+
+    def search_element(self, driver, locator, delay):
         """
         Search a web element on a page.
         :param driver: web_driver instance.
@@ -152,10 +166,9 @@ class Browser(object):
         :return: web element.
         """
         try:
-            if self.wait_element_presented(driver, locator, delay):
-                return self.wait_element_clickable(driver, locator, delay)
+            return self.driver_wait(driver, delay).until(lambda x: x.find_element_by_xpath(locator))
         except Exception as e:
-            print("{0} Element not visible. {0}").format(self.__class__, e)
+            print("{0} Element not found. {0}").format(self.__class__, e)
 
     def type_text_by_locator(self, driver, locator, query):
         """
@@ -293,9 +306,35 @@ class Browser(object):
         :return: driver state.
         """
         try:
-            return WebDriverWait(driver, delay).until_not(ec.presence_of_element_located((By.XPATH, locator)))
+            WebDriverWait(driver, delay).until_not(ec.visibility_of_element_located((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element still visible: {}'.format(self.__class__, e))
+
+    def check_element_not_presented(self, driver, locator, delay=+1):
+        """
+        Wait and check than element not present on the page.
+        :param driver: web_driver instance.
+        :param delay: seconds to wait an element.
+        :param locator: xpath of a element.
+        :return: driver state.
+        """
+        try:
+            return WebDriverWait(driver, delay).until_not(ec.presence_of_element_located((By.XPATH, locator)))
+        except Exception as e:
+            print('{}: TimeoutException element still present: {}'.format(self.__class__, e))
+
+    def check_element_to_not_be_selected(self, driver, locator, delay=+1):
+        """
+        Wait for element to be click able on the page.
+        :param driver: web_driver instance.
+        :param delay: seconds to wait an element.
+        :param locator: xpath of a element.
+        :return: web element.
+        """
+        try:
+            return WebDriverWait(driver, delay).until_not(ec.element_to_be_selected((By.XPATH, locator)))
+        except Exception as e:
+            print('{}: TimeoutException element still can be selected: {}'.format(self.__class__, e))
 
     def wait_element_visible(self, driver, locator, delay=+1):
         """
@@ -334,7 +373,7 @@ class Browser(object):
         try:
             return WebDriverWait(driver, delay).until(ec.element_to_be_selected((By.XPATH, locator)))
         except Exception as e:
-            print('{}: TimeoutException element not click able: {}'.format(self.__class__, e))
+            print('{}: TimeoutException element cant be selected: {}'.format(self.__class__, e))
 
     def wait_element_clickable(self, driver, locator, delay=+1):
         """

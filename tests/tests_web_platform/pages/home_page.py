@@ -10,7 +10,7 @@ class HomePage(BasePage):
 
     def open_home_page(self, driver, delay):
         self.go_to_url(driver, wtp_home_page_url)
-        return self.driver_wait(driver, delay + 3)
+        return self.wait_driver(driver, delay + 3)
 
     def open_signup_page(self, driver, delay):
         try:
@@ -29,7 +29,6 @@ class HomePage(BasePage):
             self.open_home_page(driver, delay)
             assert wtp_home_page_url == self.get_cur_url(driver)
             self.click_on_element_by_locator(driver, self.base_locators.LOGIN_BUTTON, delay + 5)
-            self.wait_driver(driver, delay + 5)
         finally:
             if self.get_cur_url(driver) == wtp_signin_page_url:
                 return True

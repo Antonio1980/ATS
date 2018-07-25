@@ -5,11 +5,13 @@ class ForgotPasswordPageLocators(object):
     ERROR_MESSAGE = "//*[@id='forgotPasswordForm']/div[@class='generalFormError generalFormMessage hidden']"
     EMAIL_ERROR_MESSAGE = "//*[@class='fieldError emailError hidden']/span[@class='errorText']"
     TEXT = "//*[@class='resetMessage formBox hidden']/div[@class='text']"
+    CAPTCHA = "//*[@id='recaptcha-anchor']"
+    MESSAGE = "//*[@class='resetMessage formBox hidden'][@style='display: block;']"
 
     # Forgot Password New Page (Reset Password)
     PASSWORD_FIELD = "//input[@name='password']"
     CONFIRM_PASSWORD_FIELD = "//input[@name='confirmedPassword']"
     CONFIRM_BUTTON = "//input[@value='Confirm']"
-    PASSWORD_ERROR = "//*[@class='passwordError fieldError hidden'][@style='display: block;']"
-    CONFIRM_PASSWORD_ERROR = "//*[@class='error fieldError hidden'][@style='display: block;']"
+    PASSWORD_ERROR = "//*[@class='passwordError fieldError hidden'][@style='display: none;']"
+    CONFIRM_PASSWORD_ERROR = "//*[@class='error fieldError hidden'][@style='display: none;']"
     CONTINUE_BUTTON = "//*[@class='continueButton formButton']"

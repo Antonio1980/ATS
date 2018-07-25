@@ -10,7 +10,7 @@ class SignInPage(BasePage):
         super(SignInPage, self).__init__()
         self.locators = SignInPageLocators()
         # 1- Data file, 2- Row, 3- First column, 4- Second column, 5- Third column
-        self.account_details = get_account_details(self.WTP_TESTS_CUSTOMERS, 0, 0, 1, 2)
+        self.account_details = get_account_details(self.WTP_TESTS_CUSTOMERS, 1, 0, 1, 2)
         self.email = self.account_details['email']
         self.password = self.account_details['password']
         self.customer_id = self.account_details['customer_username']
@@ -18,8 +18,7 @@ class SignInPage(BasePage):
     def sign_in(self, driver, email, password):
         delay = 5
         try:
-            time.sleep(delay)
-            #self.wait_driver(driver, delay + 10)
+            self.wait_driver(driver, delay + 10)
             assert wtp_signin_page_url == self.get_cur_url(driver)
             username_field = self.find_element(driver, self.locators.USERNAME_FIELD)
             self.click_on_element(username_field)
@@ -33,8 +32,7 @@ class SignInPage(BasePage):
             self.execute_js(driver, self.script_login)
             login_button = self.wait_element_clickable(driver, self.locators.SIGNIN_BUTTON, delay)
             self.click_on_element(login_button)
-            #self.wait_driver(driver, delay + 10)
-            time.sleep(delay)
+            self.wait_driver(driver, delay + 10)
         finally:
             if self.get_cur_url(driver) == wtp_dashboard_url:
                 return True
@@ -51,7 +49,7 @@ class SignInPage(BasePage):
             else:
                 link = self.find_element(driver, self.locators.REGISTER_LINK)
             self.click_on_element(link)
-            self.wait_driver(driver, delay + 5)
+            # self.wait_driver(driver, delay + 5)
         finally:
             if option == 1:
                 if self.get_cur_url(driver) == forgot_password_page_url:

@@ -55,8 +55,7 @@ class SignUpFullFlowRedisTest(unittest.TestCase):
             sms_code = get_redis_value(customer_id)
             result5 = self.signup_page.enter_phone_code(self.driver, sms_code)
             result6 = self.signup_page.fill_personal_details(self.driver, self.birthday, self.zip, self.city)
-            result7 = self.signup_page.fill_client_checklist_1(self.driver, "Federation of Federations",
-                                                               "freestyle")
+            result7 = self.signup_page.fill_client_checklist_1(self.driver, "Federation of Federations", "freestyle")
             result8 = self.signup_page.fill_client_checklist_2(self.driver, "61")
             result9 = self.signup_page.fill_client_checklist_3(self.driver)
             result10 = self.signup_page.finish_registration(self.driver)
@@ -68,13 +67,10 @@ class SignUpFullFlowRedisTest(unittest.TestCase):
                 write_file_user(self.email + "," + self.password + "," + customer_id + "\n", self.customers)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 response = update_test_case(self.test_run, self.test_case, 1)
-                write_file_result(str(response), self.log_file)
             else:
                 write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 response = update_test_case(self.test_run, self.test_case, 0)
-                write_file_result(str(response), self.log_file)
 
     @classmethod
     def tearDownClass(cls):
         cls.signup_page.close_browser(cls.driver)
-

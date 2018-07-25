@@ -1,5 +1,5 @@
 import re
-import time
+#import time
 import string
 import random
 from src.base.browser import Browser
@@ -38,7 +38,6 @@ class BasePage(Browser, BaseConfig):
 
     def get_email_updates(self, driver, email, action, *args):
         delay = 5
-        self.driver_wait(driver, delay+5)
         pattern = r"([\w\.-]+)"
         if not isinstance(email, str):
             email, = email
@@ -48,13 +47,10 @@ class BasePage(Browser, BaseConfig):
         email = email[0]
         mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}".format(email)
         self.go_to_url(driver, mailinator_box_url)
-        time.sleep(5)
-        self.driver_wait(driver, delay)
         pause_button = self.find_element_by(driver, self.base_locators.PAUSE_BUTTON_ID, "id")
         self.click_on_element(pause_button)
-        email_item = self.find_element(driver, self.base_locators.FIRST_EMAIL)
+        email_item = self.search_element(driver, self.base_locators.FIRST_EMAIL, delay)
         self.click_on_element(email_item)
-        self.driver_wait(driver, delay)
         # 0 - get_token for verify email, 1 - get_token for forgot password, 2 - click on change_password, 3 - click on verify_email
         if action == 1 or action == 0:
             return self._get_token(driver, action)
@@ -65,35 +61,29 @@ class BasePage(Browser, BaseConfig):
         delay = 5
         button = None
         try:
-            self.driver_wait(driver, delay)
             self.switch_frame(driver, self.base_locators.EMAIL_FRAME_ID)
             if action == 0:
                 button = self.search_element(driver, self.base_locators.VERIFY_EMAIL_BUTTON, delay)
             else:
                 button = self.search_element(driver, self.base_locators.CHANGE_PASSWORD_BUTTON, delay)
         finally:
-            self.driver_wait(driver, delay)
             if button is not None:
-                content = self.get_attribute_from_element(button, "href")
-                return content
+                return self.get_attribute_from_element(button, "href")
 
     def _click_on(self, driver, action, args):
         delay = 5
         new_password_url = args[0]
         try:
-            self.driver_wait(driver, delay)
             self.switch_frame(driver, self.base_locators.EMAIL_FRAME_ID)
             if action == 2:
                 locator = self.base_locators.CHANGE_PASSWORD_BUTTON
             else:
                 locator = self.base_locators.VERIFY_EMAIL_BUTTON
-            button = self.search_element(driver, locator, delay)
-            self.click_on_element(button)
-            self.driver_wait(driver, delay + 5)
+            button = self.search_element(driver, locator, delay + 5)
+            self.click_with_offset(driver, button, 10, 10)
             new_window = driver.window_handles
             self.switch_window(driver, new_window[1])
         finally:
-            time.sleep(10)
             cur_url = self.get_cur_url(driver)
             if cur_url == self.wtp_open_account_url or cur_url == new_password_url:
                 return True
@@ -104,7 +94,7 @@ class BasePage(Browser, BaseConfig):
         delay = 5
         button = None
         try:
-            self.driver_wait(driver, delay)
+            self.wait_driver(driver, delay)
             self.go_to_url(driver, "https://gmail.com")
             email_field = self.find_element_by(driver, "identifierId", "id")
             self.click_on_element(email_field)
@@ -114,11 +104,11 @@ class BasePage(Browser, BaseConfig):
             self.click_on_element(password_field)
             self.send_keys(password_field, "test@1248")
             self.send_enter_key(password_field)
-            self.driver_wait(driver, delay)
+            self.wait_driver(driver, delay)
             last_email = self.search_element(driver, "//*[@id=':3c']//span[@email='noreply@dx.exchange']", delay+5)
             self.click_on_element(last_email)
-            self.driver_wait(driver, delay)
-            button = self.search_element(driver, self.base_locators.VERIFY_EMAIL_BUTTON)
+            self.wait_driver(driver, delay)
+            button = self.search_element(driver, self.base_locators.VERIFY_EMAIL_BUTTON, delay)
         finally:
             if button is not None:
                 content = self.get_attribute_from_element(button, "href")
