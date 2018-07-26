@@ -48,7 +48,6 @@ class SignUpPage(BasePage):
 
     def signup_ui_test(self, driver, delay=+1):
         assert self.get_cur_url(driver) == self.wtp_open_account_url
-        self.driver_wait(driver, delay + 2)
         assert self.wait_element_presented(driver, self.locators.FIRST_NAME_FIELD, delay)
         assert self.wait_element_presented(driver, self.locators.LAST_NAME_FIELD, delay)
         assert self.wait_element_presented(driver, self.locators.EMAIL_FIELD, delay)
@@ -64,7 +63,6 @@ class SignUpPage(BasePage):
 
     def verify_email_screen_test(self, driver, delay=+1):
         assert self.get_cur_url(driver) == self.wtp_open_account_url
-        self.driver_wait(driver, delay + 2)
         assert self.wait_element_presented(driver, self.locators.EMAIL_NOT_ARRIVED, delay)
         assert self.wait_element_presented(driver, self.locators.EMAIL_ALREADY_VERIFIED, delay)
         assert self.wait_element_presented(driver, self.locators.GO_BACK_LINK, delay)
@@ -74,7 +72,6 @@ class SignUpPage(BasePage):
         # 1 - Email verified link, 2 - Go back link, 3 - Resend email
         delay = 3
         try:
-            self.wait_driver(driver, delay)
             assert self.wtp_open_account_url == self.get_cur_url(driver)
             if option == 1:
                 element = self.find_element(driver, self.locators.EMAIL_ALREADY_VERIFIED)
@@ -83,7 +80,6 @@ class SignUpPage(BasePage):
             else:
                 element = self.find_element(driver, self.locators.EMAIL_NOT_ARRIVED)
             self.click_on_element(element)
-            self.driver_wait(driver, delay + 1)
         finally:
             if self.get_cur_url(driver) == url_to_check:
                 return True
@@ -94,14 +90,12 @@ class SignUpPage(BasePage):
         # 1 - Terms link, 2 - Privacy link
         delay = 3
         try:
-            self.wait_driver(driver, delay)
             assert self.wtp_open_account_url == self.get_cur_url(driver)
             if option == 1:
                 element = self.find_element(driver, self.locators.TERM_OF_USE_LINK)
             else:
                 element = self.find_element(driver, self.locators.PRIVACY_POLICY_LINK)
             self.click_on_element(element)
-            self.driver_wait(driver, delay + 1)
         finally:
             if option == 1:
                 if self.get_cur_url(driver) == self.terms_url:
@@ -121,12 +115,11 @@ class SignUpPage(BasePage):
             assert self.wtp_open_account_url == self.get_cur_url(driver)
             country_dropdown = self.find_element(driver, self.locators.SELECT_COUNTRY_DROPDOWN)
             self.click_on_element(country_dropdown)
-            country_field = self.type_text_by_locator(driver, self.locators.SELECT_COUNTRY_FIELD, "isra")
+            self.type_text_by_locator(driver, self.locators.SELECT_COUNTRY_FIELD, "isra")
             phone_field = self.find_element(driver, self.locators.PHONE_FIELD)
             self.send_keys(phone_field, phone)
             send_button = self.find_element(driver, self.locators.SEND_BUTTON)
             self.click_on_element(send_button)
-            self.driver_wait(driver, delay)
         finally:
             if self.wait_element_clickable(driver, self.locators.ANOTHER_PHONE_LINK, delay):
                 return True
@@ -135,9 +128,8 @@ class SignUpPage(BasePage):
 
     def enter_phone_code(self, driver, code):
         delay = 5
-        dr_delay = self.driver_wait(driver, delay)
         try:
-            self.driver_wait(driver, delay)
+            self.wait_driver(driver, delay)
             assert self.wtp_open_account_url == self.get_cur_url(driver)
             code_field = self.find_element(driver, self.locators.CODE_FIELD)
             self.click_on_element(code_field)
@@ -145,7 +137,6 @@ class SignUpPage(BasePage):
             submit_button = self.wait_element_clickable(driver, self.locators.SUBMIT_BUTTON, delay+5)
             self.driver_wait(driver, delay+5)
             self.click_on_element(submit_button)
-            self.driver_wait(driver, delay)
         finally:
             if self.wait_element_clickable(driver, self.locators.NEXT_BUTTON, delay):
                 return True
@@ -158,7 +149,6 @@ class SignUpPage(BasePage):
             try:
                 self.driver_wait(driver, delay)
                 self.go_to_url(driver, token)
-                self.wait_driver(driver, delay)
             finally:
                 if self.wait_element_clickable(driver, self.locators.SEND_BUTTON, delay + 5):
                     return True
@@ -173,7 +163,6 @@ class SignUpPage(BasePage):
             _day = _birthday.split('/')[0]
             _month = int(_birthday.split('/')[1])-1
             _year = _birthday.split('/')[2]
-            self.driver_wait(driver, delay)
             date_field = self.find_element(driver, self.locators.DATE_OF_BIRTH)
             self.click_on_element(date_field)
             year_selector = self.find_element(driver, self.locators.YEAR_SELECT)
@@ -182,7 +171,6 @@ class SignUpPage(BasePage):
             self.select_by_value(month_selector, _month)
             calendar_table = self.find_element(driver, self.locators.CALENDAR_TABLE)
             self._select_from_calendar(calendar_table, _day, _month)
-            self.driver_wait(driver, delay)
             city_field = self.find_element(driver, self.locators.CITY_FIELD)
             self.send_keys(city_field, _city)
             zip_field = self.find_element(driver, self.locators.ZIP_FIELD)
@@ -191,7 +179,6 @@ class SignUpPage(BasePage):
             self.send_keys(address_field, _city)
             next_button = self.find_element(driver, self.locators.NEXT_BUTTON)
             self.click_on_element(next_button)
-            self.driver_wait(driver, delay)
         finally:
             if self.wait_element_clickable(driver, self.locators.EMPLOYMENT_DROPDOWN, delay+2):
                 return True
@@ -212,12 +199,10 @@ class SignUpPage(BasePage):
     def fill_client_checklist_1(self, driver, business_name, occupancy):
         delay = 10
         try:
-            self.driver_wait(driver, delay)
             employment_dropdown = self.find_element(driver, self.locators.EMPLOYMENT_DROPDOWN)
             self.click_on_element(employment_dropdown)
             employment_options = self.find_elements(driver, self.locators.EMPLOYMENT_OPTIONS)
             self.click_on_element(employment_options[0])
-            self.driver_wait(driver, delay)
             business_name_field = self.find_element(driver, self.locators.BUSINESS_NAME_INPUT)
             self.send_keys(business_name_field, business_name)
             occupancy_field = self.find_element(driver, self.locators.OCCUPATION_INPUT)
@@ -228,7 +213,6 @@ class SignUpPage(BasePage):
             self.click_on_element(industry_options[0])
             next_button = self.wait_element_clickable(driver, self.locators.NEXT_BUTTON_CHECKLIST1)
             self.click_on_element(next_button)
-            self.driver_wait(driver, delay)
         finally:
             if self.wait_element_clickable(driver, self.locators.ANNUAL_INCOME, delay):
                 return True
@@ -238,7 +222,6 @@ class SignUpPage(BasePage):
     def fill_client_checklist_2(self, driver, value):
         delay = 5
         try:
-            self.driver_wait(driver, delay)
             annual_dropdown = self.find_element(driver, self.locators.ANNUAL_INCOME)
             self.click_on_element(annual_dropdown)
             annual_options = self.find_elements(driver, self.locators.ANNUAL_OPTIONS)
@@ -251,7 +234,6 @@ class SignUpPage(BasePage):
             self.click_on_element(checkbox)
             next_button = self.find_element(driver, self.locators.NEXT_BUTTON_CHECKLIST2)
             self.click_on_element(next_button)
-            self.driver_wait(driver, delay)
         finally:
             if self.wait_element_clickable(driver, self.locators.NEXT_BUTTON_CHECKLIST3, delay):
                 return True
@@ -261,7 +243,6 @@ class SignUpPage(BasePage):
     def fill_client_checklist_3(self, driver):
         delay = 5
         try:
-            wait = self.driver_wait(driver, delay)
             document_1 = self.find_element(driver, self.locators.DOCUMENT_1)
             self.execute_js(driver, self.script_document_1)
             self.send_keys(document_1, self.DOCUMENT_JPG)
@@ -271,10 +252,9 @@ class SignUpPage(BasePage):
             document_3 = self.find_element(driver, self.locators.DOCUMENT_3)
             self.execute_js(driver, self.script_document_3)
             self.send_keys(document_3, self.DOCUMENT_JPG)
-            time.sleep(3)
+            #time.sleep(3)
             next_button = self.wait_element_clickable(driver, self.locators.NEXT_BUTTON_CHECKLIST3, delay)
             self.click_on_element(next_button)
-            self.driver_wait(driver, delay)
         finally:
             if self.wait_element_clickable(driver, self.locators.FINISH_BUTTON, delay):
                 return True
@@ -284,10 +264,8 @@ class SignUpPage(BasePage):
     def finish_registration(self, driver):
         delay = 5
         try:
-            self.driver_wait(driver, delay)
             finish_button = self.find_element(driver, self.locators.FINISH_BUTTON)
             self.click_on_element(finish_button)
-            self.driver_wait(driver, delay)
         finally:
             if self.wait_element_clickable(driver, self.base_locators.SIGN_UP_BUTTON, delay):
                 return True

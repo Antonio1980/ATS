@@ -10,7 +10,7 @@ class ForgotPasswordPage(BasePage):
         super(ForgotPasswordPage, self).__init__()
         self.locators = ForgotPasswordPageLocators()
         # 1- Data file, 2- Row, 3- First column, 4- Second column, 5- Third column
-        self.account_details = get_account_details(self.WTP_TESTS_CUSTOMERS, 15, 0, 1, 2)
+        self.account_details = get_account_details(self.WTP_TESTS_CUSTOMERS, 16, 0, 1, 2)
         self.first_last_name = self.account_details['customer_username']
         self.email = self.account_details['email']
         self.password = self.account_details['password']
@@ -42,8 +42,8 @@ class ForgotPasswordPage(BasePage):
             confirm_password_field = self.find_element(driver, self.locators.CONFIRM_PASSWORD_FIELD)
             self.click_on_element(confirm_password_field)
             self.send_keys(confirm_password_field, password)
-            assert self.check_element_not_visible(driver, self.locators.PASSWORD_ERROR, delay)
-            assert self.check_element_not_visible(driver, self.locators.CONFIRM_PASSWORD_ERROR, delay)
+            assert self.wait_element_presented(driver, self.locators.PASSWORD_ERROR, delay)
+            assert self.wait_element_presented(driver, self.locators.CONFIRM_PASSWORD_ERROR, delay)
             confirm_button = self.search_element(driver, self.locators.CONFIRM_BUTTON, delay)
             self.click_with_offset(driver, confirm_button, 10, 20)
             if self.wait_element_clickable(driver, self.locators.CONTINUE_BUTTON, delay):

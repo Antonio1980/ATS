@@ -44,7 +44,7 @@ class ForgotPasswordFullFlowTest(unittest.TestCase):
             result5 = self.forgot_page.set_new_password(self.driver, self.new_password, new_password_url)
         finally:
             if result1 and result2 and result3 and result4 and result5 is True:
-                write_file_user(self.email + "," + self.password + "," + self.first_last_name + "\n", self.customers)
+                write_file_user(self.email + "," + self.new_password + "," + self.first_last_name + "\n", self.customers)
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 update_test_case(self.test_run, self.test_case, 1)
             else:

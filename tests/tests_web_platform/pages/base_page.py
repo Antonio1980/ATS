@@ -1,5 +1,4 @@
 import re
-#import time
 import string
 import random
 from src.base.browser import Browser
@@ -25,9 +24,7 @@ class BasePage(Browser, BaseConfig):
         self.script_document_3 = "$('.doc_2_1_0Hidden.hidden').show();"
 
     def go_back_and_wait(self, driver, previous_url, delay=+3):
-        self.driver_wait(driver, delay)
         self.go_back(driver)
-        self.wait_driver(driver, delay)
         if self.get_cur_url(driver) == previous_url:
             return True
         else:

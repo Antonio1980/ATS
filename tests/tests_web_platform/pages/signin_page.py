@@ -1,4 +1,3 @@
-import time
 from src.base.instruments import get_account_details
 from tests.tests_web_platform.pages.base_page import BasePage
 from tests.tests_web_platform.locators.signin_page_locators import SignInPageLocators
@@ -26,13 +25,11 @@ class SignInPage(BasePage):
             password_field_true = self.find_element(driver, self.locators.PASSWORD_FIELD_TRUE)
             password_field = self.find_element(driver, self.locators.PASSWORD_FIELD)
             self.click_on_element(password_field)
-            self.driver_wait(driver, delay + 5)
             self.click_on_element(password_field_true)
             self.send_keys(password_field_true, password)
             self.execute_js(driver, self.script_login)
             login_button = self.wait_element_clickable(driver, self.locators.SIGNIN_BUTTON, delay)
             self.click_on_element(login_button)
-            self.wait_driver(driver, delay + 10)
         finally:
             if self.get_cur_url(driver) == wtp_dashboard_url:
                 return True
