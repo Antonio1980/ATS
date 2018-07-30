@@ -1,9 +1,14 @@
 import csv
+import json
+import re
+import time
 import redis
 import codecs
 import pymysql
 import argparse
 import platform
+import requests
+from bs4 import BeautifulSoup
 from test_definitions import BaseConfig
 from src.base.enums import OperationSystem
 from src.base.http_client import APIClient
@@ -40,6 +45,20 @@ def get_test_case(test_case):
     :return: API response.
     """
     return client.send_get('get_case/' + test_case)
+
+
+def get_guerrilla_email(_action=None, _token=None):
+    if _token is None:
+        _token = "1"
+    guerrilla_base_url = "https://www.guerrillamail.com/ajax.php?f="
+    url = guerrilla_base_url + _action
+    #url = "https://www.guerrillamail.com/ajax.php"
+    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
+               'Content-Type': 'application/json', 'Cookie': "PHPSESSID=" + _token}  # + "\r\n\";"
+    #querystring = {"f": "get_email_list", "offset": "0", "site": "guerrillamail.com", "_": "pvhoofhd"}
+    #response = requests.request("GET", url, params=querystring, headers=headers)
+    response = requests.request("GET", url, headers=headers)
+    return json.loads(response.text)
 
 
 def run_mysql_query(query):

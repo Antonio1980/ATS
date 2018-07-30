@@ -17,7 +17,7 @@ class SignUpPage(BasePage):
         self.privacy_url = self.wtp_base_url + "/privacyPolicy.html"
         self.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(self.email)
 
-    def fill_signup_form(self, driver, first_last_name, email, password):
+    def fill_signup_form(self, driver, first_last_name, email, password, _element=None):
         delay = 5
         try:
             assert self.get_cur_url(driver) == self.wtp_open_account_url
@@ -41,7 +41,7 @@ class SignUpPage(BasePage):
             create_account_button = self.search_element(driver, self.locators.CREATE_ACCOUNT_BUTTON, delay + 5)
             self.click_on_element(create_account_button)
         finally:
-            if self.wait_element_visible(driver, self.element, delay):
+            if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
                 return True
             else:
                 return False

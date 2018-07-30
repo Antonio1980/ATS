@@ -31,7 +31,7 @@ class SignUpTest(unittest.TestCase):
         result1, result2 = False, False
         try:
             result1 = self.home_page.open_signup_page(self.driver, delay)
-            result2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password)
+            result2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password, )
         finally:
             if result1 and result2 is True:
                 write_file_result(self.email + "," + self.password + "\n", self.customers)
