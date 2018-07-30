@@ -164,6 +164,11 @@ def parse_args(run_number):
 
 
 def parse_html(html):
+    """
+    HTML parser, converts a string (if it html content) to HTML object.
+    :param html: string with html content.
+    :return: HTML object.
+    """
     return BeautifulSoup(html, 'html.parser')
 
 
