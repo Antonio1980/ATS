@@ -13,7 +13,6 @@ class CreateUserPage(BasePage):
         self.email = self.email_prefix + "@mailinator.com"
 
     def fill_user_details(self, driver, email, details):
-        delay = 5
         first_last_name, phone, username = details['first_last_name'], details['phone'], details['username']
         try:
             assert self.get_cur_url(driver) == create_user_page_url
@@ -62,10 +61,9 @@ class CreateUserPage(BasePage):
             self.send_enter_key(user_type_text_field)
             create_user_button = self.find_element_by(driver, self.locators.CREATE_USER_BUTTON_ID, "id")
             self.click_on_element(create_user_button)
-            self.driver_wait(driver, delay + 10)
         finally:
-            time.sleep(3)
-            if self.get_cur_url(driver) == user_index_page_url:
+            cur_url = self.get_cur_url(driver)
+            if cur_url == user_index_page_url:
                 return True
             else:
                 return False

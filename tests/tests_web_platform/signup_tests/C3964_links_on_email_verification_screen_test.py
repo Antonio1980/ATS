@@ -31,7 +31,7 @@ class LinksOnVerifyEmailScreenTest(unittest.TestCase):
         result1, result2, result3, result4, result5, result6 = False, False, False, True, False, False
         try:
             result1 = self.home_page.open_signup_page(self.driver, delay)
-            result2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password)
+            result2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password, )
             customer_id = self.signup_page.execute_js(self.driver, self.signup_page.script_customer_id)
             # # 0 - verify email, 1 - change password, 2 - click on change_password, 3 - click on verify_email
             # url = self.signup_page.get_email_updates(self.driver, self.email, 0)

@@ -1,5 +1,6 @@
 import json, base64
-import urllib.request, urllib.error
+import urllib.request
+import urllib.error
 
 
 class APIClient:
@@ -40,7 +41,7 @@ class APIClient:
             if result and 'error' in result:
                 raise APIError('TestRail API returned HTTP error' + str(response_error) + '"' + result['error'] + '"')
 
-        return result
+        return result.text
 
 
 class APIError(Exception):

@@ -24,8 +24,8 @@ class LogInTest(unittest.TestCase):
         cls.login_page = LogInPage()
         # Class attributes.
         cls.test_case = '2590'
-        cls.username = cls.login_page.username
-        cls.password = cls.login_page.password
+        cls.username = cls.login_page.login_username
+        cls.password = cls.login_page.login_password
         cls.test_run = cls.login_page.TESTRAIL_RUN
         cls.results = cls.login_page.CRM_TESTS_RESULT
         # Set up browser via WebDriverFactory class.

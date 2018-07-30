@@ -91,7 +91,6 @@ class BasePage(Browser, BaseConfig):
         delay = 5
         button = None
         try:
-            self.wait_driver(driver, delay)
             self.go_to_url(driver, "https://gmail.com")
             email_field = self.find_element_by(driver, "identifierId", "id")
             self.click_on_element(email_field)
@@ -101,25 +100,10 @@ class BasePage(Browser, BaseConfig):
             self.click_on_element(password_field)
             self.send_keys(password_field, "test@1248")
             self.send_enter_key(password_field)
-            self.wait_driver(driver, delay)
             last_email = self.search_element(driver, "//*[@id=':3c']//span[@email='noreply@dx.exchange']", delay+5)
             self.click_on_element(last_email)
-            self.wait_driver(driver, delay)
             button = self.search_element(driver, self.base_locators.VERIFY_EMAIL_BUTTON, delay)
         finally:
             if button is not None:
                 content = self.get_attribute_from_element(button, "href")
                 return content
-
-            
-            
-            
-
-
-
-# if __name__ == '__main__':
-#     #SignUpFullFlowTest.setUpClass()
-#     url = "https://plat.dx.exchange/appProxy/forgotPasswordDx.html?validation_token=ff4a558a-2267-4443-85e8-6c5bbfef48e5&email=wovqfphw%40mailinator.com"
-#     token = url.split('=')
-#     token = token[1].split('&')
-#     print(token, type(token))

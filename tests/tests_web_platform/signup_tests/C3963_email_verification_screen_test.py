@@ -30,7 +30,7 @@ class EmailVerificationScreenTest(unittest.TestCase):
         result1, result2, result3 = False, False, False
         try:
             result1 = self.home_page.open_signup_page(self.driver, delay)
-            result2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password)
+            result2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password, )
             result3 = self.signup_page.verify_email_screen_test(self.driver, delay)
         finally:
             if result1 and result2 and result3 is True:

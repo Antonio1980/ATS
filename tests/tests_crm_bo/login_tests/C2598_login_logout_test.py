@@ -17,8 +17,8 @@ class LogInLogOutLogInTest(unittest.TestCase):
         cls.test_case = '2598'
         cls.home_page = HomePage()
         cls.login_page = LogInPage()
-        cls.username = cls.login_page.username
-        cls.password = cls.login_page.password
+        cls.username = cls.login_page.login_username
+        cls.password = cls.login_page.login_password
         cls.test_run = cls.login_page.TESTRAIL_RUN
         cls.results = cls.login_page.CRM_TESTS_RESULT
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
@@ -28,9 +28,9 @@ class LogInLogOutLogInTest(unittest.TestCase):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = self.login_page.login(self.driver, self.login_page.username, self.login_page.password)
+            result1 = self.login_page.login(self.driver, self.username, self.password)
             result2 = self.home_page.logout(self.driver, delay)
-            result3 = self.login_page.login(self.driver, self.login_page.username, self.login_page.password)
+            result3 = self.login_page.login(self.driver, self.username, self.password)
         finally:
             if result1 and result2 and result3 is True:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)

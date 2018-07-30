@@ -1,5 +1,4 @@
 import re
-import time
 import string
 import random
 from src.base.browser import Browser
@@ -22,7 +21,6 @@ class BasePage(Browser, BaseConfig):
 
     def get_email_updates(self, driver, email, action, *args):
         delay = 5
-        self.driver_wait(driver, delay+5)
         pattern = r"([\w\.-]+)"
         if not isinstance(email, str):
             email, = email
@@ -32,13 +30,11 @@ class BasePage(Browser, BaseConfig):
         email = email[0]
         mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}".format(email)
         self.go_to_url(driver, mailinator_box_url)
-        time.sleep(5)
         pause_button = self.find_element_by(driver, self.base_locators.PAUSE_BUTTON_ID, "id")
+        self.wait_driver(driver, delay)
         self.click_on_element(pause_button)
-        time.sleep(5)
-        email_item = self.find_element(driver, self.base_locators.FIRST_EMAIL)
+        email_item = self.search_element(driver, self.base_locators.FIRST_EMAIL, delay)
         self.click_on_element(email_item)
-        time.sleep(5)
         # 0 - get_token for forgot password, 1 - get_token (new password) for regenerate password,
         # 2 - click on forgot_password, 3 - ?
         if action == 0 or action == 1:
@@ -50,14 +46,12 @@ class BasePage(Browser, BaseConfig):
         delay = 5
         link = None
         try:
-            self.driver_wait(driver, delay)
             self.switch_frame(driver, self.base_locators.EMAIL_FRAME_ID)
             if action == 0:
                 link = self.search_element(driver, self.base_locators.FORGOT_PASSWORD_LINK, delay)
             else:
                 link = self.search_element(driver, self.base_locators.REGENERATE_PASSWORD, delay)
         finally:
-            self.driver_wait(driver, delay)
             if link is not None and action == 0:
                 content = self.get_attribute_from_element(link, "href")
                 return content
@@ -69,7 +63,6 @@ class BasePage(Browser, BaseConfig):
         delay = 5
         url_to_check = args[0]
         try:
-            self.driver_wait(driver, delay)
             self.switch_frame(driver, self.base_locators.EMAIL_FRAME_ID)
             if action == 2:
                 locator = self.base_locators.FORGOT_PASSWORD_LINK
@@ -77,12 +70,11 @@ class BasePage(Browser, BaseConfig):
                 locator = self.base_locators.CHANGE_PASSWORD_LINK
             link = self.search_element(driver, locator, delay)
             self.click_on_element(link)
-            self.driver_wait(driver, delay + 5)
             new_window = driver.window_handles
             self.switch_window(driver, new_window[1])
         finally:
-            time.sleep(5)
-            if self.get_cur_url(driver) == url_to_check:
+            cur_url = self.get_cur_url(driver)
+            if cur_url == url_to_check:
                 return True
             else:
                 return False
