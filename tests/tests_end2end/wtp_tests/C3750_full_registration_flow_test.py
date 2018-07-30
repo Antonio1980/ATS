@@ -40,7 +40,7 @@ class RegistrationFullFlowTest(unittest.TestCase):
             False, False, False, False, False, False, False, False, False, False, False, False
         try:
             result1 = self.home_page.open_signup_page(self.driver, delay)
-            result2 = self.signup_page.fill_signup_form(self.driver, self.name, self.email, self.password)
+            result2 = self.signup_page.fill_signup_form(self.driver, self.name, self.email, self.password, )
             customer_id = self.signup_page.execute_js(self.driver, self.signup_page.script_customer_id)
             keys = get_redis_keys("email_validation_token*")
             token_keys = parse_redis_token(keys, "b'")

@@ -39,7 +39,7 @@ def test_generate_customers(i):
     try:
         random.seed(i)
         result1 = home_page.open_signup_page(driver, delay)
-        result2 = signup_page.fill_signup_form(driver, username, email, password)
+        result2 = signup_page.fill_signup_form(driver, username, email, password, )
         customer_id = signup_page.execute_js(driver, signup_page.script_customer_id)
         keys = get_redis_keys("email_validation_token*")
         token_keys = parse_redis_token(keys, "b'")
