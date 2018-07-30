@@ -5,13 +5,13 @@ import re
 import time
 import unittest
 from proboscis import test
-from bs4 import BeautifulSoup
 from src.base.enums import Browsers
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signin_page import SignInPage
 from tests.tests_web_platform.pages.signup_page import SignUpPage
-from src.base.instruments import write_file_result,update_test_case,get_redis_value,write_file_user,get_guerrilla_email
+from src.base.instruments import write_file_result, update_test_case, get_redis_value, write_file_user, \
+    get_guerrilla_email, parse_html
 
 
 @test(groups=['sign_up_page', 'e2e', ])
@@ -57,7 +57,7 @@ class SignUpFullFlowGuerrillaTest(unittest.TestCase):
             response2 = get_guerrilla_email("fetch_email&email_id=mr_" + email_id + "&site=guerrillamail.com&_=",
                                             self.sid_token)
             html = response2['mail_body']
-            parsed_html = BeautifulSoup(html, 'html.parser')
+            parsed_html = parse_html(html)
             url = parsed_html.center.find_all('a')[1]['href']
             # token = url.split('=')[1].split('&')[0]
             result3 = self.signup_page.go_by_token_url(self.driver, url)

@@ -1,7 +1,5 @@
 import csv
 import json
-import re
-import time
 import redis
 import codecs
 import pymysql
@@ -163,6 +161,10 @@ def parse_args(run_number):
     parser.add_argument('-run', '-' + run_number)
     args = parser.parse_args()
     return args
+
+
+def parse_html(html):
+    return BeautifulSoup(html, 'html.parser')
 
 
 def get_csv_data(data_file):
