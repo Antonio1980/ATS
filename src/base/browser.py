@@ -16,9 +16,7 @@ class Browser(object):
         :return: browser state with wed driver explicit wait.
         """
         driver.get(url)
-        self.driver_wait(driver, 3)
-        driver.maximize_window()
-        return self.driver_wait(driver, 3)
+        return driver.maximize_window()
 
     def close_driver_instance(self, driver):
         """
@@ -143,20 +141,6 @@ class Browser(object):
     def drag_and_drop(self, driver, source_element, destination_element):
         ActionChains(driver).drag_and_drop(source_element, destination_element).perform()
 
-    # def search_element(self, driver, locator, delay=+1):
-    #     """
-    #     Search a web element on a page.
-    #     :param driver: web_driver instance.
-    #     :param delay: seconds to wait an element.
-    #     :param locator: xpath of a element.
-    #     :return: web element.
-    #     """
-    #     try:
-    #         if self.wait_element_presented(driver, locator, delay):
-    #             return self.wait_element_clickable(driver, locator, delay)
-    #     except Exception as e:
-    #         print("{0} Element not visible. {0}").format(self.__class__, e)
-
     def search_element(self, driver, locator, delay):
         """
         Search a web element on a page.
@@ -263,7 +247,6 @@ class Browser(object):
         :return: driver state with explicit wait of 3 sec.
         """
         driver.find_element_by_tag_name('body').send_keys(Keys.COMMAND + 'r')
-        return self.driver_wait(driver, delay + 3)
 
     def refresh_browser(self, driver, delay=+1):
         """
@@ -271,7 +254,6 @@ class Browser(object):
         :return: driver state.
         """
         driver.navigate().refresh()
-        return self.driver_wait(driver, delay + 3)
 
     def back_browser(self, driver, delay=+1):
         """
@@ -279,7 +261,6 @@ class Browser(object):
         :return: driver state.
         """
         driver.navigate().back()
-        return self.driver_wait(driver, delay + 3)
 
     def forward_browser(self, driver, delay=+1):
         """
@@ -287,7 +268,6 @@ class Browser(object):
         :return: driver state.
         """
         driver.navigate().forward()
-        return self.driver_wait(driver, delay + 3)
 
     def go_back(self, driver):
         """
@@ -306,7 +286,7 @@ class Browser(object):
         :return: driver state.
         """
         try:
-            WebDriverWait(driver, delay).until_not(ec.visibility_of_element_located((By.XPATH, locator)))
+            return self.driver_wait(driver, delay).until_not(ec.visibility_of_element_located((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element still visible: {}'.format(self.__class__, e))
 
@@ -319,7 +299,7 @@ class Browser(object):
         :return: driver state.
         """
         try:
-            return WebDriverWait(driver, delay).until_not(ec.presence_of_element_located((By.XPATH, locator)))
+            return self.driver_wait(driver, delay).until_not(ec.presence_of_element_located((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element still present: {}'.format(self.__class__, e))
 
@@ -332,7 +312,7 @@ class Browser(object):
         :return: web element.
         """
         try:
-            return WebDriverWait(driver, delay).until_not(ec.element_to_be_selected((By.XPATH, locator)))
+            return self.driver_wait(driver, delay).until_not(ec.element_to_be_selected((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element still can be selected: {}'.format(self.__class__, e))
 
@@ -345,7 +325,7 @@ class Browser(object):
         :return: web element.
         """
         try:
-            return WebDriverWait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+            return self.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element not visible: {}'.format(self.__class__, e))
 
@@ -358,7 +338,7 @@ class Browser(object):
         :return: web element.
         """
         try:
-            return WebDriverWait(driver, delay).until(ec.presence_of_element_located((By.XPATH, locator)))
+            return self.driver_wait(driver, delay).until(ec.presence_of_element_located((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element not present: {}'.format(self.__class__, e))
 
@@ -371,7 +351,7 @@ class Browser(object):
         :return: web element.
         """
         try:
-            return WebDriverWait(driver, delay).until(ec.element_to_be_selected((By.XPATH, locator)))
+            return self.driver_wait(driver, delay).until(ec.element_to_be_selected((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element cant be selected: {}'.format(self.__class__, e))
 
@@ -384,7 +364,7 @@ class Browser(object):
         :return: web element.
         """
         try:
-            return WebDriverWait(driver, delay).until(ec.element_to_be_clickable((By.XPATH, locator)))
+            return self.driver_wait(driver, delay).until(ec.element_to_be_clickable((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element not click able: {}'.format(self.__class__, e))
 
@@ -458,10 +438,8 @@ class Browser(object):
         :param locator: selector web element.
         :return: list of web elements.
         """
-        delay = 3
         elements = []
         try:
-            self.driver_wait(driver, delay)
             for i in driver.find_elements_by_xpath(locator):
                 elements.append(i)
             return elements

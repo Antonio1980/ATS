@@ -7,6 +7,7 @@ import argparse
 import platform
 import requests
 from bs4 import BeautifulSoup
+
 from test_definitions import BaseConfig
 from src.base.enums import OperationSystem
 from src.base.http_client import APIClient

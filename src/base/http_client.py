@@ -41,7 +41,7 @@ class APIClient:
             if result and 'error' in result:
                 raise APIError('TestRail API returned HTTP error' + str(response_error) + '"' + result['error'] + '"')
 
-        return result.text
+        return result
 
 
 class APIError(Exception):
