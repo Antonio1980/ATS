@@ -29,7 +29,7 @@ class ForgotPasswordDDTTest(unittest.TestCase):
         delay = 1
         result = True
         try:
-            result = self.login_page.forgot_password(self.driver, email, delay)
+            result = self.login_page.forgot_password(self.driver, email)
         finally:
             if result is False:
                 write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)

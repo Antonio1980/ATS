@@ -9,13 +9,13 @@ class UsersManagementPage(BasePage):
         self.locators = UsersPageLocators()
 
     def click_on_create_new_user(self, driver):
+        delay = 5
         try:
-            assert user_management_page_url == self.get_cur_url(driver)
+            assert self.wait_url_contains(driver, user_management_page_url, delay)
             new_user_button = self.find_element_by(driver, self.locators.CREATE_NEW_USER_BUTTON_ID, "id")
             self.click_on_element(new_user_button)
         finally:
-            cur_url = self.get_cur_url(driver)
-            if cur_url == create_user_page_url:
+            if self.wait_url_contains(driver, create_user_page_url, delay):
                 return True
             else:
                 return False

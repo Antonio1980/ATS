@@ -27,7 +27,7 @@ class GenerateNewPasswordTest(unittest.TestCase):
         delay, new_password = 5, None
         result1, result2, result3 = False, False, False
         try:
-            result1 = self.login_page.forgot_password(self.driver, self.email, delay)
+            result1 = self.login_page.forgot_password(self.driver, self.email)
             # 0 - get_token for forgot password, 1 - get_token (new password) for regenerate password, 2 - click on forgot_password, 3 - ?
             content = self.login_page.get_email_updates(self.driver, self.email, 0)
             token = content.split('/')[-1]

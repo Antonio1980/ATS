@@ -13,7 +13,7 @@ class LogInPage(BasePage):
         self.login_email = "roman@spotoption.com"
         self.locators = LogInPageLocators()
         # data_file, row, column1, column2, column3
-        self.account_details = get_account_details(self.CRM_TESTS_USERS, 1, 0, 1, 2)
+        self.account_details = get_account_details(self.CRM_TESTS_USERS, 0, 0, 1, 2)
         self.email = self.account_details['email']
         self.password = self.account_details['password']
         self.username = self.account_details['customer_username']
@@ -22,14 +22,15 @@ class LogInPage(BasePage):
                           "Please reset your password within the next 24 hours.".format(self.email)
 
     def go_to_login_page(self, driver, url):
+        delay = 5
         self.go_to_url(driver, url)
-        self.wait_driver(driver, 5)
-        if self.get_cur_url(driver) == login_page_url:
+        if self.wait_url_contains(driver, login_page_url, delay):
             return True
         else:
             return False
 
     def login(self, driver, username, password):
+        delay = 5
         try:
             result = self.go_to_login_page(driver, self.crm_base_url)
             if result is True:
@@ -40,22 +41,23 @@ class LogInPage(BasePage):
                 login_button = self.find_element_by(driver, self.locators.LOGIN_BUTTON_ID, "id")
                 self.click_on_element(login_button)
         finally:
-            cur_url = self.get_cur_url(driver)
-            if cur_url == new_password_url or self.find_element_by(driver, HomePageLocators.HOME_PAGE_LOGO_ID, "id"):
+            if self.wait_url_contains(driver, new_password_url, delay) or \
+                    self.find_element_by(driver, HomePageLocators.HOME_PAGE_LOGO_ID, "id"):
                 return True
             else:
                 return False
 
-    def forgot_password(self, driver, email, delay=+1):
+    def forgot_password(self, driver, email):
+        delay = 5
         try:
-            self.go_to_login_page(driver, self.crm_base_url)
-            assert self.get_cur_url(driver) == login_page_url
-            forgot_password_link = self.wait_element_clickable(driver, self.locators.FORGOT_PASSWORD_LINK, delay)
-            self.click_on_element(forgot_password_link)
-            email_field = self.wait_element_clickable(driver, self.locators.POPUP_EMAIL_FIELD, delay)
-            self.send_keys(email_field, email)
-            send_button = self.find_element_by(driver, self.locators.POPUP_SEND_BUTTON_ID, "id")
-            self.click_on_element(send_button)
+            result = self.go_to_login_page(driver, self.crm_base_url)
+            if result is True:
+                forgot_password_link = self.wait_element_clickable(driver, self.locators.FORGOT_PASSWORD_LINK, delay)
+                self.click_on_element(forgot_password_link)
+                email_field = self.wait_element_clickable(driver, self.locators.POPUP_EMAIL_FIELD, delay)
+                self.send_keys(email_field, email)
+                send_button = self.find_element_by(driver, self.locators.POPUP_SEND_BUTTON_ID, "id")
+                self.click_on_element(send_button)
         finally:
             if self.check_element_not_visible(driver, self.locators.POPUP_CHECK, delay + 3):
                 if self.check_element_not_visible(driver, self.locators.POPUP_ERROR_MESSAGE_CLOSE_BUTTON, delay + 3):
@@ -67,8 +69,9 @@ class LogInPage(BasePage):
                 return False
 
     def set_new_password(self, driver, password, new_password):
+        delay = 5
         try:
-            assert new_password_url == self.get_cur_url(driver)
+            assert self.wait_url_contains(driver, new_password_url, delay)
             cur_password_field = self.find_element_by(driver, self.locators.CURRENT_PASSWORD_ID, "id")
             self.click_on_element(cur_password_field)
             self.send_keys(cur_password_field, password)
@@ -81,8 +84,7 @@ class LogInPage(BasePage):
             confirm_button = self.find_element(driver, self.locators.CONFIRM_BUTTON)
             self.click_on_element(confirm_button)
         finally:
-            cur_url = self.get_cur_url(driver)
-            if cur_url == home_page_url:
+            if self.wait_url_contains(driver, home_page_url, delay):
                 return True
             else:
                 return False

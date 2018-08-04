@@ -1,9 +1,11 @@
 selenium==3.13.0
 behave==1.2.6
+phonenumbers
 proboscis
 requests
 pymysql
 pytest
 redis
+faker
 ddt
 bs4

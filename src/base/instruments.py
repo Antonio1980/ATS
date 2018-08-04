@@ -2,18 +2,77 @@ import csv
 import json
 import redis
 import codecs
+import random
+import string
 import pymysql
 import argparse
 import platform
 import requests
+import phonenumbers
+from faker import Faker
 from bs4 import BeautifulSoup
-
+from phonenumbers import carrier
 from test_definitions import BaseConfig
 from src.base.enums import OperationSystem
-from src.base.http_client import APIClient
+from src.base.http_client import HTTPClient
+from phonenumbers.phonenumberutil import number_type
+
 
 # API client- connector for TestRail manager.
-client = APIClient(BaseConfig.TESTRAIL_URL, BaseConfig.TESTRAIL_USER, BaseConfig.TESTRAIL_PASSWORD)
+testrail_client = HTTPClient(BaseConfig.TESTRAIL_URL)
+# API client- connector for Guerrilla mail service.
+guerrilla_client = HTTPClient(BaseConfig.GUERRILLA_API)
+
+
+def set_guerrilla_email(_username, _token):
+    """
+    Get list of mails for guerrilla API.
+    :param _username:
+    :param _token:
+    :return:
+    """
+    return guerrilla_client.send_post('set_email_user', {'email_user': _username,
+                                                             'lang': 'en', 'site': 'guerrillamail.com'}, _token)
+
+
+def get_guerrilla_emails(_username, _token):
+    """
+    Get list of mails for guerrilla API.
+    :param _username:
+    :param _token:
+    :return:
+    """
+    return guerrilla_client.send_get('get_email_list&offset=0&site=guerrillamail.com&_=' + _username, _token)
+
+
+def check_guerrilla_email(_time_stamp, _token):
+    """
+    Get list of mails for guerrilla API.
+    :param _time_stamp: email time-stamp passes as part of url.
+    :param _token: guerrilla API token.
+    :return:
+    """
+    return guerrilla_client.send_get('check_email&seq=1&site=guerrillamail.com&_=' + _time_stamp, _token)
+
+
+def get_last_guerrilla_mail(_time_stamp, mail_id, _token):
+    """
+    Get last email from guerrilla API.
+    :param _time_stamp: email time-stamp passes as part of url.
+    :param mail_id: email-id passes as part of url.
+    :param _token: guerrilla API token.
+    :return:
+    """
+    return guerrilla_client.send_get('fetch_email&email_id=mr_' + mail_id + '&site=guerrillamail.com&_=' + _time_stamp,
+                                     _token)
+
+
+def get_guerrilla_mail():
+    """
+    Generates random email from guerrilla API.
+    :return:
+    """
+    return guerrilla_client.send_get('get_email_address')
 
 
 def update_test_case(test_run, test_case, status):
@@ -26,15 +85,11 @@ def update_test_case(test_run, test_case, status):
     """
     if status == 1:
         # 'add_result_for_case/'-run, -38 / 2590
-        return client.send_post(
-            'add_result_for_case/' + test_run + '/' + test_case,
-            {'status_id': status, 'comment': 'This test ' + test_case + ' PASSED !'}
-        )
+        return testrail_client.send_post('add_result_for_case/' + test_run + '/' + test_case,
+                                         {'status_id': status, 'comment': 'This test ' + test_case + ' PASSED !'})
     else:
-        return client.send_post(
-            'add_result_for_case/' + test_run + '/' + test_case,
-            {'status_id': status, 'comment': 'This test ' + test_case + ' FAILED !'}
-        )
+        return testrail_client.send_post('add_result_for_case/' + test_run + '/' + test_case,
+                                         {'status_id': status, 'comment': 'This test ' + test_case + ' FAILED !'})
 
 
 def get_test_case(test_case):
@@ -43,21 +98,43 @@ def get_test_case(test_case):
     :param test_case: test case ID.
     :return: API response.
     """
-    return client.send_get('get_case/' + test_case)
+    return testrail_client.send_get('get_case/' + test_case)
 
 
-def get_guerrilla_email(_action=None, _token=None):
-    if _token is None:
-        _token = "1"
+def get_guerrilla_email(method, uri=None, _token=None):
+    """
+    Runs HTTP requests front of Guerrilla API.
+    :param method:
+    :param uri: API action to perform.
+    :param _token: API token header.
+    :return: API _response as a json object.
+    """
+    _response = None
     guerrilla_base_url = "https://www.guerrillamail.com/ajax.php?f="
-    url = guerrilla_base_url + _action
-    #url = "https://www.guerrillamail.com/ajax.php"
-    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
-               'Content-Type': 'application/json', 'Cookie': "PHPSESSID=" + _token}  # + "\r\n\";"
-    #querystring = {"f": "get_email_list", "offset": "0", "site": "guerrillamail.com", "_": "pvhoofhd"}
-    #response = requests.request("GET", url, params=querystring, headers=headers)
-    response = requests.request("GET", url, headers=headers)
-    return json.loads(response.text)
+    url = guerrilla_base_url + uri
+    if _token is None:
+        _headers = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
+            'Content-Type': 'application/json'}
+    else:
+        _headers = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
+            'Content-Type': 'application/json', 'Cookie': "PHPSESSID=" + _token}
+    if method.lower() == "get":
+        _response = requests.request("GET", url, headers=_headers)
+    elif method.lower() == "post":
+        _response = ""
+    return json.loads(_response.text)
+
+
+def generate_token(size=16, chars=string.ascii_lowercase + string.digits):
+    """
+    Generates token with 16 characters (digits and alphabetical lowercase).
+    :param size: token length.
+    :param chars: characters to apply.
+    :return: token string.
+    """
+    return ''.join(random.choice(chars) for _ in range(size))
 
 
 def run_mysql_query(query):
@@ -105,7 +182,6 @@ def get_redis_token(tokens_list, customer_id):
     """
     redis_db = redis.StrictRedis(host='10.100.1.11', port='30001', db=0)
     if tokens_list is not None:
-
         def _get_redis_key(key):
             value = redis_db.hgetall(key)
             return value
@@ -182,6 +258,7 @@ def get_csv_data(data_file):
     rows = []
     with open(data_file, "r") as csv_data:
         content = csv.reader(csv_data)
+        # skipping first row
         next(content, None)
         for row in content:
             rows.append(row)
@@ -201,8 +278,6 @@ def get_account_details(data_file, row, column1, column2, column3):
     rows = []
     with open(data_file, "r") as csv_data:
         content = csv.reader(csv_data)
-        # To skip first row
-        # next(content, None)
         for item in content:
             rows.append(item)
     email = rows[row][column1]
@@ -228,8 +303,6 @@ def write_file_user(result, file):
     :param result: string to append.
     :param file: file to append for.
     """
-    # with open(file, "a") as my_file:
-    #     my_file.write(result)
     with open(file, "r+") as f:
         s = f.read()
         f.seek(0)
@@ -244,6 +317,55 @@ def write_file_result(result, file):
     """
     with open(file, "a") as my_file:
         my_file.write(result)
+
+
+def check_phone_number(phone_number):
+    """
+    Utility to check if passed phone number is valid number.
+    :param phone_number: phone number to check.
+    :return: True if number is valid and False otherwise.
+    """
+    return carrier._is_mobile(number_type(phonenumbers.parse(phone_number)))
+
+
+def generate_phone_number():
+    """
+    Creates randow valid phone number.
+    :return: phone number as a string.
+    """
+    fake = Faker()
+    return fake.phone_number()
+
+
+def generate_user_first_last_name():
+    """
+    Creates random user first_last_name.
+    :return: user first_last_name as a string.
+    """
+    fake = Faker()
+    return '_'.join(fake.name().split(' '))
+
+
+def write_file_preconditions(rows, email_suffix):
+    """
+    Allows to create crm_users_preconditions.csv file with random data.
+    :param rows: rows number to create.
+    :param email_suffix: email service provider.
+    """
+    language, permissions, status, user_type = "eng", "sup", "act", "Admin"
+    header = "first_last_name,phone,email,username,language,permissions,status,user_type\n"
+    file = BaseConfig.CRM_USERS_PRECONDITIONS
+    with open(file, "w") as f:
+        f.write(header)
+    with open(file, "a") as my_file:
+        for i in range(rows):
+            first_last_name = generate_user_first_last_name()
+            phone = generate_phone_number()
+            email = first_last_name + email_suffix
+            username = first_last_name
+            body = "{0},{1},{2},{3},{4},{5},{6},{7}\n".format(first_last_name, phone, email, username, language,
+                                                            permissions, status, user_type)
+            my_file.write(body)
 
 
 def detect_os():
@@ -271,3 +393,32 @@ def _is_win():
 
 def _is_lin():
     return platform.system().lower() == OperationSystem.LINUX.value
+
+
+# if __name__ == '__main__':
+    # write_file_preconditions(10, "@mailinator.com")
+    # res = get_test_case('2590')
+    # print(res)
+    # res2 = update_test_case('41', '2590', 1)
+    # print(res2)
+    # username = generate_user_first_last_name()
+    # print(username)
+    # response = get_guerrilla_mail()
+    # print(response)
+    # email = response[1]['email_addr']
+    # sid_token = response[1]['sid_token']
+    # time_stamp = str(response[1]['email_timestamp'])
+    # response2 = check_guerrilla_email(time_stamp, sid_token)
+    # print(response2)
+    # sid_token = response2[1]['sid_token']
+    # post_response = set_guerrilla_email(username, sid_token)
+    # print(post_response)
+    # sid_token = response[1]['sid_token']
+    # token = post_response[2].split('=')[1].split(';')[0]
+    # get_response = get_guerrilla_emails(username, sid_token)
+    # print(get_response)
+    # sid_token = get_response[1]['sid_token']
+    # mail_id = str(get_response[1]['list'][0]['mail_id'])
+    # print("mail_id...", mail_id)
+    # response3 = get_last_guerrilla_mail(time_stamp, mail_id, sid_token)
+    # print(response3)

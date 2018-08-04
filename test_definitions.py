@@ -32,6 +32,7 @@ class BaseConfig(object):
     WTP_BASE_URL = parser.get('BASE_URL', 'wtp_base_url')
     WTP_INTEGRATION_URL = parser.get('BASE_URL', 'wtp_integration_url')
     WTP_STAGING_URL = parser.get('BASE_URL', 'wtp_staging_url')
+    GUERRILLA_API = parser.get('BASE_URL', 'guerrilla_api')
 
     W_CHROME_PATH = drivers_dir + parser.get('WEB_DRIVER_WIN', 'w_chrome')
     W_FIREFOX_PATH = drivers_dir + parser.get('WEB_DRIVER_WIN', 'w_firefox')
@@ -47,12 +48,13 @@ class BaseConfig(object):
     WTP_LOGIN_DATA = repository_dir + parser.get('TEST_DATA', 'me_login_data')
     CRM_LOGIN_DATA = repository_dir + parser.get('TEST_DATA', 'crm_login_data')
     FORGOT_PASSWORD_DATA = repository_dir + parser.get('TEST_DATA', 'forgot_data')
-    CRM_CREATE_USER = repository_dir + parser.get('TEST_DATA', 'crm_create_user')
     ME_LOGIN_DATA = repository_dir + parser.get('TEST_DATA', 'me_login_data')
     OPEN_ACCOUNT_DATA = repository_dir + parser.get('TEST_DATA', 'open_account_data')
     WTP_TESTS_CUSTOMERS = repository_dir + parser.get('TEST_DATA', 'wtp_tests_customers')
     CRM_TESTS_USERS = repository_dir + parser.get('TEST_DATA', 'crm_tests_users')
     WTP_LOG_FILE = repository_dir + parser.get('TEST_DATA', 'wtp_log_file')
+    CRM_DEPOSIT_DETAILS = repository_dir + parser.get('TEST_DATA', 'deposit_details_data')
+    CRM_USERS_PRECONDITIONS = repository_dir + parser.get('TEST_DATA', 'crm_users_preconditions')
 
     DB_HOST = parser.get('DATA_BASE', 'host')
     DB_PORT = parser.get('DATA_BASE', 'port')

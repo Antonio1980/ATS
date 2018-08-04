@@ -9,12 +9,15 @@ class CreateUserPage(BasePage):
         self.first_last_name = "QA_test_QA"
         self.locators = CreateUserPageLocators()
         self.email_prefix = self.email_generator()
-        self.email = self.email_prefix + "@mailinator.com"
+        self.email = self.email_prefix + "@guerrillamailblock.com"
 
-    def fill_user_details(self, driver, email, details):
-        first_last_name, phone, username = details['first_last_name'], details['phone'], details['username']
+    def fill_user_details(self, driver, email, user_details):
+        delay = 5
+        first_last_name, phone, username, language, permissions, status, user_type = user_details['first_last_name'], \
+                                          user_details['phone'], user_details['username'], user_details['language'], \
+                                          user_details['permissions'], user_details['status'], user_details['user_type']
         try:
-            assert self.get_cur_url(driver) == create_user_page_url
+            assert self.wait_url_contains(driver, create_user_page_url, delay)
             first_name_field = self.find_element_by(driver, self.locators.FIRST_NAME_ID, "id")
             self.click_on_element(first_name_field)
             self.send_keys(first_name_field, first_last_name)
@@ -30,39 +33,18 @@ class CreateUserPage(BasePage):
             username_field = self.find_element_by(driver, self.locators.USERNAME_ID, "id")
             self.click_on_element(username_field)
             self.send_keys(username_field, username)
-            language_dropdown = self.find_element(driver, self.locators.LANGUAGE_DROPDOWN)
-            self.click_on_element(language_dropdown)
-            language_field = self.find_element(driver, self.locators.LANGUAGE_FIELD)
-            self.click_on_element(language_field)
-            language_text_field = self.find_element(driver, self.locators.LANGUAGE_TEXT_FIELD)
-            self.send_keys(language_text_field, "eng")
-            self.send_enter_key(language_text_field)
-            permission_dropdown = self.find_element(driver, self.locators.PERMISSION_GROUP_DROPDOWN)
-            self.click_on_element(permission_dropdown)
-            permission_field = self.find_element(driver, self.locators.PERMISSION_GROUP_FIELD)
-            self.click_on_element(permission_field)
-            permission_text_field = self.find_element(driver, self.locators.PERMISSION_GROUP_TEXT_FIELD)
-            self.send_keys(permission_text_field, "sup")
-            self.send_enter_key(permission_text_field)
-            status_dropdown = self.find_element(driver, self.locators.STATUS_DROPDOWN)
-            self.click_on_element(status_dropdown)
-            status_field = self.find_element(driver, self.locators.STATUS_FIELD)
-            self.click_on_element(status_field)
-            status_text_field = self.find_element(driver, self.locators.STATUS_TEXT_FIELD)
-            self.send_keys(status_text_field, "a")
-            self.send_enter_key(status_text_field)
-            user_type_dropdown = self.find_element(driver, self.locators.USER_TYPE_DROPDOWN)
-            self.click_on_element(user_type_dropdown)
-            user_type_field = self.find_element(driver, self.locators.USER_TYPE_FIELD)
-            self.click_on_element(user_type_field)
-            user_type_text_field = self.find_element(driver, self.locators.USER_TYPE_TEXT_FIELD)
-            self.send_keys(user_type_text_field, "Admin")
-            self.send_enter_key(user_type_text_field)
+            self.choose_option_from_dropdown(driver, self.locators.LANGUAGE_DROPDOWN, self.locators.LANGUAGE_TEXT_FIELD,
+                                             language)
+            self.choose_option_from_dropdown(driver, self.locators.PERMISSION_GROUP_DROPDOWN,
+                                             self.locators.PERMISSION_GROUP_TEXT_FIELD, permissions)
+            self.choose_option_from_dropdown(driver, self.locators.STATUS_DROPDOWN, self.locators.STATUS_TEXT_FIELD,
+                                             status)
+            self.choose_option_from_dropdown(driver, self.locators.USER_TYPE_DROPDOWN,
+                                             self.locators.USER_TYPE_TEXT_FIELD, user_type)
             create_user_button = self.find_element_by(driver, self.locators.CREATE_USER_BUTTON_ID, "id")
             self.click_on_element(create_user_button)
         finally:
-            cur_url = self.get_cur_url(driver)
-            if cur_url == user_index_page_url:
+            if self.wait_url_contains(driver, user_index_page_url, delay):
                 return True
             else:
                 return False

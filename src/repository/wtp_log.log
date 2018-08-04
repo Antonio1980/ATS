@@ -1,1 +1,454 @@
-{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
+proboscis.case.FunctionTest (test_forgot_password_page_ui) ... ERROR
+test_forgot_password_page_ui (tests.tests_web_platform.forgot_password_tests.C3558_forgot_password_ui_test.ForgotPasswordUITest) ... ok
+test_forgot_password_ddt_01___AsDc123DDc2__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_02___123456789__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_03___asdfghjkl__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_04____h1_Test__h1__spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not found: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@class='popupTextInput'][@name='email']"}
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+{0} Element not click able. {0}
+<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_05________________________ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_06___Ã¼Ã_Ã_Ã_Ã_Ã_Ã__Ã¼Ã_Ã_Ã_Ã_Ã_Ã__com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_07___select___from_customers___ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_08___tencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharact_spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_09___rom_an_spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_10___roman__com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_11___roman_spotoption___ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_12___rom_an_spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_13___rom_a_n_spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_wrong_email (tests.tests_web_platform.forgot_password_tests.C3667_wrong_email_test.WrongEmailTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+ok
+test_reset_password_email (tests.tests_web_platform.forgot_password_tests.C3669_reset_password_email_test.ResetPasswordEmailTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+<class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+
+ok
+test_forgot_password_full_flow (tests.tests_web_platform.forgot_password_tests.C3668_forgot_password_full_flow_test.ForgotPasswordFullFlowTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+
+{0} Element not found. {0}
+ERROR
+proboscis.case.FunctionTest (test_sign_in_page_ui) ... ERROR
+test_sign_in_page_ui (tests.tests_web_platform.signin_tests.C3671_signin_page_ui_test.SignInPageUITest) ... FAIL
+proboscis.case.FunctionTest (test_sign_in_positive) ... ERROR
+test_sign_in_positive (tests.tests_web_platform.signin_tests.C3983_signin_test.SignInTest) ... ok
+proboscis.case.FunctionTest (test_sign_in_ddt) ... ERROR
+test_sign_in_ddt_1___xaisu1____Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+
+ok
+test_sign_in_ddt_2___username1____Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+
+ok
+test_sign_in_ddt_3___xaisul_____Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+
+ok
+test_sign_in_ddt_4___xaisul____Password1___ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+
+ok
+test_sign_in_ddt_5___xaisul____012345678__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+
+ok
+test_sign_in_ddt_6___1234____Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+
+ok
+test_sign_in_ddt_7________Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+
+ok
+test_sign_in_ddt_8___xaisu1____PasSword1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+
+ok
+proboscis.case.FunctionTest (test_links_on_sign_in_page) ... ERROR
+test_links_on_sign_in_page (tests.tests_web_platform.signin_tests.C3962_links_on_signin_page_test.LinksOnSignInPageTest) ... ok
+proboscis.case.FunctionTest (test_sign_in_negative) ... ERROR
+test_sign_in_negative (tests.tests_web_platform.signin_tests.C3984_signin_without_captcha_test.LogInWithoutCaptchaTest) ... ok
+proboscis.case.FunctionTest (test_email_verification_screen) ... ERROR
+test_email_verification_screen (tests.tests_web_platform.signup_tests.C3963_email_verification_screen_test.EmailVerificationScreenTest) ... ok
+test_sign_up_ddt_01___Antonio____ab_c_de_f_g_h_i_jk_l_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+ok
+test_sign_up_ddt_02___Test____AsDc123DDc2____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+ok
+test_sign_up_ddt_03___sadkjasjhd________________________example_org____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+ok
+test_sign_up_ddt_04___Antonio____Ã¼Ã_Ã_Ã_Ã_Ã_Ã__Ã¼Ã_Ã_Ã_Ã_Ã_Ã__com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+ok
+test_sign_up_ddt_05___Antonio____Abc_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+ok
+test_sign_up_ddt_06_______________ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+ok
+test_sign_up_ddt_07___Antonio_____h1_Test__h1__spotoption_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+ok
+test_sign_up_ddt_08___Antonio____ust_not_right_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+ok
+test_sign_up_ddt_09___Antonio____this_is_notallowed_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+ok
+test_sign_up_ddt_10___Antonio____this__stillnotallowed_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+ok
+test_sign_up_ddt_11___test____tencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharact_spotoption_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+ok
+test_sign_up_ddt_12___test____testexampl_exam_net_co_il____aaaaaaA__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+ok
+test_sign_up_ddt_13___test____testexampl_tgs_systems_co_com____aaaaaaA___ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=67.0.3396.99)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+ok
+proboscis.case.FunctionTest (test_links_on_verify_email_screen) ... ERROR
+test_links_on_verify_email_screen (tests.tests_web_platform.signup_tests.C3964_links_on_email_verification_screen_test.LinksOnVerifyEmailScreenTest) ... ok
+test_sign_up_positive (tests.tests_web_platform.signup_tests.C3690_signup_test.SignUpTest) ... ok
+test_sign_up_page_ui (tests.tests_web_platform.signup_tests.C4431_signup_page_ui_test.SignUpPageUITest) ... ok
+proboscis.case.FunctionTest (test_links_on_sign_up_page) ... ERROR
+proboscis.case.FunctionTest (test_forgot_password_ddt) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
+proboscis.case.FunctionTest (test_wrong_email) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
+proboscis.case.FunctionTest (test_reset_password_email) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
+proboscis.case.FunctionTest (test_forgot_password_full_flow) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
+proboscis.case.FunctionTest (test_sign_up_ddt) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
+proboscis.case.FunctionTest (test_sign_up_positive) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
+proboscis.case.FunctionTest (test_sign_up_page_ui) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
+proboscis.case.FunctionTest (test_sign_up_full_flow) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
+proboscis.case.FunctionTest (test_sign_up_full_flow_with_guerrilla) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
+proboscis.case.FunctionTest (test_registration_full_flow_with_redis) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
+test_links_on_sign_up_page (tests.tests_web_platform.signup_tests.C4432_links_on_signup_page_test.LinksOnSignUpPageTest) ... ok
+test_sign_up_full_flow (tests.tests_web_platform.signup_tests.C3750_sign_up_full_flow_test.SignUpFullFlowTest) ... ok
+test_sign_up_full_flow_with_guerrilla (tests.tests_web_platform.signup_tests.C3750_sign_up_with_guerrilla_full_flow_test.SignUpFullFlowGuerrillaTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+
+ERROR
+test_registration_full_flow_with_redis (tests.tests_web_platform.signup_tests.C3750_signup_with_redis_full_flow_test.SignUpFullFlowRedisTest) ... ok
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_forgot_password_page_ui)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_forgot_password_page_ui() missing 1 required positional argument: 'self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
+    raise ProboscisTestMethodClassNotDecorated()
+proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+
+======================================================================
+ERROR: test_forgot_password_full_flow (tests.tests_web_platform.forgot_password_tests.C3668_forgot_password_full_flow_test.ForgotPasswordFullFlowTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\platform-server_qa\src\base\browser.py", line 154, in search_element
+    return self.driver_wait(driver, delay).until(lambda x: x.find_element_by_xpath(locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\platform-server_qa\tests\tests_web_platform\forgot_password_tests\C3668_forgot_password_full_flow_test.py", line 43, in test_forgot_password_full_flow
+    result4 = self.forgot_page.get_email_updates(self.driver, self.email, 2, new_password_url)
+  File "D:\GitLab\platform-server_qa\tests\tests_web_platform\pages\base_page.py", line 50, in get_email_updates
+    email_item = self.search_element(driver, self.base_locators.FIRST_EMAIL, delay)
+  File "D:\GitLab\platform-server_qa\src\base\browser.py", line 156, in search_element
+    print("{0} Element not found. {0}").format(self.__class__, e)
+AttributeError: 'NoneType' object has no attribute 'format'
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_sign_in_page_ui)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_sign_in_page_ui() missing 1 required positional argument: 'self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
+    raise ProboscisTestMethodClassNotDecorated()
+proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_sign_in_positive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_sign_in_positive() missing 1 required positional argument: 'self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
+    raise ProboscisTestMethodClassNotDecorated()
+proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_sign_in_ddt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_sign_in_ddt() missing 3 required positional arguments: 'self', 'email', and 'password'
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_links_on_sign_in_page)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_links_on_sign_in_page() missing 1 required positional argument: 'self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
+    raise ProboscisTestMethodClassNotDecorated()
+proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_sign_in_negative)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_sign_in_negative() missing 1 required positional argument: 'self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
+    raise ProboscisTestMethodClassNotDecorated()
+proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_email_verification_screen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_email_verification_screen() missing 1 required positional argument: 'self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
+    raise ProboscisTestMethodClassNotDecorated()
+proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_links_on_verify_email_screen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_links_on_verify_email_screen() missing 1 required positional argument: 'self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
+    raise ProboscisTestMethodClassNotDecorated()
+proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_links_on_sign_up_page)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_links_on_sign_up_page() missing 1 required positional argument: 'self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
+    raise ProboscisTestMethodClassNotDecorated()
+proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+
+======================================================================
+ERROR: test_sign_up_full_flow_with_guerrilla (tests.tests_web_platform.signup_tests.C3750_sign_up_with_guerrilla_full_flow_test.SignUpFullFlowGuerrillaTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\platform-server_qa\tests\tests_web_platform\signup_tests\C3750_sign_up_with_guerrilla_full_flow_test.py", line 61, in test_sign_up_full_flow_with_guerrilla
+    url = parsed_html.center.find_all('a')[1]['href']
+AttributeError: 'NoneType' object has no attribute 'find_all'
+
+======================================================================
+FAIL: test_sign_in_page_ui (tests.tests_web_platform.signin_tests.C3671_signin_page_ui_test.SignInPageUITest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\platform-server_qa\tests\tests_web_platform\signin_tests\C3671_signin_page_ui_test.py", line 34, in test_sign_in_page_ui
+    assert wtp_signin_page_url == self.login_page.get_cur_url(self.driver)
+AssertionError
+
+----------------------------------------------------------------------
+Ran 69 tests in 932.129s
+
+FAILED (failures=1, errors=11, skipped=10)

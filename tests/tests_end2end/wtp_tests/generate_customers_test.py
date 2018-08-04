@@ -2,20 +2,16 @@
 # -*- coding: utf8 -*-
 
 import random
-import string
+import re
 import pytest
 from src.base.enums import Browsers
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signup_page import SignUpPage
-from src.base.instruments import get_redis_keys, get_redis_value, write_file_user, get_redis_token, parse_redis_token
+from src.base.instruments import get_redis_keys, get_redis_value, write_file_user, get_redis_token, parse_redis_token, \
+    generate_user_first_last_name, get_guerrilla_email
 
-
-def _email_generator(size=8, chars=string.ascii_lowercase + string.digits):
-    return ''.join(random.choice(chars) for _ in range(size))
-
-
-generator = _email_generator
+generator = generate_user_first_last_name()
 
 
 @pytest.mark.parametrize('i', range(50))
@@ -29,11 +25,15 @@ def test_generate_customers(i):
     home_page = HomePage()
     signup_page = SignUpPage()
     username = generator()
-    email = username + "@mailinator.com"
+    email = username + "@guerrillamailblock.com"
     customers = home_page.WTP_TESTS_CUSTOMERS
     driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
     delay = 3
     customer_id = ""
+    response = get_guerrilla_email("get_email_address")
+    time_stamp = str(response['email_timestamp'])
+    sid_token = response['sid_token']
+    username = re.findall(r"([\w.-]+)", email)[0]
     result1, result2, result3, result4, result5, result6, result7, result8, result9, result10 = \
         False, False, False, False, False, False, False, False, False, False
     try:

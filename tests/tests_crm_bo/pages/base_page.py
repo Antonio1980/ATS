@@ -73,8 +73,7 @@ class BasePage(Browser, BaseConfig):
             new_window = driver.window_handles
             self.switch_window(driver, new_window[1])
         finally:
-            cur_url = self.get_cur_url(driver)
-            if cur_url == url_to_check:
+            if self.wait_url_contains(driver, url_to_check, delay):
                 return True
             else:
                 return False

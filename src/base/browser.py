@@ -1,3 +1,4 @@
+import time
 from src.base.enums import DriverHelper
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -139,6 +140,12 @@ class Browser(object):
         return driver.execute_script(script, args)
 
     def drag_and_drop(self, driver, source_element, destination_element):
+        """
+        Drags and drops a web element.
+        :param driver: web_driver instance.
+        :param source_element: web element to drag.
+        :param destination_element: web element to drop to.
+        """
         ActionChains(driver).drag_and_drop(source_element, destination_element).perform()
 
     def search_element(self, driver, locator, delay):
@@ -182,7 +189,7 @@ class Browser(object):
         """
         try:
             element = self.wait_element_clickable(driver, locator, delay)
-            return element.click()
+            element.click()
         except Exception as e:
             print("{0} Element not click able. {0}").format(self.__class__, e)
 
@@ -196,6 +203,27 @@ class Browser(object):
             element.click()
         except Exception as e:
             print("{0} Element not click able. {0}").format(self.__class__, e)
+
+    def choose_option_from_dropdown(self, driver, dropdown_locator, dropdown_field_locator, dropdown_option, delay=1):
+        """
+        Searches for web elements (drop-down and text-input) and selects option from drop-down.
+        :param driver: web_driver instance.
+        :param dropdown_locator: string locator for drop-down.
+        :param dropdown_field_locator: string locator for text-input.
+        :param dropdown_option: option to select from drop-down.
+        :param delay: delay to wait between actions.
+        """
+        dropdown = self.find_element(driver, dropdown_locator)
+        dropdown_field = self.find_element(driver, dropdown_field_locator)
+        action = Actions(driver)
+        action.click(dropdown)
+        action.wait(delay)
+        action.click(dropdown_field)
+        action.wait(delay)
+        action.send_keys(dropdown_option)
+        action.wait(delay)
+        action.send_keys(Keys.ENTER)
+        return action.perform()
 
     def hover_over_element_and_click(self, driver, element):
         """
@@ -223,6 +251,36 @@ class Browser(object):
         action.click(element)
         return action.perform()
 
+    def click_with_wait_and_offset(self, driver, element, x, y, delay):
+        """
+        Waits and clicks on web element with x.y coordinates.
+        :param driver: web_driver instance.
+        :param element: web element.
+        :param x: horizontal coordinate in pixels.
+        :param y: vertical coordinate in pixels.
+        :param delay: seconds to wait.
+        :return: browser state with performed actions.
+        """
+        action = Actions(driver)
+        action.move_to_element_with_offset(element, x, y)
+        action.wait(delay)
+        action.click(element)
+        return action.perform()
+
+    def click_and_wait(self, driver, element, delay=1):
+        """
+        Clicks with time delay between actions.
+        :param driver: web_driver instance.
+        :param element: web element.
+        :param delay: seconds to wait.
+        :return: browser state with performed actions.
+        """
+        action = Actions(driver)
+        action.move_to_element(element)
+        action.wait(delay)
+        action.click(element)
+        return action.perform()
+
     def switch_frame(self, driver, element):
         """
         Switch current frame to another page frame.
@@ -241,31 +299,43 @@ class Browser(object):
         """
         return driver.switch_to.window(element)
 
-    def refresh_page(self, driver, delay=+1):
+    def wait_for_new_window(self, driver, delay=5):
+        """
+        Waits and checks if another window is open.
+        :param driver: web_driver instance.
+        :param delay: seconds to wait.
+        :return: True if additional window is open and False otherwise. 
+        """
+        handles_before = driver.window_handles
+        yield
+        return self.driver_wait(driver, delay).until(
+            lambda driver: len(handles_before) != len(driver.window_handles))
+
+    def refresh_page(self, driver):
         """
         Refresh browser page by sending 'Ctrl + r' keys.
-        :return: driver state with explicit wait of 3 sec.
+        :param driver: web_driver instance.
         """
         driver.find_element_by_tag_name('body').send_keys(Keys.COMMAND + 'r')
 
-    def refresh_browser(self, driver, delay=+1):
+    def refresh_browser(self, driver):
         """
         Refresh browser by navigating on 'refresh' button.
-        :return: driver state.
+        :param driver: web_driver instance.
         """
         driver.navigate().refresh()
 
-    def back_browser(self, driver, delay=+1):
+    def back_browser(self, driver):
         """
         To go back on previous page using driver.
-        :return: driver state.
+        :param driver: web_driver instance.
         """
         driver.navigate().back()
 
-    def forward_browser(self, driver, delay=+1):
+    def forward_browser(self, driver):
         """
         To go forward on previous page using driver.
-        :return: driver state.
+        :param driver: web_driver instance.
         """
         driver.navigate().forward()
 
@@ -273,9 +343,8 @@ class Browser(object):
         """
         To go back on previous page using js.
         :param driver: web_driver instance.
-        :return: driver state.
         """
-        return driver.execute_script("window.history.go(-1)")
+        driver.execute_script("window.history.go(-1)")
 
     def check_element_not_visible(self, driver, locator, delay=+1):
         """
@@ -283,7 +352,7 @@ class Browser(object):
         :param driver: web_driver instance.
         :param delay: seconds to wait an element.
         :param locator: xpath of a element.
-        :return: driver state.
+        :return: True if matches condition and False otherwise.
         """
         try:
             return self.driver_wait(driver, delay).until_not(ec.visibility_of_element_located((By.XPATH, locator)))
@@ -296,7 +365,7 @@ class Browser(object):
         :param driver: web_driver instance.
         :param delay: seconds to wait an element.
         :param locator: xpath of a element.
-        :return: driver state.
+        :return: True if matches condition and False otherwise.
         """
         try:
             return self.driver_wait(driver, delay).until_not(ec.presence_of_element_located((By.XPATH, locator)))
@@ -309,12 +378,51 @@ class Browser(object):
         :param driver: web_driver instance.
         :param delay: seconds to wait an element.
         :param locator: xpath of a element.
-        :return: web element.
+        :return: True if matches condition and False otherwise.
         """
         try:
             return self.driver_wait(driver, delay).until_not(ec.element_to_be_selected((By.XPATH, locator)))
         except Exception as e:
             print('{}: TimeoutException element still can be selected: {}'.format(self.__class__, e))
+
+    def wait_number_of_windows(self, driver, number, delay=+1):
+        """
+        Waits for new window to be opened.
+        :param driver: web_driver instance.
+        :param number: number of expected window opened.
+        :param delay: seconds to wait an element.
+        :return: True if matches condition and False otherwise.
+        """
+        try:
+            return self.driver_wait(driver, delay).until(ec.number_of_windows_to_be(number))
+        except Exception as e:
+            print('{}: TimeoutException element not visible: {}'.format(self.__class__, e))
+
+    def wait_url_contains(self, driver, _url, delay=+1):
+        """
+        Waits and checks if expected url is contains to current url.
+        :param driver: web_driver instance.
+        :param delay: seconds to wait an element.
+        :param _url: expected url. 
+        :return: True if matches condition and False otherwise.
+        """
+        try:
+            return self.driver_wait(driver, delay).until(ec.url_contains(_url))
+        except Exception as e:
+            print('{}: TimeoutException element not visible: {}'.format(self.__class__, e))
+
+    def wait_url_matches(self, driver, _url, delay=+1):
+        """
+        Waits and checks if expected url is matches to current url.
+        :param driver: web_driver instance.
+        :param delay: seconds to wait an element.
+        :param _url: expected url.
+        :return: True if matches condition and False otherwise.
+        """
+        try:
+            return self.driver_wait(driver, delay).until(ec.url_matches(_url))
+        except Exception as e:
+            print('{}: TimeoutException element not visible: {}'.format(self.__class__, e))
 
     def wait_element_visible(self, driver, locator, delay=+1):
         """
@@ -468,3 +576,10 @@ class Browser(object):
     #     self.driver_wait(delay)
     #     result = element.find_elements(locator).size() != 0
     #     return result
+
+
+class Actions(ActionChains):
+    def wait(self, delay: float):
+        self._actions.append(lambda: time.sleep(delay))
+        return self
+    
