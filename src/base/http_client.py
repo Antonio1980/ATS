@@ -53,12 +53,12 @@ class HTTPClient:
                         'TestRail API returned HTTP error' + str(response_error) + '"' + response.read()['error'] + '"')
             return result
         elif self.authorization is False:
-            # User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
             if method == 'POST':
                 data = urllib.parse.urlencode(data)
                 url_encoded = url + "{0}".format(data)
                 request.add_header('User-Agent',
-                                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36')
+                                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                                   'Chrome/67.0.3396.99 Safari/537.36')
                 request.add_header('Cookie', 'PHPSESSID=' + _token)
                 try:
                     response = urllib.request.urlopen(url_encoded)
@@ -67,7 +67,8 @@ class HTTPClient:
             elif method == 'GET':
                 request.add_header('Content-Type', 'application/json')
                 request.add_header('User-Agent',
-                                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36')
+                                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                                   'Chrome/67.0.3396.99 Safari/537.36')
                 if _token:
                     request.add_header('Cookie', 'PHPSESSID=' + _token)
                 try:
@@ -79,14 +80,13 @@ class HTTPClient:
                 cookie = response.getheader('Set-Cookie')
                 try:
                     body = json.loads(response.read())
-                except JSONDecodeError as e:
+                except JSONDecodeError:
                     body = response.read().decode('utf-8')
                 result = [status, body, cookie]
             if response_error:
                 if result and 'error' in result:
                     raise APIError(
-                        'Guerrilla API returned HTTP error' + str(response_error) + '"' + response.read()[
-                            'error'] + '"')
+                        'Guerrilla API return HTTP error' + str(response_error) + '"' + response.read()['error'] + '"')
             return result
 
 

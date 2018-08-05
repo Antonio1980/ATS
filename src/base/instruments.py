@@ -26,10 +26,10 @@ guerrilla_client = HTTPClient(BaseConfig.GUERRILLA_API)
 
 def set_guerrilla_email(_username, _token):
     """
-    Get list of mails for guerrilla API.
-    :param _username:
-    :param _token:
-    :return:
+    Send POST request with given email address to guerrilla API.
+    :param _username: given username to set.
+    :param _token: API token.
+    :return: API response as Json.
     """
     return guerrilla_client.send_post('set_email_user', {'email_user': _username,
                                                              'lang': 'en', 'site': 'guerrillamail.com'}, _token)
@@ -37,7 +37,7 @@ def set_guerrilla_email(_username, _token):
 
 def get_guerrilla_emails(_username, _token):
     """
-    Get list of mails for guerrilla API.
+    Get list of mails from guerrilla API.
     :param _username:
     :param _token:
     :return:
@@ -47,7 +47,7 @@ def get_guerrilla_emails(_username, _token):
 
 def check_guerrilla_email(_time_stamp, _token):
     """
-    Get list of mails for guerrilla API.
+    Get list of mails from guerrilla API.
     :param _time_stamp: email time-stamp passes as part of url.
     :param _token: guerrilla API token.
     :return:
