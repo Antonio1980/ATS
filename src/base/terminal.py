@@ -1,9 +1,15 @@
+"""
+Author: Anton Shipulin.
+Created: 01.08.2018
+Version: 1.05
+"""
+
 import os as _os
 import subprocess
 from test_definitions import BaseConfig
 from src.repository import repository_dir
 from src.base.enums import OperationSystem
-from src.base.instruments import detect_os, write_file_output
+from src.base.instruments import Instruments
 
 
 test_utils_dir = _os.path.abspath(_os.path.dirname(__file__))
@@ -28,10 +34,10 @@ SEND_MAIL_REPORT = ['mail -s  "Report Postman" antons@coins.exchange < ']
 NEWMAN_RUN2 = 'newman run ' + COLLECTION + ' -r cli,json --reporter-json-export ' + NEWMAN_REPORTER_OUTPUT
 
 
-class Terminal(object):
+class Terminal:
     @classmethod
     def set_up_class(cls):
-        if detect_os() == OperationSystem.WINDOWS.value:
+        if Instruments.detect_os() == OperationSystem.WINDOWS.value:
             print("It's Windows OS.   ")
         else:
             print("It's kind of Unix OS.   ")
@@ -67,7 +73,7 @@ class Terminal(object):
             proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True).communicate(
                 timeout=100)[0]
             process = proc.decode("utf-8")
-            write_file_output(process, file)
+            Instruments.write_file_output(process, file)
             return process
         except subprocess.TimeoutExpired:
             raise TimeoutError

@@ -1,9 +1,11 @@
 import re
 import string
 import random
+import time
+
 from src.base.browser import Browser
 from test_definitions import BaseConfig
-from src.base.instruments import get_account_details
+from src.base.instruments import Instruments
 from tests.tests_crm_bo.locators.base_page_locators import BasePageLocators
 
 
@@ -13,8 +15,16 @@ class BasePage(Browser, BaseConfig):
         self.base_locators = BasePageLocators()
         self.crm_base_url = self.CRM_STAGING_URL
         # data_file, row, column1, column2, column3
-        self.account_details = get_account_details(self.WTP_TESTS_CUSTOMERS, 0, 0, 1, 2)
+        self.account_details = Instruments.get_account_details(self.WTP_TESTS_CUSTOMERS, 0, 0, 1, 2)
         self.customer_id = self.account_details['customer_username']
+
+    def go_back_and_wait(self, driver, previous_url):
+        delay = 5
+        self.go_back(driver)
+        if self.wait_url_contains(driver, previous_url, delay):
+            return True
+        else:
+            return False
 
     def email_generator(self, size=8, chars=string.ascii_lowercase):
         return ''.join(random.choice(chars) for _ in range(size))
@@ -36,7 +46,7 @@ class BasePage(Browser, BaseConfig):
         email_item = self.search_element(driver, self.base_locators.FIRST_EMAIL, delay)
         self.click_on_element(email_item)
         # 0 - get_token for forgot password, 1 - get_token (new password) for regenerate password,
-        # 2 - click on forgot_password, 3 - ?
+        # 2 - click on forgot_password, 3 - click on verify_email
         if action == 0 or action == 1:
             return self._get_token(driver, action)
         elif action == 2 or action == 3:

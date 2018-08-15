@@ -9,7 +9,7 @@ from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from tests.tests_crm_bo.pages.customer_page import CustomerPage
 from src.drivers.webdriver_factory import WebDriverFactory
-from src.base.instruments import write_file_result, update_test_case
+from src.base.instruments import Instruments
 
 
 @test(groups=['customer_page', ])
@@ -34,11 +34,11 @@ class AddNewLeadTest(unittest.TestCase):
 
         finally:
             if result1 and result2 and result3 is True:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
-                update_test_case(self.test_run, self.test_case, 1)
+                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.CRM_TESTS_RESULT)
+                Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
-                update_test_case(self.test_run, self.test_case, 0)
+                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.CRM_TESTS_RESULT)
+                Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDown(cls):

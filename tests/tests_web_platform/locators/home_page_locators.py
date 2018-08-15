@@ -1,2 +1,2 @@
 class HomePageLocators(object):
-    pass
+    LOG_OUT_BUTTON = "//button[@class='logoutButton']"

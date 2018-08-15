@@ -1,3 +1,6 @@
+import re
+
+from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.pages import create_user_page_url, user_index_page_url
 from tests.tests_crm_bo.locators.create_user_page_locators import CreateUserPageLocators
@@ -6,10 +9,15 @@ from tests.tests_crm_bo.locators.create_user_page_locators import CreateUserPage
 class CreateUserPage(BasePage):
     def __init__(self):
         super(CreateUserPage, self).__init__()
-        self.first_last_name = "QA_test_QA"
         self.locators = CreateUserPageLocators()
-        self.email_prefix = self.email_generator()
-        self.email = self.email_prefix + "@guerrillamailblock.com"
+        self.phone = Instruments.generate_phone_number()
+        self.username = Instruments.generate_user_first_last_name()
+        self.first_last_name = Instruments.generate_pure_user_first_last_name()
+        self.response = Instruments.get_guerrilla_email()
+        self.email = self.response[1]['email_addr']
+        self.guerrilla_username = re.findall(r"([\w.-]+)", self.email)[0]
+        self.sid_token = self.response[1]['sid_token']
+        self.time_stamp = str(self.response[1]['email_timestamp'])
 
     def fill_user_details(self, driver, email, user_details):
         delay = 5
@@ -33,14 +41,12 @@ class CreateUserPage(BasePage):
             username_field = self.find_element_by(driver, self.locators.USERNAME_ID, "id")
             self.click_on_element(username_field)
             self.send_keys(username_field, username)
-            self.choose_option_from_dropdown(driver, self.locators.LANGUAGE_DROPDOWN, self.locators.LANGUAGE_TEXT_FIELD,
-                                             language)
+            # self.choose_option_from_dropdown(driver, self.locators.LANGUAGE_DROPDOWN, self.locators.LANGUAGE_TEXT_FIELD, language, delay - 3)
             self.choose_option_from_dropdown(driver, self.locators.PERMISSION_GROUP_DROPDOWN,
-                                             self.locators.PERMISSION_GROUP_TEXT_FIELD, permissions)
-            self.choose_option_from_dropdown(driver, self.locators.STATUS_DROPDOWN, self.locators.STATUS_TEXT_FIELD,
-                                             status)
+                                             self.locators.PERMISSION_GROUP_TEXT_FIELD, permissions, delay - 3)
+            # self.choose_option_from_dropdown(driver, self.locators.STATUS_DROPDOWN, self.locators.STATUS_TEXT_FIELD, status, delay - 3)
             self.choose_option_from_dropdown(driver, self.locators.USER_TYPE_DROPDOWN,
-                                             self.locators.USER_TYPE_TEXT_FIELD, user_type)
+                                             self.locators.USER_TYPE_TEXT_FIELD, user_type, delay - 3)
             create_user_button = self.find_element_by(driver, self.locators.CREATE_USER_BUTTON_ID, "id")
             self.click_on_element(create_user_button)
         finally:

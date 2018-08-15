@@ -6,9 +6,9 @@ from proboscis import test
 from ddt import ddt, data, unpack
 from src.base.enums import Browsers
 from test_definitions import BaseConfig
+from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
-from src.base.instruments import write_file_result, update_test_case, get_csv_data
 
 
 @ddt
@@ -19,24 +19,23 @@ class ForgotPasswordDDTTest(unittest.TestCase):
         cls.test_case = '2694'
         cls.login_page = LogInPage()
         cls.test_run = cls.login_page.TESTRAIL_RUN
-        cls.results = cls.login_page.CRM_TESTS_RESULT
+        cls.results_file = cls.login_page.CRM_TESTS_RESULT
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', 'negative', ])
-    @data(*get_csv_data(BaseConfig.FORGOT_PASSWORD_DATA))
+    @data(*Instruments.get_csv_data(BaseConfig.FORGOT_PASSWORD_DATA))
     @unpack
     def test_forgot_password_ddt(self, email):
-        delay = 1
-        result = True
+        step1 = True
         try:
-            result = self.login_page.forgot_password(self.driver, email)
+            step1 = self.login_page.forgot_password(self.driver, email)
         finally:
-            if result is False:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
-                update_test_case(self.test_run, self.test_case, 1)
+            if step1 is False:
+                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
+                Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
-                update_test_case(self.test_run, self.test_case, 0)
+                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
+                Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDownClass(cls):

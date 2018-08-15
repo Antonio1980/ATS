@@ -4,9 +4,9 @@
 import unittest
 from proboscis import test
 from src.base.enums import Browsers
+from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
-from src.base.instruments import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signin_page import SignInPage
 from tests.tests_web_platform.locators.signin_page_locators import SignInPageLocators
 
@@ -28,10 +28,10 @@ class LogInWithoutCaptchaTest(unittest.TestCase):
     @test(groups=['smoke', 'functional', 'negative', ])
     def test_sign_in_negative(self):
         delay = 1
-        result1, result2 = False, False
+        step1, step2 = False, False
         try:
-            result1 = self.home_page.open_login_page(self.driver, delay)
-            self.login_page.wait_driver(self.driver, delay + 3)
+            step1 = self.home_page.open_signin_page(self.driver, delay)
+            self.login_page.wait_driver(,, self.driver, delay + 3
             username_field = self.login_page.find_element(self.driver, self.locators.USERNAME_FIELD)
             self.login_page.click_on_element(username_field)
             self.login_page.send_keys(username_field, self.email)
@@ -44,14 +44,14 @@ class LogInWithoutCaptchaTest(unittest.TestCase):
             self.login_page.click_on_element(login_button)
             self.login_page.driver_wait(self.driver, delay + 2)
             if self.login_page.find_element(self.driver, self.locators.CAPTCHA_ERROR):
-                result2 = True
+                step2 = True
         finally:
-            if result1 and result2 is True:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
-                update_test_case(self.test_run, self.test_case, 1)
+            if step1 and step2 is True:
+                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
+                Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
-                update_test_case(self.test_run, self.test_case, 0)
+                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
+                Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDownClass(cls):

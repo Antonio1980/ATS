@@ -21,6 +21,8 @@ from tests.tests_web_platform.signup_tests.C3690_signup_test import SignUpTest
 from tests.tests_web_platform.signup_tests.C4431_signup_page_ui_test import SignUpPageUITest
 from tests.tests_web_platform.signup_tests.C4432_links_on_signup_page_test import LinksOnSignUpPageTest
 from tests.tests_web_platform.signup_tests.C3750_sign_up_full_flow_test import SignUpFullFlowTest
+from tests.tests_web_platform.signup_tests.C3750_sign_up_with_guerrilla_full_flow_test import SignUpFullFlowGuerrillaTest
+from tests.tests_web_platform.signup_tests.C3750_signup_with_redis_full_flow_test import SignUpFullFlowRedisTest
 
 
 # loading test cases
@@ -47,18 +49,20 @@ signup = unittest.TestLoader().loadTestsFromTestCase(SignUpTest)
 signup_ui = unittest.TestLoader().loadTestsFromTestCase(SignUpPageUITest)
 signup_links = unittest.TestLoader().loadTestsFromTestCase(LinksOnSignUpPageTest)
 signup_full_flow = unittest.TestLoader().loadTestsFromTestCase(SignUpFullFlowTest)
+signup_with_redis = unittest.TestLoader().loadTestsFromTestCase(SignUpFullFlowRedisTest)
+signup_with_guerrilla = unittest.TestLoader().loadTestsFromTestCase(SignUpFullFlowGuerrillaTest)
 
 # test suites
 forgot_password_suite = unittest.TestSuite([forgot_password_ui, forgot_password_ddt, wrong_email, reset_password,
                                             forgot_full_flow, ])
 login_suite = unittest.TestSuite([login_ui, login, login_ddt, login_links, login_without_captcha, ])
 signup_suite = unittest.TestSuite([signup_email_links, signup_ddt, email_screen_ui, signup, signup_ui, signup_links,
-                                   signup_full_flow, ])
+                                   signup_full_flow, signup_with_redis, signup_with_guerrilla, ])
 
 # execute test suites according "one by one" ordering.
-unittest.TextTestRunner(verbosity=2).run(login_suite)
-unittest.TextTestRunner(verbosity=2).run(forgot_password_suite)
-unittest.TextTestRunner(verbosity=2).run(signup_suite)
+# unittest.TextTestRunner(verbosity=2).run(login_suite)
+# unittest.TextTestRunner(verbosity=2).run(forgot_password_suite)
+# unittest.TextTestRunner(verbosity=2).run(signup_suite)
 
 
 

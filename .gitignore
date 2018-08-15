@@ -36,6 +36,16 @@ Temporary Items
 .idea/**/tasks.xml
 .idea/dictionaries
 *.log
+*/wtp_tests_result.csv
+*/crm_tests_result.csv
+*/test_run_log.txt
+*/wtp_log.log
+*/crm_log.log
+*/*/wtp_tests_result.csv
+*/*/crm_tests_result.csv
+*/*/test_run_log.txt
+*/*/wtp_log.log
+*/*/crm_log.log
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
@@ -58,6 +68,11 @@ cmake-build-debug/
 
 ## File-based project format:
 *.iws
+wtp_tests_result.csv
+crm_tests_result.csv
+test_run_log.txt
+wtp_log.log
+crm_log.log
 
 ## Plugin-specific files:
 

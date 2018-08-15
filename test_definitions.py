@@ -55,6 +55,9 @@ class BaseConfig(object):
     WTP_LOG_FILE = repository_dir + parser.get('TEST_DATA', 'wtp_log_file')
     CRM_DEPOSIT_DETAILS = repository_dir + parser.get('TEST_DATA', 'deposit_details_data')
     CRM_USERS_PRECONDITIONS = repository_dir + parser.get('TEST_DATA', 'crm_users_preconditions')
+    CRM_NEW_PASSWORD_DATA = repository_dir + parser.get('TEST_DATA', 'new_password_data')
+    CRM_TESTS_USERS_UNCOMPLETED = repository_dir + parser.get('TEST_DATA', 'crm_tests_users_uncompleted')
+    BROWSERS = repository_dir + parser.get('TEST_DATA', 'browsers')
 
     DB_HOST = parser.get('DATA_BASE', 'host')
     DB_PORT = parser.get('DATA_BASE', 'port')

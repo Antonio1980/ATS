@@ -1,4 +1,4 @@
-import time
+from tests.tests_web_platform.pages import user_page_url
 from tests.tests_web_platform.pages.base_page import BasePage
 from tests.tests_web_platform.locators.signup_page_locators import SignUpPageLocators
 
@@ -20,7 +20,7 @@ class SignUpPage(BasePage):
     def fill_signup_form(self, driver, first_last_name, email, password, _element=None):
         delay = 5
         try:
-            assert self.get_cur_url(driver) == self.wtp_open_account_url
+            assert self.wait_url_contains(driver, self.wtp_open_account_url, delay)
             firstname_field = self.find_element(driver, self.locators.FIRST_NAME_FIELD)
             self.click_on_element(firstname_field)
             self.send_keys(firstname_field, first_last_name)
@@ -47,12 +47,12 @@ class SignUpPage(BasePage):
                 return False
 
     def signup_ui_test(self, driver, delay=+1):
-        assert self.get_cur_url(driver) == self.wtp_open_account_url
+        assert self.wait_url_contains(driver, self.wtp_open_account_url, delay + 3)
         assert self.wait_element_presented(driver, self.locators.FIRST_NAME_FIELD, delay)
         assert self.wait_element_presented(driver, self.locators.LAST_NAME_FIELD, delay)
         assert self.wait_element_presented(driver, self.locators.EMAIL_FIELD, delay)
         assert self.wait_element_presented(driver, self.locators.PASSWORD_FIELD, delay)
-        assert self.wait_element_presented(driver, self.locators.CAPTCHA_FRAME, delay)
+        assert self.wait_element_presented(driver, self.locators.CAPTCHA_FRAME, delay + 5)
         assert self.wait_element_presented(driver, self.locators.NEWSLETTERS_CHECKBOX, delay)
         assert self.wait_element_presented(driver, self.locators.CERTIFY_CHECKBOX, delay)
         assert self.wait_element_presented(driver, self.locators.TERM_OF_USE_LINK, delay)
@@ -62,7 +62,7 @@ class SignUpPage(BasePage):
         return True
 
     def verify_email_screen_test(self, driver, delay=+1):
-        assert self.get_cur_url(driver) == self.wtp_open_account_url
+        assert self.wait_url_contains(driver, self.wtp_open_account_url, delay)
         assert self.wait_element_presented(driver, self.locators.EMAIL_NOT_ARRIVED, delay)
         assert self.wait_element_presented(driver, self.locators.EMAIL_ALREADY_VERIFIED, delay)
         assert self.wait_element_presented(driver, self.locators.GO_BACK_LINK, delay)
@@ -72,7 +72,7 @@ class SignUpPage(BasePage):
         # 1 - Email verified link, 2 - Go back link, 3 - Resend email
         delay = 3
         try:
-            assert self.wtp_open_account_url == self.get_cur_url(driver)
+            assert self.wait_url_contains(driver, self.wtp_open_account_url, delay)
             if option == 1:
                 element = self.find_element(driver, self.locators.EMAIL_ALREADY_VERIFIED)
             elif option == 2:
@@ -81,7 +81,7 @@ class SignUpPage(BasePage):
                 element = self.find_element(driver, self.locators.EMAIL_NOT_ARRIVED)
             self.click_on_element(element)
         finally:
-            if self.get_cur_url(driver) == url_to_check:
+            if self.wait_url_contains(driver, url_to_check, delay):
                 return True
             else:
                 return False
@@ -90,7 +90,7 @@ class SignUpPage(BasePage):
         # 1 - Terms link, 2 - Privacy link
         delay = 3
         try:
-            assert self.wtp_open_account_url == self.get_cur_url(driver)
+            assert self.wait_url_contains(driver, self.wtp_open_account_url, delay)
             if option == 1:
                 element = self.find_element(driver, self.locators.TERM_OF_USE_LINK)
             else:
@@ -98,12 +98,12 @@ class SignUpPage(BasePage):
             self.click_on_element(element)
         finally:
             if option == 1:
-                if self.get_cur_url(driver) == self.terms_url:
+                if self.wait_url_contains(driver, self.terms_url, delay):
                     return True
                 else:
                     return False
             else:
-                if self.get_cur_url(driver) == self.privacy_url:
+                if self.wait_url_contains(driver, self.privacy_url, delay):
                     return True
                 else:
                     return False
@@ -111,8 +111,7 @@ class SignUpPage(BasePage):
     def add_phone(self, driver, phone):
         delay = 5
         try:
-            self.wait_driver(driver, delay)
-            assert self.wtp_open_account_url == self.get_cur_url(driver)
+            assert self.wait_url_contains(driver, self.wtp_open_account_url, delay)
             country_dropdown = self.find_element(driver, self.locators.SELECT_COUNTRY_DROPDOWN)
             self.click_on_element(country_dropdown)
             self.type_text_by_locator(driver, self.locators.SELECT_COUNTRY_FIELD, "isra")
@@ -129,8 +128,7 @@ class SignUpPage(BasePage):
     def enter_phone_code(self, driver, code):
         delay = 5
         try:
-            self.wait_driver(driver, delay)
-            assert self.wtp_open_account_url == self.get_cur_url(driver)
+            assert self.wait_url_contains(driver, self.wtp_open_account_url, delay)
             code_field = self.find_element(driver, self.locators.CODE_FIELD)
             self.click_on_element(code_field)
             self.send_keys(code_field, code)
@@ -143,12 +141,11 @@ class SignUpPage(BasePage):
             else:
                 return False
 
-    def go_by_token_url(self, driver, token):
+    def go_by_token_url(self, driver, url):
         delay = 5
-        if token is not None:
+        if url is not None:
             try:
-                self.driver_wait(driver, delay)
-                self.go_to_url(driver, token)
+                self.go_to_url(driver, url)
             finally:
                 if self.wait_element_clickable(driver, self.locators.SEND_BUTTON, delay + 5):
                     return True
@@ -219,7 +216,7 @@ class SignUpPage(BasePage):
             else:
                 return False
 
-    def fill_client_checklist_2(self, driver, value):
+    def fill_client_checklist_2(self, driver):
         delay = 5
         try:
             annual_dropdown = self.find_element(driver, self.locators.ANNUAL_INCOME)
@@ -252,9 +249,8 @@ class SignUpPage(BasePage):
             document_3 = self.find_element(driver, self.locators.DOCUMENT_3)
             self.execute_js(driver, self.script_document_3)
             self.send_keys(document_3, self.DOCUMENT_JPG)
-            #time.sleep(3)
             next_button = self.wait_element_clickable(driver, self.locators.NEXT_BUTTON_CHECKLIST3, delay)
-            self.click_on_element(next_button)
+            self.try_click(driver, next_button, delay - 3)
         finally:
             if self.wait_element_clickable(driver, self.locators.FINISH_BUTTON, delay):
                 return True
@@ -267,7 +263,7 @@ class SignUpPage(BasePage):
             finish_button = self.find_element(driver, self.locators.FINISH_BUTTON)
             self.click_on_element(finish_button)
         finally:
-            if self.wait_element_clickable(driver, self.base_locators.SIGN_UP_BUTTON, delay):
+            if self.wait_url_contains(driver, user_page_url, delay):
                 return True
             else:
                 return False

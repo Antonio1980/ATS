@@ -10,7 +10,7 @@ from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_crm_bo.pages.customer_page import CustomerPage
-from src.base.instruments import write_file_result, update_test_case, get_csv_data
+from src.base.instruments import Instruments
 
 
 @ddt
@@ -30,7 +30,7 @@ class CustomerUpgradeStatusTest(unittest.TestCase):
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', ])
-    @data(*get_csv_data(BaseConfig.CRM_DEPOSIT_DETAILS))
+    @data(*Instruments.get_csv_data(BaseConfig.CRM_DEPOSIT_DETAILS))
     @unpack
     def test_customer_status_upgrade(self, payment_option, company_option, status_option, currency_option, deposit_amount):
         customer_status = 'Depositor'
@@ -44,11 +44,11 @@ class CustomerUpgradeStatusTest(unittest.TestCase):
             result4 = self.customer_page.check_customer_icon(self.driver)
         finally:
             if result1 and result2 and result3 is True and result4 == customer_status:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
-                update_test_case(self.test_run, self.test_case, 1)
+                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
+                Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
-                update_test_case(self.test_run, self.test_case, 0)
+                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
+                Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDown(cls):

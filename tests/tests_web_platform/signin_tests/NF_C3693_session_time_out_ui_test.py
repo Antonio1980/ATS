@@ -5,9 +5,9 @@ import unittest
 from proboscis import test
 from src.base.enums import Browsers
 from test_definitions import BaseConfig
+from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
-from src.base.instruments import write_file_result, update_test_case
 from tests.tests_web_platform.pages.signin_page import SignInPage
 
 
@@ -28,16 +28,16 @@ class SessionTimeOutUITest(unittest.TestCase):
         delay = 1
         result1, result2, result3 = False, False, False
         try:
-            result1 = self.home_page.open_login_page(self.driver, delay)
+            result1 = self.home_page.open_signin_page(self.driver, delay)
             result2 = self.login_page.sign_in(self.driver, self.email, self.password)
             result3 = ""
         finally:
             if result1 and result2 and result3 is True:
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
-                update_test_case(self.test_run, self.test_case, 1)
+                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
+                Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
-                update_test_case(self.test_run, self.test_case, 0)
+                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
+                Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     def tearDownClass(cls):

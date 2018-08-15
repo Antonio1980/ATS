@@ -7,7 +7,7 @@ from proboscis import test
 from src.base.enums import Browsers
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
-from src.base.instruments import write_file_result, update_test_case
+from src.base.instruments import Instruments
 
 
 # High level tests ordering - per page.
@@ -27,7 +27,7 @@ class LogInTest(unittest.TestCase):
         cls.username = cls.login_page.login_username
         cls.password = cls.login_page.login_password
         cls.test_run = cls.login_page.TESTRAIL_RUN
-        cls.results = cls.login_page.CRM_TESTS_RESULT
+        cls.results_file = cls.login_page.CRM_TESTS_RESULT
         # Set up browser via WebDriverFactory class.
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
@@ -36,23 +36,23 @@ class LogInTest(unittest.TestCase):
     # Test method, name must start with "test..."
     def test_login_positive(self):
         # Test result before execution.
-        result = False
+        step1 = False
         try:
             # Calling login_positive method from LogInPage class,
             # If sign_in passed successfully it will return True.
-            result = self.login_page.login(self.driver, self.username, self.password)
+            step1 = self.login_page.login(self.driver, self.username, self.password)
         finally:
             # Result validation.
-            if result is True:
+            if step1 is True:
                 # Save test result into csv file.
-                write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
+                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 # Update test rail report with "Passed".
-                update_test_case(self.test_run, self.test_case, 1)
+                Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
                 # Save test result into csv file.
-                write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
+                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 # Update test rail report with "Failure".
-                update_test_case(self.test_run, self.test_case, 0)
+                Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod
     # CleanUp method executes after test.

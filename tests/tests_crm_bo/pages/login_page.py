@@ -1,4 +1,4 @@
-from src.base.instruments import get_account_details
+from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.locators.home_page_locators import HomePageLocators
 from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
@@ -13,10 +13,13 @@ class LogInPage(BasePage):
         self.login_email = "roman@spotoption.com"
         self.locators = LogInPageLocators()
         # data_file, row, column1, column2, column3
-        self.account_details = get_account_details(self.CRM_TESTS_USERS, 0, 0, 1, 2)
+        self.account_details = Instruments.get_account_details(self.CRM_TESTS_USERS, 0, 0, 1, 2)
         self.email = self.account_details['email']
         self.password = self.account_details['password']
         self.username = self.account_details['customer_username']
+        rows = Instruments.run_mysql_query("SELECT email, username FROM local_users where status = 'Active';")
+        self.forgotten_email = rows[3][0]
+        self.forgotten_username = rows[3][1]
         self.email_text = "An email has been sent to {0} which is the email address for your account. " \
                           "It includes information on changing and confirming your new password. " \
                           "Please reset your password within the next 24 hours.".format(self.email)
