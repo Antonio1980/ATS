@@ -1,3 +1,5 @@
+from src.base.instruments import Instruments
+from test_definitions import BaseConfig
 from tests.tests_web_platform.pages import user_page_url
 from tests.tests_web_platform.pages.base_page import BasePage
 from tests.tests_web_platform.locators.signup_page_locators import SignUpPageLocators
@@ -8,20 +10,19 @@ class SignUpPage(BasePage):
         super(SignUpPage, self).__init__()
         self.phone = "0528259547"
         self.password = "1Aa@<>12"
-        self.username = "QA_test_QA"
-        self.suffix = "@mailinator.com"
-        self.prefix = self.email_generator()
         self.locators = SignUpPageLocators()
-        self.email = self.prefix + self.suffix
+        self.guerrilla_email = Instruments.get_guerrilla_email()[1]['email_addr']
+        self.username = self.guerrilla_email.split('@')[0]
         self.terms_url = self.wtp_base_url + "/termsOfUse.html"
         self.privacy_url = self.wtp_base_url + "/privacyPolicy.html"
-        self.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(self.email)
+        self.pure_username = Instruments.generate_pure_user_first_last_name()
+        self.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(self.guerrilla_email)
 
     def fill_signup_form(self, driver, first_last_name, email, password, _element=None):
         delay = 5
         try:
             assert self.wait_url_contains(driver, self.wtp_open_account_url, delay)
-            firstname_field = self.find_element(driver, self.locators.FIRST_NAME_FIELD)
+            firstname_field = self.search_element(driver, self.locators.FIRST_NAME_FIELD, delay)
             self.click_on_element(firstname_field)
             self.send_keys(firstname_field, first_last_name)
             lastname_field = self.find_element(driver, self.locators.LAST_NAME_FIELD)
@@ -48,7 +49,7 @@ class SignUpPage(BasePage):
 
     def signup_ui_test(self, driver, delay=+1):
         assert self.wait_url_contains(driver, self.wtp_open_account_url, delay + 3)
-        assert self.wait_element_presented(driver, self.locators.FIRST_NAME_FIELD, delay)
+        assert self.wait_element_presented(driver, self.locators.FIRST_NAME_FIELD, delay + 5)
         assert self.wait_element_presented(driver, self.locators.LAST_NAME_FIELD, delay)
         assert self.wait_element_presented(driver, self.locators.EMAIL_FIELD, delay)
         assert self.wait_element_presented(driver, self.locators.PASSWORD_FIELD, delay)
@@ -242,13 +243,13 @@ class SignUpPage(BasePage):
         try:
             document_1 = self.find_element(driver, self.locators.DOCUMENT_1)
             self.execute_js(driver, self.script_document_1)
-            self.send_keys(document_1, self.DOCUMENT_JPG)
+            self.send_keys(document_1, BaseConfig.DOCUMENT_JPG)
             document_2 = self.find_element(driver, self.locators.DOCUMENT_2)
             self.execute_js(driver, self.script_document_2)
-            self.send_keys(document_2, self.DOCUMENT_JPG)
+            self.send_keys(document_2, BaseConfig.DOCUMENT_JPG)
             document_3 = self.find_element(driver, self.locators.DOCUMENT_3)
             self.execute_js(driver, self.script_document_3)
-            self.send_keys(document_3, self.DOCUMENT_JPG)
+            self.send_keys(document_3, BaseConfig.DOCUMENT_JPG)
             next_button = self.wait_element_clickable(driver, self.locators.NEXT_BUTTON_CHECKLIST3, delay)
             self.try_click(driver, next_button, delay - 3)
         finally:

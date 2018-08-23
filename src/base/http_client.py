@@ -61,21 +61,21 @@ class HTTPClient:
             return result
         elif self.authorization is False:
             if method == 'POST':
-                data = urllib.parse.urlencode(data)
-                url_encoded = url + "{0}".format(data)
+                data = urllib.parse.urlencode(data).encode()
+                #url_encoded = url + "{0}".format(data)
                 request.add_header('User-Agent',
-                                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                                   'Chrome/67.0.3396.99 Safari/537.36')
-                request.add_header('Cookie', 'PHPSESSID=' + _token)
+                                   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36')
+                request.add_header('Content-Type', 'application/x-www-form-urlencoded')
+                if _token:
+                    request.add_header('Cookie', 'PHPSESSID=' + _token)
                 try:
-                    response = urllib.request.urlopen(url_encoded)
+                    response = urllib.request.urlopen(url, data)
                 except urllib.error.HTTPError as e:
                     response_error = e.read()
             elif method == 'GET':
                 request.add_header('Content-Type', 'application/json')
                 request.add_header('User-Agent',
-                                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                                   'Chrome/67.0.3396.99 Safari/537.36')
+                                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36')
                 if _token:
                     request.add_header('Cookie', 'PHPSESSID=' + _token)
                 try:

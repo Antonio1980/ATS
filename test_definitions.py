@@ -33,6 +33,7 @@ class BaseConfig(object):
     WTP_INTEGRATION_URL = parser.get('BASE_URL', 'wtp_integration_url')
     WTP_STAGING_URL = parser.get('BASE_URL', 'wtp_staging_url')
     GUERRILLA_API = parser.get('BASE_URL', 'guerrilla_api')
+    BROWSER_STACK = parser.get('BASE_URL', 'browser_stack_url')
 
     W_CHROME_PATH = drivers_dir + parser.get('WEB_DRIVER_WIN', 'w_chrome')
     W_FIREFOX_PATH = drivers_dir + parser.get('WEB_DRIVER_WIN', 'w_firefox')
@@ -59,12 +60,15 @@ class BaseConfig(object):
     CRM_TESTS_USERS_UNCOMPLETED = repository_dir + parser.get('TEST_DATA', 'crm_tests_users_uncompleted')
     BROWSERS = repository_dir + parser.get('TEST_DATA', 'browsers')
 
-    DB_HOST = parser.get('DATA_BASE', 'host')
-    DB_PORT = parser.get('DATA_BASE', 'port')
-    DB_USERNAME = parser.get('DATA_BASE', 'username')
-    DB_PASSWORD = parser.get('DATA_BASE', 'password')
-    DB_NAME = parser.get('DATA_BASE', 'db_name')
-    DB_TABLE = parser.get('DATA_BASE', 'db_table')
+    SQL_HOST = parser.get('SQL', 'host')
+    SQL_PORT = parser.get('SQL', 'port')
+    SQL_USERNAME = parser.get('SQL', 'username')
+    SQL_PASSWORD = parser.get('SQL', 'password')
+    SQL_DB = parser.get('SQL', 'db_name')
+    SQL_TABLE = parser.get('SQL', 'db_table')
+
+    REDIS_HOST = parser.get('REDIS', 'host')
+    REDIS_PORT = parser.get('REDIS', 'port')
 
     DOCUMENT_JPG = repository_dir + parser.get('FILES', 'document_jpg')
     DOCUMENT_PNG = repository_dir + parser.get('FILES', 'document_png')
@@ -77,6 +81,3 @@ class BaseConfig(object):
     BIN_CARD_NUMBER = parser.get('CREDIT_CARD', 'bin_number')
     CC_CARD_NUMBER = parser.get('CREDIT_CARD', 'cc_number')
 
-
-if __name__ == '__main__':
-    print(BaseConfig().W_CHROME_PATH)

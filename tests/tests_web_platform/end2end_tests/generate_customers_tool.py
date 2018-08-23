@@ -4,6 +4,7 @@
 import random
 import pytest
 from src.base.enums import Browsers
+from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
@@ -12,7 +13,7 @@ from tests.tests_web_platform.pages.signup_page import SignUpPage
 generator = Instruments.generate_user_first_last_name()
 
 
-@pytest.mark.parametrize('i', range(50))
+@pytest.mark.parametrize('i', range(0))
 def test_generate_customers(i):
     orig_state = random.getstate()
     zip_ = "45263"
@@ -24,7 +25,7 @@ def test_generate_customers(i):
     signup_page = SignUpPage()
     username = generator()
     email = username + "@mailinator.com"
-    customers_file = home_page.WTP_TESTS_CUSTOMERS
+    customers_file = BaseConfig.WTP_TESTS_CUSTOMERS
     driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
     delay = 3
     customer_id, token = "", ""

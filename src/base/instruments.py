@@ -15,6 +15,7 @@ import pymysql
 import argparse
 import platform
 import requests
+import warnings
 import phonenumbers
 from faker import Faker
 from bs4 import BeautifulSoup
@@ -30,6 +31,30 @@ class Instruments(object):
     testrail_client = HTTPClient(BaseConfig.TESTRAIL_URL)
     # API client- connector for Guerrilla mail service.
     guerrilla_client = HTTPClient(BaseConfig.GUERRILLA_API)
+    # Redis client- connector for Redis DB.
+    redis_client = redis.StrictRedis(host=BaseConfig.REDIS_HOST, port=BaseConfig.REDIS_PORT, db=0)
+
+    @staticmethod
+    def run_mysql_query(query):
+        """
+        To run SQL query on MySQL DB.
+        :param query: SQL query.
+        :return: data from executed query.
+        """
+        # Ignore "Not closed socket connection" warning.
+        warnings.simplefilter("ignore", ResourceWarning)
+        # SQL client- connector for MySQL DB.
+        connection = pymysql.connect(host=BaseConfig.SQL_HOST, port=int(BaseConfig.SQL_PORT),
+                                     user=BaseConfig.SQL_USERNAME,
+                                     passwd=BaseConfig.SQL_PASSWORD, database=BaseConfig.SQL_DB, charset='utf8mb4')
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute(query)
+                rows = cursor.fetchall()
+                cursor.close()
+                return rows
+        finally:
+            connection.close()
 
     @staticmethod
     def get_guerrilla_mail(method, uri=None, _token=None):
@@ -58,85 +83,14 @@ class Instruments(object):
         return json.loads(_response.text)
 
     @staticmethod
-    def generate_token(size=16, chars=string.ascii_lowercase + string.digits):
+    def email_generator(size=8, chars=string.ascii_lowercase + string.digits):
         """
-        Generates token with 16 characters (digits and alphabetical lowercase).
-        :param size: token length.
-        :param chars: characters to apply.
-        :return: token string.
+        Generates random string with chars and digits.
+        :param size: string length expected (default is 8).
+        :param chars: string characters consistency.
+        :return: random string.
         """
         return ''.join(random.choice(chars) for _ in range(size))
-
-    @staticmethod
-    def run_mysql_query(query):
-        """
-        To run SQL query on MySQL DB.
-        :param query: SQL query.
-        :return: data from executed query.
-        """
-        _host = BaseConfig.DB_HOST
-        _db_name = BaseConfig.DB_NAME
-        _username = BaseConfig.DB_USERNAME
-        _password = BaseConfig.DB_PASSWORD
-        _port = 30002
-        connection = pymysql.connect(host=_host, port=_port, user=_username, passwd=_password, database=_db_name)
-        rows = None
-        try:
-            cursor = connection.cursor()
-            cursor.execute(query)
-            rows = cursor.fetchall()
-        finally:
-            connection.commit()
-            connection.close()
-            return rows
-
-    @staticmethod
-    def get_redis_value(key, host='10.100.1.11', port='30001'):
-        """
-        Connects to Redis DB to get value by provided key.
-        :param key: second part of the searched key (customer_id).
-        :param host: Redis DB host.
-        :param port: Redis DB port.
-        :return:
-        """
-        redis_db = redis.StrictRedis(host=host, port=port, db=0)
-        value = redis_db.get("phone:confirm:" + key)
-        return int(value)
-
-    @staticmethod
-    def get_redis_token(tokens_list, customer_id):
-        """
-        Connect to Redis and search for a key.
-        :param tokens_list: list of tokens.
-        :param customer_id: string of customer id registered.
-        :return: verification token if found.
-        """
-        redis_db = redis.StrictRedis(host='10.100.1.11', port='30001', db=0)
-        if tokens_list is not None:
-            def _get_redis_key(key):
-                value = redis_db.hgetall(key)
-                return value
-
-            for i in tokens_list:
-                _key = _get_redis_key(i)
-                if len(_key) != 0:
-                    if int(_key[b'customerId']) == int(customer_id):
-                        return i.split('_')[3]
-                else:
-                    continue
-
-    @staticmethod
-    def get_redis_keys(key, host='10.100.1.11', port='30001'):
-        """
-        Connects to Redis DB to get value by provided key.
-        :param key: second part of the searched key (customer_id).
-        :param host: Redis DB host.
-        :param port: Redis DB port.
-        :return:
-        """
-        redis_db = redis.StrictRedis(host=host, port=port, db=0)
-        keys_list = redis_db.keys(key)
-        return keys_list
 
     @staticmethod
     def parse_redis_token(tokens, pattern):
@@ -419,12 +373,80 @@ class Instruments(object):
         """
         return cls.testrail_client.send_get('get_case/' + test_case)
 
+    @classmethod
+    def add_customer_balance(cls, _customer_id, _currency_id, _balance):
+        """
+        Connects to Redis DB to set value by provided key:_customer_id.
+        :param _customer_id: key
+        :param _currency_id: Id of currency for balance
+        :param _balance: Amount of deposit
+        """
+        cur_balance = cls.redis_client.hget('balance_' + _customer_id, _currency_id)
+        added_balance = cls.redis_client.hincrby('balance_' + _customer_id, _currency_id, _balance)
+        if cur_balance is None:
+            cur_balance = 0
+        else:
+            cur_balance = int(cur_balance)
+            if added_balance == cur_balance + int(_balance):
+                print("Deposit was added successfully, current deposit: ", added_balance)
+                return True
+            else:
+                print("Error occurred...")
+                return False
+
+    @classmethod
+    def get_redis_value(cls, key):
+        """
+        Connects to Redis DB to get value by provided key.
+        :param key: second part of the searched key (customer_id).
+        :param host: Redis DB host.
+        :param port: Redis DB port.
+        :return:
+        """
+        value = cls.redis_client.get("phone:confirm:" + key)
+        return int(value)
+
+    @classmethod
+    def get_redis_token(cls, tokens_list, customer_id):
+        """
+        Connect to Redis and search for a key.
+        :param tokens_list: list of tokens.
+        :param customer_id: string of customer id registered.
+        :return: verification token if found.
+        """
+        if tokens_list is not None:
+            def _get_redis_key(key):
+                value = cls.redis_client.hgetall(key)
+                return value
+
+            for i in tokens_list:
+                _key = _get_redis_key(i)
+                if len(_key) != 0:
+                    if int(_key[b'customerId']) == int(customer_id):
+                        return i.split('_')[3]
+                else:
+                    continue
+
+    @classmethod
+    def get_redis_keys(cls, key):
+        """
+        Connects to Redis DB to get value by provided key.
+        :param key: second part of the searched key (customer_id).
+        :param host: Redis DB host.
+        :param port: Redis DB port.
+        :return:
+        """
+        keys_list = cls.redis_client.keys(key)
+        return keys_list
+
 
 # if __name__ == '__main__':
+#     res = Instruments.add_customer_balance('100001100000000115', '5', '1500')
+#     print(res)
 #     parsed_html = Instruments.parse_html('<table><tr><td>Dear Brianna Smith Brianna Smith</td></tr><tr><td>Your new password for the DX.exchange is: <span>oohQ9FtG2T</span></td></tr><tr><td>This is a temporary password for the next 24 hours.</td></tr><tr><td>Click <a href="http://staging-crm.dx.exchange/dx/login/">here</a> to login to the CRM with the temporary password.</td></tr><tr><td>Upon login, you will be asked to change the password to a permanent one.</td></tr></table>')
 #     new_pass = parsed_html.table.find_all('td')[1].span.string
 #     print(new_pass)
-    #new_password = parsed_html.tbody.find_all('td')[2]['span']
+#     new_password = parsed_html.tbody.find_all('td')[2]['span']
 #     instruments = Instruments()
 #     instruments.write_file_preconditions(10, "@mailinator.com")
 #     res = instruments.get_test_case('2590')

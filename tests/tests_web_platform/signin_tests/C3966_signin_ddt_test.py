@@ -20,11 +20,11 @@ class SignInDDTTest(unittest.TestCase):
         cls.test_case = '3966'
         cls.home_page = HomePage()
         cls.login_page = SignInPage()
-        cls.test_run = cls.login_page.TESTRAIL_RUN
-        cls.results = cls.login_page.WTP_TESTS_RESULT
+        cls.test_run = BaseConfig.TESTRAIL_RUN
+        cls.results = BaseConfig.WTP_TESTS_RESULT
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
-    @test(groups=['sanity', 'ddt', 'negative', ])
+    @test(groups=['sanity', 'ddt', 'negative', ], depends_on_groups=["smoke", ])
     @data(*Instruments.get_csv_data(BaseConfig.WTP_LOGIN_DATA))
     @unpack
     def test_sign_in_ddt(self, email, password):
@@ -35,10 +35,10 @@ class SignInDDTTest(unittest.TestCase):
             step2 = self.login_page.sign_in(self.driver, email, password)
         finally:
             if step1 and step2 is True:
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

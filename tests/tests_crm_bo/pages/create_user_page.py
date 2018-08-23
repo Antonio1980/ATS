@@ -1,5 +1,4 @@
 import re
-
 from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.pages import create_user_page_url, user_index_page_url
@@ -7,17 +6,19 @@ from tests.tests_crm_bo.locators.create_user_page_locators import CreateUserPage
 
 
 class CreateUserPage(BasePage):
+    password_message = "A temporary password will be created and an email will be send to the user with instructions to change it"
+
     def __init__(self):
         super(CreateUserPage, self).__init__()
         self.locators = CreateUserPageLocators()
-        self.phone = Instruments.generate_phone_number()
-        self.username = Instruments.generate_user_first_last_name()
-        self.first_last_name = Instruments.generate_pure_user_first_last_name()
         self.response = Instruments.get_guerrilla_email()
         self.email = self.response[1]['email_addr']
         self.guerrilla_username = re.findall(r"([\w.-]+)", self.email)[0]
         self.sid_token = self.response[1]['sid_token']
+        self.phone = Instruments.generate_phone_number()
         self.time_stamp = str(self.response[1]['email_timestamp'])
+        self.username = Instruments.generate_user_first_last_name()
+        self.first_last_name = Instruments.generate_pure_user_first_last_name()
 
     def fill_user_details(self, driver, email, user_details):
         delay = 5
@@ -47,7 +48,7 @@ class CreateUserPage(BasePage):
             # self.choose_option_from_dropdown(driver, self.locators.STATUS_DROPDOWN, self.locators.STATUS_TEXT_FIELD, status, delay - 3)
             self.choose_option_from_dropdown(driver, self.locators.USER_TYPE_DROPDOWN,
                                              self.locators.USER_TYPE_TEXT_FIELD, user_type, delay - 3)
-            create_user_button = self.find_element_by(driver, self.locators.CREATE_USER_BUTTON_ID, "id")
+            create_user_button = self.search_element(driver, self.locators.CREATE_USER_BUTTON, delay)
             self.click_on_element(create_user_button)
         finally:
             if self.wait_url_contains(driver, user_index_page_url, delay):

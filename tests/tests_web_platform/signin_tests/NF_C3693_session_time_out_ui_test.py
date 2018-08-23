@@ -3,6 +3,7 @@
 
 import unittest
 from proboscis import test
+from ddt import ddt, data, unpack
 from src.base.enums import Browsers
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
@@ -11,20 +12,22 @@ from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signin_page import SignInPage
 
 
+@ddt
 @test(groups=['sign_in_page', ])
 class SessionTimeOutUITest(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.home_page = HomePage()
-        cls.login_page = SignInPage()
-        cls.test_case = '3693'
-        cls.email = cls.login_page.email
-        cls.password = cls.login_page.password
-        cls.test_run = BaseConfig.TESTRAIL_RUN
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+    def setUp(self):
+        self.home_page = HomePage()
+        self.login_page = SignInPage()
+        self.test_case = '3693'
+        self.email = self.login_page.email
+        self.password = self.login_page.password
+        self.test_run = BaseConfig.TESTRAIL_RUN
 
     @test(groups=['smoke', 'gui', 'positive', ])
-    def test_session_time_out_ui(self):
+    @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
+    @unpack
+    def test_session_time_out_ui(self, browser):
+        self.driver = WebDriverFactory.get_browser(browser)
         delay = 1
         result1, result2, result3 = False, False, False
         try:
@@ -33,12 +36,11 @@ class SessionTimeOutUITest(unittest.TestCase):
             result3 = ""
         finally:
             if result1 and result2 and result3 is True:
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", BaseConfig.WTP_TESTS_RESULT)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", BaseConfig.WTP_TESTS_RESULT)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.login_page.close_browser(cls.driver)
+    def tearDown(self):
+        self.login_page.close_browser(self.driver)

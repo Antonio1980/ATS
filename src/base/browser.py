@@ -5,10 +5,10 @@ Version: 1.05
 """
 
 import time
+from src.base.enums import DriverHelper
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from src.base.enums import DriverHelper, Browsers
 from selenium.webdriver.support.select import Select
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
@@ -56,10 +56,7 @@ class Browser:
         :param driver: web_driver instance.
         :return: web_driver state.
         """
-        if driver.name == Browsers.CHROME.value:
-            return driver.implicitly_wait(delay)
-        elif driver.name == Browsers.FIREFOX.value:
-            return time.sleep(delay)
+        return driver.implicitly_wait(delay)
 
     @classmethod
     def get_cur_url(cls, driver):

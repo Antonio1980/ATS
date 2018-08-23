@@ -3,7 +3,9 @@
 
 import unittest
 from proboscis import test
-from src.base.enums import Browsers
+from ddt import ddt, data, unpack
+from src.base.browser import Browser
+from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
@@ -11,22 +13,24 @@ from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_crm_bo.pages import reset_password_url, user_index_page_url
 
 
+@ddt
 @test(groups=['login_page', ])
 class ChangePasswordNewUserTest(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.test_case = '3502'
-        cls.home_page = HomePage()
-        cls.login_page = LogInPage()
-        cls.forgotten_email = cls.login_page.forgotten_email
-        cls.forgotten_username = cls.login_page.forgotten_username
-        cls.test_run = cls.login_page.TESTRAIL_RUN
-        cls.users_file = cls.login_page.CRM_TESTS_USERS
-        cls.results_file = cls.login_page.CRM_TESTS_RESULT
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+    def setUp(self):
+        self.test_case = '3502'
+        self.home_page = HomePage()
+        self.login_page = LogInPage()
+        self.forgotten_email = self.login_page.forgotten_email
+        self.forgotten_username = self.login_page.forgotten_username
+        self.test_run = BaseConfig.TESTRAIL_RUN
+        self.users_file = BaseConfig.CRM_TESTS_USERS
+        self.results_file = BaseConfig.CRM_TESTS_RESULT
 
-    @test(groups=['sanity', 'functional', 'positive', ])
-    def test_login_with_new_password(self):
+    @test(groups=['sanity', 'positive', ], depends_on_groups=["smoke", ])
+    @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
+    @unpack
+    def test_login_with_new_password(self, browser):
+        self.driver = WebDriverFactory.get_browser(browser)
         delay, new_password = 5, None
         step1, step2, step3, step4, step5, step6, step7 = False, False, False, False, False, False, False
         try:
@@ -45,14 +49,14 @@ class ChangePasswordNewUserTest(unittest.TestCase):
             step7 = self.home_page.logout(self.driver, delay)
         finally:
             if step1 and step2 and step3 and step4 and step5 and step6 and step7 is True:
-                Instruments.write_file_user(self.forgotten_email + "," + new_password + "Qa" + "," + self.forgotten_username + "\n",
-                                self.users_file)
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
+                Instruments.write_file_user(
+                    self.forgotten_email + "," + new_password + "Qa" + "," + self.forgotten_username + "\n",
+                    self.users_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.login_page.close_browser(cls.driver)
+    def tearDown(self):
+        Browser.close_browser(self.driver)

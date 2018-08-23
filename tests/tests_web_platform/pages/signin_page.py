@@ -9,11 +9,10 @@ class SignInPage(BasePage):
     def __init__(self):
         super(SignInPage, self).__init__()
         self.locators = SignInPageLocators()
-        # 1- Data file, 2- Row, 3- First column, 4- Second column, 5- Third column
-        self.account_details = Instruments.get_account_details(self.WTP_TESTS_CUSTOMERS, 1, 0, 1, 2)
-        self.email = self.account_details['email']
-        self.password = self.account_details['password']
-        self.customer_id = self.account_details['customer_username']
+        rows = Instruments.run_mysql_query("SELECT email FROM customers WHERE status = 2 AND email LIKE '%guerrillamailblock%';")
+        self.email = rows[1][0]
+        self.username = self.email.split('@')[0]
+        self.password = '1Aa@<>12'
 
     def sign_in(self, driver, email, password):
         delay = 5

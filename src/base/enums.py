@@ -12,7 +12,7 @@ class Browsers(Enum):
     IE = "ie"
     FIREFOX = "firefox"
     SAFARI = "safari"
-    IE_EDGE = "ie_edge"
+    EDGE = "edge"
 
 
 class OperationSystem(Enum):

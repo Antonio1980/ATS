@@ -10,7 +10,7 @@ class HomePage(BasePage):
 
     def open_home_page(self, driver, delay):
         self.go_to_url(driver, wtp_home_page_url)
-        return self.wait_driver(,, driver, delay
+        return self.wait_driver(driver, delay + 5)
 
     def open_signup_page(self, driver, delay):
         try:

@@ -3,7 +3,8 @@
 
 import unittest
 from proboscis import test
-from src.base.enums import Browsers
+from ddt import ddt, data, unpack
+from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
@@ -11,28 +12,30 @@ from tests.tests_web_platform.pages.signin_page import SignInPage
 from tests.tests_web_platform.pages.signup_page import SignUpPage
 
 
-@test(groups=['sign_up_page', 'e2e', ])
+@ddt
+@test(groups=['sign_up_page', ])
 class SignUpFullFlowTest(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.zip = "45263"
-        cls.city = "Ashdod"
-        cls.test_case = '3750'
-        cls.birthday = "13/08/1980"
-        cls.home_page = HomePage()
-        cls.signup_page = SignUpPage()
-        cls.signin_page = SignInPage()
-        cls.email = cls.signup_page.email
-        cls.phone = cls.signup_page.phone
-        cls.password = cls.signup_page.password
-        cls.username = cls.signup_page.username
-        cls.test_run = cls.home_page.TESTRAIL_RUN
-        cls.results_file = cls.home_page.WTP_TESTS_RESULT
-        cls.customers_file = cls.home_page.WTP_TESTS_CUSTOMERS
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+    def setUp(self):
+        self.zip = "45263"
+        self.city = "Ashdod"
+        self.test_case = '3750'
+        self.birthday = "13/08/1980"
+        self.home_page = HomePage()
+        self.signup_page = SignUpPage()
+        self.signin_page = SignInPage()
+        self.phone = self.signup_page.phone
+        self.password = self.signup_page.password
+        self.test_run = BaseConfig.TESTRAIL_RUN
+        self.email = self.signup_page.guerrilla_email
+        self.username = self.signup_page.username
+        self.results_file = BaseConfig.WTP_TESTS_RESULT
+        self.customers_file = BaseConfig.WTP_TESTS_CUSTOMERS
 
-    @test(groups=['regression', 'functional', 'positive', ], depends_on_groups=["smoke", "sanity", ])
-    def test_sign_up_full_flow(self):
+    @test(groups=['regression', 'positive', ], depends_on_groups=["sanity", ])
+    @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
+    @unpack
+    def test_sign_up_full_flow(self, browser):
+        self.driver = WebDriverFactory.get_browser(browser)
         delay, token, customer_id = 5, "", ""
         step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, step12 = \
             False, False, False, False, False, False, False, False, False, False, False, False
@@ -59,12 +62,11 @@ class SignUpFullFlowTest(unittest.TestCase):
                     step11 and step12 is True:
                 Instruments.write_file_user(self.email + "," + self.password + "," + customer_id + "," + token + "\n",
                                 self.customers_file)
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.home_page.close_browser(cls.driver)
+    def tearDown(self):
+        self.home_page.close_browser(self.driver)
