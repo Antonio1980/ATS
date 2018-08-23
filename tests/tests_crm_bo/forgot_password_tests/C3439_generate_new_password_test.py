@@ -3,27 +3,31 @@
 
 import unittest
 from proboscis import test
-from src.base.enums import Browsers
+from ddt import ddt, data, unpack
+from src.base.browser import Browser
+from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages import reset_password_url
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
 
 
+@ddt
 @test(groups=['login_page'])
 class GenerateNewPasswordTest(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.test_case = '3439'
-        cls.login_page = LogInPage()
-        cls.test_run = cls.login_page.TESTRAIL_RUN
-        cls.results_file = cls.login_page.CRM_TESTS_RESULT
-        cls.forgotten_email = cls.login_page.forgotten_email
-        cls.forgotten_username = cls.login_page.forgotten_username
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+    def setUp(self):
+        self.test_case = '3439'
+        self.login_page = LogInPage()
+        self.test_run = BaseConfig.TESTRAIL_RUN
+        self.results_file = BaseConfig.CRM_TESTS_RESULT
+        self.forgotten_email = self.login_page.forgotten_email
+        self.forgotten_username = self.login_page.forgotten_username
 
-    @test(groups=['sanity', 'functional', 'positive', ])
-    def test_generate_new_password(self):
+    @test(groups=['sanity', 'positive', ], depends_on_groups=["smoke", ])
+    @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
+    @unpack
+    def test_generate_new_password(self, browser):
+        self.driver = WebDriverFactory.get_browser(browser)
         step1, step2, step3 = False, False, False
         try:
             step1 = self.login_page.forgot_password(self.driver, self.forgotten_email)
@@ -38,12 +42,11 @@ class GenerateNewPasswordTest(unittest.TestCase):
                 step3 = True
         finally:
             if step1 and step2 and step3 is True:
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.login_page.close_browser(cls.driver)
+    def tearDown(self):
+        Browser.close_browser(self.driver)

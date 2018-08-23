@@ -13,7 +13,6 @@ class ForgotPasswordPage(BasePage):
             Instruments.run_mysql_query("select email from customers where email like '%@guerrillamail%' and status=2;")[0]
         self.mailinator_email = \
             Instruments.run_mysql_query("select email from customers where email like '%@mailinator.com%' and status=2;")[0]
-        #self.email = list((list(self.cust_details)[0]))[5]
 
     def fill_email_address_form(self, driver, email, delay=+1):
         try:

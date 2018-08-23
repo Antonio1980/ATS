@@ -3,7 +3,8 @@
 
 import unittest
 from proboscis import test
-from src.base.enums import Browsers
+from ddt import ddt, data, unpack
+from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
@@ -11,22 +12,24 @@ from tests.tests_web_platform.pages.signin_page import SignInPage
 from tests.tests_web_platform.pages.forgot_password_page import ForgotPasswordPage
 
 
+@ddt
 @test(groups=['forgot_password_page', ])
 class WrongEmailTest(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.test_case = '3667'
-        cls.home_page = HomePage()
-        cls.login_page = SignInPage()
+    def setUp(self):
+        self.test_case = '3667'
+        self.home_page = HomePage()
+        self.login_page = SignInPage()
         email_suffix = "@mailinator.com"
-        cls.test_run = cls.home_page.TESTRAIL_RUN
-        cls.results_file = cls.home_page.WTP_TESTS_RESULT
-        cls.forgot_password_page = ForgotPasswordPage()
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
-        cls.negative_email = cls.login_page.email_generator() + email_suffix
+        self.test_run = BaseConfig.TESTRAIL_RUN
+        self.results_file = BaseConfig.WTP_TESTS_RESULT
+        self.forgot_password_page = ForgotPasswordPage()
+        self.negative_email = Instruments.email_generator() + email_suffix
 
-    @test(groups=['sanity', 'functional', 'negative', ], depends_on_groups=["smoke", ])
-    def test_wrong_email(self):
+    @test(groups=['sanity', 'negative', ], depends_on_groups=["smoke", ])
+    @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
+    @unpack
+    def test_wrong_email(self, browser):
+        self.driver = WebDriverFactory.get_browser(browser)
         delay = 1
         step1, step2, step3 = False, False, False
         try:
@@ -36,12 +39,11 @@ class WrongEmailTest(unittest.TestCase):
             step3 = self.forgot_password_page.fill_email_address_form(self.driver, self.negative_email, delay + 3)
         finally:
             if step1 and step2 and step3 is True:
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.home_page.close_browser(cls.driver)
+    def tearDown(self):
+        self.home_page.close_browser(self.driver)

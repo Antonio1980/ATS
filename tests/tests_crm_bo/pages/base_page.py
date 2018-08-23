@@ -1,21 +1,17 @@
 import re
-import string
-import random
-import time
-
 from src.base.browser import Browser
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from tests.tests_crm_bo.locators.base_page_locators import BasePageLocators
 
 
-class BasePage(Browser, BaseConfig):
+class BasePage(Browser):
     def __init__(self):
         super(BasePage, self).__init__()
         self.base_locators = BasePageLocators()
-        self.crm_base_url = self.CRM_STAGING_URL
+        self.crm_base_url = BaseConfig.CRM_STAGING_URL
         # data_file, row, column1, column2, column3
-        self.account_details = Instruments.get_account_details(self.WTP_TESTS_CUSTOMERS, 0, 0, 1, 2)
+        self.account_details = Instruments.get_account_details(BaseConfig.WTP_TESTS_CUSTOMERS, 0, 0, 1, 2)
         self.customer_id = self.account_details['customer_username']
 
     def go_back_and_wait(self, driver, previous_url):
@@ -25,9 +21,6 @@ class BasePage(Browser, BaseConfig):
             return True
         else:
             return False
-
-    def email_generator(self, size=8, chars=string.ascii_lowercase):
-        return ''.join(random.choice(chars) for _ in range(size))
 
     def get_email_updates(self, driver, email, action, *args):
         delay = 5

@@ -1,3 +1,4 @@
+from test_definitions import BaseConfig
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.locators.customer_page_locators import CustomerPageLocators
 from tests.tests_crm_bo.pages import customer_admin_url, customer_deposit_url, customer_balance_url
@@ -30,10 +31,10 @@ class CustomerPage(BasePage):
                                              self.locators.PAYMENT_TEXT_INPUT, payment_option, delay-2)
             bin_number_field = self.find_element_by(driver, self.locators.BIN_CARD_NUMBER_FIELD_ID, "id")
             self.click_on_element(bin_number_field)
-            self.send_keys(bin_number_field, self.BIN_CARD_NUMBER)
+            self.send_keys(bin_number_field, BaseConfig.BIN_CARD_NUMBER)
             cc_field = self.find_element_by(driver, self.locators.CC_CARD_NUMBER_FIELD_ID, "id")
             self.click_on_element(cc_field)
-            self.send_keys(cc_field, self.CC_CARD_NUMBER)
+            self.send_keys(cc_field, BaseConfig.CC_CARD_NUMBER)
             self.choose_option_from_dropdown(driver, self.locators.CLEARING_COMPANY_DROPDOWN,
                                              self.locators.CLEARING_TEXT_INPUT, company_option, delay-2)
             self.choose_option_from_dropdown(driver, self.locators.TRANSACTION_STATUS_DROPDOWN,

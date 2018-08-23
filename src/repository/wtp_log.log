@@ -1,235 +1,235 @@
-proboscis.case.FunctionTest (test_forgot_password_page_ui) ... ERROR
-test_forgot_password_page_ui (tests.tests_web_platform.forgot_password_tests.C3558_forgot_password_ui_test.ForgotPasswordUITest) ... ok
-test_forgot_password_ddt_01___AsDc123DDc2__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+proboscis.case.FunctionTest (test_forgot_password_full_flow) ... ERROR
+ERROR
+proboscis.case.FunctionTest (test_sign_up_with_given_email_remote) ... ERROR
+test_sign_up_with_given_email_remote (tests.tests_web_platform.end2end_tests.C3750_sign_up_with_given_email_remote_test.SignUpWithGivenEmailRemoteTest) ... <class 'type'>: TimeoutException element not visible: Message: 
 
-<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+<class 'type'>: TimeoutException element not visible: Message: 
 
-ok
-test_forgot_password_ddt_02___123456789__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+ERROR
+proboscis.case.FunctionTest (test_sign_up_with_given_email) ... ERROR
+test_sign_up_with_given_email (tests.tests_web_platform.end2end_tests.C3750_sign_up_with_given_email_test.SignUpWithGivenEmailTest) ... <class 'type'>: TimeoutException element not visible: Message: 
 
-<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+ERROR
+proboscis.case.FunctionTest (test_sign_up_with_random_email) ... ERROR
+test_sign_up_with_random_email (tests.tests_web_platform.end2end_tests.C3750_sign_up_with_random_email_test.SignUpWithRandomEmailTest) ... <class 'type'>: TimeoutException element not visible: Message: 
 
-ok
-test_forgot_password_ddt_03___asdfghjkl__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+<class 'type'>: TimeoutException element not click able: Message: 
 
-<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+<class 'type'>: TimeoutException element not click able: Message: 
 
-ok
-test_forgot_password_ddt_04____h1_Test__h1__spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not found: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@class='popupTextInput'][@name='email']"}
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+<class 'type'>: TimeoutException element not click able: Message: 
+
+<class 'type'>: TimeoutException element not click able: Message: 
 
 {0} Element not click able. {0}
-<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+<class 'type'>: TimeoutException expected url not found: Message: 
+
+<class 'type'>: TimeoutException expected url not found: Message: 
+
+<class 'type'>: TimeoutException expected url not found: Message: 
+
+<class 'type'>: TimeoutException expected url not found: Message: 
+
+<class 'type'>: TimeoutException expected url not found: Message: 
 
 ok
-test_forgot_password_ddt_05________________________ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+proboscis.case.FunctionTest (test_registration_full_flow_with_redis) ... ERROR
+test_registration_full_flow_with_redis (tests.tests_web_platform.end2end_tests.C3750_signup_full_flow_test.SignUpFullFlowRedisTest) ... <class 'type'>: TimeoutException element not visible: Message: 
 
-<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+ERROR
+proboscis.case.FunctionTest (test_forgot_password_page_ui) ... ERROR
+test_forgot_password_page_ui_1___chrome__ (tests.tests_web_platform.forgot_password_tests.C3558_forgot_password_ui_test.ForgotPasswordUITest) ... ok
+test_forgot_password_ddt_01___AsDc123DDc2__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'type'>: TimeoutException element not present: Message: 
 
-ok
-test_forgot_password_ddt_06___Ã¼Ã_Ã_Ã_Ã_Ã_Ã__Ã¼Ã_Ã_Ã_Ã_Ã_Ã__com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
-
-<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
-
-ok
-test_forgot_password_ddt_07___select___from_customers___ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
-
-<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+<class 'type'>: TimeoutException element not present: Message: 
 
 ok
-test_forgot_password_ddt_08___tencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharact_spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+test_forgot_password_ddt_02___123456789__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'type'>: TimeoutException element not present: Message: 
 
-<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
-
-ok
-test_forgot_password_ddt_09___rom_an_spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
-
-<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+<class 'type'>: TimeoutException element not present: Message: 
 
 ok
-test_forgot_password_ddt_10___roman__com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+test_forgot_password_ddt_03___asdfghjkl__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'type'>: TimeoutException element not present: Message: 
 
-<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
-
-ok
-test_forgot_password_ddt_11___roman_spotoption___ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
-
-<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+<class 'type'>: TimeoutException element not present: Message: 
 
 ok
-test_forgot_password_ddt_12___rom_an_spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+test_forgot_password_ddt_04____h1_Test__h1__spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'type'>: TimeoutException element not present: Message: 
 
-<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
-
-ok
-test_forgot_password_ddt_13___rom_a_n_spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
-
-<class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+<class 'type'>: TimeoutException element not present: Message: 
 
 ok
-test_wrong_email (tests.tests_web_platform.forgot_password_tests.C3667_wrong_email_test.WrongEmailTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+test_forgot_password_ddt_05________________________ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'type'>: TimeoutException element not present: Message: 
+
+<class 'type'>: TimeoutException element not present: Message: 
 
 ok
-test_reset_password_email (tests.tests_web_platform.forgot_password_tests.C3669_reset_password_email_test.ResetPasswordEmailTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+test_forgot_password_ddt_06___Ã¼Ã_Ã_Ã_Ã_Ã_Ã__Ã¼Ã_Ã_Ã_Ã_Ã_Ã__com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'type'>: TimeoutException element not present: Message: 
 
-<class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+<class 'type'>: TimeoutException element not present: Message: 
 
 ok
-test_forgot_password_full_flow (tests.tests_web_platform.forgot_password_tests.C3668_forgot_password_full_flow_test.ForgotPasswordFullFlowTest) ... <class 'tests.tests_web_platform.pages.forgot_password_page.ForgotPasswordPage'>: TimeoutException element not present: Message: 
+test_forgot_password_ddt_07___select___from_customers___ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'type'>: TimeoutException element not present: Message: 
+
+<class 'type'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_08___tencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharact_spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'type'>: TimeoutException element not present: Message: 
+
+<class 'type'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_09___rom_an_spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'type'>: TimeoutException element not present: Message: 
+
+<class 'type'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_10___roman__com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'type'>: TimeoutException element not present: Message: 
+
+<class 'type'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_11___roman_spotoption___ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'type'>: TimeoutException element not present: Message: 
+
+<class 'type'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_12___rom_an_spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'type'>: TimeoutException element not present: Message: 
+
+<class 'type'>: TimeoutException element not present: Message: 
+
+ok
+test_forgot_password_ddt_13___rom_a_n_spotoption_com__ (tests.tests_web_platform.forgot_password_tests.C3666_forgot_password_ddt_test.ForgotPasswordDDTTest) ... <class 'type'>: TimeoutException element not present: Message: 
+
+<class 'type'>: TimeoutException element not present: Message: 
+
+ok
+test_wrong_email_1___chrome__ (tests.tests_web_platform.forgot_password_tests.C3667_wrong_email_test.WrongEmailTest) ... <class 'type'>: TimeoutException element not present: Message: 
+
+ok
+test_reset_password_email_1___chrome__ (tests.tests_web_platform.forgot_password_tests.C3669_reset_password_email_test.ResetPasswordEmailTest) ... ERROR
+proboscis.case.FunctionTest (test_forgot_password_full_flow) ... ERROR
+test_forgot_password_full_flow_1___chrome__ (tests.tests_web_platform.forgot_password_tests.C3668_forgot_password_full_flow_test.ForgotPasswordFullFlowTest) ... <class 'type'>: TimeoutException element not present: Message: 
 
 {0} Element not found. {0}
 ERROR
 proboscis.case.FunctionTest (test_sign_in_page_ui) ... ERROR
-test_sign_in_page_ui (tests.tests_web_platform.signin_tests.C3671_signin_page_ui_test.SignInPageUITest) ... FAIL
+test_sign_in_page_ui_1___chrome__ (tests.tests_web_platform.signin_tests.C3671_signin_page_ui_test.SignInPageUITest) ... ok
 proboscis.case.FunctionTest (test_sign_in_positive) ... ERROR
-test_sign_in_positive (tests.tests_web_platform.signin_tests.C3983_signin_test.SignInTest) ... ok
-proboscis.case.FunctionTest (test_sign_in_ddt) ... ERROR
-test_sign_in_ddt_1___xaisu1____Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+test_sign_in_positive_1___chrome__ (tests.tests_web_platform.signin_tests.C3983_signin_test.SignInTest) ... <class 'type'>: TimeoutException expected url not found: Message: 
 
 ok
-test_sign_in_ddt_2___username1____Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+test_sign_in_ddt_1___xaisu1____Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'type'>: TimeoutException expected url not found: Message: 
+
+<class 'type'>: TimeoutException expected url not found: Message: 
 
 ok
-test_sign_in_ddt_3___xaisul_____Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+test_sign_in_ddt_2___username1____Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'type'>: TimeoutException expected url not found: Message: 
+
+<class 'type'>: TimeoutException expected url not found: Message: 
 
 ok
-test_sign_in_ddt_4___xaisul____Password1___ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+test_sign_in_ddt_3___xaisul_____Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'type'>: TimeoutException expected url not found: Message: 
+
+<class 'type'>: TimeoutException expected url not found: Message: 
 
 ok
-test_sign_in_ddt_5___xaisul____012345678__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+test_sign_in_ddt_4___xaisul____Password1___ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'type'>: TimeoutException expected url not found: Message: 
+
+<class 'type'>: TimeoutException expected url not found: Message: 
 
 ok
-test_sign_in_ddt_6___1234____Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+test_sign_in_ddt_5___xaisul____012345678__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'type'>: TimeoutException expected url not found: Message: 
+
+<class 'type'>: TimeoutException expected url not found: Message: 
 
 ok
-test_sign_in_ddt_7________Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+test_sign_in_ddt_6___1234____Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'type'>: TimeoutException expected url not found: Message: 
+
+<class 'type'>: TimeoutException expected url not found: Message: 
 
 ok
-test_sign_in_ddt_8___xaisu1____PasSword1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'tests.tests_web_platform.pages.signin_page.SignInPage'>: TimeoutException element not visible: Message: 
+test_sign_in_ddt_7________Password1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'type'>: TimeoutException expected url not found: Message: 
+
+<class 'type'>: TimeoutException expected url not found: Message: 
+
+ok
+test_sign_in_ddt_8___xaisu1____PasSword1__ (tests.tests_web_platform.signin_tests.C3966_signin_ddt_test.SignInDDTTest) ... <class 'type'>: TimeoutException expected url not found: Message: 
+
+<class 'type'>: TimeoutException expected url not found: Message: 
 
 ok
 proboscis.case.FunctionTest (test_links_on_sign_in_page) ... ERROR
-test_links_on_sign_in_page (tests.tests_web_platform.signin_tests.C3962_links_on_signin_page_test.LinksOnSignInPageTest) ... ok
+test_links_on_sign_in_page_1___chrome__ (tests.tests_web_platform.signin_tests.C3962_links_on_signin_page_test.LinksOnSignInPageTest) ... ok
 proboscis.case.FunctionTest (test_sign_in_negative) ... ERROR
-test_sign_in_negative (tests.tests_web_platform.signin_tests.C3984_signin_without_captcha_test.LogInWithoutCaptchaTest) ... ok
+test_sign_in_negative_1___chrome__ (tests.tests_web_platform.signin_tests.C3984_signin_without_captcha_test.LogInWithoutCaptchaTest) ... ok
 proboscis.case.FunctionTest (test_email_verification_screen) ... ERROR
-test_email_verification_screen (tests.tests_web_platform.signup_tests.C3963_email_verification_screen_test.EmailVerificationScreenTest) ... ok
-test_sign_up_ddt_01___Antonio____ab_c_de_f_g_h_i_jk_l_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
-
-<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
-
-ok
-test_sign_up_ddt_02___Test____AsDc123DDc2____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
-
-<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
-
-ok
-test_sign_up_ddt_03___sadkjasjhd________________________example_org____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
-
-<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
-
-ok
-test_sign_up_ddt_04___Antonio____Ã¼Ã_Ã_Ã_Ã_Ã_Ã__Ã¼Ã_Ã_Ã_Ã_Ã_Ã__com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
-
-<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
-
-ok
-test_sign_up_ddt_05___Antonio____Abc_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
-
-<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
-
-ok
-test_sign_up_ddt_06_______________ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
-
-<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
-
-ok
-test_sign_up_ddt_07___Antonio_____h1_Test__h1__spotoption_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
-
-<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
-
-ok
-test_sign_up_ddt_08___Antonio____ust_not_right_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
-
-<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
-
-ok
-test_sign_up_ddt_09___Antonio____this_is_notallowed_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
-
-<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
-
-ok
-test_sign_up_ddt_10___Antonio____this__stillnotallowed_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
-
-<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
-
-ok
-test_sign_up_ddt_11___test____tencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharact_spotoption_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
-
-<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
-
-ok
-test_sign_up_ddt_12___test____testexampl_exam_net_co_il____aaaaaaA__ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
-
-<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
-
-ok
-test_sign_up_ddt_13___test____testexampl_tgs_systems_co_com____aaaaaaA___ (tests.tests_web_platform.signup_tests.C3961_signup_ddt_test.SignUpDDTTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
-
-<class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: invalid argument: 'value' must be a string
-  (Session info: chrome=67.0.3396.99)
-  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
-
-ok
-proboscis.case.FunctionTest (test_links_on_verify_email_screen) ... ERROR
-test_links_on_verify_email_screen (tests.tests_web_platform.signup_tests.C3964_links_on_email_verification_screen_test.LinksOnVerifyEmailScreenTest) ... ok
-test_sign_up_positive (tests.tests_web_platform.signup_tests.C3690_signup_test.SignUpTest) ... ok
-test_sign_up_page_ui (tests.tests_web_platform.signup_tests.C4431_signup_page_ui_test.SignUpPageUITest) ... ok
-proboscis.case.FunctionTest (test_links_on_sign_up_page) ... ERROR
-proboscis.case.FunctionTest (test_forgot_password_ddt) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
-proboscis.case.FunctionTest (test_wrong_email) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
-proboscis.case.FunctionTest (test_reset_password_email) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
-proboscis.case.FunctionTest (test_forgot_password_full_flow) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
-proboscis.case.FunctionTest (test_sign_up_ddt) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
-proboscis.case.FunctionTest (test_sign_up_positive) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
-proboscis.case.FunctionTest (test_sign_up_page_ui) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
-proboscis.case.FunctionTest (test_sign_up_full_flow) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
-proboscis.case.FunctionTest (test_sign_up_full_flow_with_guerrilla) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
-proboscis.case.FunctionTest (test_registration_full_flow_with_redis) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x063A24F8>'
-test_links_on_sign_up_page (tests.tests_web_platform.signup_tests.C4432_links_on_signup_page_test.LinksOnSignUpPageTest) ... ok
-test_sign_up_full_flow (tests.tests_web_platform.signup_tests.C3750_sign_up_full_flow_test.SignUpFullFlowTest) ... ok
-test_sign_up_full_flow_with_guerrilla (tests.tests_web_platform.signup_tests.C3750_sign_up_with_guerrilla_full_flow_test.SignUpFullFlowGuerrillaTest) ... <class 'tests.tests_web_platform.pages.signup_page.SignUpPage'>: TimeoutException element not visible: Message: 
+test_email_verification_screen_1___chrome__ (tests.tests_web_platform.signup_tests.C3963_email_verification_screen_test.EmailVerificationScreenTest) ... <class 'type'>: TimeoutException element not visible: Message: 
 
 ERROR
-test_registration_full_flow_with_redis (tests.tests_web_platform.signup_tests.C3750_signup_with_redis_full_flow_test.SignUpFullFlowRedisTest) ... ok
+test_sign_up_ddt_01___Antonio____ab_c_de_f_g_h_i_jk_l_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+test_sign_up_ddt_02___Test____AsDc123DDc2____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+test_sign_up_ddt_03___sadkjasjhd________________________example_org____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+test_sign_up_ddt_04___Antonio____Ã¼Ã_Ã_Ã_Ã_Ã_Ã__Ã¼Ã_Ã_Ã_Ã_Ã_Ã__com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+test_sign_up_ddt_05___Antonio____Abc_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+test_sign_up_ddt_06_______________ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+test_sign_up_ddt_07___Antonio_____h1_Test__h1__spotoption_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+test_sign_up_ddt_08___Antonio____ust_not_right_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+test_sign_up_ddt_09___Antonio____this_is_notallowed_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+test_sign_up_ddt_10___Antonio____this__stillnotallowed_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+test_sign_up_ddt_11___test____tencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharact_spotoption_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+test_sign_up_ddt_12___test____testexampl_exam_net_co_il____aaaaaaA__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+test_sign_up_ddt_13___test____testexampl_tgs_systems_co_com____aaaaaaA___ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+proboscis.case.FunctionTest (test_links_on_verify_email_screen) ... ERROR
+test_links_on_verify_email_screen_1___chrome__ (tests.tests_web_platform.signup_tests.C3964_links_on_email_verification_screen_test.LinksOnVerifyEmailScreenTest) ... <class 'type'>: TimeoutException expected url not found: Message: 
+
+{0} Element not found. {0}
+ERROR
+proboscis.case.FunctionTest (test_sign_up_positive) ... ERROR
+test_sign_up_positive_1___chrome__ (tests.tests_web_platform.signup_tests.C3690_fill_signup_form_test.SignUpTest) ... <class 'type'>: TimeoutException element not visible: Message: 
+
+ERROR
+proboscis.case.FunctionTest (test_sign_up_page_ui) ... ERROR
+test_sign_up_page_ui_1___chrome__ (tests.tests_web_platform.signup_tests.C4431_signup_page_ui_test.SignUpPageUITest) ... ok
+proboscis.case.FunctionTest (test_links_on_sign_up_page) ... ERROR
+proboscis.case.FunctionTest (test_forgot_password_ddt) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x069D1420>'
+proboscis.case.FunctionTest (test_wrong_email) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x069D1420>'
+proboscis.case.FunctionTest (test_reset_password_email) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x069D1420>'
+proboscis.case.FunctionTest (test_sign_in_ddt) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x069D1420>'
+proboscis.case.FunctionTest (test_sign_up_ddt) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x069D1420>'
+proboscis.case.FunctionTest (test_sign_up_full_flow) ... skipped 'Failure in <function ForgotPasswordUITest.test_forgot_password_page_ui at 0x069D1420>'
+test_links_on_sign_up_page_1___chrome__ (tests.tests_web_platform.signup_tests.C4432_links_on_signup_page_test.LinksOnSignUpPageTest) ... ok
+test_sign_up_full_flow_1___chrome__ (tests.tests_web_platform.signup_tests.C3750_sign_up_full_flow_test.SignUpFullFlowTest) ... {0} Element not found. {0}
+ERROR
 
 ======================================================================
-ERROR: proboscis.case.FunctionTest (test_forgot_password_page_ui)
+ERROR: proboscis.case.FunctionTest (test_forgot_password_full_flow)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
@@ -238,7 +238,7 @@ Traceback (most recent call last):
     st = compatability.capture_exception(func, SkipTest)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
     body_func()
-TypeError: test_forgot_password_page_ui() missing 1 required positional argument: 'self'
+TypeError: test_forgot_password_full_flow() missing 1 required positional argument: 'self'
 
 During handling of the above exception, another exception occurred:
 
@@ -250,11 +250,207 @@ Traceback (most recent call last):
 proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
 
 ======================================================================
-ERROR: test_forgot_password_full_flow (tests.tests_web_platform.forgot_password_tests.C3668_forgot_password_full_flow_test.ForgotPasswordFullFlowTest)
+ERROR: setUpClass (tests.tests_web_platform.end2end_tests.C3668_forgot_password_test.ForgotPasswordStandAloneTest)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "D:\GitLab\platform-server_qa\src\base\browser.py", line 154, in search_element
-    return self.driver_wait(driver, delay).until(lambda x: x.find_element_by_xpath(locator))
+  File "D:\GitLab\venv\lib\site-packages\pymysql\connections.py", line 958, in connect
+    **kwargs)
+  File "d:\python\Lib\socket.py", line 724, in create_connection
+    raise err
+  File "d:\python\Lib\socket.py", line 713, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\end2end_tests\C3668_forgot_password_test.py", line 31, in setUpClass
+    cls.forgot_password_page = ForgotPasswordPage()
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\forgot_password_page.py", line 15, in __init__
+    Instruments.run_mysql_query("select email from customers where email like '%@mailinator.com%' and status=2;")[0]
+  File "D:\GitLab\platform_server_qa\src\base\instruments.py", line 49, in run_mysql_query
+    passwd=BaseConfig.SQL_PASSWORD, database=BaseConfig.SQL_DB, charset='utf8mb4')
+  File "D:\GitLab\venv\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "D:\GitLab\venv\lib\site-packages\pymysql\connections.py", line 704, in __init__
+    self.connect()
+  File "D:\GitLab\venv\lib\site-packages\pymysql\connections.py", line 1005, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '10.100.1.11' ([WinError 10061] No connection could be made because the target machine actively refused it)")
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_sign_up_with_given_email_remote)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_sign_up_with_given_email_remote() missing 1 required positional argument: 'self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
+    raise ProboscisTestMethodClassNotDecorated()
+proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+
+======================================================================
+ERROR: test_sign_up_with_given_email_remote (tests.tests_web_platform.end2end_tests.C3750_sign_up_with_given_email_remote_test.SignUpWithGivenEmailRemoteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\end2end_tests\C3750_sign_up_with_given_email_remote_test.py", line 57, in test_sign_up_with_given_email_remote
+    new_password_url = parsed_html.center.find_all('a')[1]['href']
+AttributeError: 'NoneType' object has no attribute 'find_all'
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_sign_up_with_given_email)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_sign_up_with_given_email() missing 1 required positional argument: 'self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
+    raise ProboscisTestMethodClassNotDecorated()
+proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+
+======================================================================
+ERROR: test_sign_up_with_given_email (tests.tests_web_platform.end2end_tests.C3750_sign_up_with_given_email_test.SignUpWithGivenEmailTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\end2end_tests\C3750_sign_up_with_given_email_test.py", line 57, in test_sign_up_with_given_email
+    new_password_url = parsed_html.center.find_all('a')[1]['href']
+AttributeError: 'NoneType' object has no attribute 'find_all'
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_sign_up_with_random_email)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_sign_up_with_random_email() missing 1 required positional argument: 'self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
+    raise ProboscisTestMethodClassNotDecorated()
+proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_registration_full_flow_with_redis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_registration_full_flow_with_redis() missing 1 required positional argument: 'self'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
+    raise ProboscisTestMethodClassNotDecorated()
+proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+
+======================================================================
+ERROR: test_registration_full_flow_with_redis (tests.tests_web_platform.end2end_tests.C3750_signup_full_flow_test.SignUpFullFlowRedisTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\end2end_tests\C3750_signup_full_flow_test.py", line 43, in test_registration_full_flow_with_redis
+    step2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_forgot_password_page_ui)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_forgot_password_page_ui() missing 2 required positional arguments: 'self' and 'browser'
+
+======================================================================
+ERROR: test_reset_password_email_1___chrome__ (tests.tests_web_platform.forgot_password_tests.C3669_reset_password_email_test.ResetPasswordEmailTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 366, in _setUp
+    cls.setUp(self)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\forgot_password_tests\C3669_reset_password_email_test.py", line 22, in setUp
+    self.test_run = self.home_page.TESTRAIL_RUN
+AttributeError: 'HomePage' object has no attribute 'TESTRAIL_RUN'
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_forgot_password_full_flow)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_forgot_password_full_flow() missing 2 required positional arguments: 'self' and 'browser'
+
+======================================================================
+ERROR: test_forgot_password_full_flow_1___chrome__ (tests.tests_web_platform.forgot_password_tests.C3668_forgot_password_full_flow_test.ForgotPasswordFullFlowTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 320, in search_element
+    return cls.driver_wait(driver, delay).until(lambda x: x.find_element_by_xpath(locator))
   File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
     raise TimeoutException(message, screen, stacktrace)
 selenium.common.exceptions.TimeoutException: Message: 
@@ -263,60 +459,34 @@ selenium.common.exceptions.TimeoutException: Message:
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "D:\GitLab\platform-server_qa\tests\tests_web_platform\forgot_password_tests\C3668_forgot_password_full_flow_test.py", line 43, in test_forgot_password_full_flow
-    result4 = self.forgot_page.get_email_updates(self.driver, self.email, 2, new_password_url)
-  File "D:\GitLab\platform-server_qa\tests\tests_web_platform\pages\base_page.py", line 50, in get_email_updates
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\forgot_password_tests\C3668_forgot_password_full_flow_test.py", line 43, in test_forgot_password_full_flow
+    new_password_url = self.login_page.get_email_updates(self.driver, self.email, 1)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\base_page.py", line 45, in get_email_updates
     email_item = self.search_element(driver, self.base_locators.FIRST_EMAIL, delay)
-  File "D:\GitLab\platform-server_qa\src\base\browser.py", line 156, in search_element
-    print("{0} Element not found. {0}").format(self.__class__, e)
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 322, in search_element
+    print("{0} Element not found. {0}").format(e.__context__)
 AttributeError: 'NoneType' object has no attribute 'format'
 
 ======================================================================
 ERROR: proboscis.case.FunctionTest (test_sign_in_page_ui)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
     func()
   File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
     st = compatability.capture_exception(func, SkipTest)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
     body_func()
-TypeError: test_sign_in_page_ui() missing 1 required positional argument: 'self'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
-    compatability.capture_type_error(s_func)
-  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
-    raise ProboscisTestMethodClassNotDecorated()
-proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+TypeError: test_sign_in_page_ui() missing 2 required positional arguments: 'self' and 'browser'
 
 ======================================================================
 ERROR: proboscis.case.FunctionTest (test_sign_in_positive)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
-    func()
-  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
-    st = compatability.capture_exception(func, SkipTest)
-  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
-    body_func()
-TypeError: test_sign_in_positive() missing 1 required positional argument: 'self'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
-    compatability.capture_type_error(s_func)
-  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
-    raise ProboscisTestMethodClassNotDecorated()
-proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
-
-======================================================================
-ERROR: proboscis.case.FunctionTest (test_sign_in_ddt)
-----------------------------------------------------------------------
-Traceback (most recent call last):
   File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
     compatability.capture_type_error(s_func)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
@@ -325,131 +495,620 @@ Traceback (most recent call last):
     st = compatability.capture_exception(func, SkipTest)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
     body_func()
-TypeError: test_sign_in_ddt() missing 3 required positional arguments: 'self', 'email', and 'password'
+TypeError: test_sign_in_positive() missing 2 required positional arguments: 'self' and 'browser'
 
 ======================================================================
 ERROR: proboscis.case.FunctionTest (test_links_on_sign_in_page)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
     func()
   File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
     st = compatability.capture_exception(func, SkipTest)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
     body_func()
-TypeError: test_links_on_sign_in_page() missing 1 required positional argument: 'self'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
-    compatability.capture_type_error(s_func)
-  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
-    raise ProboscisTestMethodClassNotDecorated()
-proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+TypeError: test_links_on_sign_in_page() missing 2 required positional arguments: 'self' and 'browser'
 
 ======================================================================
 ERROR: proboscis.case.FunctionTest (test_sign_in_negative)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
     func()
   File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
     st = compatability.capture_exception(func, SkipTest)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
     body_func()
-TypeError: test_sign_in_negative() missing 1 required positional argument: 'self'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
-    compatability.capture_type_error(s_func)
-  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
-    raise ProboscisTestMethodClassNotDecorated()
-proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+TypeError: test_sign_in_negative() missing 2 required positional arguments: 'self' and 'browser'
 
 ======================================================================
 ERROR: proboscis.case.FunctionTest (test_email_verification_screen)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
     func()
   File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
     st = compatability.capture_exception(func, SkipTest)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
     body_func()
-TypeError: test_email_verification_screen() missing 1 required positional argument: 'self'
+TypeError: test_email_verification_screen() missing 2 required positional arguments: 'self' and 'browser'
 
-During handling of the above exception, another exception occurred:
-
+======================================================================
+ERROR: test_email_verification_screen_1___chrome__ (tests.tests_web_platform.signup_tests.C3963_email_verification_screen_test.EmailVerificationScreenTest)
+----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
-    compatability.capture_type_error(s_func)
-  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
-    raise ProboscisTestMethodClassNotDecorated()
-proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3963_email_verification_screen_test.py", line 36, in test_email_verification_screen
+    step2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: test_sign_up_ddt_01___Antonio____ab_c_de_f_g_h_i_jk_l_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3961_fill_signup_form_ddt_test.py", line 35, in test_sign_up_ddt
+    step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: test_sign_up_ddt_02___Test____AsDc123DDc2____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3961_fill_signup_form_ddt_test.py", line 35, in test_sign_up_ddt
+    step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: test_sign_up_ddt_03___sadkjasjhd________________________example_org____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3961_fill_signup_form_ddt_test.py", line 35, in test_sign_up_ddt
+    step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: test_sign_up_ddt_04___Antonio____Ã¼Ã_Ã_Ã_Ã_Ã_Ã__Ã¼Ã_Ã_Ã_Ã_Ã_Ã__com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3961_fill_signup_form_ddt_test.py", line 35, in test_sign_up_ddt
+    step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: test_sign_up_ddt_05___Antonio____Abc_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3961_fill_signup_form_ddt_test.py", line 35, in test_sign_up_ddt
+    step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: test_sign_up_ddt_06_______________ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3961_fill_signup_form_ddt_test.py", line 35, in test_sign_up_ddt
+    step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: test_sign_up_ddt_07___Antonio_____h1_Test__h1__spotoption_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3961_fill_signup_form_ddt_test.py", line 35, in test_sign_up_ddt
+    step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: test_sign_up_ddt_08___Antonio____ust_not_right_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3961_fill_signup_form_ddt_test.py", line 35, in test_sign_up_ddt
+    step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: test_sign_up_ddt_09___Antonio____this_is_notallowed_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3961_fill_signup_form_ddt_test.py", line 35, in test_sign_up_ddt
+    step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: test_sign_up_ddt_10___Antonio____this__stillnotallowed_example_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3961_fill_signup_form_ddt_test.py", line 35, in test_sign_up_ddt
+    step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: test_sign_up_ddt_11___test____tencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharact_spotoption_com____1Aa___12__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3961_fill_signup_form_ddt_test.py", line 35, in test_sign_up_ddt
+    step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: test_sign_up_ddt_12___test____testexampl_exam_net_co_il____aaaaaaA__ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3961_fill_signup_form_ddt_test.py", line 35, in test_sign_up_ddt
+    step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: test_sign_up_ddt_13___test____testexampl_tgs_systems_co_com____aaaaaaA___ (tests.tests_web_platform.signup_tests.C3961_fill_signup_form_ddt_test.SignUpDDTTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3961_fill_signup_form_ddt_test.py", line 35, in test_sign_up_ddt
+    step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
 
 ======================================================================
 ERROR: proboscis.case.FunctionTest (test_links_on_verify_email_screen)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
     func()
   File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
     st = compatability.capture_exception(func, SkipTest)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
     body_func()
-TypeError: test_links_on_verify_email_screen() missing 1 required positional argument: 'self'
+TypeError: test_links_on_verify_email_screen() missing 2 required positional arguments: 'self' and 'browser'
+
+======================================================================
+ERROR: test_links_on_verify_email_screen_1___chrome__ (tests.tests_web_platform.signup_tests.C3964_links_on_email_verification_screen_test.LinksOnVerifyEmailScreenTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 320, in search_element
+    return cls.driver_wait(driver, delay).until(lambda x: x.find_element_by_xpath(locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3964_links_on_email_verification_screen_test.py", line 52, in test_links_on_verify_email_screen
+    step6 = self.signup_page.get_email_updates(self.driver, self.email, 3, self.home_page.wtp_open_account_url)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\base_page.py", line 45, in get_email_updates
+    email_item = self.search_element(driver, self.base_locators.FIRST_EMAIL, delay)
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 322, in search_element
+    print("{0} Element not found. {0}").format(e.__context__)
+AttributeError: 'NoneType' object has no attribute 'format'
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_sign_up_positive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
   File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
     compatability.capture_type_error(s_func)
-  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
-    raise ProboscisTestMethodClassNotDecorated()
-proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_sign_up_positive() missing 2 required positional arguments: 'self' and 'browser'
+
+======================================================================
+ERROR: test_sign_up_positive_1___chrome__ (tests.tests_web_platform.signup_tests.C3690_fill_signup_form_test.SignUpTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3690_fill_signup_form_test.py", line 37, in test_sign_up_positive
+    step2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password, )
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\signup_page.py", line 45, in fill_signup_form
+    if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 503, in wait_element_visible
+    return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 127, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 401, in _find_element
+    raise e
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 397, in _find_element
+    return driver.find_element(*by)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: invalid argument: 'value' must be a string
+  (Session info: chrome=68.0.3440.106)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.16299 x86_64)
+
+
+======================================================================
+ERROR: proboscis.case.FunctionTest (test_sign_up_page_ui)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
+    func()
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
+    st = compatability.capture_exception(func, SkipTest)
+  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
+    body_func()
+TypeError: test_sign_up_page_ui() missing 2 required positional arguments: 'self' and 'browser'
 
 ======================================================================
 ERROR: proboscis.case.FunctionTest (test_links_on_sign_up_page)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
+  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
+    compatability.capture_type_error(s_func)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 27, in capture_type_error
     func()
   File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 289, in skip_capture_func
     st = compatability.capture_exception(func, SkipTest)
   File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 19, in capture_exception
     body_func()
-TypeError: test_links_on_sign_up_page() missing 1 required positional argument: 'self'
+TypeError: test_links_on_sign_up_page() missing 2 required positional arguments: 'self' and 'browser'
+
+======================================================================
+ERROR: test_sign_up_full_flow_1___chrome__ (tests.tests_web_platform.signup_tests.C3750_sign_up_full_flow_test.SignUpFullFlowTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 320, in search_element
+    return cls.driver_wait(driver, delay).until(lambda x: x.find_element_by_xpath(locator))
+  File "D:\GitLab\venv\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "D:\GitLab\venv\lib\site-packages\proboscis\case.py", line 296, in testng_method_mistake_capture_func
-    compatability.capture_type_error(s_func)
-  File "D:\GitLab\venv\lib\site-packages\proboscis\compatability\exceptions_2_6.py", line 34, in capture_type_error
-    raise ProboscisTestMethodClassNotDecorated()
-proboscis.core.ProboscisTestMethodClassNotDecorated: (ProboscisTestMethodClassNotDecorated(...), "Proboscis attempted to run what looks like a bound method requiring a self argument as a free-standing function. Did you forget to put a @test decorator on the method's class?")
-
-======================================================================
-ERROR: test_sign_up_full_flow_with_guerrilla (tests.tests_web_platform.signup_tests.C3750_sign_up_with_guerrilla_full_flow_test.SignUpFullFlowGuerrillaTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "D:\GitLab\platform-server_qa\tests\tests_web_platform\signup_tests\C3750_sign_up_with_guerrilla_full_flow_test.py", line 61, in test_sign_up_full_flow_with_guerrilla
-    url = parsed_html.center.find_all('a')[1]['href']
-AttributeError: 'NoneType' object has no attribute 'find_all'
-
-======================================================================
-FAIL: test_sign_in_page_ui (tests.tests_web_platform.signin_tests.C3671_signin_page_ui_test.SignInPageUITest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "D:\GitLab\platform-server_qa\tests\tests_web_platform\signin_tests\C3671_signin_page_ui_test.py", line 34, in test_sign_in_page_ui
-    assert wtp_signin_page_url == self.login_page.get_cur_url(self.driver)
-AssertionError
+  File "D:\GitLab\venv\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\signup_tests\C3750_sign_up_full_flow_test.py", line 47, in test_sign_up_full_flow
+    url = self.signup_page.get_email_updates(self.driver, self.email, 0)
+  File "D:\GitLab\platform_server_qa\tests\tests_web_platform\pages\base_page.py", line 45, in get_email_updates
+    email_item = self.search_element(driver, self.base_locators.FIRST_EMAIL, delay)
+  File "D:\GitLab\platform_server_qa\src\base\browser.py", line 322, in search_element
+    print("{0} Element not found. {0}").format(e.__context__)
+AttributeError: 'NoneType' object has no attribute 'format'
 
 ----------------------------------------------------------------------
-Ran 69 tests in 932.129s
+Ran 74 tests in 1130.403s
 
-FAILED (failures=1, errors=11, skipped=10)
-None
+FAILED (errors=39, skipped=6)

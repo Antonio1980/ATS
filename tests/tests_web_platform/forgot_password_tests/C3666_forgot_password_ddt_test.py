@@ -22,7 +22,7 @@ class ForgotPasswordDDTTest(unittest.TestCase):
         cls.home_page = HomePage()
         cls.login_page = SignInPage()
         cls.test_run = BaseConfig.TESTRAIL_RUN
-        cls.results_file = cls.home_page.WTP_TESTS_RESULT
+        cls.results_file = BaseConfig.WTP_TESTS_RESULT
         cls.forgot_password_page = ForgotPasswordPage()
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
@@ -39,10 +39,10 @@ class ForgotPasswordDDTTest(unittest.TestCase):
             step3 = self.forgot_password_page.fill_email_address_form(self.driver, email, delay)
         finally:
             if (step1 and step2 is True) and (step3 is False):
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

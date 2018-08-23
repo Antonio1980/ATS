@@ -1,15 +1,13 @@
 import re
-import string
-import random
 from src.base.browser import Browser
 from test_definitions import BaseConfig
 from tests.tests_web_platform.locators.base_page_locators import BasePageLocators
 
 
-class BasePage(Browser, BaseConfig):
+class BasePage(Browser):
     def __init__(self):
-        self.wtp_base_url = self.WTP_STAGING_URL
-        self.api_base_url = self.API_STAGING_URL
+        self.wtp_base_url = BaseConfig.WTP_STAGING_URL
+        self.api_base_url = BaseConfig.API_STAGING_URL
         self.base_locators = BasePageLocators()
         _self_account_url = "/openAccountDx.html"
         self.wtp_open_account_url = self.wtp_base_url + _self_account_url
@@ -30,9 +28,6 @@ class BasePage(Browser, BaseConfig):
             return True
         else:
             return False
-
-    def email_generator(self, size=8, chars=string.ascii_lowercase + string.digits):
-        return ''.join(random.choice(chars) for _ in range(size))
 
     def get_email_updates(self, driver, email, action, *args):
         delay = 5
