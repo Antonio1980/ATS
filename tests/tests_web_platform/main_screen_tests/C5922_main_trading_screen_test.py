@@ -10,7 +10,7 @@ from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signin_page import SignInPage
-from tests.tests_web_platform.locators.main_screen_locators import MainScreenLocators
+from tests.tests_web_platform.locators import main_screen_locators
 
 
 @ddt
@@ -20,11 +20,10 @@ class MainTradingScreenTest(unittest.TestCase):
         self.test_case = '5922'
         self.home_page = HomePage()
         self.signin_page = SignInPage()
-        self.locators = MainScreenLocators()
+        self.locators = main_screen_locators
         self.email = self.signin_page.email
         self.password = self.signin_page.password
         self.test_run = BaseConfig.TESTRAIL_RUN
-        self.results = BaseConfig.WTP_TESTS_RESULT
 
     @test(groups=['sanity', 'positive', 'ui', ])
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
@@ -53,7 +52,8 @@ class MainTradingScreenTest(unittest.TestCase):
                 assert Browser.wait_element_presented(self.driver, self.locators.LAST_TRADES_PANEL, delay)
                 step3 = True
             except Exception as e:
-                print(e)
+                print("Exception is occurred.".format(e))
+
         finally:
             if step1 and step2 and step3 is True:
                 Instruments.update_test_case(self.test_run, self.test_case, 1)

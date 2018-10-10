@@ -1,23 +1,29 @@
 from src.base.instruments import Instruments
 from tests.tests_web_platform.pages.base_page import BasePage
-from tests.tests_web_platform.locators.signin_page_locators import SignInPageLocators
+from tests.tests_web_platform.locators import signin_page_locators
 from tests.tests_web_platform.pages import wtp_signin_page_url, forgot_password_page_url, wtp_dashboard_url, \
-    user_page_url, logged_user_page_url
+     user_page_url, signin_user_page_url
 
 
 class SignInPage(BasePage):
     def __init__(self):
         super(SignInPage, self).__init__()
-        self.locators = SignInPageLocators()
-        rows = Instruments.run_mysql_query("SELECT email FROM customers WHERE status = 2 AND email LIKE '%guerrillamailblock%';")
+        self.locators = signin_page_locators
+        rows = Instruments.run_mysql_query(
+            "SELECT email FROM customers WHERE status = 2 AND email LIKE '%guerrillamailblock%';")
+        rows2 = Instruments.run_mysql_query(
+            "SELECT email FROM customers WHERE status = 3 AND email LIKE '%guerrillamailblock%';")
         self.email = rows[1][0]
         self.username = self.email.split('@')[0]
         self.password = '1Aa@<>12'
+        self.approved_email = rows2[1][0]
+        self.approved_username = self.approved_email.split('@')[0]
+        self.approved_password = '1Aa@<>12'
 
     def sign_in(self, driver, email, password):
         delay = 5
         try:
-            if self.wait_url_contains(driver, user_page_url, delay) or self.wait_url_contains(driver, logged_user_page_url, delay):
+            if self.wait_url_contains(driver, user_page_url, delay) or self.wait_url_contains(driver, signin_user_page_url, delay):
                 username_field = self.find_element(driver, self.locators.USERNAME_FIELD)
                 self.click_on_element(username_field)
                 self.send_keys(username_field, email)
@@ -27,6 +33,8 @@ class SignInPage(BasePage):
                 self.click_on_element(password_field_true)
                 self.send_keys(password_field_true, password)
                 self.execute_js(driver, self.script_login)
+                keep_me_checkbox = self.find_element(driver, self.locators.KEEP_ME_CHECKBOX)
+                self.click_on_element(keep_me_checkbox)
                 login_button = self.wait_element_clickable(driver, self.locators.SIGNIN_BUTTON, delay)
                 self.click_on_element(login_button)
         finally:

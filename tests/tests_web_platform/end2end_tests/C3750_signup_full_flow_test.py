@@ -41,7 +41,7 @@ class SignUpFullFlowRedisTest(unittest.TestCase):
         try:
             step1 = self.home_page.open_signup_page(self.driver, delay)
             step2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password, )
-            customer_id = self.signup_page.execute_js(self.driver, self.signup_page.script_customer_id)
+            customer_id = Browser.execute_js(self.driver, self.signup_page.script_customer_id)
             keys = Instruments.get_redis_keys("email_validation_token*")
             token_keys = Instruments.parse_redis_token(keys, "b'")
             # tokens = parse_redis_token(keys, "b'email_validation_token_") # to get all tokens list
@@ -63,10 +63,10 @@ class SignUpFullFlowRedisTest(unittest.TestCase):
                     and step11 and step12 is True:
                 Instruments.write_file_user(self.email + "," + self.password + "," + customer_id + "," + token + "\n",
                                 self.customers_file)
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

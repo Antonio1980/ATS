@@ -38,7 +38,7 @@ class ForgotPasswordRemoteTest(unittest.TestCase):
     def test_login_with_new_password(self):
         mac_details = ('Chrome', '68.0', 'OS X', 'Sierra', '1920x1080')
         win_details = ('Chrome', '68.0', 'Windows', '10', '2048x1536')
-        self.driver = WebDriverFactory.get_remote_driver(mac_details)
+        self.driver = WebDriverFactory.get_browser_stack_driver(mac_details)
         delay, new_password, sid_token = 5, "", ""
         user_details = {'first_last_name': self.first_last_name, 'phone': self.phone, 'username': self.new_username,
                         'language': "eng", 'permissions': "sup", 'status': "act", 'user_type': "Admin"}

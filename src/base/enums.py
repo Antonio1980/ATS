@@ -13,6 +13,8 @@ class Browsers(Enum):
     FIREFOX = "firefox"
     SAFARI = "safari"
     EDGE = "edge"
+    OPERA = "opera"
+    HTMLUNITWITHJS = "html_js"
 
 
 class OperationSystem(Enum):

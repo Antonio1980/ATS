@@ -4,6 +4,7 @@
 import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
+from src.base.browser import Browser
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -30,13 +31,13 @@ class WrongEmailTest(unittest.TestCase):
     @unpack
     def test_wrong_email(self, browser):
         self.driver = WebDriverFactory.get_browser(browser)
-        delay = 1
+        delay = 5
         step1, step2, step3 = False, False, False
         try:
-            step1 = self.home_page.open_signin_page(self.driver, delay + 3)
+            step1 = self.home_page.open_signin_page(self.driver, delay)
             # Option 1- forgot password, Option 2- register link
-            step2 = self.login_page.click_on_link(self.driver, 1, delay + 3)
-            step3 = self.forgot_password_page.fill_email_address_form(self.driver, self.negative_email, delay + 3)
+            step2 = self.login_page.click_on_link(self.driver, 1, delay)
+            step3 = self.forgot_password_page.fill_email_address_form(self.driver, self.negative_email, delay)
         finally:
             if step1 and step2 and step3 is True:
                 # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
@@ -46,4 +47,4 @@ class WrongEmailTest(unittest.TestCase):
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     def tearDown(self):
-        self.home_page.close_browser(self.driver)
+        Browser.close_browser(self.driver)

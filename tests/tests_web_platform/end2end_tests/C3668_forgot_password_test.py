@@ -36,7 +36,7 @@ class ForgotPasswordStandAloneTest(unittest.TestCase):
         cls.sid_token = response[1]['sid_token']
         cls.time_stamp = str(response[1]['email_timestamp'])
         cls.username = re.findall(r"([\w.-]+)", cls.email)[0]
-        cls.driver = WebDriverFactory.get_browser(Browsers.FIREFOX.value)
+        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(cls.email)
 
     @test(groups=['e2e', 'positive', ], depends_on_groups=["functional", ])
@@ -46,7 +46,7 @@ class ForgotPasswordStandAloneTest(unittest.TestCase):
         try:
             step1 = self.home_page.open_signup_page(self.driver, delay)
             step2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password, self.element)
-            customer_id = self.signup_page.execute_js(self.driver, self.signup_page.script_customer_id)
+            customer_id = Browser.execute_js(self.driver, self.signup_page.script_customer_id)
             step3 = self.signin_page.go_by_token_url(self.driver, wtp_signin_page_url)
             # Option 1- forgot password, Option 2- register link
             step4 = self.signin_page.click_on_link(self.driver, 1, delay)

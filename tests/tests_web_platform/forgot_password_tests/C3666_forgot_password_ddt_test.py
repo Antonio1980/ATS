@@ -5,6 +5,7 @@ import unittest
 from proboscis import test
 from ddt import unpack, data, ddt
 from src.base.enums import Browsers
+from src.base.browser import Browser
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -45,6 +46,9 @@ class ForgotPasswordDDTTest(unittest.TestCase):
                 # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
+    def tearDown(self):
+        Browser.close_browser(self.driver)
+
     @classmethod
     def tearDownClass(cls):
-        cls.home_page.close_browser(cls.driver)
+        Browser.close_browser(cls.driver)

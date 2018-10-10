@@ -10,7 +10,7 @@ from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages import login_page_url
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
-from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
+from tests.tests_crm_bo.locators import login_page_locators
 
 
 @ddt
@@ -19,7 +19,7 @@ class ForgotPasswordPopUpTest(unittest.TestCase):
     def setUp(self):
         self.test_case = '3437'
         self.login_page = LogInPage()
-        self.locators = LogInPageLocators()
+        self.locators = login_page_locators
         self.test_run = BaseConfig.TESTRAIL_RUN
         self.results_file = BaseConfig.CRM_TESTS_RESULT
 

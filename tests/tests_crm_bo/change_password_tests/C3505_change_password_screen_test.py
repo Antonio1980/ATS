@@ -5,13 +5,12 @@ import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
 from src.base.browser import Browser
-from src.base.instruments import Instruments
 from test_definitions import BaseConfig
-from tests.tests_crm_bo.pages import reset_password_url
-from tests.tests_crm_bo.pages import new_password_url as new_url
+from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
+from tests.tests_crm_bo.pages import new_password_url, reset_password_url
 
 
 @ddt
@@ -22,6 +21,7 @@ class ChangePasswordScreenTest(unittest.TestCase):
         self.home_page = HomePage()
         self.login_page = LogInPage()
         self.test_run = BaseConfig.TESTRAIL_RUN
+        self.locators = self.login_page.locators
         self.results_file = BaseConfig.CRM_TESTS_RESULT
         self.forgotten_email = self.login_page.forgotten_email
         self.forgotten_username = self.login_page.forgotten_username
@@ -39,19 +39,19 @@ class ChangePasswordScreenTest(unittest.TestCase):
             # 2 - click on forgot_password, 3 - ?
             content = self.login_page.get_email_updates(self.driver, self.forgotten_email, 0)
             token = content.split('/')[-1]
-            new_password_url = reset_password_url + token
-            step2 = self.login_page.get_email_updates(self.driver, self.forgotten_email, 2, new_password_url)
+            new_url = reset_password_url + token
+            step2 = self.login_page.get_email_updates(self.driver, self.forgotten_email, 2, new_url)
             new_password = self.login_page.get_email_updates(self.driver, self.forgotten_email, 1)
             step3 = self.login_page.login(self.driver, self.forgotten_username, new_password)
             try:
-                assert self.login_page.wait_url_contains(self.driver, new_url, delay)
-                self.login_page.wait_element_presented(self.driver, self.login_page.locators.CURRENT_PASSWORD, delay)
-                self.login_page.wait_element_presented(self.driver, self.login_page.locators.NEW_PASSWORD, delay)
-                self.login_page.wait_element_presented(self.driver, self.login_page.locators.CONFIRM_PASSWORD, delay)
-                if self.login_page.wait_element_clickable(self.driver, self.login_page.locators.CONFIRM_BUTTON, delay):
+                assert Browser.wait_url_contains(self.driver, new_password_url, delay)
+                Browser.wait_element_presented(self.driver, self.locators.CURRENT_PASSWORD, delay)
+                Browser.wait_element_presented(self.driver, self.locators.NEW_PASSWORD, delay)
+                Browser.wait_element_presented(self.driver, self.locators.CONFIRM_PASSWORD, delay)
+                if Browser.wait_element_clickable(self.driver, self.locators.CONFIRM_BUTTON, delay):
                     step4 = True
-            except TimeoutError:
-                step4 = False
+            except Exception as e:
+                print("Exception is occurred.".format(e))
         finally:
             if step1 and step2 and step3 and step4 is True:
                 # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)

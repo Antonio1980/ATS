@@ -24,7 +24,7 @@ class AddNewLeadTest(unittest.TestCase):
         self.email = self.login_page.email
         self.test_run = BaseConfig.TESTRAIL_RUN
         self.password = self.login_page.password
-        self.results = BaseConfig.CRM_TESTS_RESULT
+        self.results_file = BaseConfig.CRM_TESTS_RESULT
 
     @test(groups=['sanity', 'positive', ], depends_on_groups=["smoke", ])
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
@@ -32,16 +32,16 @@ class AddNewLeadTest(unittest.TestCase):
     def test_add_new_lead_account(self, browser):
         self.driver = WebDriverFactory.get_browser(browser)
         delay = 1
-        result1, result2, result3 = False, False, False
+        step1, step2, step3 = False, False, False
         try:
-            result1 = self.login_page.login(self.driver, self.login_page.email, self.login_page.password)
+            step1 = self.login_page.login(self.driver, self.login_page.email, self.login_page.password)
 
         finally:
-            if result1 and result2 and result3 is True:
-                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
+            if step1 and step2 and step3 is True:
+                # Instruments.write_file_step(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
+                # Instruments.write_file_step(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     def tearDown(self):

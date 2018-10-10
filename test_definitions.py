@@ -59,6 +59,10 @@ class BaseConfig(object):
     CRM_NEW_PASSWORD_DATA = repository_dir + parser.get('TEST_DATA', 'new_password_data')
     CRM_TESTS_USERS_UNCOMPLETED = repository_dir + parser.get('TEST_DATA', 'crm_tests_users_uncompleted')
     BROWSERS = repository_dir + parser.get('TEST_DATA', 'browsers')
+    TERMINAL = repository_dir + parser.get('TEST_DATA', 'terminal_log')
+    PHONES = repository_dir + parser.get('TEST_DATA', 'phones')
+    PHONE_CODES = repository_dir + parser.get('TEST_DATA', 'phone_codes')
+    SELENIUM_JAR = repository_dir + parser.get('TEST_DATA', 'selenium_jar')
 
     SQL_HOST = parser.get('SQL', 'host')
     SQL_PORT = parser.get('SQL', 'port')
@@ -80,4 +84,3 @@ class BaseConfig(object):
 
     BIN_CARD_NUMBER = parser.get('CREDIT_CARD', 'bin_number')
     CC_CARD_NUMBER = parser.get('CREDIT_CARD', 'cc_number')
-

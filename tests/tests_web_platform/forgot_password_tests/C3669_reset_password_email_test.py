@@ -4,6 +4,7 @@
 import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
+from src.base.browser import Browser
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -19,7 +20,7 @@ class ResetPasswordEmailTest(unittest.TestCase):
         self.test_case = '3669'
         self.home_page = HomePage()
         self.login_page = SignInPage()
-        self.test_run = self.home_page.TESTRAIL_RUN
+        self.test_run = BaseConfig.TESTRAIL_RUN
         self.forgot_password_page = ForgotPasswordPage()
         self.results_file = BaseConfig.WTP_TESTS_RESULT
         self.customers_file = BaseConfig.WTP_TESTS_CUSTOMERS
@@ -49,4 +50,4 @@ class ResetPasswordEmailTest(unittest.TestCase):
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     def tearDown(self):
-            self.home_page.close_browser(self.driver)
+            Browser.close_browser(self.driver)

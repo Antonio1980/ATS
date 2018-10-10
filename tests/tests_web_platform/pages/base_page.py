@@ -1,25 +1,33 @@
 import re
+import time
 from src.base.browser import Browser
 from test_definitions import BaseConfig
-from tests.tests_web_platform.locators.base_page_locators import BasePageLocators
+from tests.tests_web_platform.locators import base_page_locators
 
 
 class BasePage(Browser):
     def __init__(self):
-        self.wtp_base_url = BaseConfig.WTP_STAGING_URL
+        super(Browser, self).__init__()
+        self.proxy = "appProxy"
+        self.base = BaseConfig.WTP_STAGING_URL
+        self.wtp_base_url = self.base + self.proxy
         self.api_base_url = BaseConfig.API_STAGING_URL
-        self.base_locators = BasePageLocators()
+        self.base_locators = base_page_locators
         _self_account_url = "/openAccountDx.html"
         self.wtp_open_account_url = self.wtp_base_url + _self_account_url
         self.script_login = '$(".formContainer.formBox input.captchaCode").val("test_QA_test");'
         # self.script_signup = '$("input[name=\'captcha\']").val("test_QA_test");'
         self.script_signup = '$("#openAccountDxForm .captchaCode").val("test_QA_test");'
         self.script_forgot = '$("#dxPackageContainer_forgotPassword .captchaCode").val("test_QA_test");'
-        self.script_customer_id = 'return SO.model.Customer.getCustomerId();'
-        self.script_registration_step = 'return SO.model.Customer.currentCustomer.registrationStep'
+        self.script_customer_id = "return SO.model.Customer.getCustomerId();"
+        self.script_is_signed = "return SO.model.Customer.isLoggedIn();"
+        self.script_registration_step = "return SO.model.Customer.currentCustomer.registrationStep"
         self.script_document_1 = "$('.doc_1_1_0Hidden.hidden').show();"
         self.script_document_2 = "$('.doc_1_2_0Hidden.hidden').show();"
         self.script_document_3 = "$('.doc_2_1_0Hidden.hidden').show();"
+        self.captcha_terms_url = "https://policies.google.com/terms?hl=en"
+        self.script_input_val = '''return $("input[name='phonePrefix']").val();'''
+        self.captcha_privacy_url = "https://policies.google.com/privacy?hl=en"
 
     def go_back_and_wait(self, driver, previous_url):
         delay = 5
@@ -40,6 +48,7 @@ class BasePage(Browser):
         email = email[0]
         mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}".format(email)
         self.go_to_url(driver, mailinator_box_url)
+        time.sleep(delay)
         pause_button = self.find_element_by(driver, self.base_locators.PAUSE_BUTTON_ID, "id")
         self.click_on_element(pause_button)
         email_item = self.search_element(driver, self.base_locators.FIRST_EMAIL, delay)

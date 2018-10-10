@@ -10,8 +10,7 @@ from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
-from tests.tests_crm_bo.locators.create_user_page_locators import CreateUserPageLocators
-from tests.tests_crm_bo.locators.users_management_page_locators import UsersManagementPageLocators
+from tests.tests_crm_bo.locators import create_user_page_locators, users_management_page_locators
 
 
 @ddt
@@ -22,8 +21,8 @@ class EditNewUserUITest(unittest.TestCase):
         self.home_page = HomePage()
         self.login_page = LogInPage()
         self.test_run = BaseConfig.TESTRAIL_RUN
-        self.locators2 = CreateUserPageLocators()
-        self.locators = UsersManagementPageLocators()
+        self.locators2 = create_user_page_locators
+        self.locators = users_management_page_locators
         self.results_file = BaseConfig.CRM_TESTS_RESULT
         self.username = self.login_page.forgotten_username
         self.login_username = self.login_page.login_username
@@ -62,7 +61,7 @@ class EditNewUserUITest(unittest.TestCase):
                 Browser.send_keys(username_field, "32874238hgsdha#42!")
                 step3 = True
             except Exception as e:
-                print(e)
+                print("Exception is occurred".format(e))
         finally:
             if step1 and step2 and step3 is True:
                 # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)

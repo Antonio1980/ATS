@@ -11,7 +11,7 @@ from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages import wtp_signin_page_url
 from tests.tests_web_platform.pages.signin_page import SignInPage
-from tests.tests_web_platform.locators.signin_page_locators import SignInPageLocators
+from tests.tests_web_platform.locators import signin_page_locators
 
 
 @ddt
@@ -21,9 +21,9 @@ class SignInPageUITest(unittest.TestCase):
         self.test_case = '3671'
         self.home_page = HomePage()
         self.login_page = SignInPage()
-        self.locators = SignInPageLocators()
+        self.locators = signin_page_locators
         self.test_run = BaseConfig.TESTRAIL_RUN
-        self.results =  BaseConfig.WTP_TESTS_RESULT
+        self.results_file =  BaseConfig.WTP_TESTS_RESULT
 
     @test(groups=['smoke', 'gui', 'positive', ])
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
@@ -45,15 +45,15 @@ class SignInPageUITest(unittest.TestCase):
                 assert Browser.search_element(self.driver, self.locators.FORGOT_PASSWORD_LINK, delay)
                 assert Browser.search_element(self.driver, self.locators.REGISTER_LINK, delay)
                 step2 = True
-            except TimeoutError:
-                print("Time out occurred.")
+            except Exception as e:
+                print("Exception is occurred.".format(e))
         finally:
             if step1 and step2 is True:
-                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     def tearDown(self):
-        self.login_page.close_browser(self.driver)
+        Browser.close_browser(self.driver)

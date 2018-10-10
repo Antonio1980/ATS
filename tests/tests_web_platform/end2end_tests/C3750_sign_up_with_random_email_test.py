@@ -48,7 +48,7 @@ class SignUpWithRandomEmailTest(unittest.TestCase):
             step1 = self.home_page.open_signup_page(self.driver, delay)
             step2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password,
                                                         self.element)
-            customer_id = self.signup_page.execute_js(self.driver, self.signup_page.script_customer_id)
+            customer_id = Browser.execute_js(self.driver, self.signup_page.script_customer_id)
             time.sleep(delay * 2)
             response1 = Instruments.get_guerrilla_mail("GET", "get_email_list&offset=0&site=guerrillamail.com&_=" + self.username,
                                             self.sid_token)
@@ -75,10 +75,10 @@ class SignUpWithRandomEmailTest(unittest.TestCase):
                     step11 and step12 is True:
                 Instruments.write_file_user(self.email + "," + self.password + "," + customer_id + "," + token + "\n",
                                 self.customers_file)
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

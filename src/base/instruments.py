@@ -7,7 +7,9 @@ Version: 1.05
 import re
 import csv
 import json
+import math
 import redis
+import arrow
 import codecs
 import random
 import string
@@ -35,6 +37,10 @@ class Instruments(object):
     redis_client = redis.StrictRedis(host=BaseConfig.REDIS_HOST, port=BaseConfig.REDIS_PORT, db=0)
 
     @staticmethod
+    def calculate_decimal_price(x, y):
+        return x / math.pow(10, y)
+
+    @staticmethod
     def run_mysql_query(query):
         """
         To run SQL query on MySQL DB.
@@ -45,14 +51,15 @@ class Instruments(object):
         warnings.simplefilter("ignore", ResourceWarning)
         # SQL client- connector for MySQL DB.
         connection = pymysql.connect(host=BaseConfig.SQL_HOST, port=int(BaseConfig.SQL_PORT),
-                                     user=BaseConfig.SQL_USERNAME,
-                                     passwd=BaseConfig.SQL_PASSWORD, database=BaseConfig.SQL_DB, charset='utf8mb4')
+                                     user=BaseConfig.SQL_USERNAME, passwd=BaseConfig.SQL_PASSWORD,
+                                     database=BaseConfig.SQL_DB, charset='utf8mb4', autocommit=True)
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query)
                 rows = cursor.fetchall()
                 cursor.close()
-                return rows
+                if rows:
+                    return rows
         finally:
             connection.close()
 
@@ -89,6 +96,16 @@ class Instruments(object):
         :param size: string length expected (default is 8).
         :param chars: string characters consistency.
         :return: random string.
+        """
+        return ''.join(random.choice(chars) for _ in range(size))
+
+    @staticmethod
+    def generate_random_num(size=8, chars=string.digits):
+        """
+        Generates random number with digits.
+        :param size: string length expected (default is 8).
+        :param chars: numbers characters consistency.
+        :return: random number.
         """
         return ''.join(random.choice(chars) for _ in range(size))
 
@@ -333,15 +350,14 @@ class Instruments(object):
         :param _token: guerrilla API token.
         :return:
         """
-        return cls.guerrilla_client.send_get(
-            'fetch_email&email_id=mr_' + mail_id + '&site=guerrillamail.com&_=' + _time_stamp,
-            _token)
+        return cls.guerrilla_client.send_get('fetch_email&email_id=mr_' + mail_id + '&site=guerrillamail.com&_=' +
+                                             _time_stamp, _token)
 
     @classmethod
     def get_guerrilla_email(cls):
         """
         Generates random email from guerrilla API.
-        :return:
+        :return: new random email address.
         """
         return cls.guerrilla_client.send_get('get_email_address')
 
@@ -374,27 +390,6 @@ class Instruments(object):
         return cls.testrail_client.send_get('get_case/' + test_case)
 
     @classmethod
-    def add_customer_balance(cls, _customer_id, _currency_id, _balance):
-        """
-        Connects to Redis DB to set value by provided key:_customer_id.
-        :param _customer_id: key
-        :param _currency_id: Id of currency for balance
-        :param _balance: Amount of deposit
-        """
-        cur_balance = cls.redis_client.hget('balance_' + _customer_id, _currency_id)
-        added_balance = cls.redis_client.hincrby('balance_' + _customer_id, _currency_id, _balance)
-        if cur_balance is None:
-            cur_balance = 0
-        else:
-            cur_balance = int(cur_balance)
-            if added_balance == cur_balance + int(_balance):
-                print("Deposit was added successfully, current deposit: ", added_balance)
-                return True
-            else:
-                print("Error occurred...")
-                return False
-
-    @classmethod
     def get_redis_value(cls, key):
         """
         Connects to Redis DB to get value by provided key.
@@ -416,8 +411,7 @@ class Instruments(object):
         """
         if tokens_list is not None:
             def _get_redis_key(key):
-                value = cls.redis_client.hgetall(key)
-                return value
+                return cls.redis_client.hgetall(key)
 
             for i in tokens_list:
                 _key = _get_redis_key(i)
@@ -432,17 +426,93 @@ class Instruments(object):
         """
         Connects to Redis DB to get value by provided key.
         :param key: second part of the searched key (customer_id).
-        :param host: Redis DB host.
-        :param port: Redis DB port.
-        :return:
+        :return: list of all keys.
         """
-        keys_list = cls.redis_client.keys(key)
-        return keys_list
+        return cls.redis_client.keys(key)
+
+    """
+    Author: Christina Koch.
+    Created: 20.08.2018
+    """
+    @classmethod
+    def add_customer_balance(cls, customer_id, currency_id, amount):
+        """
+        Connects to Redis DB to set value by provided key:_customer_id.
+        :param customer_id: redis DB key.
+        :param currency_id: Id of currency for balance.
+        :param amount: amount of deposit.
+        """
+        customer_id, cur_balance = str(customer_id), None
+        cur_balance = cls.redis_client.hget('balance_' + customer_id, currency_id)
+        added_balance = cls.redis_client.hincrby('balance_' + customer_id, currency_id, amount)
+        cur_balance = 0 if cur_balance is None else int(cur_balance)
+        if added_balance == cur_balance + int(amount):
+            print("Balance was added successfully, current balance: ", added_balance)
+            return True
+        else:
+            print("Error occurred...")
+            return False
+
+    @classmethod
+    def add_customer_deposit(cls, customer_id, currency_id, amount):
+        """
+        Connects to SQL DB and inserts value for provided customer_id.
+        :param customer_id: Id of customer for insert.
+        :param currency_id: Id of currency for balance.
+        :param amount: amount of deposit to insert.
+        :return: True if all successful and False otherwise.
+        """
+        customer_id, currency_id, amount = str(customer_id), str(currency_id), str(amount)
+        date = arrow.utcnow()
+        _ = "0000-00-00 00:00:00"
+        cur_date = date.format('YYYY-MM-DD')
+        cur_date_full = date.format('YYYY-MM-DD HH:mm:ss')
+        id = cls.generate_random_num(6)
+        query = "INSERT INTO deposits(id, customerId, paymentMethodId, clearingCompanyId, currencyId, amount, rateUSD,"\
+                "rateEUR, rateBTC, referenceNumber, statusId, sourceId, IPAddress, balanceChangeTransactionGuid, " \
+                "comments, canceledByWId, cancelingWId, addedBy, updatedBy, confirmedBy, canceledBy, cancelReasonId, " \
+                "cancelReason, declinedBy, declineReason, dateConfirmed, dateValue, dateCanceled, dateDeclined, " \
+                "dateInserted, dateUpdated) VALUES(" + id + ", " + customer_id + ", 3, 0, " + currency_id + ", " + \
+                amount + ", 0.00012500, 0.00014388, 1.00000000, '2134776', 2, 3, '10.244.10.1', '', '', 0, 0, 9, 9, 9,"\
+                "0, 0, '', 0, '', '" + cur_date_full + "', '" + cur_date + "', '" + _ + "', '" + _ + "', '" + \
+                cur_date_full + "', '" + cur_date_full + "');"
+        cls.run_mysql_query(query)
+        print("Deposit {0} was added successfully, for customer:  ".format(amount), customer_id)
+        return True
+
+    @classmethod
+    def add_customer_deposit_balance(cls, customer_id, currency_id, amount):
+        """
+        Inserts given amount into Redis and SQL DB.
+        :param customer_id: Id of customer for insert.
+        :param currency_id: Id of currency for balance.
+        :param amount: amount of deposit to insert.
+        :return: True if all successful and False otherwise.
+        """
+        if cls.add_customer_balance(customer_id, currency_id, amount):
+            if cls.add_customer_deposit(customer_id, currency_id, amount):
+                print("Deposit was added into customer- {0} balance successfully, current deposit: ".format(
+                    customer_id), amount)
+                return True
+            else:
+                print("Error occurred with add_customer_balance...")
+        else:
+            print("Error occurred with add_customer_balance...")
 
 
-# if __name__ == '__main__':
-#     res = Instruments.add_customer_balance('100001100000000115', '5', '1500')
+if __name__ == '__main__':
+    res = Instruments.calculate_decimal_price(140, 2)
+    print(res)
+#     res = Instruments.start_selenium_server()
 #     print(res)
+    # res = Instruments.add_customer_balance(100001100000001021, 5, 150000)
+    # res = Instruments.add_customer_deposit_balance(100001100000001221, 3, 150000)
+    # res = Instruments.add_customer_deposit(100001100000000966, 5, 150000.00000000)
+    # print(res)
+    # res = Instruments.run_mysql_query("""INSERT INTO deposits VALUES(1216, 100001100000000966, 3, 0, 5, 150000.00000000, 0.00012500, 0.00014388, 1.00000000, 2134776, 2, 3, '10.244.10.1', '', 0, 0, 9, 9, 9, 0, 0, NULL, 0, NULL, '2018-09-03 08:34:07', '2018-09-03', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2018-09-03 08:34:07', '2018-09-03 08:34:07');""")
+    # print(res)
+    # res = Instruments.add_customer_balance('100001100000000966', '5', '150000')
+    # print(res)
 #     parsed_html = Instruments.parse_html('<table><tr><td>Dear Brianna Smith Brianna Smith</td></tr><tr><td>Your new password for the DX.exchange is: <span>oohQ9FtG2T</span></td></tr><tr><td>This is a temporary password for the next 24 hours.</td></tr><tr><td>Click <a href="http://staging-crm.dx.exchange/dx/login/">here</a> to login to the CRM with the temporary password.</td></tr><tr><td>Upon login, you will be asked to change the password to a permanent one.</td></tr></table>')
 #     new_pass = parsed_html.table.find_all('td')[1].span.string
 #     print(new_pass)

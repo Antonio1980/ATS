@@ -1,9 +1,11 @@
 # !/usr/bin/env python
 # -*- coding: utf8 -*-
 
+import time
 import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
+from src.base.browser import Browser
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -24,12 +26,13 @@ class SignUpFullFlowTest(unittest.TestCase):
         self.signup_page = SignUpPage()
         self.signin_page = SignInPage()
         self.phone = self.signup_page.phone
-        self.password = self.signup_page.password
         self.test_run = BaseConfig.TESTRAIL_RUN
-        self.email = self.signup_page.guerrilla_email
-        self.username = self.signup_page.username
+        self.password = self.signup_page.password
+        self.email = self.signup_page.mailinator_email
         self.results_file = BaseConfig.WTP_TESTS_RESULT
+        self.username = self.signup_page.mailinator_username
         self.customers_file = BaseConfig.WTP_TESTS_CUSTOMERS
+        self.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(self.email)
 
     @test(groups=['regression', 'positive', ], depends_on_groups=["sanity", ])
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
@@ -41,11 +44,12 @@ class SignUpFullFlowTest(unittest.TestCase):
             False, False, False, False, False, False, False, False, False, False, False, False
         try:
             step1 = self.home_page.open_signup_page(self.driver, delay)
-            step2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password, )
-            customer_id = self.signup_page.execute_js(self.driver, self.signup_page.script_customer_id)
+            step2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password, self.element)
+            customer_id = Browser.execute_js(self.driver, self.signup_page.script_customer_id)
+            time.sleep(delay)
             # 0 - verify email, 1 - change password, 2 - click on change_password, 3 - click on verify_email
             url = self.signup_page.get_email_updates(self.driver, self.email, 0)
-            token = url.split('=')[1].split('&')[0]
+            token = url.split('=')[2].split('&')[0]
             step3 = self.signup_page.go_by_token_url(self.driver, url)
             step4 = self.signup_page.add_phone(self.driver, self.phone)
             sms_code = Instruments.get_redis_value(customer_id)
@@ -69,4 +73,4 @@ class SignUpFullFlowTest(unittest.TestCase):
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     def tearDown(self):
-        self.home_page.close_browser(self.driver)
+        Browser.close_browser(self.driver)

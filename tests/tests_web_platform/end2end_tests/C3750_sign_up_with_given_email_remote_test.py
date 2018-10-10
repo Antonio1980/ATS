@@ -4,7 +4,6 @@
 import time
 import unittest
 from proboscis import test
-from src.base.enums import Browsers
 from src.base.browser import Browser
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
@@ -30,13 +29,15 @@ class SignUpWithGivenEmailRemoteTest(unittest.TestCase):
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.results_file = BaseConfig.WTP_TESTS_RESULT
         cls.customers_file = BaseConfig.WTP_TESTS_CUSTOMERS
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
         cls.username = Instruments.generate_user_first_last_name()
         response = Instruments.set_guerrilla_email(cls.username)
         cls.time_stamp = str(response[1]['email_timestamp'])
         cls.sid_token = response[1]['sid_token']
         cls.email = cls.username + '@guerrillamailblock.com'
         cls.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(cls.email)
+        mac_details = ('Chrome', '68.0', 'OS X', 'Sierra', '1920x1080')
+        win_details = ('Chrome', '68.0', 'Windows', '10', '2048x1536')
+        cls.driver = WebDriverFactory.get_browser_stack_driver(mac_details)
 
     @test(groups=['e2e', 'positive', ], depends_on_groups=["functional", ])
     def test_sign_up_with_given_email_remote(self):
@@ -46,7 +47,7 @@ class SignUpWithGivenEmailRemoteTest(unittest.TestCase):
         try:
             step1 = self.home_page.open_signup_page(self.driver, delay)
             step2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password, self.element)
-            customer_id = self.signup_page.execute_js(self.driver, self.signup_page.script_customer_id)
+            customer_id = Browser.execute_js(self.driver, self.signup_page.script_customer_id)
             time.sleep(delay * 2)
             emails_list_response = Instruments.get_guerrilla_emails(self.username, self.sid_token)
             sid_token = emails_list_response[1]['sid_token']

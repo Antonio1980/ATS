@@ -2,6 +2,8 @@
 # -*- coding: utf8 -*-
 
 import unittest
+import xmlrunner as xmlrunner
+
 from tests.tests_crm_bo.end2end_tests.C3440_forgot_password_remote_test import ForgotPasswordRemoteTest
 from tests.tests_crm_bo.end2end_tests.C3440_forgot_password_standalone_test import ForgotPasswordStandaloneTest
 from tests.tests_crm_bo.end2end_tests.C5846_reset_password_standalone_test import ResetPasswordTest
@@ -97,7 +99,11 @@ change_password_suite = unittest.TestSuite([update_default_password, change_pass
 # customer_suite = unittest.TestSuite([upgrade_customer, add_deposit, ])
 
 # execute test suite
-# unittest.TextTestRunner(verbosity=2).run(login_suite)
-# unittest.TextTestRunner(verbosity=2).run(forgot_password_suite)
-# unittest.TextTestRunner(verbosity=2).run(management_suite)
-# unittest.TextTestRunner(verbosity=2).run(customer_suite)
+unittest.TextTestRunner(verbosity=2).run(e2d_suite)
+unittest.TextTestRunner(verbosity=2).run(login_suite)
+unittest.TextTestRunner(verbosity=2).run(forgot_password_suite)
+unittest.TextTestRunner(verbosity=2).run(change_password_suite)
+    
+
+# if __name__ == '__main__':
+    # unittest.main(testRunner=xmlrunner.XMLTestRunner(output="./python_unittests_xml"))

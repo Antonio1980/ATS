@@ -48,7 +48,7 @@ def test_forgot_password_full_flow(_q):
         try:
             _browser = q.get()
             delay, new_password = 5, ""
-            driver = WebDriverFactory.get_remote_driver(_browser)
+            driver = WebDriverFactory.get_browser_stack_driver(_browser)
             user_details = {'first_last_name': first_last_name, 'phone': phone, 'username': new_username,
                             'language': "eng", 'permissions': "sup", 'status': "act", 'user_type': "Admin"}
             step1, step2, step3, step4, step5, step6, step7, step8, step9 = False, False, False, False, False, False, False, False, False

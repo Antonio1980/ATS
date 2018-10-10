@@ -4,6 +4,7 @@
 import random
 import pytest
 from src.base.enums import Browsers
+from src.base.browser import Browser
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -35,7 +36,7 @@ def test_generate_customers(i):
         random.seed(i)
         step1 = home_page.open_signup_page(driver, delay)
         step2 = signup_page.fill_signup_form(driver, username, email, password, )
-        customer_id = signup_page.execute_js(driver, signup_page.script_customer_id)
+        customer_id = Browser.execute_js(driver, signup_page.script_customer_id)
         keys = Instruments.get_redis_keys("email_validation_token*")
         token_keys = Instruments.parse_redis_token(keys, "b'")
         token = Instruments.get_redis_token(token_keys, customer_id)
@@ -54,7 +55,7 @@ def test_generate_customers(i):
         if step1 and step2 and step3 and step4 and step5 and step6 and step7 and step8 and step9 and step10 is True:
             Instruments.write_file_user(email + "," + password + "," + customer_id + "," + token + "\n", customers_file)
             username = generator()
-            signup_page.close_browser(driver)
+            Browser.close_browser(driver)
         else:
             username = generator()
-            signup_page.close_browser(driver)
+            Browser.close_browser(driver)

@@ -1,24 +1,43 @@
-from src.base.instruments import Instruments
 from test_definitions import BaseConfig
+from src.base.instruments import Instruments
+from src.base.base_exception import AutomationError
+from selenium.common.exceptions import TimeoutException
 from tests.tests_web_platform.pages import user_page_url
 from tests.tests_web_platform.pages.base_page import BasePage
-from tests.tests_web_platform.locators.signup_page_locators import SignUpPageLocators
+from tests.tests_web_platform.locators import signup_page_locators
 
 
 class SignUpPage(BasePage):
     def __init__(self):
-        super(SignUpPage, self).__init__()
+        super().__init__()
         self.phone = "0528259547"
         self.password = "1Aa@<>12"
-        self.locators = SignUpPageLocators()
-        self.guerrilla_email = Instruments.get_guerrilla_email()[1]['email_addr']
-        self.username = self.guerrilla_email.split('@')[0]
+        self.locators = signup_page_locators
+        self.response = Instruments.get_guerrilla_email()
+        self.guerrilla_email = self.response[1]['email_addr']
+        self.sid_token = self.response[1]['sid_token']
+        self.time_stamp = str(self.response[1]['email_timestamp'])
+        self.guerrilla_username = self.guerrilla_email.split('@')[0]
         self.terms_url = self.wtp_base_url + "/termsOfUse.html"
         self.privacy_url = self.wtp_base_url + "/privacyPolicy.html"
+        self.script_text_on_enter_phone_code = "return $('.upperText').text()"
         self.pure_username = Instruments.generate_pure_user_first_last_name()
+        self.mailinator_username = Instruments.generate_user_first_last_name()
+        self.mailinator_email = self.mailinator_username + "@mailinator.com"
         self.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(self.guerrilla_email)
 
-    def fill_signup_form(self, driver, first_last_name, email, password, _element=None):
+    def go_by_token_url(self, driver, url):
+        delay = 5
+        if url is not None:
+            try:
+                self.go_to_url(driver, url)
+            finally:
+                if self.wait_element_clickable(driver, self.locators.SEND_BUTTON, delay + 5):
+                    return True
+                else:
+                    return False
+
+    def fill_signup_form(self, driver, first_last_name, email, password, _element=''):
         delay = 5
         try:
             assert self.wait_url_contains(driver, self.wtp_open_account_url, delay)
@@ -40,9 +59,11 @@ class SignUpPage(BasePage):
             self.click_on_element(newsletters_checkbox)
             self.execute_js(driver, self.script_signup)
             create_account_button = self.search_element(driver, self.locators.CREATE_ACCOUNT_BUTTON, delay + 5)
-            self.click_on_element(create_account_button)
+            self.click_with_wait_and_offset(driver, create_account_button, 5, 5, 1)
         finally:
-            if self.wait_element_visible(driver, self.element, delay) or self.wait_element_visible(driver, _element, delay):
+            if self.wait_element_visible(driver, _element, delay):
+                return True
+            elif self.wait_element_visible(driver, self.element, delay):
                 return True
             else:
                 return False
@@ -109,21 +130,24 @@ class SignUpPage(BasePage):
                 else:
                     return False
 
-    def add_phone(self, driver, phone):
+    def add_phone(self, driver, phone, country='isra'):
         delay = 5
         try:
             assert self.wait_url_contains(driver, self.wtp_open_account_url, delay)
             country_dropdown = self.find_element(driver, self.locators.SELECT_COUNTRY_DROPDOWN)
             self.click_on_element(country_dropdown)
-            self.type_text_by_locator(driver, self.locators.SELECT_COUNTRY_FIELD, "isra")
+            self.type_text_by_locator(driver, self.locators.SELECT_COUNTRY_FIELD, country)
             phone_field = self.find_element(driver, self.locators.PHONE_FIELD)
             self.send_keys(phone_field, phone)
             send_button = self.find_element(driver, self.locators.SEND_BUTTON)
             self.click_on_element(send_button)
+        except AutomationError as e:
+            print("{0} add_phone method throws error: {1}".format(e.__class__.__name__, e.__cause__))
         finally:
-            if self.wait_element_clickable(driver, self.locators.ANOTHER_PHONE_LINK, delay):
+            try:
+                self.wait_element_clickable(driver, self.locators.ANOTHER_PHONE_LINK, delay)
                 return True
-            else:
+            except TimeoutException:
                 return False
 
     def enter_phone_code(self, driver, code):
@@ -134,24 +158,15 @@ class SignUpPage(BasePage):
             self.click_on_element(code_field)
             self.send_keys(code_field, code)
             submit_button = self.wait_element_clickable(driver, self.locators.SUBMIT_BUTTON, delay+5)
-            self.driver_wait(driver, delay+5)
             self.click_on_element(submit_button)
+        except AutomationError as e:
+            print("{0} add_phone method throws error: {1}".format(e.__class__.__name__, e.__cause__))
         finally:
-            if self.wait_element_clickable(driver, self.locators.NEXT_BUTTON, delay):
-                return True
-            else:
-                return False
-
-    def go_by_token_url(self, driver, url):
-        delay = 5
-        if url is not None:
             try:
-                self.go_to_url(driver, url)
-            finally:
-                if self.wait_element_clickable(driver, self.locators.SEND_BUTTON, delay + 5):
-                    return True
-                else:
-                    return False
+                self.wait_element_clickable(driver, self.locators.NEXT_BUTTON, delay)
+                return True
+            except TimeoutException:
+                return False
 
     def fill_personal_details(self, driver, birthday, zip, city):
         delay = 5

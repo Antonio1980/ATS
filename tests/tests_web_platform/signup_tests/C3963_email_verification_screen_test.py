@@ -4,6 +4,7 @@
 import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
+from src.base.browser import Browser
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -20,8 +21,8 @@ class EmailVerificationScreenTest(unittest.TestCase):
         self.signup_page = SignUpPage()
         self.test_run = BaseConfig.TESTRAIL_RUN
         self.password = self.signup_page.password
-        self.username = self.signup_page.username
-        self.results = BaseConfig.WTP_TESTS_RESULT
+        self.username = self.signup_page.guerrilla_username
+        self.results_file = BaseConfig.WTP_TESTS_RESULT
         self.email = self.signup_page.guerrilla_email
 
     @test(groups=['smoke', 'gui', 'positive', ])
@@ -37,11 +38,11 @@ class EmailVerificationScreenTest(unittest.TestCase):
             step3 = self.signup_page.verify_email_screen_test(self.driver, delay)
         finally:
             if step1 and step2 and step3 is True:
-                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     def tearDown(self):
-        self.home_page.close_browser(self.driver)
+        Browser.close_browser(self.driver)

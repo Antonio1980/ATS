@@ -1,0 +1,5 @@
+USD = "//*[@class='dynamicFilter']"
+IMAGE_USD = "//*[@class='filterImage usd']"
+ASSET_BCH = "//*[@data-instrumentid='1024']//img"
+USD_ASSETS = "//div[@class='content']/span[@class='currencySymbol'][contains(.,'USD')]"
+BCH_ASSETS = "//div[@class='content']/span[@class='currencySymbol'][contains(.,'BCH')]"

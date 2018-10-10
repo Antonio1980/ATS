@@ -24,7 +24,7 @@ class CustomerUpgradeStatusTest(unittest.TestCase):
         cls.login_page = LogInPage()
         cls.customer_page = CustomerPage()
         cls.test_run = BaseConfig.TESTRAIL_RUN
-        cls.results = BaseConfig.CRM_TESTS_RESULT
+        cls.results_file = BaseConfig.CRM_TESTS_RESULT
         cls.username = cls.login_page.login_username
         cls.password = cls.login_page.login_password
         cls.customer_id = cls.login_page.customer_id
@@ -37,18 +37,18 @@ class CustomerUpgradeStatusTest(unittest.TestCase):
         customer_status = 'Depositor'
         payment_details = {'payment_option': payment_option, 'company_option': company_option, 'status_option': status_option,
                            'currency_option': currency_option, 'deposit_amount': deposit_amount}
-        result1, result2, result3, result4 = False, False, False, None
+        step1, step2, step3, step4 = False, False, False, None
         try:
-            result1 = self.login_page.login(self.driver, self.username, self.password)
-            result2 = self.home_page.choose_customer_by_option(self.driver, self.customer_id, 1)
-            result3 = self.customer_page.make_deposit(self.driver, payment_details)
-            result4 = self.customer_page.check_customer_icon(self.driver)
+            step1 = self.login_page.login(self.driver, self.username, self.password)
+            step2 = self.home_page.choose_customer_by_option(self.driver, self.customer_id, 1)
+            step3 = self.customer_page.make_deposit(self.driver, payment_details)
+            step4 = self.customer_page.check_customer_icon(self.driver)
         finally:
-            if result1 and result2 and result3 is True and result4 == customer_status:
-                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
+            if step1 and step2 and step3 is True and step4 == customer_status:
+                # Instruments.write_file_step(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results)
+                # Instruments.write_file_step(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     @classmethod

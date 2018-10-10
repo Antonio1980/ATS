@@ -4,6 +4,7 @@
 import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
+from src.base.browser import Browser
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -54,4 +55,4 @@ class ForgotPasswordFullFlowTest(unittest.TestCase):
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     def tearDown(self):
-        self.home_page.close_browser(self.driver)
+        Browser.close_browser(self.driver)

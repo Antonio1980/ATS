@@ -2,16 +2,16 @@ import re
 from src.base.browser import Browser
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
-from tests.tests_crm_bo.locators.base_page_locators import BasePageLocators
+from tests.tests_crm_bo.locators import base_page_locators
 
 
 class BasePage(Browser):
     def __init__(self):
-        super(BasePage, self).__init__()
-        self.base_locators = BasePageLocators()
+        super().__init__()
+        self.base_locators = base_page_locators
         self.crm_base_url = BaseConfig.CRM_STAGING_URL
         # data_file, row, column1, column2, column3
-        self.account_details = Instruments.get_account_details(BaseConfig.WTP_TESTS_CUSTOMERS, 0, 0, 1, 2)
+        self.account_details = Instruments.get_account_details(BaseConfig.WTP_TESTS_CUSTOMERS, 38, 0, 1, 2)
         self.customer_id = self.account_details['customer_username']
 
     def go_back_and_wait(self, driver, previous_url):

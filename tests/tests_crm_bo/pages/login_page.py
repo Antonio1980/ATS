@@ -1,26 +1,29 @@
+import random
+
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages.base_page import BasePage
-from tests.tests_crm_bo.locators.home_page_locators import HomePageLocators
-from tests.tests_crm_bo.locators.login_page_locators import LogInPageLocators
+from tests.tests_crm_bo.locators import home_page_locators
+from tests.tests_crm_bo.locators import login_page_locators
 from tests.tests_crm_bo.pages import login_page_url, new_password_url, home_page_url
 
 
 class LogInPage(BasePage):
     def __init__(self):
-        super(LogInPage, self).__init__()
+        super().__init__()
         self.login_username = "admin"
         self.login_password = "password1"
         self.login_email = "roman@spotoption.com"
-        self.locators = LogInPageLocators()
+        self.locators = login_page_locators
         # data_file, row, column1, column2, column3
-        self.account_details = Instruments.get_account_details(BaseConfig.CRM_TESTS_USERS, 0, 0, 1, 2)
+        self.account_details = Instruments.get_account_details(BaseConfig.WTP_TESTS_CUSTOMERS, 40, 0, 1, 2)
         self.email = self.account_details['email']
         self.password = self.account_details['password']
         self.username = self.account_details['customer_username']
-        rows = Instruments.run_mysql_query("SELECT email, username FROM local_users where status = 'Active';")
-        self.forgotten_email = rows[4][0]
-        self.forgotten_username = rows[4][1]
+        rows = Instruments.run_mysql_query("SELECT email, username FROM local_users WHERE status = 'Active' AND email LIKE '%@guerrillamailblock.com';")
+        index = random.randrange(len(rows))
+        self.forgotten_email = rows[index][0]
+        self.forgotten_username = rows[index][1]
         self.email_text = "An email has been sent to {0} which is the email address for your account. " \
                           "It includes information on changing and confirming your new password. " \
                           "Please reset your password within the next 24 hours.".format(self.email)
@@ -45,8 +48,7 @@ class LogInPage(BasePage):
                 login_button = self.find_element_by(driver, self.locators.LOGIN_BUTTON_ID, "id")
                 self.click_on_element(login_button)
         finally:
-            if self.wait_url_contains(driver, new_password_url, delay) or \
-                    self.find_element_by(driver, HomePageLocators.HOME_PAGE_LOGO_ID, "id"):
+            if self.find_element_by(driver, home_page_locators.HOME_PAGE_LOGO_ID, "id") or self.wait_url_contains(driver, new_password_url, delay):
                 return True
             else:
                 return False

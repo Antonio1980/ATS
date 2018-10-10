@@ -1,16 +1,16 @@
 import re
 from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages.base_page import BasePage
+from tests.tests_crm_bo.locators import create_user_page_locators
 from tests.tests_crm_bo.pages import create_user_page_url, user_index_page_url
-from tests.tests_crm_bo.locators.create_user_page_locators import CreateUserPageLocators
 
 
 class CreateUserPage(BasePage):
     password_message = "A temporary password will be created and an email will be send to the user with instructions to change it"
 
     def __init__(self):
-        super(CreateUserPage, self).__init__()
-        self.locators = CreateUserPageLocators()
+        super().__init__()
+        self.locators = create_user_page_locators
         self.response = Instruments.get_guerrilla_email()
         self.email = self.response[1]['email_addr']
         self.guerrilla_username = re.findall(r"([\w.-]+)", self.email)[0]

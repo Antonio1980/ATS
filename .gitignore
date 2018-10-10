@@ -241,3 +241,8 @@ tests/tests_web_platform/end2end_tests/debug.log
 tests/tests_web_platform/end2end_tests/generate_customers_test2.py
 tests/tests_web_platform/registration_tests_container.py
 !/tests/tests_web_platform/registration_tests_container.py
+/src/repository/wtp_tests_customers.csv
+/src/repository/crm_tests_users.csv
+/src/repository/crm_users_preconditions.csv
+/platform_server_qa.dist-info/
+/reports/

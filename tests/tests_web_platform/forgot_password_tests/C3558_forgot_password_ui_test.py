@@ -11,7 +11,7 @@ from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signin_page import SignInPage
 from tests.tests_web_platform.pages import forgot_password_page_url
-from tests.tests_web_platform.locators.forgot_password_page_locators import ForgotPasswordPageLocators
+from tests.tests_web_platform.locators import forgot_password_page_locators
 
 
 @ddt
@@ -22,7 +22,7 @@ class ForgotPasswordUITest(unittest.TestCase):
         self.home_page = HomePage()
         self.login_page = SignInPage()
         self.test_run = BaseConfig.TESTRAIL_RUN
-        self.locators = ForgotPasswordPageLocators()
+        self.locators = forgot_password_page_locators
         self.results_file = BaseConfig.WTP_TESTS_RESULT
 
     @test(groups=['smoke', 'gui', 'positive', ])
@@ -43,12 +43,11 @@ class ForgotPasswordUITest(unittest.TestCase):
         finally:
             if step1 and step2 and step3 is True:
                 if Browser.wait_element_presented(self.driver, self.locators.SUBMIT_BUTTON, delay):
-                    # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n",
-                                                  # self.results_file)
+                    # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                     Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
                 # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     def tearDown(self):
-        self.home_page.close_browser(self.driver)
+        Browser.close_browser(self.driver)

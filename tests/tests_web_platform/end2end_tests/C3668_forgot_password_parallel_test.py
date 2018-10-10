@@ -6,6 +6,7 @@ import time
 from queue import Queue
 from threading import Thread
 from src.base.enums import Browsers
+from src.base.browser import Browser
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -30,7 +31,7 @@ for browser in browsers:
 num_threads = 5
 
 
-def test_forgot_password_full_flow():
+def test_forgot_password_full_flow(q):
     driver = None
     test_case = '3668'
     home_page = HomePage()
@@ -40,7 +41,6 @@ def test_forgot_password_full_flow():
     new_password = password + "Qa"
     test_run = BaseConfig.TESTRAIL_RUN
     forgot_password_page = ForgotPasswordPage()
-    results_file = BaseConfig.WTP_TESTS_RESULT
     customers_file = BaseConfig.WTP_TESTS_CUSTOMERS
     response = Instruments.get_guerrilla_email()
     email = response[1]['email_addr']
@@ -56,9 +56,8 @@ def test_forgot_password_full_flow():
             step1, step2, step3, step4, step5, step6, step7 = False, False, False, False, False, False, False
             try:
                 step1 = home_page.open_signup_page(driver, delay)
-                step2 = signup_page.fill_signup_form(driver, username, email, password,
-                                                      element)
-                customer_id = signup_page.execute_js(driver, signup_page.script_customer_id)
+                step2 = signup_page.fill_signup_form(driver, username, email, password, element)
+                customer_id = Browser.execute_js(driver, signup_page.script_customer_id)
                 step3 = signin_page.go_by_token_url(driver, wtp_signin_page_url)
                 # Option 1- forgot password, Option 2- register link
                 step4 = signin_page.click_on_link(driver, 1, delay)
@@ -79,10 +78,10 @@ def test_forgot_password_full_flow():
                     Instruments.write_file_user(
                         email + "," + password + "," + customer_id + "," + sid_token + "\n",
                         customers_file)
-                    Instruments.write_file_result(test_case + "," + test_run + "," + "1 \n", results_file)
+                    # Instruments.write_file_result(test_case + "," + test_run + "," + "1 \n", results_file)
                     Instruments.update_test_case(test_run, test_case, 1)
                 else:
-                    Instruments.write_file_result(test_case + "," + test_run + "," + "0 \n", results_file)
+                    # Instruments.write_file_result(test_case + "," + test_run + "," + "0 \n", results_file)
                     Instruments.update_test_case(test_run, test_case, 0)
         finally:
             driver.quit()

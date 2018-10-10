@@ -3,7 +3,7 @@
 
 import unittest
 from proboscis import test
-from src.base.terminal import Terminal, test_utils_dir
+from src.base.terminal import Terminal
 
 
 class SmokeTest(unittest.TestCase):
@@ -34,7 +34,7 @@ class SmokeTest(unittest.TestCase):
         print("LS______________________")
         print(cls.terminal.run_command_out(Terminal.LS, Terminal.TERMINAL_OUTPUT))
         print("CD______________________")
-        print(cls.terminal.run_cd(test_utils_dir))
+        #print(cls.terminal.run_cd(test_utils_dir))
         print("PWD______________________")
         print(cls.terminal.run_command_out(Terminal.PWD, Terminal.TERMINAL_OUTPUT))
         print("LS______________________")

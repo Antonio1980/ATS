@@ -1,12 +1,12 @@
 from tests.tests_crm_bo.pages.base_page import BasePage
-from tests.tests_crm_bo.locators.users_management_page_locators import UsersManagementPageLocators
+from tests.tests_crm_bo.locators import users_management_page_locators
 from tests.tests_crm_bo.pages import user_management_page_url, create_user_page_url
 
 
 class UsersManagementPage(BasePage):
     def __init__(self):
-        super(UsersManagementPage, self).__init__()
-        self.locators = UsersManagementPageLocators()
+        super().__init__()
+        self.locators = users_management_page_locators
 
     def click_on_create_new_user(self, driver):
         delay = 5

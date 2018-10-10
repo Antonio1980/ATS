@@ -11,10 +11,9 @@ from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
+from tests.tests_crm_bo.locators import create_user_page_locators, users_management_page_locators
 from tests.tests_crm_bo.pages.create_user_page import CreateUserPage
 from tests.tests_crm_bo.pages.users_management_page import UsersManagementPage
-from tests.tests_crm_bo.locators.create_user_page_locators import CreateUserPageLocators
-from tests.tests_crm_bo.locators.users_management_page_locators import UsersManagementPageLocators
 
 
 @ddt
@@ -27,8 +26,8 @@ class ResetPasswordTest(unittest.TestCase):
         self.login_page = LogInPage()
         self.test_run = BaseConfig.TESTRAIL_RUN
         self.create_user_page = CreateUserPage()
-        self.locators2 = CreateUserPageLocators()
-        self.locators = UsersManagementPageLocators()
+        self.locators2 = create_user_page_locators
+        self.locators = users_management_page_locators
         self.results_file = BaseConfig.CRM_TESTS_RESULT
         self.user_management_page = UsersManagementPage()
         self.login_username = self.login_page.login_username

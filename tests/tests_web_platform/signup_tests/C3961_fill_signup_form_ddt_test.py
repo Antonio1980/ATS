@@ -5,6 +5,7 @@ import unittest
 from proboscis import test
 from ddt import data, unpack, ddt
 from src.base.enums import Browsers
+from src.base.browser import Browser
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -21,7 +22,7 @@ class SignUpDDTTest(unittest.TestCase):
         cls.home_page = HomePage()
         cls.signup_page = SignUpPage()
         cls.test_run = BaseConfig.TESTRAIL_RUN
-        cls.results = BaseConfig.WTP_TESTS_RESULT
+        cls.results_file = BaseConfig.WTP_TESTS_RESULT
         cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', 'negative', ], depends_on_groups=["smoke", ])
@@ -35,12 +36,15 @@ class SignUpDDTTest(unittest.TestCase):
             step2 = self.signup_page.fill_signup_form(self.driver, first_last_name, email, password, )
         finally:
             if step1 is True and step2 is False:
-                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results)
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
+
+    def tearDown(self):
+        Browser.close_browser(self.driver)
 
     @classmethod
     def tearDownClass(cls):
-        cls.home_page.close_browser(cls.driver)
+        Browser.close_browser(cls.driver)

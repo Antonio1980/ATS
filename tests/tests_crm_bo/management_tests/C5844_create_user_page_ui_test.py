@@ -10,9 +10,9 @@ from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages.home_page import HomePage
 from tests.tests_crm_bo.pages.login_page import LogInPage
 from src.drivers.webdriver_factory import WebDriverFactory
+from tests.tests_crm_bo.locators import create_user_page_locators
 from tests.tests_crm_bo.pages.create_user_page import CreateUserPage
 from tests.tests_crm_bo.pages.users_management_page import UsersManagementPage
-from tests.tests_crm_bo.locators.create_user_page_locators import CreateUserPageLocators
 
 
 @ddt
@@ -23,7 +23,7 @@ class CreateNewUserUITest(unittest.TestCase):
         self.home_page = HomePage()
         self.login_page = LogInPage()
         self.test_run = BaseConfig.TESTRAIL_RUN
-        self.locators = CreateUserPageLocators()
+        self.locators = create_user_page_locators
         self.message = CreateUserPage.password_message
         self.results_file = BaseConfig.CRM_TESTS_RESULT
         self.user_management_page = UsersManagementPage()
@@ -66,7 +66,7 @@ class CreateNewUserUITest(unittest.TestCase):
                 Browser.wait_element_presented(self.driver, self.locators.USERNAME_ERROR, delay)
                 step4 = True
             except Exception as e:
-                print(e)
+                print("Exception is occurred".format(e))
         finally:
             if step1 and step2 and step3 and step4 is True:
                 # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)

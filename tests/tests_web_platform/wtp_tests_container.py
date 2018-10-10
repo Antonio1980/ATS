@@ -15,7 +15,7 @@ from tests.tests_web_platform.forgot_password_tests.C3669_reset_password_email_t
 from tests.tests_web_platform.forgot_password_tests.C3668_forgot_password_full_flow_test import ForgotPasswordFullFlowTest
 
 from tests.tests_web_platform.signin_tests.C3671_signin_page_ui_test import SignInPageUITest
-from tests.tests_web_platform.signin_tests.C3983_signin_test import SignInTest
+from tests.tests_web_platform.signin_tests.C3983_signin_positive_test import SignInTest
 from tests.tests_web_platform.signin_tests.C3966_signin_ddt_test import SignInDDTTest
 from tests.tests_web_platform.signin_tests.C3962_links_on_signin_page_test import LinksOnSignInPageTest
 from tests.tests_web_platform.signin_tests.C3984_signin_without_captcha_test import LogInWithoutCaptchaTest
@@ -73,9 +73,9 @@ signup_suite = unittest.TestSuite([signup_email_links, signup_ddt, email_screen_
                                    signup_full_flow, ])
 
 # execute test suites according "one by one" ordering.
-# unittest.TextTestRunner(verbosity=2).run(login_suite)
-# unittest.TextTestRunner(verbosity=2).run(forgot_password_suite)
-# unittest.TextTestRunner(verbosity=2).run(signup_suite)
+unittest.TextTestRunner(verbosity=2).run(login_suite)
+unittest.TextTestRunner(verbosity=2).run(forgot_password_suite)
+unittest.TextTestRunner(verbosity=2).run(signup_suite)
 
 
 

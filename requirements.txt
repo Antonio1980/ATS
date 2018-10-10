@@ -5,7 +5,9 @@ proboscis
 requests
 pymysql
 pytest
+arrow
 redis
 faker
+arrow
 ddt
 bs4

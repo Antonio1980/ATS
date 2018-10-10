@@ -1,18 +1,18 @@
 from src.base.instruments import Instruments
+from tests.tests_web_platform.locators import forgot_password_page_locators
 from tests.tests_web_platform.pages import BasePage, forgot_password_page_url, wtp_dashboard_url
-from tests.tests_web_platform.locators.forgot_password_page_locators import ForgotPasswordPageLocators
 
 
 class ForgotPasswordPage(BasePage):
     def __init__(self):
-        super(ForgotPasswordPage, self).__init__()
+        super().__init__()
         self.password = "1Aa@<>12"
-        self.locators = ForgotPasswordPageLocators()
+        self.locators = forgot_password_page_locators
         self.first_last_name = Instruments.generate_user_first_last_name()
         self.guerrilla_email = \
-            Instruments.run_mysql_query("select email from customers where email like '%@guerrillamail%' and status=2;")[0]
+            Instruments.run_mysql_query("SELECT email FROM customers WHERE email LIKE '%@guerrillamail%' AND status=2;")[0]
         self.mailinator_email = \
-            Instruments.run_mysql_query("select email from customers where email like '%@mailinator.com%' and status=2;")[0]
+            Instruments.run_mysql_query("SELECT email FROM customers WHERE email LIKE '%@mailinator.com%' AND status=2;")[0]
 
     def fill_email_address_form(self, driver, email, delay=+1):
         try:

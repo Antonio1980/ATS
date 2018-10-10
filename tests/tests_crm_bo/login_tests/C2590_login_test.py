@@ -50,13 +50,13 @@ class LogInTest(unittest.TestCase):
         finally:
             # Result validation.
             if step1 is True:
-                # Save test result into csv file.
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
+                # Save test result into csv file (not in use).
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 # Update test rail report with "Passed".
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
-                # Save test result into csv file.
-                Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
+                # Save test result into csv file (not in use).
+                # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "0 \n", self.results_file)
                 # Update test rail report with "Failure".
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
