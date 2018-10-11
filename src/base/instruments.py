@@ -513,7 +513,7 @@ if __name__ == '__main__':
     # print(res)
     # res = Instruments.add_customer_balance('100001100000000966', '5', '150000')
     # print(res)
-#     parsed_html = Instruments.parse_html('<table><tr><td>Dear Brianna Smith Brianna Smith</td></tr><tr><td>Your new password for the DX.exchange is: <span>oohQ9FtG2T</span></td></tr><tr><td>This is a temporary password for the next 24 hours.</td></tr><tr><td>Click <a href="http://staging-crm.dx.exchange/dx/login/">here</a> to login to the CRM with the temporary password.</td></tr><tr><td>Upon login, you will be asked to change the password to a permanent one.</td></tr></table>')
+#     parsed_html = Instruments.parse_html('<table><tr><td>Dear Brianna Smith Brianna Smith</td></tr><tr><td>Your new password for the DX.exchange is: <span>oohQ9FtG2T</span></td></tr><tr><td>This is a temporary password for the next 24 hours.</td></tr><tr><td>Click <a href="http://staging-crm.dx.exchange/dx/login/">here</a> to login_positive to the CRM with the temporary password.</td></tr><tr><td>Upon login_positive, you will be asked to change the password to a permanent one.</td></tr></table>')
 #     new_pass = parsed_html.table.find_all('td')[1].span.string
 #     print(new_pass)
 #     new_password = parsed_html.tbody.find_all('td')[2]['span']

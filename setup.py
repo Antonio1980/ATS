@@ -70,7 +70,7 @@ class TestCommand(Command):
 
 
 setup(
-    name='aes',
+    name='ATS',
     version='1.0',
     url='https://gitlab.com/AShipulin/crm.git',
     packages=packages,

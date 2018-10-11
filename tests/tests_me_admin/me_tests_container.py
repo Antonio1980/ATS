@@ -14,4 +14,4 @@ login = unittest.TestLoader().loadTestsFromTestCase(LogInTest)
 login_suite = unittest.TestSuite([login, ])
 
 # execute test suite
-# unittest.TextTestRunner(verbosity=2).run(login_suite)
+unittest.TextTestRunner(verbosity=2).run(login_suite)
