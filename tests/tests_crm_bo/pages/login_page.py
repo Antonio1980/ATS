@@ -1,5 +1,8 @@
 import random
 
+from selenium.webdriver.remote.webelement import WebElement
+
+from src.base.base_exception import AutomationError
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from tests.tests_crm_bo.pages.base_page import BasePage
@@ -31,48 +34,42 @@ class LogInPage(BasePage):
     def go_to_login_page(self, driver, url):
         delay = 5
         self.go_to_url(driver, url)
-        if self.wait_url_contains(driver, login_page_url, delay):
-            return True
-        else:
-            return False
+        return self.wait_url_contains(driver, login_page_url, delay)
 
     def login(self, driver, username, password):
         delay = 5
         try:
-            result = self.go_to_login_page(driver, self.crm_base_url)
-            if result is True:
+            if self.go_to_login_page(driver, self.crm_base_url):
                 username_field = self.find_element_by(driver, self.locators.USERNAME_FIELD_ID, "id")
                 self.send_keys(username_field, username)
                 password_field = self.find_element_by(driver, self.locators.PASSWORD_FIELD_ID, "id")
                 self.send_keys(password_field, password)
                 login_button = self.find_element_by(driver, self.locators.LOGIN_BUTTON_ID, "id")
                 self.click_on_element(login_button)
-        finally:
-            if self.find_element_by(driver, home_page_locators.HOME_PAGE_LOGO_ID, "id") or self.wait_url_contains(driver, new_password_url, delay):
-                return True
-            else:
-                return False
+            return isinstance(self.find_element_by(driver, home_page_locators.HOME_PAGE_LOGO_ID, "id"), WebElement) or \
+                   self.wait_url_contains(driver, new_password_url, delay)
+        except AutomationError as e:
+            print("{0} login failed with error: {1}".format(e.__class__.__name__, e.__cause__))
 
-    def forgot_password(self, driver, email):
-        delay = 5
+    def forgot_password(self, driver, email, delay):
         try:
-            result = self.go_to_login_page(driver, self.crm_base_url)
-            if result is True:
+            if self.go_to_login_page(driver, self.crm_base_url):
                 forgot_password_link = self.wait_element_clickable(driver, self.locators.FORGOT_PASSWORD_LINK, delay)
                 self.click_on_element(forgot_password_link)
                 email_field = self.wait_element_clickable(driver, self.locators.POPUP_EMAIL_FIELD, delay)
                 self.send_keys(email_field, email)
                 send_button = self.find_element_by(driver, self.locators.POPUP_SEND_BUTTON_ID, "id")
                 self.click_on_element(send_button)
-        finally:
-            if self.check_element_not_visible(driver, self.locators.POPUP_CHECK, delay + 3):
-                if self.check_element_not_visible(driver, self.locators.POPUP_ERROR_MESSAGE_CLOSE_BUTTON, delay + 3):
-                    self.click_on_element_by_locator(driver, self.locators.EMAIL_POPUP_CLOSE_BUTTON, delay + 3)
-                    return True
-                else:
-                    return False
+                if self.check_element_not_visible(driver, self.locators.POPUP_CHECK, delay):
+                    if self.check_element_not_visible(driver, self.locators.POPUP_ERROR_MESSAGE_CLOSE_BUTTON, delay):
+                        self.click_on_element_by_locator(driver, self.locators.EMAIL_POPUP_CLOSE_BUTTON, delay)
+                        return True
+                    else:
+                        return False
             else:
                 return False
+        except AutomationError as e:
+            print("{0} forgot_password failed with error: {1}".format(e.__class__.__name__, e.__cause__))
 
     def set_new_password(self, driver, password, new_password):
         delay = 5
@@ -89,19 +86,16 @@ class LogInPage(BasePage):
             self.send_keys(confirm_password_field, new_password)
             confirm_button = self.find_element(driver, self.locators.CONFIRM_BUTTON)
             self.click_on_element(confirm_button)
-        finally:
-            if self.wait_url_contains(driver, home_page_url, delay):
-                return True
-            else:
-                return False
+            return self.wait_url_contains(driver, home_page_url, delay)
+        except AutomationError as e:
+            print("{0} set_new_password failed with error: {1}".format(e.__class__.__name__, e.__cause__))
 
-    def go_by_token_url(self, driver, _new_password_url):
-        delay = 5
-        if _new_password_url is not None:
-            try:
-                self.go_to_url(driver, _new_password_url)
-            finally:
-                if self.check_element_not_visible(driver, self.locators.PASSWORD_TOKEN_WARNING, delay + 5):
-                    return True
-                else:
-                    return False
+    def go_by_token_url(self, driver, _new_password_url, delay):
+        try:
+            self.go_to_url(driver, _new_password_url)
+            if isinstance(self.check_element_not_visible(driver, self.locators.PASSWORD_TOKEN_WARNING, delay + 5), WebElement):
+                return False
+            else:
+                return True
+        except AutomationError as e:
+            print("{0} go_by_token_url failed with error: {1}".format(e.__class__.__name__, e.__cause__))

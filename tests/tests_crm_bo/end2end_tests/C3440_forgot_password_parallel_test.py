@@ -55,7 +55,7 @@ def test_forgot_password_full_flow(_q):
             try:
                 step1 = login_page.login(driver, login_username, login_password)
                 step2 = home_page.go_to_management_inset_with_users_option(driver)
-                step3 = user_management_page.click_on_create_new_user(driver)
+                step3 = user_management_page.click_on_create_new_user(driver, )
                 step4 = create_user_page.fill_user_details(driver, new_email, user_details)
                 step5 = home_page.logout(driver, delay)
                 time.sleep(delay * 3)

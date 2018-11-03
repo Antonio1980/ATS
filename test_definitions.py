@@ -5,6 +5,7 @@ import os
 import configparser
 from src.drivers import drivers_dir
 from src.repository import repository_dir
+from src.scripts import scripts_dir
 
 
 def get_parser(config_file):
@@ -34,6 +35,8 @@ class BaseConfig(object):
     WTP_STAGING_URL = parser.get('BASE_URL', 'wtp_staging_url')
     GUERRILLA_API = parser.get('BASE_URL', 'guerrilla_api')
     BROWSER_STACK = parser.get('BASE_URL', 'browser_stack_url')
+    BALANCE_SERVICE = parser.get('BASE_URL', 'balance_service')
+    KUBERNETES = parser.get('BASE_URL', 'kubernetes')
 
     W_CHROME_PATH = drivers_dir + parser.get('WEB_DRIVER_WIN', 'w_chrome')
     W_FIREFOX_PATH = drivers_dir + parser.get('WEB_DRIVER_WIN', 'w_firefox')
@@ -57,12 +60,15 @@ class BaseConfig(object):
     CRM_DEPOSIT_DETAILS = repository_dir + parser.get('TEST_DATA', 'deposit_details_data')
     CRM_USERS_PRECONDITIONS = repository_dir + parser.get('TEST_DATA', 'crm_users_preconditions')
     CRM_NEW_PASSWORD_DATA = repository_dir + parser.get('TEST_DATA', 'new_password_data')
-    CRM_TESTS_USERS_UNCOMPLETED = repository_dir + parser.get('TEST_DATA', 'crm_tests_users_uncompleted')
     BROWSERS = repository_dir + parser.get('TEST_DATA', 'browsers')
     TERMINAL = repository_dir + parser.get('TEST_DATA', 'terminal_log')
     PHONES = repository_dir + parser.get('TEST_DATA', 'phones')
     PHONE_CODES = repository_dir + parser.get('TEST_DATA', 'phone_codes')
     SELENIUM_JAR = repository_dir + parser.get('TEST_DATA', 'selenium_jar')
+    TOOL_OUTPUT_FILE = repository_dir + parser.get('TEST_DATA', 'tool_output_file')
+    CUSTOMERS_PENDING = scripts_dir + parser.get('TEST_DATA', 'customers_pending')
+
+    TEST_TOKEN = parser.get('TOKEN', 'test_token')
 
     SQL_HOST = parser.get('SQL', 'host')
     SQL_PORT = parser.get('SQL', 'port')

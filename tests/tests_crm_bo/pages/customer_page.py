@@ -1,5 +1,6 @@
-from test_definitions import BaseConfig
+from src.base.base_exception import AutomationError
 from tests.tests_crm_bo.pages.base_page import BasePage
+from selenium.webdriver.remote.webelement import WebElement
 from tests.tests_crm_bo.locators import customer_page_locators
 from tests.tests_crm_bo.pages import customer_admin_url, customer_deposit_url, customer_balance_url
 
@@ -54,25 +55,23 @@ class CustomerPage(BasePage):
             self.input_data(bank_address, "7678687   khjhjkhkj jh8hkjhkjh")
             description_by_customer = self.find_element_by(driver, self.locators.DESCRIPTION_BY_CUSTOMER_ID, "id")
             self.input_data(description_by_customer, "iuewj,d  ekc;oli; lkkjkjsdfoidsmdl  fdklfks;kfsdf fsd")
-            #wallet_address = self.find_element_by(driver, self.locators.WALLET_ADDRESS_ID, "id")
-            #self.input_data(wallet_address, "uy454yu4yh45uy5h4hb54h")
+            # wallet_address = self.find_element_by(driver, self.locators.WALLET_ADDRESS_ID, "id")
+            # self.input_data(wallet_address, "uy454yu4yh45uy5h4hb54h")
             save_button = self.find_element_by(driver, self.locators.SAVE_BUTTON_ID, "id")
             self.click_on_element(save_button)
-        finally:
-            if self.check_element_not_presented(driver, self.locators.NEW_DEPOSIT_POPUP, delay):
-                return True
-            else:
+            if isinstance(self.check_element_not_presented(driver, self.locators.NEW_DEPOSIT_POPUP, delay), WebElement):
                 return False
+            else:
+                return True
+        except AutomationError as e:
+            print("{0} make_deposit failed with error: {1}".format(e.__class__.__name__, e.__cause__))
 
-    def check_balance(self, driver):
-        delay = 3
+    def check_balance(self, driver, delay):
         try:
             self.go_to_inset_id(driver, self.locators.BALANCE_INSET_ID)
-        finally:
-            if self.wait_url_contains(driver, customer_balance_url, delay):
-                return True
-            else:
-                return False
+            return self.wait_url_contains(driver, customer_balance_url, delay)
+        except AutomationError as e:
+            print("{0} check_balance failed with error: {1}".format(e.__class__.__name__, e.__cause__))
 
     def check_customer_icon(self, driver):
         customer_icon = self.find_element_by(driver, self.locators.CUSTOMER_ICON_ID, "id")

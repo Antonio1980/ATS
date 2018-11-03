@@ -1,34 +1,30 @@
-from src.base.instruments import Instruments
+from src.base.base_exception import AutomationError
 from tests.tests_web_platform.locators import forgot_password_page_locators
-from tests.tests_web_platform.pages import BasePage, forgot_password_page_url, wtp_dashboard_url
+from tests.tests_web_platform.pages import BasePage, forgot_password_page_url, wtp_dashboard_url, wtp_open_account_url
 
 
 class ForgotPasswordPage(BasePage):
     def __init__(self):
-        super().__init__()
-        self.password = "1Aa@<>12"
+        super(ForgotPasswordPage, self).__init__()
         self.locators = forgot_password_page_locators
-        self.first_last_name = Instruments.generate_user_first_last_name()
-        self.guerrilla_email = \
-            Instruments.run_mysql_query("SELECT email FROM customers WHERE email LIKE '%@guerrillamail%' AND status=2;")[0]
-        self.mailinator_email = \
-            Instruments.run_mysql_query("SELECT email FROM customers WHERE email LIKE '%@mailinator.com%' AND status=2;")[0]
 
-    def fill_email_address_form(self, driver, email, delay=+1):
+    def fill_email_address_form(self, driver, email, delay):
         try:
-            assert self.wait_url_contains(driver, forgot_password_page_url, delay + 3)
-            email_field = self.find_element(driver, self.locators.EMAIL_TEXT_FIELD)
+            assert self.wait_url_contains(driver, forgot_password_page_url, delay)
+            email_field = self.search_element(driver, self.locators.EMAIL_TEXT_FIELD, delay)
             self.click_on_element(email_field)
             self.send_keys(email_field, email)
-            self.wait_element_presented(driver, self.locators.CAPTCHA, delay + 5)
             self.execute_js(driver, self.script_forgot)
-            submit_button = self.wait_element_clickable(driver, self.locators.SUBMIT_BUTTON, delay + 5)
-            self.click_with_offset(driver, submit_button, 10, 20)
-        finally:
-            if self.wait_element_presented(driver, self.locators.MESSAGE, delay + 5):
+            self.execute_js(driver, self.script_test_token)
+            submit_button = self.wait_element_clickable(driver, self.locators.SUBMIT_BUTTON, delay)
+            self.try_click(driver, submit_button, delay - 3)
+            if self.wait_element_presented(driver, self.locators.MESSAGE, delay) is not False:
                 return True
             else:
                 return False
+        except AutomationError as e:
+            print("{0} fill_email_address_form failed with error {0}".format(e.__class__.__name__, e.__cause__))
+            return False
 
     def set_new_password(self, driver, password, new_password_url):
         delay, flag = 5, False
@@ -44,24 +40,27 @@ class ForgotPasswordPage(BasePage):
             assert self.wait_element_presented(driver, self.locators.CONFIRM_PASSWORD_ERROR, delay)
             confirm_button = self.search_element(driver, self.locators.CONFIRM_BUTTON, delay)
             self.click_with_offset(driver, confirm_button, 10, 20)
-            if self.wait_element_clickable(driver, self.locators.CONTINUE_BUTTON, delay):
+            try:
+                self.wait_element_clickable(driver, self.locators.CONTINUE_BUTTON, delay)
                 flag = True
                 continue_button = self.search_element(driver, self.locators.CONTINUE_BUTTON, delay)
                 self.click_on_element(continue_button)
-        finally:
-            if flag is True and self.wait_url_contains(driver, wtp_dashboard_url, delay) or \
-                    self.wait_url_contains(driver, self.wtp_open_account_url + "?lang=en", delay):
-                return True
-            else:
+            except AutomationError as e:
+                print("{0} set_new_password failed with error: {1}".format(e.__class__.__name__, e.__cause__))
                 return False
+        finally:
+            if flag is True:
+                return self.wait_url_contains(driver, wtp_dashboard_url, delay) or self.wait_url_contains(
+                    driver, wtp_open_account_url, delay)
 
     def go_by_token_url(self, driver, url):
         delay = 5
-        if url is not None:
-            try:
-                self.go_to_url(driver, url)
-            finally:
-                if self.wait_element_clickable(driver, self.locators.CONFIRM_BUTTON, delay + 5):
-                    return True
-                else:
-                    return False
+        try:
+            self.go_to_url(driver, url)
+            if self.wait_element_clickable(driver, self.locators.CONFIRM_BUTTON, delay + 5) is not False:
+                return True
+            else:
+                return False
+        except AutomationError as e:
+            print("{0} go_by_token_url failed with error: {1}".format(e.__class__.__name__, e.__cause__))
+            return False

@@ -29,16 +29,13 @@ class AssetPanelUiTest(unittest.TestCase):
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_main_trading_screen(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         delay = 5
         step1, step2, step3, step4, step5 = False, False, False, False, False
         try:
             step1 = self.home_page.open_signin_page(self.driver, delay)
             step2 = self.signin_page.sign_in(self.driver, self.email, self.password)
             try:
-
-
-
                 step5 = True
             except Exception as e:
                 print("Exception is occurred.".format(e))
@@ -51,3 +48,4 @@ class AssetPanelUiTest(unittest.TestCase):
 
     def tearDown(self):
         Browser.close_browser(self.driver)
+        

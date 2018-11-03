@@ -62,7 +62,7 @@ class HTTPClient:
         elif self.authorization is False:
             if method == 'POST':
                 data = urllib.parse.urlencode(data).encode()
-                #url_encoded = url + "{0}".format(data)
+                # url_encoded = url + "{0}".format(data)
                 request.add_header('User-Agent',
                                    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36')
                 request.add_header('Content-Type', 'application/x-www-form-urlencoded')

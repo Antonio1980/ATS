@@ -28,7 +28,7 @@ class CustomerUpgradeStatusTest(unittest.TestCase):
         cls.username = cls.login_page.login_username
         cls.password = cls.login_page.login_password
         cls.customer_id = cls.login_page.customer_id
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+        cls.driver = WebDriverFactory.get_driver(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', ], depends_on_groups=["smoke", ])
     @data(*Instruments.get_csv_data(BaseConfig.CRM_DEPOSIT_DETAILS))

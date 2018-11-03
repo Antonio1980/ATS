@@ -17,10 +17,7 @@ class BasePage(Browser):
     def go_back_and_wait(self, driver, previous_url):
         delay = 5
         self.go_back(driver)
-        if self.wait_url_contains(driver, previous_url, delay):
-            return True
-        else:
-            return False
+        return self.wait_url_contains(driver, previous_url, delay)
 
     def get_email_updates(self, driver, email, action, *args):
         delay = 5

@@ -25,10 +25,10 @@ class ForgotPasswordTest(unittest.TestCase):
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_forgot_password(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         step1 = False
         try:
-            step1 = self.login_page.forgot_password(self.driver, self.forgotten_email)
+            step1 = self.login_page.forgot_password(self.driver, self.forgotten_email, )
         finally:
             if step1 is True:
                 # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)

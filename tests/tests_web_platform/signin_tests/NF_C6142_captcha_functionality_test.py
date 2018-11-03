@@ -29,7 +29,7 @@ class CaptchaUsabilityUITest(unittest.TestCase):
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_captcha_usability_ui(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         delay = 3
         step1, step2 = False, False
         try:

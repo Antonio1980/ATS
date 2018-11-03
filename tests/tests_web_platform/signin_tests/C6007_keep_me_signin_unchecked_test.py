@@ -5,14 +5,15 @@ import time
 import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
-from src.base.browser import Browser
 from test_definitions import BaseConfig
+from src.base.customer import RegisteredCustomer
 from src.base.instruments import Instruments
+from src.base.base_exception import AutomationError
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
 from tests.tests_web_platform.pages.signin_page import SignInPage
 from tests.tests_web_platform.locators import signin_page_locators
-from tests.tests_web_platform.pages import wtp_dashboard_url, signin_user_page_url, wtp_home_page_url
+from tests.tests_web_platform.pages import wtp_dashboard_url, wtp_home_page_url, wtp_signin_page_url
 
 
 @ddt
@@ -22,47 +23,51 @@ class SignInUncheckedTest(unittest.TestCase):
         self.test_case = '6007'
         self.home_page = HomePage()
         self.signin_page = SignInPage()
-        self.email = self.signin_page.email
+        self.customer = RegisteredCustomer()
         self.locators = signin_page_locators
+        self.password = self.customer.password
+        self.email = self.customer.pended_email
         self.test_run = BaseConfig.TESTRAIL_RUN
-        self.password = self.signin_page.password
         self.results_file = BaseConfig.WTP_TESTS_RESULT
+        self.browser = self.customer.get_browser_functionality()
 
     @test(groups=['smoke', 'positive', ])
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_unchecked_sign_in(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         delay = 5
-        step1, step2, step3, step4 = False, False, False, False
+        step1, step2, step3, step4 = False, False, False, True
         try:
             step1 = self.home_page.open_signin_page(self.driver, delay)
             try:
-                if Browser.wait_url_contains(self.driver, signin_user_page_url, delay):
-                    username_field = Browser.find_element(self.driver, self.locators.USERNAME_FIELD)
-                    Browser.click_on_element(username_field)
-                    Browser.send_keys(username_field, self.email)
-                    password_field_true = Browser.find_element(self.driver, self.locators.PASSWORD_FIELD_TRUE)
-                    password_field = Browser.find_element(self.driver, self.locators.PASSWORD_FIELD)
-                    Browser.click_on_element(password_field)
-                    Browser.click_on_element(password_field_true)
-                    Browser.send_keys(password_field_true, self.password)
-                    Browser.execute_js(self.driver, self.home_page.script_login)
-                    login_button = Browser.wait_element_clickable(self.driver, self.locators.SIGNIN_BUTTON, delay)
-                    Browser.click_on_element(login_button)
-            finally:
-                if Browser.wait_url_contains(self.driver, wtp_dashboard_url, delay):
-                    step2 = True
-            Browser.close_driver(self.driver)
-            driver = WebDriverFactory.get_browser(browser)
-            self.home_page.open_home_page(driver, delay)
-            Browser.refresh_browser(self.driver)
+                assert self.browser.wait_url_contains(self.driver, wtp_signin_page_url, delay)
+                username_field = self.browser.search_element(self.driver, self.locators.USERNAME_FIELD, delay)
+                self.browser.click_on_element(username_field)
+                self.browser.send_keys(username_field, self.email)
+                password_field_true = self.browser.find_element(self.driver, self.locators.PASSWORD_FIELD_TRUE)
+                password_field = self.browser.find_element(self.driver, self.locators.PASSWORD_FIELD)
+                self.browser.click_on_element(password_field)
+                self.browser.click_on_element(password_field_true)
+                self.browser.send_keys(password_field_true, self.password)
+                self.browser.execute_js(self.driver, self.customer.script_signin)
+                self.browser.execute_js(self.driver, self.customer.script_test_token)
+                login_button = self.browser.wait_element_clickable(self.driver, self.locators.SIGNIN_BUTTON, delay)
+                self.browser.click_on_element(login_button)
+                step2 = self.browser.wait_url_contains(self.driver, wtp_dashboard_url, delay)
+            except AutomationError as e:
+                print("{0} test_unchecked_sign_in failed with error {0}".format(e.__class__.__name__, e.__cause__))
+                self.browser.close_driver(self.driver)
+            self.driver = WebDriverFactory.get_driver(browser)
+            self.home_page.open_home_page(self.driver, delay)
+            self.browser.refresh_browser(self.driver)
             time.sleep(delay)
-            if Browser.wait_url_contains(self.driver, wtp_home_page_url, delay):
-                step3 = True
-            step4 = Browser.execute_js(self.driver, self.home_page.script_is_signed)
+            step3 = self.browser.wait_url_contains(self.driver, wtp_home_page_url, delay)
+            step4 = self.browser.execute_js(self.driver, self.customer.script_is_signed)
+        except AutomationError as e:
+            print("{0} test_unchecked_sign_in failed with error {0}".format(e.__class__.__name__, e.__cause__))
         finally:
-            if step1 and step2 and step3 and step4 is True:
+            if step1 and step2 and step3 is True and step4 is False:
                 # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
@@ -70,4 +75,4 @@ class SignInUncheckedTest(unittest.TestCase):
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     def tearDown(self):
-        Browser.close_browser(self.driver)
+        self.browser.close_browser(self.driver)

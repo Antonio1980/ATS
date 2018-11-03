@@ -5,6 +5,7 @@ ERROR_MESSAGE = "//*[@id='forgotPasswordForm']/div[@class='generalFormError gene
 EMAIL_ERROR_MESSAGE = "//*[@class='fieldError emailError hidden']/span[@class='errorText']"
 TEXT = "//*[@class='resetMessage formBox hidden']/div[@class='text']"
 CAPTCHA = "//*[@id='recaptcha-anchor']"
+CAPTCHA_ID = "recaptcha-anchor"
 MESSAGE = "//*[@class='resetMessage formBox hidden'][@style='display: block;']"
 
 # Forgot Password New Page Reset Password

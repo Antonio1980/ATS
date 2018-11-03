@@ -26,7 +26,7 @@ class MainTradingScreenTest(unittest.TestCase):
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_main_trading_screen(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         delay = 5
         step1 = False
         try:

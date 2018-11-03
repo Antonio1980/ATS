@@ -1,4 +1,4 @@
-CRM_LOGO = "//*[@class='login_positive-logo pull-left col-lg-6 noPad']"
+CRM_LOGO = "//*[@class='login-logo pull-left col-lg-6 noPad']"
 
 # mailinator.com
 PAUSE_BUTTON_ID = "play_button"

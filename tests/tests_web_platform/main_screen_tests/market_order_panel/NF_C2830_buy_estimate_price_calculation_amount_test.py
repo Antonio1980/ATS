@@ -6,6 +6,7 @@ import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
 from src.base.browser import Browser
+from src.base.customer import Customer, PendedCustomer
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -20,16 +21,19 @@ class BuyEstimatePriceCalculationAmountTest(unittest.TestCase):
         self.test_case = '2830'
         self.home_page = HomePage()
         self.signin_page = SignInPage()
-        self.email = self.signin_page.email
-        self.password = self.signin_page.password
+        self.customer = PendedCustomer()
+        self.password = self.customer.password
+        self.email = self.customer.pended_email
         self.test_run = BaseConfig.TESTRAIL_RUN
-        self.results = BaseConfig.WTP_TESTS_RESULT
+        self.results_file = BaseConfig.WTP_TESTS_RESULT
+        self.browser = self.customer.get_browser_functionality()
+
 
     @test(groups=['functional', 'positive', ], depends_on_groups=["sanity", ])
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_buy_estimate_price_calculation(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         delay = 5
         step1, step2, step3, step4 = False, False, False, False
         try:

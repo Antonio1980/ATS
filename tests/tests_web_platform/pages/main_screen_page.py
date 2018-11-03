@@ -1,5 +1,5 @@
-from tests.tests_web_platform.locators import main_screen_locators
 from tests.tests_web_platform.pages import BasePage
+from tests.tests_web_platform.locators import main_screen_locators
 
 
 class MainScreenPage(BasePage):

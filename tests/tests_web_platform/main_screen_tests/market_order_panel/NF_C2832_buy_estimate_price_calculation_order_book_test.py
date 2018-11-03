@@ -29,7 +29,7 @@ class BuyEstimatePriceCalculationOrderBookTest(unittest.TestCase):
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_buy_estimate_price_calculation(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         delay = 5
         step1, step2, step3, step4 = False, False, False, False
         try:

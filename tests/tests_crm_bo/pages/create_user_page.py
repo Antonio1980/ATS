@@ -1,5 +1,6 @@
 import re
 from src.base.instruments import Instruments
+from src.base.base_exception import AutomationError
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.locators import create_user_page_locators
 from tests.tests_crm_bo.pages import create_user_page_url, user_index_page_url
@@ -17,13 +18,13 @@ class CreateUserPage(BasePage):
         self.sid_token = self.response[1]['sid_token']
         self.phone = Instruments.generate_phone_number()
         self.time_stamp = str(self.response[1]['email_timestamp'])
-        self.username = Instruments.generate_user_first_last_name()
-        self.first_last_name = Instruments.generate_pure_user_first_last_name()
+        self.username = Instruments.generate_username()
+        self.first_last_name = Instruments.generate_user_first_last_name()
 
     def fill_user_details(self, driver, email, user_details):
         delay = 5
         first_last_name, phone, username, language, permissions, status, user_type = user_details['first_last_name'], \
-                                          user_details['phone'], user_details['username'], user_details['language'], \
+                                          "35435456456", user_details['username'], user_details['language'], \
                                           user_details['permissions'], user_details['status'], user_details['user_type']
         try:
             assert self.wait_url_contains(driver, create_user_page_url, delay)
@@ -50,8 +51,6 @@ class CreateUserPage(BasePage):
                                              self.locators.USER_TYPE_TEXT_FIELD, user_type, delay - 3)
             create_user_button = self.search_element(driver, self.locators.CREATE_USER_BUTTON, delay)
             self.click_on_element(create_user_button)
-        finally:
-            if self.wait_url_contains(driver, user_index_page_url, delay):
-                return True
-            else:
-                return False
+            return self.wait_url_contains(driver, user_index_page_url, delay)
+        except AutomationError as e:
+            print("{0} fill_user_details failed with error: {1}".format(e.__class__.__name__, e.__cause__))

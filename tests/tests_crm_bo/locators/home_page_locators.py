@@ -9,6 +9,7 @@ CUSTOMER_DROPDOWN = "//span[@class='filter-option pull-left'][contains(.,'Custom
 CUSTOMER_ID_OPTION = "//*[@class='text'][contains(text(),'Customer ID')]"
 CUSTOMER_NAME_FIELD_ID = "quick-search-value"  # "//*[@id='quick-search-value']"
 SHOW_RESULTS_BUTTON_ID = "quick-search-button"  # //*[@id='quick-search-button'][@data-original-title='Show Results']
+QUICK_SEARCH_VALUE = "//*[@id='quick-search-value']"
 #
 MANAGEMENT_DROPDOWN_ID = "menu-index"
 MANAGEMENT_DROPDOWN = "//*[@id='menu-index']"
@@ -27,3 +28,9 @@ REPORTS_Q_MANAGER_OPTION = "//*[@class='subPage'][@href='dx/showreport/getReport
 REPORTS_Q_STATISTICS_OPTION = "//*[@class='subPage'][@href='dx/showreport/getReport/Q%20Statistics']"
 REPORTS_GROUPS_CHANGES_HISTORY_OPTION = "//*[@class='subPage'][@href='/dx/reports/permissionGroupsChangesHistory']"
 REPORTS_USERS_CHANGES_HISTORY_OPTION = "//*[@class='subPage'][@href='/dx/reports/usersChangesHistory']"
+
+
+
+
+CUSTOMER_ID_ON_CUSTOMER_PAGE = "//*[@id='content']//span[@class='customerIdtext']"
+ICON_STATUS_ID = "customerGroupIcon"
