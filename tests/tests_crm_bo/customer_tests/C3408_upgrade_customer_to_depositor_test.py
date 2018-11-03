@@ -32,7 +32,7 @@ class CustomerUpgradeStatusTest(unittest.TestCase):
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_customer_status_upgrade(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         customer_status = 'Depositor'
         step1, step2, step3, step4, step5 = False, False, False, False, False
         try:

@@ -33,4 +33,12 @@ IBAN_FIELD_ID = "iban"  #//*[@id="iban"]
 BANK_NAME_FIELD_ID= "bankName"#//*[@id="bankName"]
 BIC_FIELD_ID = "bic" #//*[@id="bic"]
 BANK_ADDRESS_ID = "bankAddress"  #//*[@id="bankAddress"]
-DESCRIPTION_BY_CUSTOMER_ID = "customerDesc" #//*[@id="customerDesc"]
+DESCRIPTION_BY_CUSTOMER = "//*[@id='customerDesc']"
+CUSTOMER_BALANCE_FIELD = "//*[@id='content']//div[@class='balance']/span[contains(.,'Balance')]"
+CUSTOMER_ACCOUNT_INFORMATION_AREA = "//*[@id='customer-status-wrap']"
+CUSTOMER_ADMIN_TAB =  "//*[@id='customer_admin_status_tab']"
+CUSTOMER_PERSONAL_INFORMATION_TAB = "//*[@id='statusTab']//a[contains(.,'Personal Information')]"
+CUSTOMER_PASSWORD_ICON = "//*[@id='passwordData']"
+CUSTOMER_BALANCE_TAB = "//*[@id='balance_tab']"
+CUSTOMER_TRADES_TAB = "//*[@id='trades_tab']"
+CUSTOMER_FEES_TAB = "//*[@id='fees_tab']"

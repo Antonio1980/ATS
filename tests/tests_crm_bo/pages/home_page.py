@@ -1,7 +1,8 @@
-from src.base.base_exception import AutomationError
 from src.base.instruments import Instruments
+from src.base.base_exception import AutomationError
 from tests.tests_crm_bo.pages.base_page import BasePage
 from tests.tests_crm_bo.locators import home_page_locators
+from selenium.webdriver.remote.webelement import WebElement
 from tests.tests_crm_bo.pages import home_page_url, user_management_page_url, customer_admin_url
 
 
@@ -14,24 +15,24 @@ class HomePage(BasePage):
         self.password_permissions = "qwerty12345"
         self.permissions_group_id = '20'
         self.local_permissions_group_name = "'Christina'"
+        self.script_get_val = '''return $("span[class='customerIdtext']").text();'''
+
 
     def logout(self, driver, delay):
         try:
             assert self.find_element_by(driver, self.locators.HOME_PAGE_LOGO_ID, "id")
-            self.click_on_element_by_locator(driver, self.locators.SETTINGS_DROPDOWN, delay + 5)
-            self.click_on_element_by_locator(driver, self.locators.LANGUAGE_ICON, delay + 5)
-            self.click_on_element_by_locator(driver, self.locators.LOGOUT_LINK, delay + 3)
-        finally:
-            if self.wait_element_presented(driver, self.base_locators.CRM_LOGO, delay + 3):
-                return True
-            else:
-                return False
+            self.click_on_element_by_locator(driver, self.locators.SETTINGS_DROPDOWN, delay)
+            self.click_on_element_by_locator(driver, self.locators.LANGUAGE_ICON, delay)
+            self.click_on_element_by_locator(driver, self.locators.LOGOUT_LINK, delay)
+            return isinstance(self.wait_element_presented(driver, self.base_locators.CRM_LOGO, delay), WebElement)
+        except AutomationError as e:
+            print("{0} check_balance failed with error: {1}".format(e.__class__.__name__, e.__cause__))
 
     def choose_customer_by_option(self, driver, customer, option):
         delay = 5
         customer_option = None
         try:
-            assert self.wait_url_contains(driver, home_page_url, delay)
+            #assert self.wait_url_contains(driver, home_page_url, delay)
             customer_field = self.find_element(driver, self.locators.CUSTOMER_DROPDOWN)
             self.click_on_element(customer_field)
             if option == 1:
@@ -50,12 +51,10 @@ class HomePage(BasePage):
             self.wait_number_of_windows(driver, 2, delay)
             new_window = driver.window_handles[1]
             self.switch_window(driver, new_window)
-            x = self.wait_element_visible(driver, self.customer_id_locator.format(customer), delay + 5)
-        finally:
-            if self.wait_url_contains(driver, str(customer_admin_url), delay + 5):
-                return True
-            else:
-                return False
+            x = self.wait_element_visible(driver, self.customer_id_locator.format(customer), delay)
+            return self.wait_url_contains(driver, str(customer_admin_url), delay)
+        except AutomationError as e:
+            print("{0} choose_customer_by_option failed with error: {1}".format(e.__class__.__name__, e.__cause__))
 
     def go_to_management_inset_with_users_option(self, driver):
         delay = 5
@@ -65,11 +64,9 @@ class HomePage(BasePage):
             self.click_on_element(management_dropdown)
             users_option = self.find_element(driver, self.locators.MANAGEMENT_USERS_OPTION)
             self.click_on_element(users_option)
-        finally:
-            if self.wait_url_contains(driver, user_management_page_url, delay):
-                return True
-            else:
-                return False
+            return self.wait_url_contains(driver, user_management_page_url, delay)
+        except AutomationError as e:
+            print("{0} go_to_management_inset_with_users_option failed with error: {1}".format(e.__class__.__name__, e.__cause__))
 
     def set_entity_permissions(self, permissions_group_id, local_permissions_group_name,
                                         local_permissions_entity_name, local_sub_module_name):
@@ -91,8 +88,7 @@ class HomePage(BasePage):
                 Instruments.run_mysql_query(query_update_view)
                 return True
         except AutomationError as e:
-            print("{0} set_entity_permissions failed with error. {1}".format(e.__class__.__name__,
-                                                                                      e.__cause__))
+            print("{0} set_entity_permissions failed with error. {1}".format(e.__class__.__name__, e.__cause__))
             return False
 
 
@@ -105,14 +101,15 @@ class HomePage(BasePage):
             part = "hasView = 1, hasEdit = 1, hasCreate = 0"
         elif flag == 2:
             part = "hasView = 1, hasEdit = 1, hasCreate = 1"
+        else:
+            part = ""
         query_update_view_edit = "UPDATE local_permission_entities SET " + part + " WHERE name = " + local_permissions_entity_name + " AND permissionGroupId = " + permissions_group_id + ""
         try:
             Instruments.run_mysql_query(query_update_view_edit)
             return True
         except AutomationError as e:
-            print("{0} update_view_edit_permissions failed with error. {1}".format(e.__class__.__name__,
-                                                                          e.__cause__))
-        return False
+            print("{0} update_view_edit_create_permissions failed with error. {1}".format(e.__class__.__name__, e.__cause__))
+            return False
 
 
     # def update_view_edit_create_permissions(self, local_permissions_entity_name, permissions_group_id):

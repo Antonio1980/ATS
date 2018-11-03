@@ -22,20 +22,17 @@ HELP = ""
 FAQ = ""
 USER_NAME_ON_UPPER_RULER = "//*[@id='dx_header']//span[@class='name']"
 REGISTRATION_FORM = "//*[@id='dxPackageContainer_openAccountDx']//div[@class='registration-form-wrapper']"
-SIGN_IN_FORM_ID = "dialogBody"    #"//*[@id='dialogBody']"
+SIGN_IN_FORM_ID = "dialogBody"    # "//*[@id='dialogBody']"
 USER_PROFILE_PANEL = "//*[@id='dx_myAccount']//div[@class='personalDetails']"
-SCREEN_ELEMENTS_UNDER_PROFILE_PANEL_ID = "dxPackageContainer_platform_zones"   #//*[@id='dxPackageContainer_platform_zones']
+SCREEN_ELEMENTS_UNDER_PROFILE_PANEL_ID = "dxPackageContainer_platform_zones"   # //*[@id='dxPackageContainer_platform_zones']
 FUNDS_BUTTON = "//*[@id='dx_header']//div[@class='headerBtn accountStatus_funds']"
 TIME_ON_UPPER_RULER = "//*[@id='dx_header']//div[@class = 'time']"
 DATE_ON_UPPER_RULER = "//*[@id='dx_header']//div[@class = 'date']"
 CURRENT_PORTFOLIO = "//*[@id='zoneContainer_balance']//div[@class='portfolio']"
 LOGOUT_BUTTON = "//*[@id='dx_header']//button[@class ='headerBtn logoutButton']"
-FUNDS_PANEL_ID = "dx_fundsBalance" #"//*[@id='dx_fundsBalance']"
+FUNDS_PANEL_ID = "dx_fundsBalance" # "//*[@id='dx_fundsBalance']"
 
-
-
-
-#Asset Panel#
+# Asset Panel#
 ASSET_PANEL = "//*[@id='dx_platform']//div[@class='assetsSidebar exchange hidden']"
 LEADING_CURRENCY_MENU = "//*[@id='dx_platform']//div[@class='leadingCurrency']"
 BTC_CURRENCY_NOT_SELECTED = "//*[@id='dx_platform']//li[@class='assetsTypeFilter_exchange_btc']"
@@ -44,7 +41,7 @@ ETH_CURRENCY_NOT_SELECTED = "//*[@id='dx_platform']//li[@class='assetsTypeFilter
 ETH_CURRENCY_SELECTED = "//*[@id='dx_platform']//li[@class='assetsTypeFilter_exchange_eth selected']"
 DXEX_CURRENCY_NOT_SELECTED = "//*[@id='dx_platform']//li[@class='assetsTypeFilter_exchange_dxex']"
 DXEX_CURRENCY_SELECTED = "//*[@id='dx_platform']//li[@class='assetsTypeFilter_exchange_dxex selected']"
-USD_DEFAULT_CURRENCY_DROPDOWN_NOT_SELECTED = "//*[@id='dx_platform']//li[@class='assetsTypeFilter_exchange_group']"                      #"//*[@id='dx_platform']//span[contains(text(),'USD')]"
+USD_DEFAULT_CURRENCY_DROPDOWN_NOT_SELECTED = "//*[@id='dx_platform']//li[@class='assetsTypeFilter_exchange_group']"  # "//*[@id='dx_platform']//span[contains(text(),'USD')]"
 SEARCH_BOX = "//*[@id='dx_platform']/div[1]/div[2]/div[2]"
 SEARCH_TEXT_BOX = "//*[@id='dx_platform']//div[@class='assetsSidebar cfd hidden']//input[@type='text']"
 STAR_ICON_FAV = "//*[@id='dx_platform']//div[@class='assetsSidebar exchange hidden']//li[@title='Fav']"
@@ -94,8 +91,6 @@ BTC_DX_COIN_DXEX_CURRENCY_NAME = "//*[@id='dx_platform']//li[@data-instrumentid=
 BTC_DX_COIN_DXEX_CURRENCY_CODE = "//*[@id='dx_platform']//li[@data-instrumentid='1032']//div[contains(text(),'DXEX')]"
 BTC_DX_COIN_DXEX_CURRENCY_FAV_CIRCLE = "//*[@id='dx_platform']//li[@data-instrumentid='1032']//div[@class='dot']"
 
-
-
 BTC_ETHEREUM_ETH_CURRENCY = "//*[@id='dx_platform']//li[@data-instrumentid='1023']"
 BTC_ETHEREUM_ETH_CURRENCY_24_HOUR_CHANGE_PERCENTAGE = "//*[@id='dx_platform']//li[@data-instrumentid='1023']//div[@class='assetChange24h']"
 BTC_ETHEREUM_ETH_CURRENCY_LAST_PRICE = "//*[@id='dx_platform']//li[@data-instrumentid='1023']//div[@class='commonPrice']"
@@ -127,7 +122,7 @@ BTC_RIPPLE_XPR_CURRENCY_24_HOUR_CHANGE_PERCENTAGE = "//*[@id='dx_platform']//li[
 BTC_RIPPLE_XPR_CURRENCY_LAST_PRICE = "//*[@id='dx_platform']//li[@data-instrumentid='1025']//div[@class='commonPrice']"
 BTC_RIPPLE_XPR_CURRENCY_USD_LAST_PRICE = "//*[@id='dx_platform']//li[@data-instrumentid='1025']//div[@class='usdPrice']"
 BTC_RIPPLE_XRP_CURRENCY_24_HOUR_VOLUME = "//*[@id='dx_platform']//li[@data-instrumentid='1025']//div[@class='volumeValue']"
-BTC_RIPPLE_XPR_CURRENCY_24_HOUR_VOLUME_QUOTED_CURRENCY =  "//*[@id='dx_platform']//li[@data-instrumentid='1025']" \
+BTC_RIPPLE_XPR_CURRENCY_24_HOUR_VOLUME_QUOTED_CURRENCY = "//*[@id='dx_platform']//li[@data-instrumentid='1025']" \
                                                         "//div[@class='underlyingCurrency'][contains(text(),'BTC')]"
 BTC_RIPPLE_XRP_CURRENCY_SYMBOL = "//*[@id='dx_platform']//li[@data-instrumentid='1025']//img[@title='XRP']"
 BTC_RIPPLE_XRP_CURRENCY_NAME = "//*[@id='dx_platform']//li[@data-instrumentid='1025']//div[contains(text(),'Ripple')]"
@@ -179,7 +174,7 @@ DXEX_RIPPLE_XPR_CURRENCY_24_HOUR_CHANGE_PERCENTAGE = "//*[@id='dx_platform']//li
 DXEX_RIPPLE_XPR_CURRENCY_LAST_PRICE = "//*[@id='dx_platform']//li[@data-instrumentid='1034']//div[@class='commonPrice']"
 DXEX_RIPPLE_XPR_CURRENCY_USD_LAST_PRICE = "//*[@id='dx_platform']//li[@data-instrumentid='1034']//div[@class='usdPrice']"
 DXEX_RIPPLE_XRP_CURRENCY_24_HOUR_VOLUME = "//*[@id='dx_platform']//li[@data-instrumentid='1034']//div[@class='volumeValue']"
-DXEX_RIPPLE_XPR_CURRENCY_24_HOUR_VOLUME_QUOTED_CURRENCY =  "//*[@id='dx_platform']//li[@data-instrumentid='1034']" \
+DXEX_RIPPLE_XPR_CURRENCY_24_HOUR_VOLUME_QUOTED_CURRENCY = "//*[@id='dx_platform']//li[@data-instrumentid='1034']" \
                                                         "//div[@class='underlyingCurrency'][contains(text(),'DXEX')]"
 DXEX_RIPPLE_XRP_CURRENCY_SYMBOL = "//*[@id='dx_platform']//li[@data-instrumentid='1034']//img[@title='XRP']"
 DXEX_RIPPLE_XRP_CURRENCY_NAME = "//*[@id='dx_platform']//li[@data-instrumentid='1034']//div[contains(text(),'Ripple')]"
@@ -245,7 +240,7 @@ ETH_RIPPLE_XPR_CURRENCY_24_HOUR_CHANGE_PERCENTAGE = "//*[@id='dx_platform']//li[
 ETH_RIPPLE_XPR_CURRENCY_LAST_PRICE = "//*[@id='dx_platform']//li[@data-instrumentid='1028']//div[@class='commonPrice']"
 ETH_RIPPLE_XPR_CURRENCY_USD_LAST_PRICE = "//*[@id='dx_platform']//li[@data-instrumentid='1028']//div[@class='usdPrice']"
 ETH_RIPPLE_XRP_CURRENCY_24_HOUR_VOLUME = "//*[@id='dx_platform']//li[@data-instrumentid='1028']//div[@class='volumeValue']"
-ETH_RIPPLE_XPR_CURRENCY_24_HOUR_VOLUME_QUOTED_CURRENCY =  "//*[@id='dx_platform']//li[@data-instrumentid='1028']" \
+ETH_RIPPLE_XPR_CURRENCY_24_HOUR_VOLUME_QUOTED_CURRENCY = "//*[@id='dx_platform']//li[@data-instrumentid='1028']" \
                                                         "//div[@class='underlyingCurrency'][contains(text(),'ETH')]"
 ETH_RIPPLE_XRP_CURRENCY_SYMBOL = "//*[@id='dx_platform']//li[@data-instrumentid='1028']//img[@title='XRP']"
 ETH_RIPPLE_XRP_CURRENCY_NAME = "//*[@id='dx_platform']//li[@data-instrumentid='1028']//div[contains(text(),'Ripple')]"
@@ -337,7 +332,7 @@ USD_RIPPLE_XPR_CURRENCY_24_HOUR_CHANGE_PERCENTAGE = "//*[@id='dx_platform']//li[
 USD_RIPPLE_XPR_CURRENCY_LAST_PRICE = "//*[@id='dx_platform']//li[@data-instrumentid='1016']//div[@class='commonPrice']"
 USD_RIPPLE_XPR_CURRENCY_USD_LAST_PRICE = "//*[@id='dx_platform']//li[@data-instrumentid='1016']//div[@class='usdPrice']"
 USD_RIPPLE_XRP_CURRENCY_24_HOUR_VOLUME = "//*[@id='dx_platform']//li[@data-instrumentid='1016']//div[@class='volumeValue']"
-USD_RIPPLE_XPR_CURRENCY_24_HOUR_VOLUME_QUOTED_CURRENCY =  "//*[@id='dx_platform']//li[@data-instrumentid='1016']" \
+USD_RIPPLE_XPR_CURRENCY_24_HOUR_VOLUME_QUOTED_CURRENCY = "//*[@id='dx_platform']//li[@data-instrumentid='1016']" \
                                                         "//div[@class='underlyingCurrency'][contains(text(),'USD')]"
 USD_RIPPLE_XRP_CURRENCY_SYMBOL = "//*[@id='dx_platform']//li[@data-instrumentid='1016']//img[@title='XRP']"
 USD_RIPPLE_XRP_CURRENCY_NAME = "//*[@id='dx_platform']//li[@data-instrumentid='1016']//div[contains(text(),'Ripple')]"
@@ -429,7 +424,7 @@ EUR_RIPPLE_XPR_CURRENCY_24_HOUR_CHANGE_PERCENTAGE = "//*[@id='dx_platform']//li[
 EUR_RIPPLE_XPR_CURRENCY_LAST_PRICE = "//*[@id='dx_platform']//li[@data-instrumentid='1021']//div[@class='commonPrice']"
 EUR_RIPPLE_XPR_CURRENCY_USD_LAST_PRICE = "//*[@id='dx_platform']//li[@data-instrumentid='1021']//div[@class='usdPrice']"
 EUR_RIPPLE_XRP_CURRENCY_24_HOUR_VOLUME = "//*[@id='dx_platform']//li[@data-instrumentid='1021']//div[@class='volumeValue']"
-EUR_RIPPLE_XPR_CURRENCY_24_HOUR_VOLUME_QUOTED_CURRENCY =  "//*[@id='dx_platform']//li[@data-instrumentid='1021']" \
+EUR_RIPPLE_XPR_CURRENCY_24_HOUR_VOLUME_QUOTED_CURRENCY = "//*[@id='dx_platform']//li[@data-instrumentid='1021']" \
                                                         "//div[@class='underlyingCurrency'][contains(text(),'EUR')]"
 EUR_RIPPLE_XRP_CURRENCY_SYMBOL = "//*[@id='dx_platform']//li[@data-instrumentid='1021']//img[@title='XRP']"
 EUR_RIPPLE_XRP_CURRENCY_NAME = "//*[@id='dx_platform']//li[@data-instrumentid='1021']//div[contains(text(),'Ripple')]"

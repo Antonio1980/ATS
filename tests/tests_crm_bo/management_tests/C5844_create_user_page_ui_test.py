@@ -34,13 +34,13 @@ class CreateNewUserUITest(unittest.TestCase):
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_ui_create_new_user(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         delay = 5
         step1, step2, step3, step4 = False, False, False, False
         try:
             step1 = self.login_page.login(self.driver, self.login_username, self.login_password)
             step2 = self.home_page.go_to_management_inset_with_users_option(self.driver)
-            step3 = self.user_management_page.click_on_create_new_user(self.driver)
+            step3 = self.user_management_page.click_on_create_new_user(self.driver, )
             try:
                 assert Browser.find_element(self.driver, self.locators.PAGE_TITLE_1)
                 assert Browser.find_element(self.driver, self.locators.PAGE_TITLE_2)

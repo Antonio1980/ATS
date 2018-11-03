@@ -27,7 +27,7 @@ class SellOrderFilledOrTerminatedTest(unittest.TestCase):
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_sell_order_filled_or_terminated(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         delay = 5
         step1, step2, step3 = False, False, False
         try:

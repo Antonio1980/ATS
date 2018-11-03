@@ -27,7 +27,7 @@ class ForgotPasswordPopUpTest(unittest.TestCase):
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_forgot_password_popup(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         header = "Forgotten your password?"
         delay = 5
         step1, step2 = False, False

@@ -28,7 +28,7 @@ class LogInLogOutLogInTest(unittest.TestCase):
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_login_logout_login(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         delay = 1
         step1, step2, step3 = False, False, False
         try:

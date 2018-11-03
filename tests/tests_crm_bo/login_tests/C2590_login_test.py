@@ -40,7 +40,7 @@ class LogInTest(unittest.TestCase):
     # Test method, name must start with "test..."
     def test_login_positive(self, browser):
         # Set up browser via WebDriverFactory class.
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         # Test step result before execution (by default).
         step1 = False
         try:

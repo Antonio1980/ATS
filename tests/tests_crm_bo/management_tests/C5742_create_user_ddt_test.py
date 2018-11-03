@@ -30,7 +30,7 @@ class CreateNewUserDDTTest(unittest.TestCase):
         cls.login_username = cls.login_page.login_username
         cls.login_password = cls.login_page.login_password
         Instruments.write_file_preconditions(5, "@guerrillamailblock.com")
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+        cls.driver = WebDriverFactory.get_driver(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', 'negative'], depends_on_groups=["smoke", ])
     @data(*Instruments.get_csv_data(BaseConfig.CRM_USERS_PRECONDITIONS))
@@ -43,7 +43,7 @@ class CreateNewUserDDTTest(unittest.TestCase):
         try:
             step1 = self.login_page.login(self.driver, self.login_username, self.login_password)
             step2 = self.home_page.go_to_management_inset_with_users_option(self.driver)
-            step3 = self.user_management_page.click_on_create_new_user(self.driver)
+            step3 = self.user_management_page.click_on_create_new_user(self.driver, delay)
             step4 = self.create_user_page.fill_user_details(self.driver, email, user_details)
             step5 = self.home_page.logout(self.driver, delay)
         finally:

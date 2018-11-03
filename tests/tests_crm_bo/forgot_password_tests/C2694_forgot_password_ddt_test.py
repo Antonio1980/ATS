@@ -21,7 +21,7 @@ class ForgotPasswordDDTTest(unittest.TestCase):
         cls.login_page = LogInPage()
         cls.test_run = BaseConfig.TESTRAIL_RUN
         cls.results_file = BaseConfig.CRM_TESTS_RESULT
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+        cls.driver = WebDriverFactory.get_driver(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', 'negative', ], depends_on_groups=["smoke", ])
     @data(*Instruments.get_csv_data(BaseConfig.FORGOT_PASSWORD_DATA))
@@ -29,7 +29,7 @@ class ForgotPasswordDDTTest(unittest.TestCase):
     def test_forgot_password_ddt(self, email):
         step1 = True
         try:
-            step1 = self.login_page.forgot_password(self.driver, email)
+            step1 = self.login_page.forgot_password(self.driver, email, )
         finally:
             if step1 is False:
                 # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)

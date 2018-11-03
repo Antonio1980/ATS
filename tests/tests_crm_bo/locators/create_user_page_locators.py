@@ -24,7 +24,7 @@ STATUS_TEXT_FIELD = "//*[@class='btn-group bootstrap-select open']//input"
 
 USER_TYPE_DROPDOWN = "//*[@data-id='userTypeInput']"
 USER_TYPE_FIELD = "//*[@class='btn-group bootstrap-select open']//div[@class='bs-searchbox']"
-USER_TYPE_TEXT_FIELD = "//INPUT[@type='text'][9]"
+USER_TYPE_TEXT_FIELD = "//*[@id='add_user_form']//div[4]//input[@class = 'form-control uniform-input text' ]"
 
 # PAYMENT_METHOD_DROPDOWN = "//button[@data-id='paymentMethod']//span[@class='filter-option pull-left'][contains(text(),'Nothing Selected')]"
 # CREDIT_CARD_OPTION = "//*[@class='text'][contains(text(),'Credit Card')]"

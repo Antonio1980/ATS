@@ -17,19 +17,19 @@ from selenium.common.exceptions import WebDriverException
 
 class WebDriverFactory(object):
     @classmethod
-    def get_browser(cls, browser_name=None):
+    def get_driver(cls, browser_name=None):
         if browser_name is None:
             browser_name = Browsers.CHROME.value
         if Instruments.detect_os() == OperationSystem.WINDOWS.value:
-            return cls.get_browser_win(browser_name)
+            return cls.get_driver_win(browser_name)
         elif (Instruments.detect_os() == OperationSystem.DARWIN.value) or \
                 (Instruments.detect_os() == OperationSystem.LINUX.value):
-            return cls.get_browser_lin(browser_name)
+            return cls.get_driver_lin(browser_name)
         else:
             raise Exception("Operational System not detected.")
 
     @classmethod
-    def get_browser_win(cls, browser_name):
+    def get_driver_win(cls, browser_name):
         browser_name = browser_name.lower()
         if browser_name == Browsers.FIREFOX.value:
             return webdriver.Firefox(executable_path=BaseConfig.W_FIREFOX_PATH)
@@ -43,7 +43,7 @@ class WebDriverFactory(object):
             raise Exception("No such " + browser_name + " browser exists")
 
     @classmethod
-    def get_browser_lin(cls, browser_name):
+    def get_driver_lin(cls, browser_name):
         if browser_name == Browsers.FIREFOX.value:
             return webdriver.Firefox(BaseConfig.L_FIREFOX_PATH)
         elif browser_name == Browsers.CHROME.value:

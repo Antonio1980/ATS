@@ -36,7 +36,7 @@ class AddDepositTest(unittest.TestCase):
         amount_before = Instruments.run_mysql_query(query)[0][0]
         if amount_before is None:
             amount_before = 0
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         step1, step2, step3, step4 = False, False, False, False
         try:
             step1 = self.login_page.login(self.driver, self.username, self.password)

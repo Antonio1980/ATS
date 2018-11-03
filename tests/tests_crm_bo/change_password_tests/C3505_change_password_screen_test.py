@@ -30,11 +30,11 @@ class ChangePasswordScreenTest(unittest.TestCase):
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_change_password_screen(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         delay, new_password = 5, None
         step1, step2, step3, step4 = False, False, False, False
         try:
-            step1 = self.login_page.forgot_password(self.driver, self.forgotten_email)
+            step1 = self.login_page.forgot_password(self.driver, self.forgotten_email, )
             # 0 - get_token for forgot password, 1 - get_token (new password) for regenerate password,
             # 2 - click on forgot_password, 3 - ?
             content = self.login_page.get_email_updates(self.driver, self.forgotten_email, 0)

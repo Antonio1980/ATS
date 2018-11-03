@@ -5,7 +5,7 @@ import time
 import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
-from src.base.browser import Browser
+from src.base.customer import Customer
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -18,48 +18,46 @@ from tests.tests_web_platform.pages.signup_page import SignUpPage
 class EmailVerifiedUITest(unittest.TestCase):
     def setUp(self):
         self.test_case = '6164'
+        self.customer = Customer()
         self.home_page = HomePage()
         self.signup_page = SignUpPage()
         self.test_run = BaseConfig.TESTRAIL_RUN
-        self.password = self.signup_page.password
-        self.email = self.signup_page.mailinator_email
-        self.results_file = BaseConfig.WTP_TESTS_RESULT
-        self.username = self.signup_page.mailinator_username
         self.locators = self.signup_page.locators
-        self.base_locators = self.signup_page.base_locators
+        self.results_file = BaseConfig.WTP_TESTS_RESULT
+        # 0- email, 1- username, 2- sid_token, 3- time_stamp
+        customer_details = self.customer.get_guerrilla_details()
+        self.browser = self.customer.get_browser_functionality()
+        self.password = self.customer.password
+        self.email = customer_details[0]
+        self.username = customer_details[1]
+        self.sid_token = customer_details[2]
+        self.time_stamp = customer_details[3]
         self.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(self.email)
 
     @test(groups=['smoke', 'gui', 'positive', ])
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_ui_verified_email(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         delay = 5
-        step1, step2, step3 = False, False, False
+        step1, step2, step3, step4 = False, False, False, False
         try:
             step1 = self.home_page.open_signup_page(self.driver, delay)
             step2 = self.signup_page.fill_signup_form(self.driver, self.username, self.email, self.password, self.element)
-            try:
-                mailinator_box_url = "http://www.mailinator.com/v2/inbox.jsp?zone=public&query={0}".format(self.username)
-                Browser.go_to_url(self.driver, mailinator_box_url)
-                time.sleep(delay)
-                pause_button = Browser.find_element_by(self.driver, self.base_locators.PAUSE_BUTTON_ID, "id")
-                Browser.click_on_element(pause_button)
-                email_item = Browser.search_element(self.driver, self.base_locators.FIRST_EMAIL, delay)
-                Browser.click_on_element(email_item)
-                mail_frame = Browser.find_element(self.driver, "//iframe[@id='msg_body']")
-                Browser.switch_frame(self.driver, mail_frame)
-                button = Browser.find_element(self.driver, self.base_locators.VERIFY_EMAIL_BUTTON)
-                Browser.click_with_offset(self.driver, button, 10, 10)
-                new_window = self.driver.window_handles
-                Browser.switch_window(self.driver, new_window[1])
-                assert Browser.find_element(self.driver, self.locators.CONTINUE_BUTTON)
-                # assert Browser.find_element(self.driver, self.locators.GO_BACK_LINK_V)
-                step3 = True
-            except Exception as e:
-                print("Exception is occurred. ".format(e))
+            time.sleep(delay * delay)
+            emails_list_response = Instruments.get_guerrilla_emails(self.username, self.sid_token)
+            sid_token = emails_list_response[1]['sid_token']
+            mail_id = str(emails_list_response[1]['list'][0]['mail_id'])
+            fetch_email_response = Instruments.get_last_guerrilla_email(self.time_stamp, mail_id, sid_token)
+            html = fetch_email_response[1]['mail_body']
+            parsed_html = Instruments.parse_html(html)
+            url = parsed_html.center.find_all('a')[1]['href']
+            step3 = self.signup_page.go_by_token_url(self.driver, url)
+            if self.browser.search_element(self.driver, self.locators.CONTINUE_BUTTON, delay) is not False:
+                # assert Browser.search_element(self.driver, self.locators.GO_BACK_LINK_V, delay)
+                step4 = True
         finally:
-            if step1 and step2 and step3 is True:
+            if step1 and step2 and step3 and step4 is True:
                 # Instruments.write_file_result(self.test_case + "," + self.test_run + "," + "1 \n", self.results_file)
                 Instruments.update_test_case(self.test_run, self.test_case, 1)
             else:
@@ -67,4 +65,4 @@ class EmailVerifiedUITest(unittest.TestCase):
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     def tearDown(self):
-        Browser.close_browser(self.driver)
+        self.browser.close_browser(self.driver)

@@ -6,7 +6,7 @@ import time
 from queue import Queue
 from threading import Thread
 from src.base.enums import Browsers
-from src.base.browser import Browser
+from src.base.customer import Customer
 from test_definitions import BaseConfig
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
@@ -26,18 +26,19 @@ win_firefox_details = ('Firefox', '58.0', 'Windows', '10', '2048x1536')
 win_edge_details = ('Edge', '17.0', 'Windows', '10', '2048x1536')
 browsers = [mac_chrome_details, mac_safari_details, win_chrome_details, win_firefox_details, win_edge_details, ]
 
-for browser in browsers:
-    q.put(browser)
+for browser_ in browsers:
+    q.put(browser_)
 num_threads = 5
 
 
 def test_forgot_password_full_flow(q):
     driver = None
     test_case = '3668'
+    customer = Customer()
     home_page = HomePage()
     signin_page = SignInPage()
     signup_page = SignUpPage()
-    password = signup_page.password
+    password = customer.password
     new_password = password + "Qa"
     test_run = BaseConfig.TESTRAIL_RUN
     forgot_password_page = ForgotPasswordPage()
@@ -48,21 +49,22 @@ def test_forgot_password_full_flow(q):
     time_stamp = str(response[1]['email_timestamp'])
     username = re.findall(r"([\w.-]+)", email)[0]
     element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(email)
+    browser = customer.get_browser_functionality()
     while q.empty() is False:
         try:
             _browser = q.get()
             delay, customer_id = 5, ""
-            driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+            driver = WebDriverFactory.get_driver(Browsers.CHROME.value)
             step1, step2, step3, step4, step5, step6, step7 = False, False, False, False, False, False, False
             try:
                 step1 = home_page.open_signup_page(driver, delay)
                 step2 = signup_page.fill_signup_form(driver, username, email, password, element)
-                customer_id = Browser.execute_js(driver, signup_page.script_customer_id)
+                customer_id = browser.execute_js(driver, customer.script_customer_id)
                 step3 = signin_page.go_by_token_url(driver, wtp_signin_page_url)
                 # Option 1- forgot password, Option 2- register link
                 step4 = signin_page.click_on_link(driver, 1, delay)
                 step5 = forgot_password_page.fill_email_address_form(driver, email, delay)
-                time.sleep(delay * 2)
+                time.sleep(delay * delay)
                 emails_list_response = Instruments.get_guerrilla_emails(username, sid_token)
                 sid_token = emails_list_response[1]['sid_token']
                 mail_id = str(emails_list_response[1]['list'][0]['mail_id'])
@@ -75,9 +77,8 @@ def test_forgot_password_full_flow(q):
                 step7 = forgot_password_page.set_new_password(driver, new_password, new_password_url)
             finally:
                 if step1 and step2 and step3 and step4 and step5 and step6 and step7 is True:
-                    Instruments.write_file_user(
-                        email + "," + password + "," + customer_id + "," + sid_token + "\n",
-                        customers_file)
+                    Instruments.write_file_user(email + "," + password + "," + customer_id + "," + sid_token + "\n",
+                                                customers_file)
                     # Instruments.write_file_result(test_case + "," + test_run + "," + "1 \n", results_file)
                     Instruments.update_test_case(test_run, test_case, 1)
                 else:

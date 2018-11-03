@@ -24,7 +24,7 @@ class NewPasswordFlowDDTTest(unittest.TestCase):
         cls.results_file = BaseConfig.CRM_TESTS_RESULT
         cls.forgotten_email = cls.login_page.forgotten_email
         cls.forgotten_username = cls.login_page.forgotten_username
-        cls.driver = WebDriverFactory.get_browser(Browsers.CHROME.value)
+        cls.driver = WebDriverFactory.get_driver(Browsers.CHROME.value)
 
     @test(groups=['sanity', 'ddt', 'negative', ], depends_on_groups=["smoke", ])
     @data(*Instruments.get_csv_data(BaseConfig.CRM_NEW_PASSWORD_DATA))
@@ -32,7 +32,7 @@ class NewPasswordFlowDDTTest(unittest.TestCase):
     def test_new_password_flow_ddt(self, wrong_password):
         step1, step2, step3, step4 = False, False, False, True
         try:
-            step1 = self.login_page.forgot_password(self.driver, self.forgotten_email)
+            step1 = self.login_page.forgot_password(self.driver, self.forgotten_email, )
             # 0 - get_token for forgot password, 1 - get_token (new password) for regenerate password,
             # 2 - click on forgot_password, 3 - ?
             content = self.login_page.get_email_updates(self.driver, self.forgotten_email, 0)

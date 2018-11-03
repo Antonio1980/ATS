@@ -1,46 +1,47 @@
+from src.base.base_exception import AutomationError
 from tests.tests_web_platform.pages.base_page import BasePage
 from tests.tests_web_platform.locators import home_page_locators
-from tests.tests_web_platform.pages import wtp_signin_page_url, wtp_home_page_url, user_page_url
+from tests.tests_web_platform.pages import wtp_home_page_url, wtp_signin_page_url, wtp_dashboard_url, \
+    wtp_open_account_url
 
 
 class HomePage(BasePage):
     def __init__(self):
-        super().__init__()
+        super(HomePage, self).__init__()
         self.locators = home_page_locators
 
     def open_home_page(self, driver, delay):
-        self.go_to_url(driver, wtp_home_page_url)
-        return self.wait_driver(driver, delay + 5)
+        try:
+            # self.wait_driver(driver, delay)
+            self.go_to_url(driver, wtp_home_page_url)
+            return self.wait_url_contains(driver, wtp_home_page_url, delay) or self.wait_url_contains(driver, wtp_dashboard_url, delay)
+        except AutomationError as e:
+            print("{0} open_home_page failed with error: {1}".format(e.__class__.__name__, e.__cause__))
+            return False
 
     def open_signup_page(self, driver, delay):
         try:
-            self.open_home_page(driver, delay)
-            assert self.wait_url_contains(driver, wtp_home_page_url, delay)
-            self.click_on_element_by_locator(driver, self.locators.SIGN_UP_BUTTON, delay + 5)
-        finally:
-            if self.wait_url_contains(driver, self.wtp_open_account_url, delay):
-                return True
-            else:
-                return False
+            if self.open_home_page(driver, delay):
+                self.click_on_element_by_locator(driver, self.locators.SIGN_UP_BUTTON, delay)
+            return self.wait_url_contains(driver, wtp_open_account_url, delay)
+        except AutomationError as e:
+            print("{0} open_signup_page failed with error: {1}".format(e.__class__.__name__, e.__cause__))
+            return False
 
     def open_signin_page(self, driver, delay):
         try:
-            self.open_home_page(driver, delay)
-            assert self.wait_url_contains(driver, wtp_home_page_url, delay)
-            self.click_on_element_by_locator(driver, self.locators.SIGNIN_BUTTON, delay)
-        finally:
-            if self.wait_url_contains(driver, wtp_signin_page_url, delay):
-                return True
-            else:
-                return False
+            if self.open_home_page(driver, delay):
+                self.click_on_element_by_locator(driver, self.locators.SIGNIN_BUTTON, delay)
+            return self.wait_url_contains(driver, wtp_signin_page_url, delay)
+        except AutomationError as e:
+            print("{0} open_signin_page failed with error: {1}".format(e.__class__.__name__, e.__cause__))
+            return False
 
-    def sign_out(self, driver):
-        delay = 5
+    def sign_out(self, driver, delay):
         try:
-            log_out_button = self.find_element(driver, self.locators.LOG_OUT_BUTTON)
-            self.click_on_element(log_out_button)
-        finally:
-            if self.wait_url_contains(driver, user_page_url, delay):
-                return True
-            else:
-                return False
+            self.wait_element_clickable(driver, self.locators.LOG_OUT_BUTTON, delay)
+            self.click_on_element_by_locator(driver, self.locators.LOG_OUT_BUTTON, delay)
+            return self.wait_url_contains(driver, wtp_dashboard_url, delay)
+        except AutomationError as e:
+            print("{0} sign_out failed with error: {1}".format(e.__class__.__name__, e.__cause__))
+            return False

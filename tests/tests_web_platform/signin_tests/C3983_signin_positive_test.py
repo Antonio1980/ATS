@@ -4,8 +4,8 @@
 import unittest
 from proboscis import test
 from ddt import ddt, data, unpack
-from src.base.browser import Browser
 from test_definitions import BaseConfig
+from src.base.customer import RegisteredCustomer
 from src.base.instruments import Instruments
 from src.drivers.webdriver_factory import WebDriverFactory
 from tests.tests_web_platform.pages.home_page import HomePage
@@ -14,21 +14,24 @@ from tests.tests_web_platform.pages.signin_page import SignInPage
 
 @ddt
 @test(groups=['sign_in_page', ])
-class SignInTest(unittest.TestCase):
+class SignInTestPositive(unittest.TestCase):
     def setUp(self):
         self.test_case = '3983'
         self.home_page = HomePage()
         self.signin_page = SignInPage()
-        self.email = self.signin_page.email
-        self.password = self.signin_page.password
+        self.customer = RegisteredCustomer()
+        self.password = self.customer.password
+        self.email = self.customer.pended_email
         self.test_run = BaseConfig.TESTRAIL_RUN
         self.results_file = BaseConfig.WTP_TESTS_RESULT
+        self.browser = self.customer.get_browser_functionality()
 
     @test(groups=['smoke', 'positive', ])
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_sign_in_positive(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        # test_token = {'name': 'Test-Token', 'value': self.test_token}
+        self.driver = WebDriverFactory.get_driver(browser)
         delay = 5
         step1, step2 = False, False
         try:
@@ -43,4 +46,4 @@ class SignInTest(unittest.TestCase):
                 Instruments.update_test_case(self.test_run, self.test_case, 0)
 
     def tearDown(self):
-        Browser.close_browser(self.driver)
+        self.browser.close_browser(self.driver)

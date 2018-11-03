@@ -32,7 +32,7 @@ class EditNewUserUITest(unittest.TestCase):
     @data(*Instruments.get_csv_data(BaseConfig.BROWSERS))
     @unpack
     def test_ui_edit_new_user(self, browser):
-        self.driver = WebDriverFactory.get_browser(browser)
+        self.driver = WebDriverFactory.get_driver(browser)
         step1, step2, step3 = False, False, False
         try:
             step1 = self.login_page.login(self.driver, self.login_username, self.login_password)
