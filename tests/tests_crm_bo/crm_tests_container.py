@@ -2,9 +2,8 @@
 # -*- coding: utf8 -*-
 
 import unittest
-import xmlrunner as xmlrunner
 
-from tests.tests_crm_bo.end2end_tests.C3440_forgot_password_remote_test import ForgotPasswordRemoteTest
+from tests.tests_end2end.crm_bo_tests.C3440_forgot_password_remote_test import ForgotPasswordRemoteTest
 from tests.tests_crm_bo.end2end_tests.C3440_forgot_password_standalone_test import ForgotPasswordStandaloneTest
 from tests.tests_crm_bo.end2end_tests.C5846_reset_password_standalone_test import ResetPasswordTest
 
