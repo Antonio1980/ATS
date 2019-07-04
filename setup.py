@@ -1,8 +1,7 @@
 import io
 import os
 import sys
-from distutils.cmd import Command
-from setuptools import setup, find_packages
+from setuptools import setup
 from setuptools.command.test import test as TestCommand
 
 tests = "tests"
@@ -53,12 +52,10 @@ for dirname, dir_names, filenames in os.walk(os.path.join(root_dir, 'src/reposit
         files_list.append(fullname)
     data_files.append((dirname, files_list))
 
-setup(name=root_dir, packages=find_packages())
-
 
 # python setup.py test with distutils- https://justin.abrah.ms/python/setuppy_distutils_testing.html
-class PyTest(TestCommand, Command):
-    user_options = [("pytest-args=", "a", "Arguments to pass to pytest")]
+class PyTest(TestCommand):
+    user_options = [("pytest-args=", "test" )]
 
     def initialize_options(self):
         PyTest.initialize_options(self)
@@ -83,9 +80,7 @@ class PyTest(TestCommand, Command):
                                               '-p', '*_test.py']))
         else:
             raise SystemExit(
-                subprocess.call([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests/platform_tests', '-p',
-                                 '*_test.py']))
-
+                subprocess.call([sys.executable, '-m', 'pytest', '-vv', 'tests/platform_tests', '*_test.py']))
 
 # python setup.py test
 setup(
@@ -117,7 +112,3 @@ setup(
     description='selenium tests - runs front of web platform.',
     long_description=long_description_
 )
-
-
-# if __name__ == '__main__':
-#     setup()

@@ -237,12 +237,6 @@ src/repository/wtp_log.log
 exportToHTML/*
 *.html
 exportToHTML/
-/README.md
-/src/repository/files/
-/src/repository/allure_report/
-config.cfg
-config_integration.cfg
-docker-compose.yml
 src/repository/allure_report/plugins/jira/
 src/repository/allure_report/plugins/junit/
 src/repository/allure_report/plugins/trx/
