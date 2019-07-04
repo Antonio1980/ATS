@@ -1,0 +1,18 @@
+2019-04-18 13:15:44,360 - PYTHON_WTP_QA - INFO -  TestBalanceAfterOrderSellCancelled --> test_check_order_not_in_open_orders
+2019-04-18 13:15:49,362 - PYTHON_WTP_QA - INFO -  OrderService --> get_open_orders
+2019-04-18 13:15:49,362 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> open_orders
+2019-04-18 13:15:49,362 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:15:49,363 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.OpenOrders",
+    "params": [
+        {
+            "pagination": {
+                "limit": 20,
+                "offset": 0
+            }
+        }
+    ]
+}
+2019-04-18 13:15:49,363 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:15:51,984 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'orders': [], 'total': {'count': 0}}, 'error': None}

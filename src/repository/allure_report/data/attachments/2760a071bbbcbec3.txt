@@ -1,0 +1,168 @@
+log_decorator.py            21 INFO       --> r_time_count
+conftest.py                 23 INFO     START TIME: 402.8308781
+log_decorator.py            21 INFO      TestSellLimitPartiallyFilledCanceledBalanceUnfrozen --> setUp
+log_decorator.py            21 INFO      RegisteredCustomer --> __init__
+log_decorator.py            21 INFO      Customer --> __init__
+log_decorator.py            21 INFO      Customer --> set_customer_details
+log_decorator.py            21 INFO      Utils --> get_data
+log_decorator.py            21 INFO      Utils --> get_account_details
+log_decorator.py            21 INFO      Customer --> define_static_details
+log_decorator.py            21 INFO      Utils --> get_faked_phone
+log_decorator.py            21 INFO      Customer --> get_static_postman
+log_decorator.py            21 INFO      AuthorizationService --> login_by_credentials
+log_decorator.py            21 INFO      AuthorizationServiceRequest --> login_by_credentials
+log_decorator.py            21 INFO      Utils --> to_json
+authorization_requests.py   75 INFO     Request body: {
+    "jsonrpc": "2.0",
+    "method": "Authorization.LoginByCredentials",
+    "params": [
+        {
+            "captcha": "captcha",
+            "login": "Mary_Klein@sandbox7e64c317900647609c225574db67437b.mailgun.org",
+            "password": "1Aa@<>12"
+        }
+    ]
+}
+log_decorator.py            21 INFO      Utils --> to_json
+authorization_service.py   221 INFO     Service Response: {'id': '<nil>', 'result': {'token': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1hcnlfS2xlaW5Ac2FuZGJveDdlNjRjMzE3OTAwNjQ3NjA5YzIyNTU3NGRiNjc0MzdiLm1haWxndW4ub3JnIiwiZmlyc3ROYW1lIjoiTWFyaW8gQ29oZW4iLCJsYXN0TmFtZSI6IkNvaGVuIiwiY3VzdG9tZXJJZCI6IjEwMDAwMTEwMDAwMDAyMzAyNCIsInRva2VuVHlwZSI6MCwiZXhwIjoxNTU1NjY5MjkwLCJqdGkiOiIxMDAwMDExMDAwMDAwMjMwMjQifQ.to-4I9i7JGm1LOu3ddNFZ44ChL-I_pK7Oa4RvuswulGau7-a05uJakiL7WO3s45HP1YTXPQIlBFSl9LXPD2a5A', 'expiry': 86400, 'twoFactor': None}, 'error': None}
+log_decorator.py            21 INFO      Customer --> get_postman_access
+log_decorator.py            21 INFO      IBalanceService --> add_balance
+log_decorator.py            21 INFO      IBalanceServiceRequest --> add
+log_decorator.py            21 INFO      Utils --> to_json
+balance_requests.py        126 INFO     Request body: {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "balance.add",
+    "params": {
+        "amount": 50000.0,
+        "currencyId": 8,
+        "customerId": 100001100000023024,
+        "metadata": {
+            "operationReference": "QA-test"
+        }
+    }
+}
+log_decorator.py            21 INFO      Utils --> to_json
+balance_service.py          47 INFO     Service Response: {'jsonrpc': '2.0', 'id': '1', 'result': {'transactionGuid': '0-AAAAAABI+9Q=', 'customerId': 100001100000023024, 'currencyId': 8, 'balance': {'total': '50100.0', 'frozen': '0', 'available': '50100.0'}}}
+log_decorator.py            21 INFO      TestSellLimitPartiallyFilledCanceledBalanceUnfrozen --> test_sell_limit_partially_filled_canceled_balance_unfrozen
+sell_limit_partially_filled_canceled_balance_unfrozen_test.py   39 INFO     TEST CASE N: TS- 13 STARTED !
+sell_limit_partially_filled_canceled_balance_unfrozen_test.py   41 INFO     method_sell_limit_partially_filled_canceled_balance_unfrozen =['trading_sanity', ]), 
+log_decorator.py            21 INFO      IBalanceService --> get_currency_balance
+log_decorator.py            21 INFO      IBalanceServiceRequest --> get
+log_decorator.py            21 INFO      Utils --> to_json
+balance_requests.py         36 INFO     Request body: {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "balance.get",
+    "params": {
+        "currencyId": 8,
+        "customerId": 100001100000023024
+    }
+}
+log_decorator.py            21 INFO      Utils --> to_json
+balance_service.py          65 INFO     Service Response: {'jsonrpc': '2.0', 'id': '1', 'result': {'customerId': 100001100000023024, 'currencyId': 8, 'balance': {'total': '50100.0', 'frozen': '0', 'available': '50100.0'}}}
+log_decorator.py            21 INFO      SqlDb --> get_quantity_tail_digits
+log_decorator.py            21 INFO      SqlDb --> run_mysql_query
+log_decorator.py            21 INFO      SqlDb --> run_mysql_query
+log_decorator.py            21 INFO      SqlDb --> get_price_tail_digits
+log_decorator.py            21 INFO      SqlDb --> run_mysql_query
+log_decorator.py            21 INFO      SqlDb --> run_mysql_query
+log_decorator.py            21 INFO      RedisDb --> get_orders_best_price_and_quantity
+log_decorator.py            21 INFO      Order --> set_order
+log_decorator.py            21 INFO      Calculator --> calculate_decimals
+calculator.py               48 INFO     FLOAT
+log_decorator.py            21 INFO      Calculator --> calculate_decimals
+calculator.py               48 INFO     FLOAT
+order.py                    67 INFO     Order was set to Order(type: 2, price: [pure-2.15, p_value-215, p_presc.-2], quantity: [pure-200.0, q_value-2000, q_presc.-1], order_id: , internal_id: 0, direction: 2, instrument_id: 1022, date_created: 2019-04-18), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+log_decorator.py            21 INFO      Order --> set_order
+log_decorator.py            21 INFO      Calculator --> calculate_decimals
+calculator.py               48 INFO     FLOAT
+log_decorator.py            21 INFO      Calculator --> calculate_decimals
+calculator.py               48 INFO     FLOAT
+order.py                    67 INFO     Order was set to Order(type: 2, price: [pure-2.22, p_value-222, p_presc.-2], quantity: [pure-200.0, q_value-2000, q_presc.-1], order_id: , internal_id: 0, direction: 2, instrument_id: 1022, date_created: 2019-04-18), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+log_decorator.py            21 INFO      OrderService --> create_order
+log_decorator.py            21 INFO      OrderServiceRequest --> create_order
+log_decorator.py            21 INFO      Utils --> to_json
+order_requests.py           59 INFO     Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 2,
+                "instrumentId": 1022,
+                "orderType": 2,
+                "price": {
+                    "decimals": 2,
+                    "value": 222
+                },
+                "quantity": {
+                    "decimals": 1,
+                    "value": 2000
+                }
+            }
+        }
+    ]
+}
+log_decorator.py            21 INFO      Utils --> to_json
+order_service.py            26 INFO     Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+9U='}, 'error': None}
+order_service.py            34 INFO     2, 0-AAAAAABI+9U=, 2, 2019-04-18 - 404.504317
+log_decorator.py            21 INFO      RedisDb --> get_orders_best_price_and_quantity
+log_decorator.py            21 INFO      Order --> set_order
+log_decorator.py            21 INFO      Calculator --> calculate_decimals
+calculator.py               48 INFO     FLOAT
+log_decorator.py            21 INFO      Calculator --> calculate_decimals
+calculator.py               48 INFO     FLOAT
+order.py                    67 INFO     Order was set to Order(type: 2, price: [pure-2.07, p_value-207, p_presc.-2], quantity: [pure-300.0, q_value-3000, q_presc.-1], order_id: 0-AAAAAABI+9U=, internal_id: 0, direction: 2, instrument_id: 1022, date_created: 2019-04-18 - 404.504317), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+log_decorator.py            21 INFO      OrderService --> create_order
+log_decorator.py            21 INFO      OrderServiceRequest --> create_order
+log_decorator.py            21 INFO      Utils --> to_json
+order_requests.py           59 INFO     Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 2,
+                "instrumentId": 1022,
+                "orderType": 2,
+                "price": {
+                    "decimals": 2,
+                    "value": 207
+                },
+                "quantity": {
+                    "decimals": 1,
+                    "value": 3000
+                }
+            }
+        }
+    ]
+}
+log_decorator.py            21 INFO      Utils --> to_json
+order_service.py            26 INFO     Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+9o='}, 'error': None}
+order_service.py            34 INFO     2, 0-AAAAAABI+9o=, 2, 2019-04-18 - 405.2538197
+log_decorator.py            21 INFO      OrderService --> cancel_order
+log_decorator.py            21 INFO      OrderServiceRequest --> cancel_order
+log_decorator.py            21 INFO      Utils --> to_json
+order_requests.py          130 INFO     Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Cancel",
+    "params": [
+        {
+            "externalOrderId": "0-AAAAAABI+9o="
+        }
+    ]
+}
+log_decorator.py            21 INFO      Utils --> to_json
+order_service.py            80 INFO     Service Response: {'id': '', 'result': None, 'error': '{"type":-1,"term":"cancel_validator.err_time_processing.error","details":"do not allow canceling order for \'5s\' seconds after execution time","incident_id":"8a2e929f-46cf-41f9-b608-e72e94ec3688"}'}
+log_decorator.py            21 INFO      TestRail --> update_test_case
+testrail.py                 38 INFO     Server responded: {'error': 'Field :case_id is not a valid ID.'}
+log_decorator.py            26 CRITICAL test_sell_limit_partially_filled_canceled_balance_unfrozen AssertionError automation_wrapper throws an exception: None
+Traceback (most recent call last):
+  File "C:\GitLab\platform-server_qa\src\base\log_decorator.py", line 22, in log_wrapper
+    return func(*args, **kwargs)
+  File "C:\GitLab\platform-server_qa\tests\web_platform_tests\trading_sanity_tests\sell_limit_partially_filled_canceled_balance_unfrozen_test.py", line 84, in test_sell_limit_partially_filled_canceled_balance_unfrozen
+    assert canceled_status_error is None
+AssertionError: assert '{"type":-1,"term":"cancel_validator.err_time_processing.error","details":"do not allow canceling order for \'5s\' seconds after execution time","incident_id":"8a2e929f-46cf-41f9-b608-e72e94ec3688"}' is None
+conftest.py                 27 INFO     END TIME: 409.8464005
+conftest.py                 28 INFO     AVERAGE OF THE TEST CASE RUN TIME: 7.015522400000009 seconds

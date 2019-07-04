@@ -1,30 +1,23 @@
-"""
-Author: Anton Shipulin.
-Created: 01.08.2018
-Version: 1.05
-"""
-
 from enum import Enum
 
 
-class Browsers(Enum):
+class Browsers(str, Enum):
     CHROME = "chrome"
     IE = "ie"
     FIREFOX = "firefox"
     SAFARI = "safari"
     EDGE = "edge"
     OPERA = "opera"
-    HTMLUNITWITHJS = "html_js"
+    HTML_UNIT_WITH_JS = "html_js"
 
 
-class OperationSystem(Enum):
+class OperationSystem(str, Enum):
     WINDOWS = "windows"
     LINUX = "linux"
-    MAC = "macintosh"
     DARWIN = "darwin"
 
 
-class DriverHelper(Enum):
+class DriverHelper(str, Enum):
     ID = "id"
     XPATH = "xpath"
     CLASS_NAME = "class_name"

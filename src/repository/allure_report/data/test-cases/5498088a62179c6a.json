@@ -1,0 +1,208 @@
+{
+  "uid" : "5498088a62179c6a",
+  "name" : "TRADING SANITY TEST 'TS- 13'",
+  "fullName" : "tests.web_platform_tests.trading_sanity_tests.sell_limit_partially_filled_canceled_balance_unfrozen_test.TestSellLimitPartiallyFilledCanceledBalanceUnfrozen#test_sell_limit_partially_filled_canceled_balance_unfrozen",
+  "historyId" : "f0a8f4426f7a7b27797b932cb14e3110",
+  "time" : {
+    "start" : 1555582889844,
+    "stop" : 1555582896842,
+    "duration" : 6998
+  },
+  "description" : "\n    Verify that customer balance unfrozen after sell order (limit) partially matched and partially cancelled.\n    ",
+  "descriptionHtml" : "<pre><code>Verify that customer balance unfrozen after sell order (limit) partially matched and partially cancelled.\n</code></pre>\n",
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert '{\"type\":-1,\"term\":\"cancel_validator.err_time_processing.error\",\"details\":\"do not allow canceling order for \\'5s\\' seconds after execution time\",\"incident_id\":\"8a2e929f-46cf-41f9-b608-e72e94ec3688\"}' is None",
+  "statusTrace" : "self = <tests.web_platform_tests.trading_sanity_tests.sell_limit_partially_filled_canceled_balance_unfrozen_test.TestSellLimitPartiallyFilledCanceledBalanceUnfrozen testMethod=test_sell_limit_partially_filled_canceled_balance_unfrozen>\n\n    @allure.step(\"Starting with: test_sell_limit_partially_filled_canceled_balance_unfrozen\")\n    @automation_logger(logger)\n    def test_sell_limit_partially_filled_canceled_balance_unfrozen(self):\n        logger.logger.info(\"TEST CASE N: {0} STARTED !\".format(self.test_case))\n        logger.logger.info(\n            \"method_sell_limit_partially_filled_canceled_balance_unfrozen =['trading_sanity', ]), \")\n        result = 0\n        try:\n            frozen_base_before = float(\n                self.customer.postman.balance_service.get_currency_balance(self.customer.customer_id, 8)['result'][\n                    'balance']['frozen'])\n            quantity_tail_digits = Instruments.get_quantity_tail_digits(self.instrument_id)\n            price_tail_digits = Instruments.get_price_tail_digits(self.instrument_id)\n            best_price_and_quantity = Instruments.get_orders_best_price_and_quantity(self.instrument_id, \"sell\", 2)\n    \n            if quantity_tail_digits == 0:\n                quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2)\n            else:\n                quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2,\n                                 quantity_tail_digits)\n            price = round((best_price_and_quantity[0][0] + best_price_and_quantity[1][0]) / 2, price_tail_digits)\n            order_limit_sell = Order().set_order(2, self.instrument_id, quantity, price)\n    \n            while quantity <= best_price_and_quantity[0][1]:\n                order_limit_sell.set_order(2, self.instrument_id, quantity, best_price_and_quantity[0][0])\n                o_response = self.customer.postman.order_service.create_order(order_limit_sell)\n                o_status = o_response['error']\n                if o_status is not None:\n                    break\n                best_price_and_quantity = Instruments.get_orders_best_price_and_quantity(self.instrument_id, \"sell\", 2)\n                if quantity_tail_digits == 0:\n                    quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2)\n                else:\n                    quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2,\n                                     quantity_tail_digits)\n                price = round((best_price_and_quantity[0][0] + best_price_and_quantity[1][0]) / 2,\n                              price_tail_digits)\n                order_limit_sell.set_order(2, self.instrument_id, quantity, price)\n            order_response = self.customer.postman.order_service.create_order(order_limit_sell)\n            order_status = order_response['result']['status']\n    \n            assert order_status is True\n    \n            external_order_id = order_response['result']['externalOrderId']\n            time.sleep(3)\n            cancel_order_response = self.customer.postman.order_service.cancel_order(str(external_order_id))\n            canceled_status_error = cancel_order_response['error']\n    \n>           assert canceled_status_error is None\nE           AssertionError: assert '{\"type\":-1,\"term\":\"cancel_validator.err_time_processing.error\",\"details\":\"do not allow canceling order for \\'5s\\' seconds after execution time\",\"incident_id\":\"8a2e929f-46cf-41f9-b608-e72e94ec3688\"}' is None\n\ntests\\web_platform_tests\\trading_sanity_tests\\sell_limit_partially_filled_canceled_balance_unfrozen_test.py:84: AssertionError",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "r_time_count",
+    "time" : {
+      "start" : 1555582889841,
+      "stop" : 1555582889842,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "_UnitTestCase__pytest_class_setup",
+    "time" : {
+      "start" : 1555582889841,
+      "stop" : 1555582889841,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "\n    Verify that customer balance unfrozen after sell order (limit) partially matched and partially cancelled.\n    ",
+    "status" : "failed",
+    "statusMessage" : "AssertionError: assert '{\"type\":-1,\"term\":\"cancel_validator.err_time_processing.error\",\"details\":\"do not allow canceling order for \\'5s\\' seconds after execution time\",\"incident_id\":\"8a2e929f-46cf-41f9-b608-e72e94ec3688\"}' is None",
+    "statusTrace" : "self = <tests.web_platform_tests.trading_sanity_tests.sell_limit_partially_filled_canceled_balance_unfrozen_test.TestSellLimitPartiallyFilledCanceledBalanceUnfrozen testMethod=test_sell_limit_partially_filled_canceled_balance_unfrozen>\n\n    @allure.step(\"Starting with: test_sell_limit_partially_filled_canceled_balance_unfrozen\")\n    @automation_logger(logger)\n    def test_sell_limit_partially_filled_canceled_balance_unfrozen(self):\n        logger.logger.info(\"TEST CASE N: {0} STARTED !\".format(self.test_case))\n        logger.logger.info(\n            \"method_sell_limit_partially_filled_canceled_balance_unfrozen =['trading_sanity', ]), \")\n        result = 0\n        try:\n            frozen_base_before = float(\n                self.customer.postman.balance_service.get_currency_balance(self.customer.customer_id, 8)['result'][\n                    'balance']['frozen'])\n            quantity_tail_digits = Instruments.get_quantity_tail_digits(self.instrument_id)\n            price_tail_digits = Instruments.get_price_tail_digits(self.instrument_id)\n            best_price_and_quantity = Instruments.get_orders_best_price_and_quantity(self.instrument_id, \"sell\", 2)\n    \n            if quantity_tail_digits == 0:\n                quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2)\n            else:\n                quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2,\n                                 quantity_tail_digits)\n            price = round((best_price_and_quantity[0][0] + best_price_and_quantity[1][0]) / 2, price_tail_digits)\n            order_limit_sell = Order().set_order(2, self.instrument_id, quantity, price)\n    \n            while quantity <= best_price_and_quantity[0][1]:\n                order_limit_sell.set_order(2, self.instrument_id, quantity, best_price_and_quantity[0][0])\n                o_response = self.customer.postman.order_service.create_order(order_limit_sell)\n                o_status = o_response['error']\n                if o_status is not None:\n                    break\n                best_price_and_quantity = Instruments.get_orders_best_price_and_quantity(self.instrument_id, \"sell\", 2)\n                if quantity_tail_digits == 0:\n                    quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2)\n                else:\n                    quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2,\n                                     quantity_tail_digits)\n                price = round((best_price_and_quantity[0][0] + best_price_and_quantity[1][0]) / 2,\n                              price_tail_digits)\n                order_limit_sell.set_order(2, self.instrument_id, quantity, price)\n            order_response = self.customer.postman.order_service.create_order(order_limit_sell)\n            order_status = order_response['result']['status']\n    \n            assert order_status is True\n    \n            external_order_id = order_response['result']['externalOrderId']\n            time.sleep(3)\n            cancel_order_response = self.customer.postman.order_service.cancel_order(str(external_order_id))\n            canceled_status_error = cancel_order_response['error']\n    \n>           assert canceled_status_error is None\nE           AssertionError: assert '{\"type\":-1,\"term\":\"cancel_validator.err_time_processing.error\",\"details\":\"do not allow canceling order for \\'5s\\' seconds after execution time\",\"incident_id\":\"8a2e929f-46cf-41f9-b608-e72e94ec3688\"}' is None\n\ntests\\web_platform_tests\\trading_sanity_tests\\sell_limit_partially_filled_canceled_balance_unfrozen_test.py:84: AssertionError",
+    "steps" : [ {
+      "name" : "SetUp: calling registered customer and increase him balance.",
+      "time" : {
+        "start" : 1555582889845,
+        "stop" : 1555582890772,
+        "duration" : 927
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "args",
+        "value" : "(<tests.web_platform_tests.trading_sanity_tests.sell_limit_partially_filled_canceled_balance_unfrozen_test.TestSellLimitPartiallyFilledCanceledBalanceUnfrozen testMethod=test_sell_limit_partially_filled_canceled_balance_unfrozen>,)"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Starting with: test_sell_limit_partially_filled_canceled_balance_unfrozen",
+      "time" : {
+        "start" : 1555582890772,
+        "stop" : 1555582896840,
+        "duration" : 6068
+      },
+      "status" : "failed",
+      "statusMessage" : "AssertionError: assert '{\"type\":-1,\"term\":\"cancel_validator.err_time_processing.error\",\"details\":\"do not allow canceling order for \\'5s\\' seconds after execution time\",\"incident_id\":\"8a2e929f-46cf-41f9-b608-e72e94ec3688\"}' is None\n",
+      "statusTrace" : "  File \"c:\\gitlab\\venv\\lib\\site-packages\\allure_commons\\_allure.py\", line 141, in impl\n    return func(*a, **kw)\n  File \"C:\\GitLab\\platform-server_qa\\src\\base\\log_decorator.py\", line 27, in log_wrapper\n    raise e\n  File \"C:\\GitLab\\platform-server_qa\\src\\base\\log_decorator.py\", line 22, in log_wrapper\n    return func(*args, **kwargs)\n  File \"C:\\GitLab\\platform-server_qa\\tests\\web_platform_tests\\trading_sanity_tests\\sell_limit_partially_filled_canceled_balance_unfrozen_test.py\", line 84, in test_sell_limit_partially_filled_canceled_balance_unfrozen\n    assert canceled_status_error is None\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "args",
+        "value" : "(<tests.web_platform_tests.trading_sanity_tests.sell_limit_partially_filled_canceled_balance_unfrozen_test.TestSellLimitPartiallyFilledCanceledBalanceUnfrozen testMethod=test_sell_limit_partially_filled_canceled_balance_unfrozen>,)"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "2760a071bbbcbec3",
+      "name" : "log",
+      "source" : "2760a071bbbcbec3.txt",
+      "type" : "text/plain",
+      "size" : 10634
+    }, {
+      "uid" : "8fd39ee1d4e0b9f7",
+      "name" : "stdout",
+      "source" : "8fd39ee1d4e0b9f7.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "bc29f5198d1f4be8",
+      "name" : "stderr",
+      "source" : "bc29f5198d1f4be8.txt",
+      "type" : "text/plain",
+      "size" : 11323
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 2,
+    "hasContent" : true,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true
+  },
+  "afterStages" : [ {
+    "name" : "r_time_count::stop_counter",
+    "time" : {
+      "start" : 1555582896858,
+      "stop" : 1555582896858,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "_UnitTestCase__pytest_class_setup::0",
+    "time" : {
+      "start" : 1555582896861,
+      "stop" : 1555582896861,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "critical"
+  }, {
+    "name" : "tag",
+    "value" : "functional"
+  }, {
+    "name" : "tag",
+    "value" : "trading_sanity"
+  }, {
+    "name" : "tag",
+    "value" : "balance"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.web_platform_tests.trading_sanity_tests"
+  }, {
+    "name" : "suite",
+    "value" : "sell_limit_partially_filled_canceled_balance_unfrozen_test"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestSellLimitPartiallyFilledCanceledBalanceUnfrozen"
+  }, {
+    "name" : "host",
+    "value" : "QA-LP-ANTONS"
+  }, {
+    "name" : "thread",
+    "value" : "121748-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.web_platform_tests.trading_sanity_tests.sell_limit_partially_filled_canceled_balance_unfrozen_test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ {
+    "name" : "TestSellLimitPartiallyFilledCanceledBalanceUnfrozen",
+    "url" : "https://gitlab.com/cx_group/qa/platform-server_qa/blob/master/tests/web_platform_tests/balance_sanity_tests/sell_limit_partially_filled_canceled_balance_unfrozen_test.py",
+    "type" : "test_case"
+  } ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "critical",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "functional", "balance", "trading_sanity" ]
+  },
+  "source" : "5498088a62179c6a.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,381 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "TRADING SANITY TEST 'TS- 6'",
+    "uid" : "2e898a90f38a590",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "skipped",
+    "time" : { },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "TRADING SANITY TEST TS- 5",
+    "uid" : "8ebfa27804eb3423",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "skipped",
+    "time" : { },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_check_cur_customer_balance[add_balance0]",
+    "uid" : "c98a776a7f711d1c",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "skipped",
+    "time" : { },
+    "flaky" : false,
+    "parameters" : [ "[10, 6]" ]
+  }, {
+    "name" : "test_check_trade_history[add_balance0]",
+    "uid" : "6ab0c4f664645d38",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "skipped",
+    "time" : { },
+    "flaky" : false,
+    "parameters" : [ "[10, 6]" ]
+  }, {
+    "name" : "TRADING SANITY TEST 'TS- 7'",
+    "uid" : "83912c2bb12b5825",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "skipped",
+    "time" : { },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_add_customer_deposit",
+    "uid" : "964fb7ecd4f0b5aa",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582495287,
+      "stop" : 1555582495320,
+      "duration" : 33
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_cur_customer_balance",
+    "uid" : "cf593bd613bee90a",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582495347,
+      "stop" : 1555582497515,
+      "duration" : 2168
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_create_limit_order_buy",
+    "uid" : "8bea41f59e953a04",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582497541,
+      "stop" : 1555582499890,
+      "duration" : 2349
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_order_in_open_orders",
+    "uid" : "b00712632ba28643",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582499915,
+      "stop" : 1555582507906,
+      "duration" : 7991
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_cancel_opened_order",
+    "uid" : "1c2a3004ba9d07d2",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582507927,
+      "stop" : 1555582510162,
+      "duration" : 2235
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_check_order_not_in_open_orders",
+    "uid" : "552e432030e819ac",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582510184,
+      "stop" : 1555582516263,
+      "duration" : 6079
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_check_order_in_order_history",
+    "uid" : "f5909759c2e1ea8f",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582516289,
+      "stop" : 1555582524858,
+      "duration" : 8569
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_check_balance_after_all",
+    "uid" : "db8c72ce58b92120",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582524874,
+      "stop" : 1555582525947,
+      "duration" : 1073
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_add_customer_deposit",
+    "uid" : "5f9a6e7c63ab3ee0",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582528532,
+      "stop" : 1555582528562,
+      "duration" : 30
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_get_customer_balance",
+    "uid" : "b1cca296c4fe19f2",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582528578,
+      "stop" : 1555582531362,
+      "duration" : 2784
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_create_order_sell",
+    "uid" : "63423452feaac91",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582531389,
+      "stop" : 1555582534032,
+      "duration" : 2643
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_order_in_open_orders",
+    "uid" : "922e7847ca765f94",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582534057,
+      "stop" : 1555582541428,
+      "duration" : 7371
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_cancel_opened_order",
+    "uid" : "1d8443962a247ce2",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582541457,
+      "stop" : 1555582544333,
+      "duration" : 2876
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_check_order_not_in_open_orders",
+    "uid" : "59027369f11eeb40",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582544361,
+      "stop" : 1555582551985,
+      "duration" : 7624
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_check_order_in_order_history",
+    "uid" : "fe515c628f3b4b08",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582551999,
+      "stop" : 1555582560543,
+      "duration" : 8544
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_check_balance_after_all",
+    "uid" : "eea3452823189f21",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582560569,
+      "stop" : 1555582563579,
+      "duration" : 3010
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_get_cur_customer_balance[add_balance0]",
+    "uid" : "387ecbbf301ebbd2",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582567763,
+      "stop" : 1555582570657,
+      "duration" : 2894
+    },
+    "flaky" : false,
+    "parameters" : [ "[10, 6]" ]
+  }, {
+    "name" : "test_place_first_order[add_balance0]",
+    "uid" : "e2854ded2a74c971",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582570683,
+      "stop" : 1555582574213,
+      "duration" : 3530
+    },
+    "flaky" : false,
+    "parameters" : [ "[10, 6]" ]
+  }, {
+    "name" : "test_place_second_order[add_balance0]",
+    "uid" : "4c985efe2e0fd231",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582574249,
+      "stop" : 1555582577116,
+      "duration" : 2867
+    },
+    "flaky" : false,
+    "parameters" : [ "[10, 6]" ]
+  }, {
+    "name" : "test_place_third_order[add_balance0]",
+    "uid" : "67037b904eb442d2",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "failed",
+    "time" : {
+      "start" : 1555582577146,
+      "stop" : 1555582579486,
+      "duration" : 2340
+    },
+    "flaky" : false,
+    "parameters" : [ "[10, 6]" ]
+  }, {
+    "name" : "TRADING SANITY TEST 'TS- 2'",
+    "uid" : "61e65e7f726eef",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582579754,
+      "stop" : 1555582683279,
+      "duration" : 103525
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "TRADING SANITY TEST 'TS- 3'",
+    "uid" : "752b9434e1249685",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "broken",
+    "time" : {
+      "start" : 1555582683304,
+      "stop" : 1555582685192,
+      "duration" : 1888
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "TRADING SANITY TEST 'TS- 9'",
+    "uid" : "3822196b6b9b04df",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582685282,
+      "stop" : 1555582739816,
+      "duration" : 54534
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "TRADING SANITY TEST 'TS- 1'",
+    "uid" : "c656313a3d2dcf60",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "failed",
+    "time" : {
+      "start" : 1555582739843,
+      "stop" : 1555582748684,
+      "duration" : 8841
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "TRADING SANITY TEST 'TS- 10'",
+    "uid" : "b4951138241e82c4",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582748719,
+      "stop" : 1555582800105,
+      "duration" : 51386
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "TRADING SANITY TEST 'TS- 12'",
+    "uid" : "e066be5099100304",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582800126,
+      "stop" : 1555582889799,
+      "duration" : 89673
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "TRADING SANITY TEST 'TS- 13'",
+    "uid" : "5498088a62179c6a",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "failed",
+    "time" : {
+      "start" : 1555582889844,
+      "stop" : 1555582896842,
+      "duration" : 6998
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "TRADING SANITY TEST 'TS- 15'",
+    "uid" : "9c1668c7fb61e3e9",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1555582896879,
+      "stop" : 1555582945886,
+      "duration" : 49007
+    },
+    "flaky" : false,
+    "parameters" : [ ]
+  } ]
+}

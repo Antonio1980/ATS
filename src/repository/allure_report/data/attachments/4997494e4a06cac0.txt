@@ -1,0 +1,1140 @@
+2019-04-18 13:16:19,752 - PYTHON_WTP_QA - INFO -   --> r_time_count
+2019-04-18 13:16:19,752 - PYTHON_WTP_QA - INFO - START TIME: 92.7444892
+2019-04-18 13:16:19,754 - PYTHON_WTP_QA - INFO -  TestBuyOrderMatchedWithBalanceUnfrozen --> setUp
+2019-04-18 13:16:19,755 - PYTHON_WTP_QA - INFO -  RegisteredCustomer --> __init__
+2019-04-18 13:16:19,755 - PYTHON_WTP_QA - INFO -  Customer --> __init__
+2019-04-18 13:16:19,755 - PYTHON_WTP_QA - INFO -  Customer --> set_customer_details
+2019-04-18 13:16:19,755 - PYTHON_WTP_QA - INFO -  Utils --> get_data
+2019-04-18 13:16:19,756 - PYTHON_WTP_QA - INFO -  Utils --> get_account_details
+2019-04-18 13:16:19,757 - PYTHON_WTP_QA - INFO -  Customer --> define_static_details
+2019-04-18 13:16:19,757 - PYTHON_WTP_QA - INFO -  Utils --> get_faked_phone
+2019-04-18 13:16:19,846 - PYTHON_WTP_QA - INFO -  Customer --> get_static_postman
+2019-04-18 13:16:19,847 - PYTHON_WTP_QA - INFO -  AuthorizationService --> login_by_credentials
+2019-04-18 13:16:19,847 - PYTHON_WTP_QA - INFO -  AuthorizationServiceRequest --> login_by_credentials
+2019-04-18 13:16:19,847 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:19,847 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Authorization.LoginByCredentials",
+    "params": [
+        {
+            "captcha": "captcha",
+            "login": "Sylvia_Robles@sandbox7e64c317900647609c225574db67437b.mailgun.org",
+            "password": "1Aa@<>12"
+        }
+    ]
+}
+2019-04-18 13:16:19,847 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:22,074 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'token': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlN5bHZpYV9Sb2JsZXNAc2FuZGJveDdlNjRjMzE3OTAwNjQ3NjA5YzIyNTU3NGRiNjc0MzdiLm1haWxndW4ub3JnIiwiZmlyc3ROYW1lIjoiU3lsdmlhIiwibGFzdE5hbWUiOiJSb2JsZXMiLCJjdXN0b21lcklkIjoiMTAwMDAxMTAwMDAwMDIzMzk3IiwidG9rZW5UeXBlIjowLCJleHAiOjE1NTU2Njg5ODIsImp0aSI6IjEwMDAwMTEwMDAwMDAyMzM5NyJ9.yvAftlTtwebqrir5LdglTX5WEbe6-5kRgVFgny-lPqgLWAjhXLucZwqKAfyiWUr-r4Vk7IvBJoMNr9WP4ApJ-g', 'expiry': 86400, 'twoFactor': None}, 'error': None}
+2019-04-18 13:16:22,075 - PYTHON_WTP_QA - INFO -  Customer --> get_postman_access
+2019-04-18 13:16:22,076 - PYTHON_WTP_QA - INFO -  IBalanceService --> add_balance
+2019-04-18 13:16:22,077 - PYTHON_WTP_QA - INFO -  IBalanceServiceRequest --> add
+2019-04-18 13:16:22,078 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:22,078 - PYTHON_WTP_QA - INFO - Request body: {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "balance.add",
+    "params": {
+        "amount": 10000.0,
+        "currencyId": 3,
+        "customerId": 100001100000023397,
+        "metadata": {
+            "operationReference": "QA-test"
+        }
+    }
+}
+2019-04-18 13:16:22,079 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:22,109 - PYTHON_WTP_QA - INFO - Service Response: {'jsonrpc': '2.0', 'id': '1', 'result': {'transactionGuid': '0-AAAAAABI+nw=', 'customerId': 100001100000023397, 'currencyId': 3, 'balance': {'total': '10010.000', 'frozen': '0.000', 'available': '10010.000'}}}
+2019-04-18 13:16:22,110 - PYTHON_WTP_QA - INFO -  IBalanceService --> add_balance
+2019-04-18 13:16:22,110 - PYTHON_WTP_QA - INFO -  IBalanceServiceRequest --> add
+2019-04-18 13:16:22,110 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:22,111 - PYTHON_WTP_QA - INFO - Request body: {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "balance.add",
+    "params": {
+        "amount": 40000.0,
+        "currencyId": 2,
+        "customerId": 100001100000023397,
+        "metadata": {
+            "operationReference": "QA-test"
+        }
+    }
+}
+2019-04-18 13:16:22,111 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:22,132 - PYTHON_WTP_QA - INFO - Service Response: {'jsonrpc': '2.0', 'id': '1', 'result': {'transactionGuid': '0-AAAAAABI+n0=', 'customerId': 100001100000023397, 'currencyId': 2, 'balance': {'total': '41000.0000', 'frozen': '0.0000', 'available': '41000.0000'}}}
+2019-04-18 13:16:22,133 - PYTHON_WTP_QA - INFO -  SqlDb --> update_reference_price_by_instrument
+2019-04-18 13:16:22,133 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:16:22,135 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:16:22,143 - PYTHON_WTP_QA - INFO -  TestBuyOrderMatchedWithBalanceUnfrozen --> test_buy_order_matched_with_balance_unfrozen
+2019-04-18 13:16:22,143 - PYTHON_WTP_QA - INFO - TEST CASE N: TS- 2 STARTED !
+2019-04-18 13:16:22,144 - PYTHON_WTP_QA - INFO -  BalanceService --> get_balance
+2019-04-18 13:16:22,144 - PYTHON_WTP_QA - INFO -  BalanceServiceRequest --> get_balance
+2019-04-18 13:16:22,144 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:22,145 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                2
+            ]
+        }
+    ]
+}
+2019-04-18 13:16:22,145 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:24,773 - PYTHON_WTP_QA - INFO - Service Response: {'id': None, 'result': {'balance': {'2': {'total': '41000.0000', 'frozen': '0.0000', 'available': '41000.0000'}}}, 'error': None}
+2019-04-18 13:16:24,773 - PYTHON_WTP_QA - INFO - method test_buy_order_matched_with_balance_unfrozen (test groups=['trading_sanity', ]),with: frozen_balance1- 0.0 
+2019-04-18 13:16:24,774 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:16:24,778 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:16:24,779 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:24,779 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:24,779 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:24,779 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:24,780 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 1, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 1,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:16:24,780 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:16:24,781 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:24,781 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:24,781 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:24,781 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:24,782 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 2, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:16:25,782 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:16:25,782 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:16:25,783 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:25,783 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 1,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:16:25,784 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:26,887 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+oA='}, 'error': None}
+2019-04-18 13:16:26,887 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+oA=, 1, 2019-04-18 - 99.8793655
+2019-04-18 13:16:27,887 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:16:27,887 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:16:27,887 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:27,888 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 2,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:16:27,888 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:29,718 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+oQ='}, 'error': None}
+2019-04-18 13:16:29,719 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+oQ=, 2, 2019-04-18 - 102.7113662
+2019-04-18 13:16:30,720 - PYTHON_WTP_QA - INFO -  OrderService --> get_trades_history
+2019-04-18 13:16:30,721 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> trades_history
+2019-04-18 13:16:30,721 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:30,721 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.TradeHistory",
+    "params": [
+        {
+            "pagination": {
+                "limit": 20,
+                "offset": 0
+            },
+            "tradeCreatedFrom": 1523998800,
+            "tradeCreatedTo": 1555582488
+        }
+    ]
+}
+2019-04-18 13:16:30,722 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:33,150 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'trades': [{'id': '2019041600000005221', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001126', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIooU=', 'sellExternalOrderId': ''}, {'id': '2019041600000005211', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001124', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIon8=', 'sellExternalOrderId': ''}, {'id': '2019041600000005182', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001127', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428332, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooY='}, {'id': '2019041600000005172', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001125', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428326, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooA='}, {'id': '2019041600000005162', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001123', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428321, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonk='}, {'id': '2019041600000005152', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001121', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428315, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonI='}, {'id': '2019041600000004531', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001038', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoDQ=', 'sellExternalOrderId': ''}, {'id': '2019041600000004521', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001036', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoC4=', 'sellExternalOrderId': ''}, {'id': '2019041600000004482', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001039', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425215, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoDU='}, {'id': '2019041600000004472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001037', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425210, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoC8='}, {'id': '2019041600000004462', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001035', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425204, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCg='}, {'id': '2019041600000004452', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001033', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425198, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCE='}, {'id': '2019041600000001461', 'instrumentId': 1023, 'status': 1, 'buyOrderId': '201904160000000427', 'sellOrderId': '', 'price': {'value': 17850000000, 'decimals': 10}, 'quantity': {'value': 165, 'decimals': 1}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555410733, 'rateUsdBase': {'value': 21600000000, 'decimals': 10}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 12240000000, 'decimals': 10}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIlVY=', 'sellExternalOrderId': ''}, {'id': '2019041400000001801', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555232044, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001791', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231842, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001781', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231808, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001771', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231743, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001761', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231665, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001661', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231559, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904140000000017', 'price': {'value': 4700, 'decimals': 0}, 'quantity': {'value': 200000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555231432, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIft8='}], 'total': {'count': 40}}, 'error': None}
+2019-04-18 13:16:33,152 - PYTHON_WTP_QA - INFO -  BalanceService --> get_balance
+2019-04-18 13:16:33,153 - PYTHON_WTP_QA - INFO -  BalanceServiceRequest --> get_balance
+2019-04-18 13:16:33,154 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:33,154 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                2
+            ]
+        }
+    ]
+}
+2019-04-18 13:16:33,155 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:34,513 - PYTHON_WTP_QA - INFO - Service Response: {'id': None, 'result': {'balance': {'2': {'total': '41000.0000', 'frozen': '0.0000', 'available': '41000.0000'}}}, 'error': None}
+2019-04-18 13:16:34,514 - PYTHON_WTP_QA - INFO - ----- frozen_balance2----- 0.0:
+2019-04-18 13:16:34,514 - PYTHON_WTP_QA - INFO - Test TS- 2, with CustomerID 100001100000023397
+2019-04-18 13:16:34,514 - PYTHON_WTP_QA - INFO - ==================== TEST IS PASSED ====================
+2019-04-18 13:16:34,514 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:16:34,517 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:16:34,517 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:34,517 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:34,518 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:34,518 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:34,518 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 1, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 1,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:16:34,519 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:16:34,519 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:34,519 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:34,519 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:34,520 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:34,520 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 2, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:16:35,521 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:16:35,521 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:16:35,521 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:35,522 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 1,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:16:35,522 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:37,543 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+os='}, 'error': None}
+2019-04-18 13:16:37,543 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+os=, 1, 2019-04-18 - 110.5357355
+2019-04-18 13:16:38,544 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:16:38,544 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:16:38,544 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:38,544 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 2,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:16:38,545 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:41,262 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+ow='}, 'error': None}
+2019-04-18 13:16:41,262 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+ow=, 2, 2019-04-18 - 114.2544189
+2019-04-18 13:16:42,264 - PYTHON_WTP_QA - INFO -  OrderService --> get_trades_history
+2019-04-18 13:16:42,267 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> trades_history
+2019-04-18 13:16:42,267 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:42,268 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.TradeHistory",
+    "params": [
+        {
+            "pagination": {
+                "limit": 20,
+                "offset": 0
+            },
+            "tradeCreatedFrom": 1523998800,
+            "tradeCreatedTo": 1555582488
+        }
+    ]
+}
+2019-04-18 13:16:42,268 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:44,831 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'trades': [{'id': '2019041600000005221', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001126', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIooU=', 'sellExternalOrderId': ''}, {'id': '2019041600000005211', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001124', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIon8=', 'sellExternalOrderId': ''}, {'id': '2019041600000005182', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001127', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428332, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooY='}, {'id': '2019041600000005172', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001125', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428326, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooA='}, {'id': '2019041600000005162', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001123', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428321, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonk='}, {'id': '2019041600000005152', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001121', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428315, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonI='}, {'id': '2019041600000004531', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001038', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoDQ=', 'sellExternalOrderId': ''}, {'id': '2019041600000004521', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001036', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoC4=', 'sellExternalOrderId': ''}, {'id': '2019041600000004482', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001039', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425215, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoDU='}, {'id': '2019041600000004472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001037', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425210, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoC8='}, {'id': '2019041600000004462', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001035', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425204, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCg='}, {'id': '2019041600000004452', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001033', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425198, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCE='}, {'id': '2019041600000001461', 'instrumentId': 1023, 'status': 1, 'buyOrderId': '201904160000000427', 'sellOrderId': '', 'price': {'value': 17850000000, 'decimals': 10}, 'quantity': {'value': 165, 'decimals': 1}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555410733, 'rateUsdBase': {'value': 21600000000, 'decimals': 10}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 12240000000, 'decimals': 10}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIlVY=', 'sellExternalOrderId': ''}, {'id': '2019041400000001801', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555232044, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001791', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231842, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001781', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231808, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001771', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231743, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001761', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231665, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001661', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231559, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904140000000017', 'price': {'value': 4700, 'decimals': 0}, 'quantity': {'value': 200000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555231432, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIft8='}], 'total': {'count': 40}}, 'error': None}
+2019-04-18 13:16:44,831 - PYTHON_WTP_QA - INFO -  BalanceService --> get_balance
+2019-04-18 13:16:44,832 - PYTHON_WTP_QA - INFO -  BalanceServiceRequest --> get_balance
+2019-04-18 13:16:44,832 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:44,832 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                2
+            ]
+        }
+    ]
+}
+2019-04-18 13:16:44,832 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:46,460 - PYTHON_WTP_QA - INFO - Service Response: {'id': None, 'result': {'balance': {'2': {'total': '41000.0000', 'frozen': '0.0000', 'available': '41000.0000'}}}, 'error': None}
+2019-04-18 13:16:46,460 - PYTHON_WTP_QA - INFO - ----- frozen_balance2----- 0.0:
+2019-04-18 13:16:46,461 - PYTHON_WTP_QA - INFO - Test TS- 2, with CustomerID 100001100000023397
+2019-04-18 13:16:46,462 - PYTHON_WTP_QA - INFO - ==================== TEST IS PASSED ====================
+2019-04-18 13:16:46,462 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:16:46,465 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:16:46,466 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:46,466 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:46,467 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:46,467 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:46,467 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 1, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 1,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:16:46,468 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:16:46,468 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:46,468 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:46,469 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:46,469 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:46,470 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 2, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:16:47,471 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:16:47,472 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:16:47,472 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:47,473 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 1,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:16:47,475 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:49,071 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+pE='}, 'error': None}
+2019-04-18 13:16:49,072 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+pE=, 1, 2019-04-18 - 122.0641214
+2019-04-18 13:16:50,073 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:16:50,073 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:16:50,074 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:50,074 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 2,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:16:50,074 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:52,123 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+pI='}, 'error': None}
+2019-04-18 13:16:52,124 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+pI=, 2, 2019-04-18 - 125.1158912
+2019-04-18 13:16:53,125 - PYTHON_WTP_QA - INFO -  OrderService --> get_trades_history
+2019-04-18 13:16:53,125 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> trades_history
+2019-04-18 13:16:53,126 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:53,127 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.TradeHistory",
+    "params": [
+        {
+            "pagination": {
+                "limit": 20,
+                "offset": 0
+            },
+            "tradeCreatedFrom": 1523998800,
+            "tradeCreatedTo": 1555582488
+        }
+    ]
+}
+2019-04-18 13:16:53,127 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:55,997 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'trades': [{'id': '2019041600000005221', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001126', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIooU=', 'sellExternalOrderId': ''}, {'id': '2019041600000005211', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001124', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIon8=', 'sellExternalOrderId': ''}, {'id': '2019041600000005182', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001127', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428332, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooY='}, {'id': '2019041600000005172', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001125', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428326, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooA='}, {'id': '2019041600000005162', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001123', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428321, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonk='}, {'id': '2019041600000005152', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001121', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428315, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonI='}, {'id': '2019041600000004531', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001038', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoDQ=', 'sellExternalOrderId': ''}, {'id': '2019041600000004521', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001036', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoC4=', 'sellExternalOrderId': ''}, {'id': '2019041600000004482', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001039', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425215, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoDU='}, {'id': '2019041600000004472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001037', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425210, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoC8='}, {'id': '2019041600000004462', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001035', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425204, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCg='}, {'id': '2019041600000004452', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001033', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425198, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCE='}, {'id': '2019041600000001461', 'instrumentId': 1023, 'status': 1, 'buyOrderId': '201904160000000427', 'sellOrderId': '', 'price': {'value': 17850000000, 'decimals': 10}, 'quantity': {'value': 165, 'decimals': 1}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555410733, 'rateUsdBase': {'value': 21600000000, 'decimals': 10}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 12240000000, 'decimals': 10}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIlVY=', 'sellExternalOrderId': ''}, {'id': '2019041400000001801', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555232044, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001791', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231842, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001781', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231808, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001771', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231743, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001761', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231665, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001661', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231559, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904140000000017', 'price': {'value': 4700, 'decimals': 0}, 'quantity': {'value': 200000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555231432, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIft8='}], 'total': {'count': 40}}, 'error': None}
+2019-04-18 13:16:55,998 - PYTHON_WTP_QA - INFO -  BalanceService --> get_balance
+2019-04-18 13:16:55,999 - PYTHON_WTP_QA - INFO -  BalanceServiceRequest --> get_balance
+2019-04-18 13:16:55,999 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:55,999 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                2
+            ]
+        }
+    ]
+}
+2019-04-18 13:16:56,000 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:57,989 - PYTHON_WTP_QA - INFO - Service Response: {'id': None, 'result': {'balance': {'2': {'total': '41000.0000', 'frozen': '0.0000', 'available': '41000.0000'}}}, 'error': None}
+2019-04-18 13:16:57,989 - PYTHON_WTP_QA - INFO - ----- frozen_balance2----- 0.0:
+2019-04-18 13:16:57,989 - PYTHON_WTP_QA - INFO - Test TS- 2, with CustomerID 100001100000023397
+2019-04-18 13:16:57,989 - PYTHON_WTP_QA - INFO - ==================== TEST IS PASSED ====================
+2019-04-18 13:16:57,990 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:16:57,993 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:16:57,993 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:57,993 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:57,994 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:57,994 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:57,994 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 1, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 1,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:16:57,994 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:16:57,994 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:57,994 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:57,995 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:57,995 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:57,995 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 2, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:16:58,995 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:16:58,995 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:16:58,995 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:58,995 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 1,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:16:58,995 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:59,814 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+qo='}, 'error': None}
+2019-04-18 13:16:59,815 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+qo=, 1, 2019-04-18 - 132.8074976
+2019-04-18 13:17:00,817 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:17:00,819 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:17:00,822 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:00,823 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 2,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:17:00,824 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:02,305 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+rE='}, 'error': None}
+2019-04-18 13:17:02,305 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+rE=, 2, 2019-04-18 - 135.2978148
+2019-04-18 13:17:03,306 - PYTHON_WTP_QA - INFO -  OrderService --> get_trades_history
+2019-04-18 13:17:03,307 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> trades_history
+2019-04-18 13:17:03,307 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:03,308 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.TradeHistory",
+    "params": [
+        {
+            "pagination": {
+                "limit": 20,
+                "offset": 0
+            },
+            "tradeCreatedFrom": 1523998800,
+            "tradeCreatedTo": 1555582488
+        }
+    ]
+}
+2019-04-18 13:17:03,309 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:05,945 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'trades': [{'id': '2019041600000005221', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001126', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIooU=', 'sellExternalOrderId': ''}, {'id': '2019041600000005211', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001124', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIon8=', 'sellExternalOrderId': ''}, {'id': '2019041600000005182', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001127', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428332, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooY='}, {'id': '2019041600000005172', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001125', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428326, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooA='}, {'id': '2019041600000005162', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001123', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428321, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonk='}, {'id': '2019041600000005152', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001121', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428315, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonI='}, {'id': '2019041600000004531', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001038', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoDQ=', 'sellExternalOrderId': ''}, {'id': '2019041600000004521', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001036', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoC4=', 'sellExternalOrderId': ''}, {'id': '2019041600000004482', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001039', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425215, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoDU='}, {'id': '2019041600000004472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001037', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425210, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoC8='}, {'id': '2019041600000004462', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001035', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425204, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCg='}, {'id': '2019041600000004452', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001033', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425198, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCE='}, {'id': '2019041600000001461', 'instrumentId': 1023, 'status': 1, 'buyOrderId': '201904160000000427', 'sellOrderId': '', 'price': {'value': 17850000000, 'decimals': 10}, 'quantity': {'value': 165, 'decimals': 1}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555410733, 'rateUsdBase': {'value': 21600000000, 'decimals': 10}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 12240000000, 'decimals': 10}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIlVY=', 'sellExternalOrderId': ''}, {'id': '2019041400000001801', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555232044, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001791', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231842, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001781', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231808, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001771', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231743, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001761', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231665, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001661', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231559, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904140000000017', 'price': {'value': 4700, 'decimals': 0}, 'quantity': {'value': 200000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555231432, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIft8='}], 'total': {'count': 40}}, 'error': None}
+2019-04-18 13:17:05,947 - PYTHON_WTP_QA - INFO -  BalanceService --> get_balance
+2019-04-18 13:17:05,947 - PYTHON_WTP_QA - INFO -  BalanceServiceRequest --> get_balance
+2019-04-18 13:17:05,948 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:05,949 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                2
+            ]
+        }
+    ]
+}
+2019-04-18 13:17:05,950 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:08,058 - PYTHON_WTP_QA - INFO - Service Response: {'id': None, 'result': {'balance': {'2': {'total': '41000.0000', 'frozen': '0.0000', 'available': '41000.0000'}}}, 'error': None}
+2019-04-18 13:17:08,058 - PYTHON_WTP_QA - INFO - ----- frozen_balance2----- 0.0:
+2019-04-18 13:17:08,059 - PYTHON_WTP_QA - INFO - Test TS- 2, with CustomerID 100001100000023397
+2019-04-18 13:17:08,059 - PYTHON_WTP_QA - INFO - ==================== TEST IS PASSED ====================
+2019-04-18 13:17:08,059 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:17:08,062 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:17:08,063 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:08,063 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:08,063 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:08,063 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:08,064 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 1, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 1,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:17:08,064 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:17:08,064 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:08,065 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:08,065 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:08,066 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:08,066 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 2, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:17:09,067 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:17:09,067 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:17:09,068 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:09,068 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 1,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:17:09,069 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:10,690 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+sE='}, 'error': None}
+2019-04-18 13:17:10,691 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+sE=, 1, 2019-04-18 - 143.6830576
+2019-04-18 13:17:11,692 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:17:11,693 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:17:11,693 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:11,693 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 2,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:17:11,694 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:13,246 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+sM='}, 'error': None}
+2019-04-18 13:17:13,246 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+sM=, 2, 2019-04-18 - 146.2386844
+2019-04-18 13:17:14,249 - PYTHON_WTP_QA - INFO -  OrderService --> get_trades_history
+2019-04-18 13:17:14,250 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> trades_history
+2019-04-18 13:17:14,250 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:14,251 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.TradeHistory",
+    "params": [
+        {
+            "pagination": {
+                "limit": 20,
+                "offset": 0
+            },
+            "tradeCreatedFrom": 1523998800,
+            "tradeCreatedTo": 1555582488
+        }
+    ]
+}
+2019-04-18 13:17:14,252 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:15,837 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'trades': [{'id': '2019041600000005221', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001126', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIooU=', 'sellExternalOrderId': ''}, {'id': '2019041600000005211', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001124', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIon8=', 'sellExternalOrderId': ''}, {'id': '2019041600000005182', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001127', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428332, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooY='}, {'id': '2019041600000005172', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001125', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428326, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooA='}, {'id': '2019041600000005162', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001123', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428321, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonk='}, {'id': '2019041600000005152', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001121', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428315, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonI='}, {'id': '2019041600000004531', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001038', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoDQ=', 'sellExternalOrderId': ''}, {'id': '2019041600000004521', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001036', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoC4=', 'sellExternalOrderId': ''}, {'id': '2019041600000004482', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001039', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425215, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoDU='}, {'id': '2019041600000004472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001037', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425210, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoC8='}, {'id': '2019041600000004462', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001035', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425204, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCg='}, {'id': '2019041600000004452', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001033', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425198, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCE='}, {'id': '2019041600000001461', 'instrumentId': 1023, 'status': 1, 'buyOrderId': '201904160000000427', 'sellOrderId': '', 'price': {'value': 17850000000, 'decimals': 10}, 'quantity': {'value': 165, 'decimals': 1}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555410733, 'rateUsdBase': {'value': 21600000000, 'decimals': 10}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 12240000000, 'decimals': 10}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIlVY=', 'sellExternalOrderId': ''}, {'id': '2019041400000001801', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555232044, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001791', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231842, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001781', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231808, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001771', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231743, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001761', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231665, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001661', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231559, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904140000000017', 'price': {'value': 4700, 'decimals': 0}, 'quantity': {'value': 200000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555231432, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIft8='}], 'total': {'count': 40}}, 'error': None}
+2019-04-18 13:17:15,837 - PYTHON_WTP_QA - INFO -  BalanceService --> get_balance
+2019-04-18 13:17:15,837 - PYTHON_WTP_QA - INFO -  BalanceServiceRequest --> get_balance
+2019-04-18 13:17:15,837 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:15,838 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                2
+            ]
+        }
+    ]
+}
+2019-04-18 13:17:15,838 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:17,071 - PYTHON_WTP_QA - INFO - Service Response: {'id': None, 'result': {'balance': {'2': {'total': '41000.0000', 'frozen': '0.0000', 'available': '41000.0000'}}}, 'error': None}
+2019-04-18 13:17:17,071 - PYTHON_WTP_QA - INFO - ----- frozen_balance2----- 0.0:
+2019-04-18 13:17:17,072 - PYTHON_WTP_QA - INFO - Test TS- 2, with CustomerID 100001100000023397
+2019-04-18 13:17:17,072 - PYTHON_WTP_QA - INFO - ==================== TEST IS PASSED ====================
+2019-04-18 13:17:17,072 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:17:17,075 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:17:17,076 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:17,076 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:17,076 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:17,076 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:17,077 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 1, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 1,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:17:17,077 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:17:17,077 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:17,078 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:17,078 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:17,078 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:17,078 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 2, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:17:18,080 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:17:18,081 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:17:18,082 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:18,083 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 1,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:17:18,084 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:20,109 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+tA='}, 'error': None}
+2019-04-18 13:17:20,110 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+tA=, 1, 2019-04-18 - 153.1025743
+2019-04-18 13:17:21,112 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:17:21,112 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:17:21,112 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:21,113 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 2,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:17:21,113 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:22,147 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+tY='}, 'error': None}
+2019-04-18 13:17:22,148 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+tY=, 2, 2019-04-18 - 155.1401772
+2019-04-18 13:17:23,150 - PYTHON_WTP_QA - INFO -  OrderService --> get_trades_history
+2019-04-18 13:17:23,151 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> trades_history
+2019-04-18 13:17:23,151 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:23,152 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.TradeHistory",
+    "params": [
+        {
+            "pagination": {
+                "limit": 20,
+                "offset": 0
+            },
+            "tradeCreatedFrom": 1523998800,
+            "tradeCreatedTo": 1555582488
+        }
+    ]
+}
+2019-04-18 13:17:23,153 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:27,170 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'trades': [{'id': '2019041600000005221', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001126', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIooU=', 'sellExternalOrderId': ''}, {'id': '2019041600000005211', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001124', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIon8=', 'sellExternalOrderId': ''}, {'id': '2019041600000005182', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001127', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428332, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooY='}, {'id': '2019041600000005172', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001125', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428326, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooA='}, {'id': '2019041600000005162', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001123', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428321, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonk='}, {'id': '2019041600000005152', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001121', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428315, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonI='}, {'id': '2019041600000004531', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001038', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoDQ=', 'sellExternalOrderId': ''}, {'id': '2019041600000004521', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001036', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoC4=', 'sellExternalOrderId': ''}, {'id': '2019041600000004482', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001039', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425215, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoDU='}, {'id': '2019041600000004472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001037', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425210, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoC8='}, {'id': '2019041600000004462', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001035', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425204, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCg='}, {'id': '2019041600000004452', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001033', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425198, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCE='}, {'id': '2019041600000001461', 'instrumentId': 1023, 'status': 1, 'buyOrderId': '201904160000000427', 'sellOrderId': '', 'price': {'value': 17850000000, 'decimals': 10}, 'quantity': {'value': 165, 'decimals': 1}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555410733, 'rateUsdBase': {'value': 21600000000, 'decimals': 10}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 12240000000, 'decimals': 10}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIlVY=', 'sellExternalOrderId': ''}, {'id': '2019041400000001801', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555232044, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001791', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231842, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001781', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231808, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001771', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231743, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001761', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231665, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001661', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231559, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904140000000017', 'price': {'value': 4700, 'decimals': 0}, 'quantity': {'value': 200000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555231432, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIft8='}], 'total': {'count': 40}}, 'error': None}
+2019-04-18 13:17:27,171 - PYTHON_WTP_QA - INFO -  BalanceService --> get_balance
+2019-04-18 13:17:27,172 - PYTHON_WTP_QA - INFO -  BalanceServiceRequest --> get_balance
+2019-04-18 13:17:27,172 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:27,172 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                2
+            ]
+        }
+    ]
+}
+2019-04-18 13:17:27,173 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:28,589 - PYTHON_WTP_QA - INFO - Service Response: {'id': None, 'result': {'balance': {'2': {'total': '41000.0000', 'frozen': '0.0000', 'available': '41000.0000'}}}, 'error': None}
+2019-04-18 13:17:28,589 - PYTHON_WTP_QA - INFO - ----- frozen_balance2----- 0.0:
+2019-04-18 13:17:28,590 - PYTHON_WTP_QA - INFO - Test TS- 2, with CustomerID 100001100000023397
+2019-04-18 13:17:28,590 - PYTHON_WTP_QA - INFO - ==================== TEST IS PASSED ====================
+2019-04-18 13:17:28,590 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:17:28,594 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:17:28,595 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:28,596 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:28,596 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:28,597 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:28,598 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 1, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 1,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:17:28,598 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:17:28,599 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:28,599 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:28,599 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:28,600 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:28,600 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 2, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:17:29,600 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:17:29,600 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:17:29,600 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:29,601 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 1,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:17:29,601 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:30,277 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+ug='}, 'error': None}
+2019-04-18 13:17:30,277 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+ug=, 1, 2019-04-18 - 163.2691922
+2019-04-18 13:17:31,278 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:17:31,278 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:17:31,278 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:31,278 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 2,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:17:31,278 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:32,785 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+u8='}, 'error': None}
+2019-04-18 13:17:32,786 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+u8=, 2, 2019-04-18 - 165.778046
+2019-04-18 13:17:33,787 - PYTHON_WTP_QA - INFO -  OrderService --> get_trades_history
+2019-04-18 13:17:33,788 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> trades_history
+2019-04-18 13:17:33,789 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:33,789 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.TradeHistory",
+    "params": [
+        {
+            "pagination": {
+                "limit": 20,
+                "offset": 0
+            },
+            "tradeCreatedFrom": 1523998800,
+            "tradeCreatedTo": 1555582488
+        }
+    ]
+}
+2019-04-18 13:17:33,790 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:36,456 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'trades': [{'id': '2019041600000005221', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001126', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIooU=', 'sellExternalOrderId': ''}, {'id': '2019041600000005211', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001124', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIon8=', 'sellExternalOrderId': ''}, {'id': '2019041600000005182', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001127', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428332, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooY='}, {'id': '2019041600000005172', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001125', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428326, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooA='}, {'id': '2019041600000005162', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001123', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428321, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonk='}, {'id': '2019041600000005152', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001121', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428315, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonI='}, {'id': '2019041600000004531', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001038', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoDQ=', 'sellExternalOrderId': ''}, {'id': '2019041600000004521', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001036', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoC4=', 'sellExternalOrderId': ''}, {'id': '2019041600000004482', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001039', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425215, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoDU='}, {'id': '2019041600000004472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001037', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425210, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoC8='}, {'id': '2019041600000004462', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001035', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425204, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCg='}, {'id': '2019041600000004452', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001033', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425198, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCE='}, {'id': '2019041600000001461', 'instrumentId': 1023, 'status': 1, 'buyOrderId': '201904160000000427', 'sellOrderId': '', 'price': {'value': 17850000000, 'decimals': 10}, 'quantity': {'value': 165, 'decimals': 1}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555410733, 'rateUsdBase': {'value': 21600000000, 'decimals': 10}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 12240000000, 'decimals': 10}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIlVY=', 'sellExternalOrderId': ''}, {'id': '2019041400000001801', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555232044, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001791', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231842, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001781', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231808, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001771', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231743, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001761', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231665, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001661', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231559, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904140000000017', 'price': {'value': 4700, 'decimals': 0}, 'quantity': {'value': 200000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555231432, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIft8='}], 'total': {'count': 40}}, 'error': None}
+2019-04-18 13:17:36,456 - PYTHON_WTP_QA - INFO -  BalanceService --> get_balance
+2019-04-18 13:17:36,457 - PYTHON_WTP_QA - INFO -  BalanceServiceRequest --> get_balance
+2019-04-18 13:17:36,457 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:36,457 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                2
+            ]
+        }
+    ]
+}
+2019-04-18 13:17:36,457 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:37,804 - PYTHON_WTP_QA - INFO - Service Response: {'id': None, 'result': {'balance': {'2': {'total': '41000.0000', 'frozen': '0.0000', 'available': '41000.0000'}}}, 'error': None}
+2019-04-18 13:17:37,805 - PYTHON_WTP_QA - INFO - ----- frozen_balance2----- 0.0:
+2019-04-18 13:17:37,806 - PYTHON_WTP_QA - INFO - Test TS- 2, with CustomerID 100001100000023397
+2019-04-18 13:17:37,807 - PYTHON_WTP_QA - INFO - ==================== TEST IS PASSED ====================
+2019-04-18 13:17:37,807 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:17:37,811 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:17:37,812 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:37,812 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:37,813 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:37,813 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:37,814 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 1, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 1,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:17:37,815 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:17:37,815 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:37,816 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:37,816 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:37,817 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:37,817 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 2, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:17:38,818 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:17:38,819 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:17:38,819 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:38,820 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 1,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:17:38,821 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:39,988 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+wE='}, 'error': None}
+2019-04-18 13:17:39,989 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+wE=, 1, 2019-04-18 - 172.9805317
+2019-04-18 13:17:40,990 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:17:40,990 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:17:40,991 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:40,991 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 2,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:17:40,992 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:41,978 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+wM='}, 'error': None}
+2019-04-18 13:17:41,979 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+wM=, 2, 2019-04-18 - 174.9710638
+2019-04-18 13:17:42,980 - PYTHON_WTP_QA - INFO -  OrderService --> get_trades_history
+2019-04-18 13:17:42,980 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> trades_history
+2019-04-18 13:17:42,981 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:42,981 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.TradeHistory",
+    "params": [
+        {
+            "pagination": {
+                "limit": 20,
+                "offset": 0
+            },
+            "tradeCreatedFrom": 1523998800,
+            "tradeCreatedTo": 1555582488
+        }
+    ]
+}
+2019-04-18 13:17:42,981 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:45,094 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'trades': [{'id': '2019041600000005221', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001126', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIooU=', 'sellExternalOrderId': ''}, {'id': '2019041600000005211', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001124', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIon8=', 'sellExternalOrderId': ''}, {'id': '2019041600000005182', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001127', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428332, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooY='}, {'id': '2019041600000005172', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001125', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428326, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooA='}, {'id': '2019041600000005162', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001123', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428321, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonk='}, {'id': '2019041600000005152', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001121', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428315, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonI='}, {'id': '2019041600000004531', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001038', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoDQ=', 'sellExternalOrderId': ''}, {'id': '2019041600000004521', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001036', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoC4=', 'sellExternalOrderId': ''}, {'id': '2019041600000004482', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001039', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425215, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoDU='}, {'id': '2019041600000004472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001037', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425210, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoC8='}, {'id': '2019041600000004462', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001035', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425204, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCg='}, {'id': '2019041600000004452', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001033', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425198, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCE='}, {'id': '2019041600000001461', 'instrumentId': 1023, 'status': 1, 'buyOrderId': '201904160000000427', 'sellOrderId': '', 'price': {'value': 17850000000, 'decimals': 10}, 'quantity': {'value': 165, 'decimals': 1}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555410733, 'rateUsdBase': {'value': 21600000000, 'decimals': 10}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 12240000000, 'decimals': 10}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIlVY=', 'sellExternalOrderId': ''}, {'id': '2019041400000001801', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555232044, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001791', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231842, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001781', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231808, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001771', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231743, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001761', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231665, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001661', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231559, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904140000000017', 'price': {'value': 4700, 'decimals': 0}, 'quantity': {'value': 200000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555231432, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIft8='}], 'total': {'count': 40}}, 'error': None}
+2019-04-18 13:17:45,096 - PYTHON_WTP_QA - INFO -  BalanceService --> get_balance
+2019-04-18 13:17:45,097 - PYTHON_WTP_QA - INFO -  BalanceServiceRequest --> get_balance
+2019-04-18 13:17:45,097 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:45,098 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                2
+            ]
+        }
+    ]
+}
+2019-04-18 13:17:45,099 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:46,687 - PYTHON_WTP_QA - INFO - Service Response: {'id': None, 'result': {'balance': {'2': {'total': '41000.0000', 'frozen': '0.0000', 'available': '41000.0000'}}}, 'error': None}
+2019-04-18 13:17:46,687 - PYTHON_WTP_QA - INFO - ----- frozen_balance2----- 0.0:
+2019-04-18 13:17:46,687 - PYTHON_WTP_QA - INFO - Test TS- 2, with CustomerID 100001100000023397
+2019-04-18 13:17:46,688 - PYTHON_WTP_QA - INFO - ==================== TEST IS PASSED ====================
+2019-04-18 13:17:46,688 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:17:46,691 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:17:46,692 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:46,692 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:46,693 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:46,693 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:46,694 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 1, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 1,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:17:46,695 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:17:46,695 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:46,696 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:46,697 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:46,697 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:46,697 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 2, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:17:47,699 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:17:47,700 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:17:47,701 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:47,701 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 1,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:17:47,702 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:48,711 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+xI='}, 'error': None}
+2019-04-18 13:17:48,711 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+xI=, 1, 2019-04-18 - 181.7032789
+2019-04-18 13:17:49,712 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:17:49,712 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:17:49,713 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:49,714 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 2,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:17:49,714 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:50,662 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+xk='}, 'error': None}
+2019-04-18 13:17:50,662 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+xk=, 2, 2019-04-18 - 183.6543111
+2019-04-18 13:17:51,663 - PYTHON_WTP_QA - INFO -  OrderService --> get_trades_history
+2019-04-18 13:17:51,663 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> trades_history
+2019-04-18 13:17:51,663 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:51,663 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.TradeHistory",
+    "params": [
+        {
+            "pagination": {
+                "limit": 20,
+                "offset": 0
+            },
+            "tradeCreatedFrom": 1523998800,
+            "tradeCreatedTo": 1555582488
+        }
+    ]
+}
+2019-04-18 13:17:51,663 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:53,454 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'trades': [{'id': '2019041600000005221', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001126', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIooU=', 'sellExternalOrderId': ''}, {'id': '2019041600000005211', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001124', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIon8=', 'sellExternalOrderId': ''}, {'id': '2019041600000005182', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001127', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428332, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooY='}, {'id': '2019041600000005172', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001125', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428326, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooA='}, {'id': '2019041600000005162', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001123', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428321, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonk='}, {'id': '2019041600000005152', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001121', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428315, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonI='}, {'id': '2019041600000004531', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001038', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoDQ=', 'sellExternalOrderId': ''}, {'id': '2019041600000004521', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001036', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoC4=', 'sellExternalOrderId': ''}, {'id': '2019041600000004482', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001039', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425215, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoDU='}, {'id': '2019041600000004472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001037', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425210, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoC8='}, {'id': '2019041600000004462', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001035', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425204, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCg='}, {'id': '2019041600000004452', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001033', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425198, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCE='}, {'id': '2019041600000001461', 'instrumentId': 1023, 'status': 1, 'buyOrderId': '201904160000000427', 'sellOrderId': '', 'price': {'value': 17850000000, 'decimals': 10}, 'quantity': {'value': 165, 'decimals': 1}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555410733, 'rateUsdBase': {'value': 21600000000, 'decimals': 10}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 12240000000, 'decimals': 10}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIlVY=', 'sellExternalOrderId': ''}, {'id': '2019041400000001801', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555232044, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001791', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231842, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001781', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231808, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001771', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231743, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001761', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231665, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001661', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231559, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904140000000017', 'price': {'value': 4700, 'decimals': 0}, 'quantity': {'value': 200000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555231432, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIft8='}], 'total': {'count': 40}}, 'error': None}
+2019-04-18 13:17:53,456 - PYTHON_WTP_QA - INFO -  BalanceService --> get_balance
+2019-04-18 13:17:53,457 - PYTHON_WTP_QA - INFO -  BalanceServiceRequest --> get_balance
+2019-04-18 13:17:53,457 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:53,458 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                2
+            ]
+        }
+    ]
+}
+2019-04-18 13:17:53,458 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:54,574 - PYTHON_WTP_QA - INFO - Service Response: {'id': None, 'result': {'balance': {'2': {'total': '41000.0000', 'frozen': '0.0000', 'available': '41000.0000'}}}, 'error': None}
+2019-04-18 13:17:54,574 - PYTHON_WTP_QA - INFO - ----- frozen_balance2----- 0.0:
+2019-04-18 13:17:54,575 - PYTHON_WTP_QA - INFO - Test TS- 2, with CustomerID 100001100000023397
+2019-04-18 13:17:54,575 - PYTHON_WTP_QA - INFO - ==================== TEST IS PASSED ====================
+2019-04-18 13:17:54,575 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:17:54,577 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:17:54,578 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:54,578 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:54,578 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:54,578 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:54,580 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 1, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 1,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:17:54,580 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:17:54,580 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:54,580 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:54,580 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:17:54,580 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:17:54,580 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-4000.0, p_value-40000, p_presc.-1], quantity: [pure-0.00625, q_value-625, q_presc.-5], order_id: , internal_id: 0, direction: 2, instrument_id: 1012, date_created: 2019-04-18), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:17:55,581 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:17:55,581 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:17:55,582 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:55,583 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 1,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:17:55,583 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:56,562 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+yk='}, 'error': None}
+2019-04-18 13:17:56,563 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+yk=, 1, 2019-04-18 - 189.5550936
+2019-04-18 13:17:57,564 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:17:57,565 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:17:57,565 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:57,566 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 2,
+                "instrumentId": 1012,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 40000
+                },
+                "quantity": {
+                    "decimals": 5,
+                    "value": 625
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:17:57,566 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:58,595 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+y8='}, 'error': None}
+2019-04-18 13:17:58,596 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+y8=, 2, 2019-04-18 - 191.5877372
+2019-04-18 13:17:59,597 - PYTHON_WTP_QA - INFO -  OrderService --> get_trades_history
+2019-04-18 13:17:59,597 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> trades_history
+2019-04-18 13:17:59,598 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:17:59,598 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.TradeHistory",
+    "params": [
+        {
+            "pagination": {
+                "limit": 20,
+                "offset": 0
+            },
+            "tradeCreatedFrom": 1523998800,
+            "tradeCreatedTo": 1555582488
+        }
+    ]
+}
+2019-04-18 13:17:59,598 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:18:01,341 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'trades': [{'id': '2019041600000005221', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001126', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIooU=', 'sellExternalOrderId': ''}, {'id': '2019041600000005211', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001124', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555428366, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIon8=', 'sellExternalOrderId': ''}, {'id': '2019041600000005182', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001127', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428332, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooY='}, {'id': '2019041600000005172', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001125', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428326, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIooA='}, {'id': '2019041600000005162', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001123', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428321, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonk='}, {'id': '2019041600000005152', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001121', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555428315, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIonI='}, {'id': '2019041600000004531', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001038', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoDQ=', 'sellExternalOrderId': ''}, {'id': '2019041600000004521', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904160000001036', 'sellOrderId': '', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555425245, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIoC4=', 'sellExternalOrderId': ''}, {'id': '2019041600000004482', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001039', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425215, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoDU='}, {'id': '2019041600000004472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001037', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425210, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoC8='}, {'id': '2019041600000004462', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001035', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425204, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCg='}, {'id': '2019041600000004452', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904160000001033', 'price': {'value': 1, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555425198, 'rateUsdBase': {'value': 1, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIoCE='}, {'id': '2019041600000001461', 'instrumentId': 1023, 'status': 1, 'buyOrderId': '201904160000000427', 'sellOrderId': '', 'price': {'value': 17850000000, 'decimals': 10}, 'quantity': {'value': 165, 'decimals': 1}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555410733, 'rateUsdBase': {'value': 21600000000, 'decimals': 10}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 12240000000, 'decimals': 10}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIlVY=', 'sellExternalOrderId': ''}, {'id': '2019041400000001801', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555232044, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001791', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231842, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001781', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231808, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001771', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231743, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001761', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231665, 'rateUsdBase': {'value': 4500, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001661', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '201904140000000016', 'sellOrderId': '', 'price': {'value': 4500, 'decimals': 0}, 'quantity': {'value': 10000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 1, 'time': 1555231559, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '0-AAAAAABIft4=', 'sellExternalOrderId': ''}, {'id': '2019041400000001472', 'instrumentId': 1007, 'status': 1, 'buyOrderId': '', 'sellOrderId': '201904140000000017', 'price': {'value': 4700, 'decimals': 0}, 'quantity': {'value': 200000000, 'decimals': 10}, 'buyCustomerId': '', 'sellCustomerId': '', 'direction': 2, 'time': 1555231432, 'rateUsdBase': {'value': 4700, 'decimals': 0}, 'rateEurBase': {'value': 0, 'decimals': 0}, 'rateUsdQuoted': {'value': 1, 'decimals': 0}, 'rateEurQuoted': {'value': 0, 'decimals': 0}, 'fees': [], 'rateDxexBase': None, 'rateDxexQuoted': None, 'balanceChangeTransactionGuid': '', 'buyExternalOrderId': '', 'sellExternalOrderId': '0-AAAAAABIft8='}], 'total': {'count': 40}}, 'error': None}
+2019-04-18 13:18:01,342 - PYTHON_WTP_QA - INFO -  BalanceService --> get_balance
+2019-04-18 13:18:01,342 - PYTHON_WTP_QA - INFO -  BalanceServiceRequest --> get_balance
+2019-04-18 13:18:01,343 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:18:01,343 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                2
+            ]
+        }
+    ]
+}
+2019-04-18 13:18:01,343 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:18:02,280 - PYTHON_WTP_QA - INFO - Service Response: {'id': None, 'result': {'balance': {'2': {'total': '41000.0000', 'frozen': '0.0000', 'available': '41000.0000'}}}, 'error': None}
+2019-04-18 13:18:02,281 - PYTHON_WTP_QA - INFO - ----- frozen_balance2----- 0.0:
+2019-04-18 13:18:02,281 - PYTHON_WTP_QA - INFO - Test TS- 2, with CustomerID 100001100000023397
+2019-04-18 13:18:02,282 - PYTHON_WTP_QA - INFO - ==================== TEST IS PASSED ====================
+2019-04-18 13:18:02,282 - PYTHON_WTP_QA - INFO -  TestRail --> update_test_case
+2019-04-18 13:18:03,277 - PYTHON_WTP_QA - INFO - Server responded: {'error': 'Field :case_id is not a valid ID.'}
+2019-04-18 13:18:03,281 - PYTHON_WTP_QA - INFO - END TIME: 196.2732198
+2019-04-18 13:18:03,281 - PYTHON_WTP_QA - INFO - AVERAGE OF THE TEST CASE RUN TIME: 103.52873059999999 seconds

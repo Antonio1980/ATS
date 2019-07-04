@@ -1,0 +1,88 @@
+2019-04-18 13:16:03,616 - PYTHON_WTP_QA - INFO -   --> r_time_count
+2019-04-18 13:16:03,616 - PYTHON_WTP_QA - INFO - START TIME: 76.6083155
+2019-04-18 13:16:03,617 - PYTHON_WTP_QA - INFO -   --> r_customer
+2019-04-18 13:16:03,617 - PYTHON_WTP_QA - INFO -  RegisteredCustomer --> __init__
+2019-04-18 13:16:03,618 - PYTHON_WTP_QA - INFO -  Customer --> __init__
+2019-04-18 13:16:03,618 - PYTHON_WTP_QA - INFO -  Customer --> set_customer_details
+2019-04-18 13:16:03,618 - PYTHON_WTP_QA - INFO -  Utils --> get_data
+2019-04-18 13:16:03,619 - PYTHON_WTP_QA - INFO -  Utils --> get_account_details
+2019-04-18 13:16:03,620 - PYTHON_WTP_QA - INFO -  Customer --> define_static_details
+2019-04-18 13:16:03,620 - PYTHON_WTP_QA - INFO -  Utils --> get_faked_phone
+2019-04-18 13:16:03,706 - PYTHON_WTP_QA - INFO -  Customer --> get_static_postman
+2019-04-18 13:16:03,706 - PYTHON_WTP_QA - INFO -  AuthorizationService --> login_by_credentials
+2019-04-18 13:16:03,706 - PYTHON_WTP_QA - INFO -  AuthorizationServiceRequest --> login_by_credentials
+2019-04-18 13:16:03,707 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:03,707 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Authorization.LoginByCredentials",
+    "params": [
+        {
+            "captcha": "captcha",
+            "login": "Crystal_Bass@sandbox7e64c317900647609c225574db67437b.mailgun.org",
+            "password": "1Aa@<>12"
+        }
+    ]
+}
+2019-04-18 13:16:03,707 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:07,699 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'token': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkNyeXN0YWxfQmFzc0BzYW5kYm94N2U2NGMzMTc5MDA2NDc2MDljMjI1NTc0ZGI2NzQzN2IubWFpbGd1bi5vcmciLCJmaXJzdE5hbWUiOiJDcnlzdGFsIiwibGFzdE5hbWUiOiJCYXNzIiwiY3VzdG9tZXJJZCI6IjEwMDAwMTEwMDAwMDAyMzA3NiIsInRva2VuVHlwZSI6MCwiZXhwIjoxNTU1NjY4OTY3LCJqdGkiOiIxMDAwMDExMDAwMDAwMjMwNzYifQ.mCTaL0Erv_Zgw01A3kkepOShIRMa9WKgcgUgPtSf_HcC3-RQ_MfUzpc6gwv_Umc1Zhq2VF_83bDskh32soM7Eg', 'expiry': 86400, 'twoFactor': None}, 'error': None}
+2019-04-18 13:16:07,700 - PYTHON_WTP_QA - INFO -  Customer --> get_postman_access
+2019-04-18 13:16:07,700 - PYTHON_WTP_QA - INFO -  SqlDb --> customer_approval
+2019-04-18 13:16:07,701 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:16:07,706 - PYTHON_WTP_QA - INFO - Customer 100001100000023076 successfully approved.
+2019-04-18 13:16:07,707 - PYTHON_WTP_QA - INFO -   --> add_balance
+2019-04-18 13:16:07,707 - PYTHON_WTP_QA - INFO -  IBalanceService --> add_balance
+2019-04-18 13:16:07,708 - PYTHON_WTP_QA - INFO -  IBalanceServiceRequest --> add
+2019-04-18 13:16:07,708 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:07,709 - PYTHON_WTP_QA - INFO - Request body: {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "balance.add",
+    "params": {
+        "amount": 5000.0,
+        "currencyId": 10,
+        "customerId": 100001100000023076,
+        "metadata": {
+            "operationReference": "QA-test"
+        }
+    }
+}
+2019-04-18 13:16:07,710 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:07,736 - PYTHON_WTP_QA - INFO - Service Response: {'jsonrpc': '2.0', 'id': '1', 'result': {'transactionGuid': '0-AAAAAABI+mY=', 'customerId': 100001100000023076, 'currencyId': 10, 'balance': {'total': '5000.0', 'frozen': '0', 'available': '5000.0'}}}
+2019-04-18 13:16:07,737 - PYTHON_WTP_QA - INFO - GUID: 0-AAAAAABI+mY=
+2019-04-18 13:16:07,737 - PYTHON_WTP_QA - INFO -  IBalanceService --> add_balance
+2019-04-18 13:16:07,737 - PYTHON_WTP_QA - INFO -  IBalanceServiceRequest --> add
+2019-04-18 13:16:07,738 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:07,738 - PYTHON_WTP_QA - INFO - Request body: {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "balance.add",
+    "params": {
+        "amount": 5000.0,
+        "currencyId": 6,
+        "customerId": 100001100000023076,
+        "metadata": {
+            "operationReference": "QA-test"
+        }
+    }
+}
+2019-04-18 13:16:07,739 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:07,759 - PYTHON_WTP_QA - INFO - Service Response: {'jsonrpc': '2.0', 'id': '1', 'result': {'transactionGuid': '0-AAAAAABI+mc=', 'customerId': 100001100000023076, 'currencyId': 6, 'balance': {'total': '5000.0', 'frozen': '0', 'available': '5000.0'}}}
+2019-04-18 13:16:07,760 - PYTHON_WTP_QA - INFO - GUID: 0-AAAAAABI+mc=
+2019-04-18 13:16:07,763 - PYTHON_WTP_QA - INFO -  TestBalanceUnfrozenAfterTradeLessOrderPrice --> test_get_cur_customer_balance
+2019-04-18 13:16:07,764 - PYTHON_WTP_QA - INFO -  BalanceService --> get_balance
+2019-04-18 13:16:07,764 - PYTHON_WTP_QA - INFO -  BalanceServiceRequest --> get_balance
+2019-04-18 13:16:07,764 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:07,765 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                10
+            ]
+        }
+    ]
+}
+2019-04-18 13:16:07,765 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:10,654 - PYTHON_WTP_QA - INFO - Service Response: {'id': None, 'result': {'balance': {'10': {'total': '5000.0', 'frozen': '0', 'available': '5000.0'}}}, 'error': None}
+2019-04-18 13:16:10,655 - PYTHON_WTP_QA - INFO - Balance before: {'id': None, 'result': {'balance': {'10': {'total': '5000.0', 'frozen': '0', 'available': '5000.0'}}}, 'error': None}

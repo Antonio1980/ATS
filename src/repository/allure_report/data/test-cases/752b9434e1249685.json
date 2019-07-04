@@ -1,0 +1,208 @@
+{
+  "uid" : "752b9434e1249685",
+  "name" : "TRADING SANITY TEST 'TS- 3'",
+  "fullName" : "tests.web_platform_tests.trading_sanity_tests.buy_limit_partially_filled_cancelled_and_balance_unfrozen_test.TestBuyLimitPartiallyFilledCanceledBalanceUnfrozen#test_buy_limit_partially_filled_canceled_balance_unfrozen",
+  "historyId" : "94f2bbfb9fc857060b3949afbc8d02d1",
+  "time" : {
+    "start" : 1555582683304,
+    "stop" : 1555582685192,
+    "duration" : 1888
+  },
+  "description" : "\n    Verify that customer balance unfrozen after buy order (limit) partially matched and partially cancelled.\n    ",
+  "descriptionHtml" : "<pre><code>Verify that customer balance unfrozen after buy order (limit) partially matched and partially cancelled.\n</code></pre>\n",
+  "status" : "broken",
+  "statusMessage" : "IndexError: list index out of range",
+  "statusTrace" : "self = <tests.web_platform_tests.trading_sanity_tests.buy_limit_partially_filled_cancelled_and_balance_unfrozen_test.TestBuyLimitPartiallyFilledCanceledBalanceUnfrozen testMethod=test_buy_limit_partially_filled_canceled_balance_unfrozen>\n\n    @allure.step(\"Starting with: test_buy_limit_partially_filled_canceled_balance_unfrozen\")\n    @automation_logger(logger)\n    def test_buy_limit_partially_filled_canceled_balance_unfrozen(self):\n        logger.logger.info(\"TEST CASE N: {0} STARTED !\".format(self.test_case))\n        logger.logger.info(\n            \"method_buy_limit_partially_filled_canceled_balance_unfrozen, \")\n        result = 0\n        try:\n            frozen_quoted_before = float(\n                self.customer.postman.balance_service.get_currency_balance(self.customer.customer_id, 1)['result'][\n                    'balance']['frozen'])\n    \n            quantity_tail_digits = SqlDb.get_quantity_tail_digits(self.instrument_id)\n            price_tail_digits = SqlDb.get_price_tail_digits(self.instrument_id)\n            best_price_and_quantity = Instruments.get_orders_best_price_and_quantity(self.instrument_id, \"buy\", 2)\n            if quantity_tail_digits == 0:\n                quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2)\n            else:\n>               quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2,\n                                 quantity_tail_digits)\nE                                IndexError: list index out of range\n\ntests\\web_platform_tests\\trading_sanity_tests\\buy_limit_partially_filled_cancelled_and_balance_unfrozen_test.py:55: IndexError",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "r_time_count",
+    "time" : {
+      "start" : 1555582683301,
+      "stop" : 1555582683302,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "_UnitTestCase__pytest_class_setup",
+    "time" : {
+      "start" : 1555582683301,
+      "stop" : 1555582683301,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "\n    Verify that customer balance unfrozen after buy order (limit) partially matched and partially cancelled.\n    ",
+    "status" : "broken",
+    "statusMessage" : "IndexError: list index out of range",
+    "statusTrace" : "self = <tests.web_platform_tests.trading_sanity_tests.buy_limit_partially_filled_cancelled_and_balance_unfrozen_test.TestBuyLimitPartiallyFilledCanceledBalanceUnfrozen testMethod=test_buy_limit_partially_filled_canceled_balance_unfrozen>\n\n    @allure.step(\"Starting with: test_buy_limit_partially_filled_canceled_balance_unfrozen\")\n    @automation_logger(logger)\n    def test_buy_limit_partially_filled_canceled_balance_unfrozen(self):\n        logger.logger.info(\"TEST CASE N: {0} STARTED !\".format(self.test_case))\n        logger.logger.info(\n            \"method_buy_limit_partially_filled_canceled_balance_unfrozen, \")\n        result = 0\n        try:\n            frozen_quoted_before = float(\n                self.customer.postman.balance_service.get_currency_balance(self.customer.customer_id, 1)['result'][\n                    'balance']['frozen'])\n    \n            quantity_tail_digits = SqlDb.get_quantity_tail_digits(self.instrument_id)\n            price_tail_digits = SqlDb.get_price_tail_digits(self.instrument_id)\n            best_price_and_quantity = Instruments.get_orders_best_price_and_quantity(self.instrument_id, \"buy\", 2)\n            if quantity_tail_digits == 0:\n                quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2)\n            else:\n>               quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2,\n                                 quantity_tail_digits)\nE                                IndexError: list index out of range\n\ntests\\web_platform_tests\\trading_sanity_tests\\buy_limit_partially_filled_cancelled_and_balance_unfrozen_test.py:55: IndexError",
+    "steps" : [ {
+      "name" : "SetUp: calling registered customer and adding USD to balance.",
+      "time" : {
+        "start" : 1555582683304,
+        "stop" : 1555582684268,
+        "duration" : 964
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "args",
+        "value" : "(<tests.web_platform_tests.trading_sanity_tests.buy_limit_partially_filled_cancelled_and_balance_unfrozen_test.TestBuyLimitPartiallyFilledCanceledBalanceUnfrozen testMethod=test_buy_limit_partially_filled_canceled_balance_unfrozen>,)"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Starting with: test_buy_limit_partially_filled_canceled_balance_unfrozen",
+      "time" : {
+        "start" : 1555582684269,
+        "stop" : 1555582685190,
+        "duration" : 921
+      },
+      "status" : "broken",
+      "statusMessage" : "IndexError: list index out of range\n",
+      "statusTrace" : "  File \"c:\\gitlab\\venv\\lib\\site-packages\\allure_commons\\_allure.py\", line 141, in impl\n    return func(*a, **kw)\n  File \"C:\\GitLab\\platform-server_qa\\src\\base\\log_decorator.py\", line 27, in log_wrapper\n    raise e\n  File \"C:\\GitLab\\platform-server_qa\\src\\base\\log_decorator.py\", line 22, in log_wrapper\n    return func(*args, **kwargs)\n  File \"C:\\GitLab\\platform-server_qa\\tests\\web_platform_tests\\trading_sanity_tests\\buy_limit_partially_filled_cancelled_and_balance_unfrozen_test.py\", line 55, in test_buy_limit_partially_filled_canceled_balance_unfrozen\n    quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2,\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "args",
+        "value" : "(<tests.web_platform_tests.trading_sanity_tests.buy_limit_partially_filled_cancelled_and_balance_unfrozen_test.TestBuyLimitPartiallyFilledCanceledBalanceUnfrozen testMethod=test_buy_limit_partially_filled_canceled_balance_unfrozen>,)"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "7ef1f8817808b709",
+      "name" : "log",
+      "source" : "7ef1f8817808b709.txt",
+      "type" : "text/plain",
+      "size" : 5528
+    }, {
+      "uid" : "4b998cea89ca849b",
+      "name" : "stdout",
+      "source" : "4b998cea89ca849b.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "b3a9e153a4592233",
+      "name" : "stderr",
+      "source" : "b3a9e153a4592233.txt",
+      "type" : "text/plain",
+      "size" : 5858
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 2,
+    "hasContent" : true,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true
+  },
+  "afterStages" : [ {
+    "name" : "r_time_count::stop_counter",
+    "time" : {
+      "start" : 1555582685211,
+      "stop" : 1555582685212,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "_UnitTestCase__pytest_class_setup::0",
+    "time" : {
+      "start" : 1555582685216,
+      "stop" : 1555582685216,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "critical"
+  }, {
+    "name" : "tag",
+    "value" : "functional"
+  }, {
+    "name" : "tag",
+    "value" : "trading_sanity"
+  }, {
+    "name" : "tag",
+    "value" : "balance"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.web_platform_tests.trading_sanity_tests"
+  }, {
+    "name" : "suite",
+    "value" : "buy_limit_partially_filled_cancelled_and_balance_unfrozen_test"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestBuyLimitPartiallyFilledCanceledBalanceUnfrozen"
+  }, {
+    "name" : "host",
+    "value" : "QA-LP-ANTONS"
+  }, {
+    "name" : "thread",
+    "value" : "121748-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.web_platform_tests.trading_sanity_tests.buy_limit_partially_filled_cancelled_and_balance_unfrozen_test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ {
+    "name" : "TestBuyLimitPartiallyFilledCanceledBalanceUnfrozen",
+    "url" : "https://gitlab.com/cx_group/qa/platform-server_qa/blob/master/tests/web_platform_tests/balance_sanity_tests/buy_limit_partially_filled_cancelled_and_balance_unfrozen_test.py",
+    "type" : "test_case"
+  } ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "critical",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "functional", "balance", "trading_sanity" ]
+  },
+  "source" : "752b9434e1249685.json",
+  "parameterValues" : [ ]
+}

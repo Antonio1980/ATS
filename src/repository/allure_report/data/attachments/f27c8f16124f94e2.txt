@@ -1,0 +1,20 @@
+2019-04-18 13:16:00,569 - PYTHON_WTP_QA - INFO -  TestBalanceAfterOrderSellCancelled --> test_check_balance_after_all
+2019-04-18 13:16:00,569 - PYTHON_WTP_QA - INFO -  BalanceService --> get_balance
+2019-04-18 13:16:00,570 - PYTHON_WTP_QA - INFO -  BalanceServiceRequest --> get_balance
+2019-04-18 13:16:00,570 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:00,570 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                3
+            ]
+        }
+    ]
+}
+2019-04-18 13:16:00,570 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:03,577 - PYTHON_WTP_QA - INFO - Service Response: {'id': None, 'result': {'balance': {'3': {'total': '10.000', 'frozen': '0.000', 'available': '10.000'}}}, 'error': None}
+2019-04-18 13:16:03,577 - PYTHON_WTP_QA - INFO - ================== TEST CASE IS PASSED ===================
+2019-04-18 13:16:03,593 - PYTHON_WTP_QA - INFO - END TIME: 76.5846802
+2019-04-18 13:16:03,594 - PYTHON_WTP_QA - INFO - AVERAGE OF THE TEST CASE RUN TIME: 37.608788 seconds

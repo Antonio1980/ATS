@@ -1,0 +1,81 @@
+2019-04-18 13:18:03,300 - PYTHON_WTP_QA - INFO -   --> r_time_count
+2019-04-18 13:18:03,301 - PYTHON_WTP_QA - INFO - START TIME: 196.2931143
+2019-04-18 13:18:03,303 - PYTHON_WTP_QA - INFO -  TestBuyLimitPartiallyFilledCanceledBalanceUnfrozen --> setUp
+2019-04-18 13:18:03,304 - PYTHON_WTP_QA - INFO -  RegisteredCustomer --> __init__
+2019-04-18 13:18:03,304 - PYTHON_WTP_QA - INFO -  Customer --> __init__
+2019-04-18 13:18:03,304 - PYTHON_WTP_QA - INFO -  Customer --> set_customer_details
+2019-04-18 13:18:03,304 - PYTHON_WTP_QA - INFO -  Utils --> get_data
+2019-04-18 13:18:03,305 - PYTHON_WTP_QA - INFO -  Utils --> get_account_details
+2019-04-18 13:18:03,306 - PYTHON_WTP_QA - INFO -  Customer --> define_static_details
+2019-04-18 13:18:03,307 - PYTHON_WTP_QA - INFO -  Utils --> get_faked_phone
+2019-04-18 13:18:03,394 - PYTHON_WTP_QA - INFO -  Customer --> get_static_postman
+2019-04-18 13:18:03,394 - PYTHON_WTP_QA - INFO -  AuthorizationService --> login_by_credentials
+2019-04-18 13:18:03,394 - PYTHON_WTP_QA - INFO -  AuthorizationServiceRequest --> login_by_credentials
+2019-04-18 13:18:03,394 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:18:03,395 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Authorization.LoginByCredentials",
+    "params": [
+        {
+            "captcha": "captcha",
+            "login": "Kathleen_Barnes@sandbox7e64c317900647609c225574db67437b.mailgun.org",
+            "password": "1Aa@<>12"
+        }
+    ]
+}
+2019-04-18 13:18:03,395 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:18:04,241 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'token': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkthdGhsZWVuX0Jhcm5lc0BzYW5kYm94N2U2NGMzMTc5MDA2NDc2MDljMjI1NTc0ZGI2NzQzN2IubWFpbGd1bi5vcmciLCJmaXJzdE5hbWUiOiJLYXRobGVlbiIsImxhc3ROYW1lIjoiQmFybmVzIiwiY3VzdG9tZXJJZCI6IjEwMDAwMTEwMDAwMDAyMzQ2NiIsInRva2VuVHlwZSI6MCwiZXhwIjoxNTU1NjY5MDg0LCJqdGkiOiIxMDAwMDExMDAwMDAwMjM0NjYifQ.goGmM25qF7hk9tqDFBGIHd7cPw7DiByRZ-0NNEgYIzaxq-idQiddbfSUxGl-_AzgngFM2Q50QBrRXs40VA0lQQ', 'expiry': 86400, 'twoFactor': None}, 'error': None}
+2019-04-18 13:18:04,242 - PYTHON_WTP_QA - INFO -  Customer --> get_postman_access
+2019-04-18 13:18:04,243 - PYTHON_WTP_QA - INFO -  IBalanceService --> add_balance
+2019-04-18 13:18:04,244 - PYTHON_WTP_QA - INFO -  IBalanceServiceRequest --> add
+2019-04-18 13:18:04,245 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:18:04,246 - PYTHON_WTP_QA - INFO - Request body: {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "balance.add",
+    "params": {
+        "amount": 10080000.0,
+        "currencyId": 1,
+        "customerId": 100001100000023466,
+        "metadata": {
+            "operationReference": "QA-test"
+        }
+    }
+}
+2019-04-18 13:18:04,247 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:18:04,268 - PYTHON_WTP_QA - INFO - Service Response: {'jsonrpc': '2.0', 'id': '1', 'result': {'transactionGuid': '0-AAAAAABI+zQ=', 'customerId': 100001100000023466, 'currencyId': 1, 'balance': {'total': '10092678.400', 'frozen': '0.000', 'available': '10092678.400'}}}
+2019-04-18 13:18:04,268 - PYTHON_WTP_QA - INFO -  TestBuyLimitPartiallyFilledCanceledBalanceUnfrozen --> test_buy_limit_partially_filled_canceled_balance_unfrozen
+2019-04-18 13:18:04,269 - PYTHON_WTP_QA - INFO - TEST CASE N: TS- 3 STARTED !
+2019-04-18 13:18:04,269 - PYTHON_WTP_QA - INFO - method_buy_limit_partially_filled_canceled_balance_unfrozen, 
+2019-04-18 13:18:04,269 - PYTHON_WTP_QA - INFO -  IBalanceService --> get_currency_balance
+2019-04-18 13:18:04,270 - PYTHON_WTP_QA - INFO -  IBalanceServiceRequest --> get
+2019-04-18 13:18:04,270 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:18:04,270 - PYTHON_WTP_QA - INFO - Request body: {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "balance.get",
+    "params": {
+        "currencyId": 1,
+        "customerId": 100001100000023466
+    }
+}
+2019-04-18 13:18:04,271 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:18:04,279 - PYTHON_WTP_QA - INFO - Service Response: {'jsonrpc': '2.0', 'id': '1', 'result': {'customerId': 100001100000023466, 'currencyId': 1, 'balance': {'total': '10092678.400', 'frozen': '0.000', 'available': '10092678.400'}}}
+2019-04-18 13:18:04,279 - PYTHON_WTP_QA - INFO -  SqlDb --> get_quantity_tail_digits
+2019-04-18 13:18:04,280 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:18:04,284 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:18:04,288 - PYTHON_WTP_QA - INFO -  SqlDb --> get_price_tail_digits
+2019-04-18 13:18:04,288 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:18:04,291 - PYTHON_WTP_QA - INFO -  SqlDb --> run_mysql_query
+2019-04-18 13:18:04,294 - PYTHON_WTP_QA - INFO -  RedisDb --> get_orders_best_price_and_quantity
+2019-04-18 13:18:04,296 - PYTHON_WTP_QA - INFO -  TestRail --> update_test_case
+2019-04-18 13:18:05,187 - PYTHON_WTP_QA - INFO - Server responded: {'error': 'Field :case_id is not a valid ID.'}
+2019-04-18 13:18:05,187 - PYTHON_WTP_QA - CRITICAL - test_buy_limit_partially_filled_canceled_balance_unfrozen IndexError automation_wrapper throws an exception: None
+Traceback (most recent call last):
+  File "C:\GitLab\platform-server_qa\src\base\log_decorator.py", line 22, in log_wrapper
+    return func(*args, **kwargs)
+  File "C:\GitLab\platform-server_qa\tests\web_platform_tests\trading_sanity_tests\buy_limit_partially_filled_cancelled_and_balance_unfrozen_test.py", line 55, in test_buy_limit_partially_filled_canceled_balance_unfrozen
+    quantity = round((best_price_and_quantity[0][1] + best_price_and_quantity[1][1]) / 2,
+IndexError: list index out of range
+2019-04-18 13:18:05,210 - PYTHON_WTP_QA - INFO - END TIME: 198.2019001
+2019-04-18 13:18:05,211 - PYTHON_WTP_QA - INFO - AVERAGE OF THE TEST CASE RUN TIME: 1.9087857999999756 seconds

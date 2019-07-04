@@ -1,0 +1,8 @@
+firstname,email,password
+Antonio,ab(c)de:f;g<h>i[jk]l@example.com,1Aa@<>12
+Test,AsDc123DDc2,1Aa@<>12
+Antonio,üñîçøðé@üñîçøðé.com,1Aa@<>12
+ , ,
+Antonio,<h1>Test</h1>@spotoption.com,1Aa@<>12
+Antonio,this()stillnotallowed@example.com,1Aa@<>12
+test,tencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharacttencharact@spotoption.com,1Aa@<>12
