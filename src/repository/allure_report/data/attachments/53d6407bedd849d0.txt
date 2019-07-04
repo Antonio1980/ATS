@@ -1,0 +1,154 @@
+2019-04-18 13:19:08,716 - PYTHON_WTP_QA - INFO -   --> r_time_count
+2019-04-18 13:19:08,717 - PYTHON_WTP_QA - INFO - START TIME: 261.7084055
+2019-04-18 13:19:08,719 - PYTHON_WTP_QA - INFO -  TestQuickInstrumentPanelUpdatedAfterTrade --> setUp
+2019-04-18 13:19:08,720 - PYTHON_WTP_QA - INFO -  RegisteredCustomer --> __init__
+2019-04-18 13:19:08,720 - PYTHON_WTP_QA - INFO -  Customer --> __init__
+2019-04-18 13:19:08,720 - PYTHON_WTP_QA - INFO -  Customer --> set_customer_details
+2019-04-18 13:19:08,720 - PYTHON_WTP_QA - INFO -  Utils --> get_data
+2019-04-18 13:19:08,721 - PYTHON_WTP_QA - INFO -  Utils --> get_account_details
+2019-04-18 13:19:08,721 - PYTHON_WTP_QA - INFO -  Customer --> define_static_details
+2019-04-18 13:19:08,721 - PYTHON_WTP_QA - INFO -  Utils --> get_faked_phone
+2019-04-18 13:19:08,804 - PYTHON_WTP_QA - INFO -  Customer --> get_static_postman
+2019-04-18 13:19:08,805 - PYTHON_WTP_QA - INFO -  AuthorizationService --> login_by_credentials
+2019-04-18 13:19:08,805 - PYTHON_WTP_QA - INFO -  AuthorizationServiceRequest --> login_by_credentials
+2019-04-18 13:19:08,805 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:19:08,805 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "Authorization.LoginByCredentials",
+    "params": [
+        {
+            "captcha": "captcha",
+            "login": "Joshua_Klein@sandbox7e64c317900647609c225574db67437b.mailgun.org",
+            "password": "1Aa@<>12"
+        }
+    ]
+}
+2019-04-18 13:19:08,805 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:19:10,164 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'token': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ikpvc2h1YV9LbGVpbkBzYW5kYm94N2U2NGMzMTc5MDA2NDc2MDljMjI1NTc0ZGI2NzQzN2IubWFpbGd1bi5vcmciLCJmaXJzdE5hbWUiOiJNYXJpbyBDb2hlbiIsImxhc3ROYW1lIjoiQ29oZW4iLCJjdXN0b21lcklkIjoiMTAwMDAxMTAwMDAwMDIzMzUxIiwidG9rZW5UeXBlIjowLCJleHAiOjE1NTU2NjkxNTAsImp0aSI6IjEwMDAwMTEwMDAwMDAyMzM1MSJ9.T9mrIKUdu77HbCWSPzYfDxc-nr-jp-el-SogBmsI5Pb9hxPIejNdYeT_hJapeNqCwxaLZhbYzbiPIkpsXJn7cQ', 'expiry': 86400, 'twoFactor': None}, 'error': None}
+2019-04-18 13:19:10,165 - PYTHON_WTP_QA - INFO -  Customer --> get_postman_access
+2019-04-18 13:19:10,165 - PYTHON_WTP_QA - INFO -  Customer --> get_browser_functionality
+2019-04-18 13:19:10,166 - PYTHON_WTP_QA - INFO -  WebDriverFactory --> get_driver
+2019-04-18 13:19:10,166 - PYTHON_WTP_QA - INFO -  Utils --> detect_os
+2019-04-18 13:19:10,166 - PYTHON_WTP_QA - INFO -  WebDriverFactory --> get_driver_win
+2019-04-18 13:19:15,062 - PYTHON_WTP_QA - INFO -  IBalanceService --> add_balance
+2019-04-18 13:19:15,063 - PYTHON_WTP_QA - INFO -  IBalanceServiceRequest --> add
+2019-04-18 13:19:15,063 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:19:15,064 - PYTHON_WTP_QA - INFO - Request body: {
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "balance.add",
+    "params": {
+        "amount": 10000.0,
+        "currencyId": 1,
+        "customerId": 100001100000023351,
+        "metadata": {
+            "operationReference": "QA-test"
+        }
+    }
+}
+2019-04-18 13:19:15,064 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:19:15,079 - PYTHON_WTP_QA - INFO - Service Response: {'jsonrpc': '2.0', 'id': '1', 'result': {'transactionGuid': '0-AAAAAABI+1E=', 'customerId': 100001100000023351, 'currencyId': 1, 'balance': {'total': '10140221.11695', 'frozen': '0.000', 'available': '10140221.11695'}}}
+2019-04-18 13:19:15,080 - PYTHON_WTP_QA - INFO -  TestQuickInstrumentPanelUpdatedAfterTrade --> test_quick_instrument_panel_updated_after_trade
+2019-04-18 13:19:15,081 - PYTHON_WTP_QA - INFO - TEST CASE N: TS- 10 STARTED !
+2019-04-18 13:19:15,081 - PYTHON_WTP_QA - INFO -  WebDriverFactory --> get_driver
+2019-04-18 13:19:15,081 - PYTHON_WTP_QA - INFO -  Utils --> detect_os
+2019-04-18 13:19:15,082 - PYTHON_WTP_QA - INFO -  WebDriverFactory --> get_driver_win
+2019-04-18 13:19:20,376 - PYTHON_WTP_QA - INFO - method test_quick_instrument_panel_updated_after_trade , with browser chrome
+2019-04-18 13:19:20,376 - PYTHON_WTP_QA - INFO -  HomePage --> open_signin_page
+2019-04-18 13:19:20,377 - PYTHON_WTP_QA - INFO -  HomePage --> open_home_page
+2019-04-18 13:19:20,377 - PYTHON_WTP_QA - INFO -  Browser --> go_to_url
+2019-04-18 13:19:24,556 - PYTHON_WTP_QA - INFO -  Browser --> wait_url_contains
+2019-04-18 13:19:24,557 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:24,764 - PYTHON_WTP_QA - INFO -  Browser --> click_on_element_by_locator
+2019-04-18 13:19:24,765 - PYTHON_WTP_QA - INFO -  Browser --> wait_element_clickable
+2019-04-18 13:19:24,765 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:30,138 - PYTHON_WTP_QA - INFO -  Browser --> wait_url_contains
+2019-04-18 13:19:30,138 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:30,148 - PYTHON_WTP_QA - INFO -  SignInPage --> sign_in
+2019-04-18 13:19:30,148 - PYTHON_WTP_QA - INFO -  Browser --> search_element
+2019-04-18 13:19:30,148 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:31,733 - PYTHON_WTP_QA - INFO -  Browser --> click_on_element
+2019-04-18 13:19:31,831 - PYTHON_WTP_QA - INFO -  Browser --> send_keys
+2019-04-18 13:19:33,219 - PYTHON_WTP_QA - INFO -  Browser --> find_element
+2019-04-18 13:19:33,447 - PYTHON_WTP_QA - INFO -  Browser --> find_element
+2019-04-18 13:19:33,469 - PYTHON_WTP_QA - INFO -  Browser --> click_on_element
+2019-04-18 13:19:33,550 - PYTHON_WTP_QA - INFO -  Browser --> click_on_element
+2019-04-18 13:19:33,618 - PYTHON_WTP_QA - INFO -  Browser --> send_keys
+2019-04-18 13:19:33,794 - PYTHON_WTP_QA - INFO -  Browser --> execute_js
+2019-04-18 13:19:33,802 - PYTHON_WTP_QA - INFO -  Browser --> wait_element_clickable
+2019-04-18 13:19:33,803 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:33,871 - PYTHON_WTP_QA - INFO -  Browser --> execute_js
+2019-04-18 13:19:33,880 - PYTHON_WTP_QA - INFO -  Browser --> click_on_element
+2019-04-18 13:19:33,996 - PYTHON_WTP_QA - INFO -  Browser --> wait_url_contains
+2019-04-18 13:19:33,996 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:37,598 - PYTHON_WTP_QA - INFO -  Browser --> wait_element_presented
+2019-04-18 13:19:37,598 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:40,300 - PYTHON_WTP_QA - INFO -  Browser --> click_on_element
+2019-04-18 13:19:40,463 - PYTHON_WTP_QA - INFO -  Browser --> wait_element_presented
+2019-04-18 13:19:40,463 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:40,498 - PYTHON_WTP_QA - INFO -  Browser --> click_on_element
+2019-04-18 13:19:40,610 - PYTHON_WTP_QA - INFO -  Browser --> execute_js
+2019-04-18 13:19:40,992 - PYTHON_WTP_QA - INFO -  Browser --> wait_element_presented
+2019-04-18 13:19:40,993 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:41,150 - PYTHON_WTP_QA - INFO -  RedisDb --> get_orders_best_price_and_quantity
+2019-04-18 13:19:41,152 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:19:41,152 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:19:41,152 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:19:41,153 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:19:41,153 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:19:41,153 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-75.6, p_value-756, p_presc.-1], quantity: [pure-1, q_value-10, q_presc.-1], order_id: , internal_id: 0, direction: 1, instrument_id: 1011, date_created: 2019-04-18), customer ID: 0, order status: , direction: 1,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:19:41,154 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:19:41,154 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:19:41,154 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:19:41,154 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 1,
+                "instrumentId": 1011,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 756
+                },
+                "quantity": {
+                    "decimals": 1,
+                    "value": 10
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:19:41,155 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:19:48,346 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+1I='}, 'error': None}
+2019-04-18 13:19:48,348 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+1I=, 1, 2019-04-18 - 301.3391742
+2019-04-18 13:19:53,349 - PYTHON_WTP_QA - INFO -  Browser --> wait_element_presented
+2019-04-18 13:19:53,349 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:53,401 - PYTHON_WTP_QA - INFO -  Browser --> wait_element_presented
+2019-04-18 13:19:53,402 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:53,461 - PYTHON_WTP_QA - INFO -  Browser --> wait_element_presented
+2019-04-18 13:19:53,461 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:53,511 - PYTHON_WTP_QA - INFO -  Browser --> wait_element_presented
+2019-04-18 13:19:53,512 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:53,546 - PYTHON_WTP_QA - INFO -  Browser --> find_elements
+2019-04-18 13:19:53,584 - PYTHON_WTP_QA - INFO -  RedisDb --> get_price_last_trade
+2019-04-18 13:19:53,588 - PYTHON_WTP_QA - INFO -  Browser --> wait_element_presented
+2019-04-18 13:19:53,589 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:53,646 - PYTHON_WTP_QA - INFO -  Browser --> wait_element_presented
+2019-04-18 13:19:53,646 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:53,716 - PYTHON_WTP_QA - INFO -  Browser --> wait_element_presented
+2019-04-18 13:19:53,716 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:53,758 - PYTHON_WTP_QA - INFO -  Browser --> wait_element_presented
+2019-04-18 13:19:53,759 - PYTHON_WTP_QA - INFO -  Browser --> driver_wait
+2019-04-18 13:19:53,795 - PYTHON_WTP_QA - INFO - Test TS- 10, with CustomerID 100001100000023351
+2019-04-18 13:19:53,795 - PYTHON_WTP_QA - INFO - ==================== TEST IS PASSED ====================
+2019-04-18 13:19:53,796 - PYTHON_WTP_QA - INFO -  TestRail --> update_test_case
+2019-04-18 13:19:54,645 - PYTHON_WTP_QA - INFO - Server responded: {'error': 'Field :case_id is not a valid ID.'}
+2019-04-18 13:19:54,645 - PYTHON_WTP_QA - INFO -  TestQuickInstrumentPanelUpdatedAfterTrade --> tearDown
+2019-04-18 13:19:54,646 - PYTHON_WTP_QA - INFO - TEST STOP -> Closing browser... chrome
+2019-04-18 13:19:54,646 - PYTHON_WTP_QA - INFO -  Browser --> close_browser
+2019-04-18 13:19:54,646 - PYTHON_WTP_QA - INFO -  Browser --> close_driver_instance
+2019-04-18 13:20:00,107 - PYTHON_WTP_QA - INFO - END TIME: 313.098102
+2019-04-18 13:20:00,108 - PYTHON_WTP_QA - INFO - AVERAGE OF THE TEST CASE RUN TIME: 51.38969649999996 seconds

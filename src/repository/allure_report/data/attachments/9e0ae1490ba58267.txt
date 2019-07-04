@@ -1,0 +1,35 @@
+2019-04-18 13:16:14,250 - PYTHON_WTP_QA - INFO -  TestBalanceUnfrozenAfterTradeLessOrderPrice --> test_place_second_order
+2019-04-18 13:16:14,250 - PYTHON_WTP_QA - INFO -  Order --> set_order
+2019-04-18 13:16:14,250 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:14,251 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:14,251 - PYTHON_WTP_QA - INFO -  Calculator --> calculate_decimals
+2019-04-18 13:16:14,251 - PYTHON_WTP_QA - INFO - FLOAT
+2019-04-18 13:16:14,251 - PYTHON_WTP_QA - INFO - Order was set to Order(type: 2, price: [pure-56, p_value-560, p_presc.-1], quantity: [pure-80, q_value-800, q_presc.-1], order_id: , internal_id: 0, direction: 2, instrument_id: 1055, date_created: 2019-04-18), customer ID: 0, order status: , direction: 2,  filled quantity: 0, time in force: , transaction id: 
+2019-04-18 13:16:14,251 - PYTHON_WTP_QA - INFO -  OrderService --> create_order
+2019-04-18 13:16:14,251 - PYTHON_WTP_QA - INFO -  OrderServiceRequest --> create_order
+2019-04-18 13:16:14,252 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:14,252 - PYTHON_WTP_QA - INFO - Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Create",
+    "params": [
+        {
+            "order": {
+                "direction": 2,
+                "instrumentId": 1055,
+                "orderType": 2,
+                "price": {
+                    "decimals": 1,
+                    "value": 560
+                },
+                "quantity": {
+                    "decimals": 1,
+                    "value": 800
+                }
+            }
+        }
+    ]
+}
+2019-04-18 13:16:14,252 - PYTHON_WTP_QA - INFO -  Utils --> to_json
+2019-04-18 13:16:17,111 - PYTHON_WTP_QA - INFO - Service Response: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+nI='}, 'error': None}
+2019-04-18 13:16:17,112 - PYTHON_WTP_QA - INFO - 2, 0-AAAAAABI+nI=, 2, 2019-04-18 - 90.1038196
+2019-04-18 13:16:17,113 - PYTHON_WTP_QA - INFO - 2 Order: {'id': '<nil>', 'result': {'status': True, 'error': None, 'externalOrderId': '0-AAAAAABI+nI='}, 'error': None}

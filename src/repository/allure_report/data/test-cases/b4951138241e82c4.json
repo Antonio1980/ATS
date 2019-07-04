@@ -1,0 +1,213 @@
+{
+  "uid" : "b4951138241e82c4",
+  "name" : "TRADING SANITY TEST 'TS- 10'",
+  "fullName" : "tests.web_platform_tests.trading_sanity_tests.quick_instrument_panel_updated_after_trade_test.TestQuickInstrumentPanelUpdatedAfterTrade#test_quick_instrument_panel_updated_after_trade_1___chrome__",
+  "historyId" : "82be7d7f66cfa0aa97cf093786ae31a7",
+  "time" : {
+    "start" : 1555582748719,
+    "stop" : 1555582800105,
+    "duration" : 51386
+  },
+  "description" : "\n    Verify after trade is created it updates quick instrument panel.\n    ",
+  "descriptionHtml" : "<pre><code>Verify after trade is created it updates quick instrument panel.\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "_UnitTestCase__pytest_class_setup",
+    "time" : {
+      "start" : 1555582748716,
+      "stop" : 1555582748716,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "r_time_count",
+    "time" : {
+      "start" : 1555582748716,
+      "stop" : 1555582748717,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "\n    Verify after trade is created it updates quick instrument panel.\n    ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "SetUp: calling registered customer and adding USD to balance.",
+      "time" : {
+        "start" : 1555582748719,
+        "stop" : 1555582755081,
+        "duration" : 6362
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "args",
+        "value" : "(<tests.web_platform_tests.trading_sanity_tests.quick_instrument_panel_updated_after_trade_test.TestQuickInstrumentPanelUpdatedAfterTrade testMethod=test_quick_instrument_panel_updated_after_trade_1___chrome__>,)"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "Starting with: test_quick_instrument_panel_updated_after_trade",
+      "time" : {
+        "start" : 1555582755081,
+        "stop" : 1555582794646,
+        "duration" : 39565
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "args",
+        "value" : "(<tests.web_platform_tests.trading_sanity_tests.quick_instrument_panel_updated_after_trade_test.TestQuickInstrumentPanelUpdatedAfterTrade testMethod=test_quick_instrument_panel_updated_after_trade_1___chrome__>, 'chrome')"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "TEST STOP -> Closing browser...",
+      "time" : {
+        "start" : 1555582794646,
+        "stop" : 1555582800104,
+        "duration" : 5458
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "args",
+        "value" : "(<tests.web_platform_tests.trading_sanity_tests.quick_instrument_panel_updated_after_trade_test.TestQuickInstrumentPanelUpdatedAfterTrade testMethod=test_quick_instrument_panel_updated_after_trade_1___chrome__>,)"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "65ca0f06dfbc6aef",
+      "name" : "log",
+      "source" : "65ca0f06dfbc6aef.txt",
+      "type" : "text/plain",
+      "size" : 10206
+    }, {
+      "uid" : "8469499af643f6b4",
+      "name" : "stdout",
+      "source" : "8469499af643f6b4.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "53d6407bedd849d0",
+      "name" : "stderr",
+      "source" : "53d6407bedd849d0.txt",
+      "type" : "text/plain",
+      "size" : 11090
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "hasContent" : true,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ {
+    "name" : "_UnitTestCase__pytest_class_setup::0",
+    "time" : {
+      "start" : 1555582800110,
+      "stop" : 1555582800110,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "r_time_count::stop_counter",
+    "time" : {
+      "start" : 1555582800107,
+      "stop" : 1555582800108,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "critical"
+  }, {
+    "name" : "tag",
+    "value" : "trading_sanity"
+  }, {
+    "name" : "tag",
+    "value" : "ui"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.web_platform_tests.trading_sanity_tests"
+  }, {
+    "name" : "suite",
+    "value" : "quick_instrument_panel_updated_after_trade_test"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestQuickInstrumentPanelUpdatedAfterTrade"
+  }, {
+    "name" : "host",
+    "value" : "QA-LP-ANTONS"
+  }, {
+    "name" : "thread",
+    "value" : "121748-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.web_platform_tests.trading_sanity_tests.quick_instrument_panel_updated_after_trade_test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ {
+    "name" : "TestQuickInstrumentPanelUpdatedAfterTrade",
+    "url" : "https://gitlab.com/cx_group/qa/platform-server_qa/blob/master/tests/web_platform_tests/balance_sanity_tests/quick_instrument_panel_updated_after_trade_test.py",
+    "type" : "test_case"
+  } ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "critical",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "ui", "trading_sanity" ]
+  },
+  "source" : "b4951138241e82c4.json",
+  "parameterValues" : [ ]
+}

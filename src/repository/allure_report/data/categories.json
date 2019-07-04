@@ -1,0 +1,77 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "AssertionError: assert '{\"type\":2,\"term\":\"balance_freezing.freezing validation.balance_freeze\",\"details\":\"error freezing balance\",\"incident_id\":\"656f45ad-420d-4cb9-8b37-1a1f738b769b\"}' is None",
+      "children" : [ {
+        "name" : "test_place_third_order[add_balance0]",
+        "uid" : "67037b904eb442d2",
+        "parentUid" : "46be148f4667888c9b4858aca4319ef2",
+        "status" : "failed",
+        "time" : {
+          "start" : 1555582577146,
+          "stop" : 1555582579486,
+          "duration" : 2340
+        },
+        "flaky" : false,
+        "parameters" : [ "[10, 6]" ]
+      } ],
+      "uid" : "46be148f4667888c9b4858aca4319ef2"
+    }, {
+      "name" : "AssertionError: assert '{\"type\":5,\"term\":\"order_cancellation.validation.order_not_found\",\"details\":\"order to cancel is not found\",\"incident_id\":\"04249837-3d2b-42db-aded-560c8a617080\"}' is None",
+      "children" : [ {
+        "name" : "TRADING SANITY TEST 'TS- 1'",
+        "uid" : "c656313a3d2dcf60",
+        "parentUid" : "2eb95eb220ac034be8e45b61a1750462",
+        "status" : "failed",
+        "time" : {
+          "start" : 1555582739843,
+          "stop" : 1555582748684,
+          "duration" : 8841
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "2eb95eb220ac034be8e45b61a1750462"
+    }, {
+      "name" : "AssertionError: assert '{\"type\":-1,\"term\":\"cancel_validator.err_time_processing.error\",\"details\":\"do not allow canceling order for \\'5s\\' seconds after execution time\",\"incident_id\":\"8a2e929f-46cf-41f9-b608-e72e94ec3688\"}' is None",
+      "children" : [ {
+        "name" : "TRADING SANITY TEST 'TS- 13'",
+        "uid" : "5498088a62179c6a",
+        "parentUid" : "c3a296094700576a3ea63b55fe615d9b",
+        "status" : "failed",
+        "time" : {
+          "start" : 1555582889844,
+          "stop" : 1555582896842,
+          "duration" : 6998
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "c3a296094700576a3ea63b55fe615d9b"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  }, {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "IndexError: list index out of range",
+      "children" : [ {
+        "name" : "TRADING SANITY TEST 'TS- 3'",
+        "uid" : "752b9434e1249685",
+        "parentUid" : "cbf21ee610ffd376e0ce643a364ade80",
+        "status" : "broken",
+        "time" : {
+          "start" : 1555582683304,
+          "stop" : 1555582685192,
+          "duration" : 1888
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "cbf21ee610ffd376e0ce643a364ade80"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
+}

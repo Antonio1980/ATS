@@ -1,0 +1,140 @@
+{
+  "uid" : "59027369f11eeb40",
+  "name" : "test_check_order_not_in_open_orders",
+  "fullName" : "tests.web_platform_tests.trading_sanity_tests.balance_after_order_sell_cancelled_test.TestBalanceAfterOrderSellCancelled#test_check_order_not_in_open_orders",
+  "historyId" : "6396b9e8304596240e8064f61ec03008",
+  "time" : {
+    "start" : 1555582544361,
+    "stop" : 1555582551985,
+    "duration" : 7624
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "r_time_count",
+    "time" : {
+      "start" : 1555582525983,
+      "stop" : 1555582525984,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "r_customer",
+    "time" : {
+      "start" : 1555582525984,
+      "stop" : 1555582528530,
+      "duration" : 2546
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "20c4c37102f53a73",
+      "name" : "log",
+      "source" : "20c4c37102f53a73.txt",
+      "type" : "text/plain",
+      "size" : 787
+    }, {
+      "uid" : "837ef6cd169458fb",
+      "name" : "stdout",
+      "source" : "837ef6cd169458fb.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "5fb13353ad0902a2",
+      "name" : "stderr",
+      "source" : "5fb13353ad0902a2.txt",
+      "type" : "text/plain",
+      "size" : 851
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : true,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ {
+    "name" : "r_time_count::stop_counter",
+    "time" : {
+      "start" : 1555582563593,
+      "stop" : 1555582563594,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "functional"
+  }, {
+    "name" : "tag",
+    "value" : "incremental"
+  }, {
+    "name" : "tag",
+    "value" : "trading_sanity"
+  }, {
+    "name" : "tag",
+    "value" : "balance"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.web_platform_tests.trading_sanity_tests"
+  }, {
+    "name" : "suite",
+    "value" : "balance_after_order_sell_cancelled_test"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestBalanceAfterOrderSellCancelled"
+  }, {
+    "name" : "host",
+    "value" : "QA-LP-ANTONS"
+  }, {
+    "name" : "thread",
+    "value" : "121748-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.web_platform_tests.trading_sanity_tests.balance_after_order_sell_cancelled_test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "functional", "balance", "trading_sanity", "incremental" ]
+  },
+  "source" : "59027369f11eeb40.json",
+  "parameterValues" : [ ]
+}

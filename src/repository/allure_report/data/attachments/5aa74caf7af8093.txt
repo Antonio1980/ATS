@@ -1,0 +1,20 @@
+log_decorator.py            21 INFO      TestBalanceAfterOrderBuyCancelled --> test_check_balance_after_all
+log_decorator.py            21 INFO      BalanceService --> get_balance
+log_decorator.py            21 INFO      BalanceServiceRequest --> get_balance
+log_decorator.py            21 INFO      Utils --> to_json
+p_balance_requests.py       26 INFO     Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                2
+            ]
+        }
+    ]
+}
+log_decorator.py            21 INFO      Utils --> to_json
+p_balance_service.py        26 INFO     Service Response: {'id': None, 'result': {'balance': {'2': {'total': '10000.00', 'frozen': '0.00', 'available': '10000.00'}}}, 'error': None}
+balance_after_order_buy_cancelled_test.py   94 INFO     ================== TEST CASE IS PASSED ===================
+conftest.py                 27 INFO     END TIME: 38.9489025
+conftest.py                 28 INFO     AVERAGE OF THE TEST CASE RUN TIME: 33.063861 seconds

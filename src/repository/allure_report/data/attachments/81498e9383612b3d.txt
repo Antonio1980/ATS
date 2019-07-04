@@ -1,0 +1,17 @@
+log_decorator.py            21 INFO      TestBalanceAfterOrderSellCancelled --> test_get_customer_balance
+log_decorator.py            21 INFO      BalanceService --> get_balance
+log_decorator.py            21 INFO      BalanceServiceRequest --> get_balance
+log_decorator.py            21 INFO      Utils --> to_json
+p_balance_requests.py       26 INFO     Request body: {
+    "jsonrpc": "2.0",
+    "method": "Balance.Get",
+    "params": [
+        {
+            "currencies": [
+                3
+            ]
+        }
+    ]
+}
+log_decorator.py            21 INFO      Utils --> to_json
+p_balance_service.py        26 INFO     Service Response: {'id': None, 'result': {'balance': {'3': {'total': '10.000', 'frozen': '0.000', 'available': '10.000'}}}, 'error': None}

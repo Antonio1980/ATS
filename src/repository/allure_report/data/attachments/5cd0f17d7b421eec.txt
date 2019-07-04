@@ -1,0 +1,15 @@
+log_decorator.py            21 INFO      TestBalanceAfterOrderBuyCancelled --> test_cancel_opened_order
+log_decorator.py            21 INFO      OrderService --> cancel_order
+log_decorator.py            21 INFO      OrderServiceRequest --> cancel_order
+log_decorator.py            21 INFO      Utils --> to_json
+order_requests.py          130 INFO     Request body: {
+    "jsonrpc": "2.0",
+    "method": "OrderManagement.Cancel",
+    "params": [
+        {
+            "id": "201904180000000860"
+        }
+    ]
+}
+log_decorator.py            21 INFO      Utils --> to_json
+order_service.py            80 INFO     Service Response: {'id': '<nil>', 'result': {}, 'error': None}

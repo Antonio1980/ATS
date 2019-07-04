@@ -1,0 +1,158 @@
+{
+  "uid" : "6ab0c4f664645d38",
+  "name" : "test_check_trade_history[add_balance0]",
+  "fullName" : "tests.web_platform_tests.trading_sanity_tests.balance_unfrozen_after_trade_with_price_less_than_order_price_test.TestBalanceUnfrozenAfterTradeLessOrderPrice#test_check_trade_history[add_balance0]",
+  "historyId" : "0381f1ae3637517f8300969944046dae",
+  "time" : { },
+  "status" : "skipped",
+  "statusMessage" : "_pytest.outcomes.XFailed: previous test failed (test_place_third_order[add_balance0])",
+  "statusTrace" : "item = <Function test_check_trade_history[add_balance0]>\n\n    def pytest_runtest_setup(item):\n        if \"incremental\" in item.keywords:\n            previousfailed = getattr(item.parent, \"_previousfailed\", None)\n            if previousfailed is not None:\n>               pytest.xfail(\"previous test failed (%s)\" % previousfailed.name)\nE               _pytest.outcomes.XFailed: previous test failed (test_place_third_order[add_balance0])\n\ntests\\conftest.py:255: XFailed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "r_time_count",
+    "time" : {
+      "start" : 1555582563615,
+      "stop" : 1555582563617,
+      "duration" : 2
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "add_balance",
+    "time" : {
+      "start" : 1555582567708,
+      "stop" : 1555582567760,
+      "duration" : 52
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "r_customer",
+    "time" : {
+      "start" : 1555582563617,
+      "stop" : 1555582567708,
+      "duration" : 4091
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "status" : "skipped",
+    "statusMessage" : "_pytest.outcomes.XFailed: previous test failed (test_place_third_order[add_balance0])",
+    "statusTrace" : "item = <Function test_check_trade_history[add_balance0]>\n\n    def pytest_runtest_setup(item):\n        if \"incremental\" in item.keywords:\n            previousfailed = getattr(item.parent, \"_previousfailed\", None)\n            if previousfailed is not None:\n>               pytest.xfail(\"previous test failed (%s)\" % previousfailed.name)\nE               _pytest.outcomes.XFailed: previous test failed (test_place_third_order[add_balance0])\n\ntests\\conftest.py:255: XFailed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "6548c256e2f8edee",
+      "name" : "log",
+      "source" : "6548c256e2f8edee.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "581ce98a5422903f",
+      "name" : "stdout",
+      "source" : "581ce98a5422903f.txt",
+      "type" : "text/plain",
+      "size" : 0
+    }, {
+      "uid" : "2153aa48a2ad184a",
+      "name" : "stderr",
+      "source" : "2153aa48a2ad184a.txt",
+      "type" : "text/plain",
+      "size" : 0
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : true,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true
+  },
+  "afterStages" : [ {
+    "name" : "r_time_count::stop_counter",
+    "time" : {
+      "start" : 1555582579735,
+      "stop" : 1555582579736,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "incremental"
+  }, {
+    "name" : "tag",
+    "value" : "functional"
+  }, {
+    "name" : "tag",
+    "value" : "trading_sanity"
+  }, {
+    "name" : "tag",
+    "value" : "balance"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.web_platform_tests.trading_sanity_tests"
+  }, {
+    "name" : "suite",
+    "value" : "balance_unfrozen_after_trade_with_price_less_than_order_price_test"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestBalanceUnfrozenAfterTradeLessOrderPrice"
+  }, {
+    "name" : "host",
+    "value" : "QA-LP-ANTONS"
+  }, {
+    "name" : "thread",
+    "value" : "121748-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.web_platform_tests.trading_sanity_tests.balance_unfrozen_after_trade_with_price_less_than_order_price_test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "add_balance",
+    "value" : "[10, 6]"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "functional", "balance", "trading_sanity", "incremental" ]
+  },
+  "source" : "6ab0c4f664645d38.json",
+  "parameterValues" : [ "[10, 6]" ]
+}

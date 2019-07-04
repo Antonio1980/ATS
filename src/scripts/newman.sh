@@ -1,20 +1,18 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-timestamp=$(date +"%s")
-collection='C:\GitLab\crm_bo_qa\src\repository\ForgotPasswordTests.postman_collection.json'
-env='C:\GitLab\crm_bo_qa\src\repository\DX.postman_environment.json'
+filepath=$HOME/reportAPI
+mails=(antons@coins.exchange)
 
-# mail settings
-RCVR="antons@coins.exchange"
-SUBJ="Test Failed"
+declare -A envs
+envs["prod"]="$HOME/src/repository/files/QA.postman_environment.json"
+col = "$HOME/src/repository/files/RegistrationWithCustomEmail.postman_collection.json"
 
-# create separate outfile for each run
-outfile=./reports/logs/outfile-${timestamp}.json
-
-# capture newman STDERR status
-command="$(newman -c ${collection} -e ${env} -o ${outfile} 2>&1 > /dev/null)"
-
-# send mail if STDERR is not 0
-if [ "$?" -ne "0" ]; then
-	mail ${RCVR} -s "$SUBJ"
-fi
+for e in ${!envs[@]}; do
+    echo Running environment ${envs[$e]}
+    'newman' run col -e ${envs[$e]} | tee $filepath
+    for m in ${mails[@]}; do
+	echo "File $filepath"
+        echo "Sending report message to $m with env $e"
+        mail -s "Report Postman. ENV: $e" $m < $filepath
+    done
+done

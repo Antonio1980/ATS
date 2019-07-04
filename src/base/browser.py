@@ -1,23 +1,19 @@
-"""
-Author: Anton Shipulin.
-Created: 01.08.2018
-Version: 1.05
-"""
-
 import time
+from src.base import logger
 from src.base.enums import DriverHelper
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from src.base.log_decorator import automation_logger
 from selenium.webdriver.support.select import Select
-from selenium.common.exceptions import TimeoutException, InvalidElementStateException
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as ec
+from selenium.common.exceptions import TimeoutException, InvalidElementStateException, NoSuchElementException
 
 
-class Browser(object):
+class Browser:
     @classmethod
+    @automation_logger(logger)
     def go_to_url(cls, driver, url):
         """
         Browse the given url by passed driver instance.
@@ -29,6 +25,7 @@ class Browser(object):
         return driver.maximize_window()
 
     @classmethod
+    @automation_logger(logger)
     def close_driver_instance(cls, driver):
         """
         Deletes all cookies and closes a browser.
@@ -39,6 +36,7 @@ class Browser(object):
         driver.quit()
 
     @classmethod
+    @automation_logger(logger)
     def close_driver(cls, driver):
         """
         Closes browser page.
@@ -47,6 +45,7 @@ class Browser(object):
         driver.close()
 
     @classmethod
+    @automation_logger(logger)
     def close_browser(cls, driver):
         """
         Calling cls method to close driver instance.
@@ -54,6 +53,7 @@ class Browser(object):
         cls.close_driver_instance(driver)
 
     @classmethod
+    @automation_logger(logger)
     def driver_wait(cls, driver, delay):
         """
         Explicit wait for given driver with delay.
@@ -64,6 +64,7 @@ class Browser(object):
         return WebDriverWait(driver, delay)
 
     @classmethod
+    @automation_logger(logger)
     def wait_driver(cls, driver, delay):
         """
         Implicit wait for given driver with delay.
@@ -74,6 +75,7 @@ class Browser(object):
         return driver.implicitly_wait(delay)
 
     @classmethod
+    @automation_logger(logger)
     def get_cur_url(cls, driver):
         """
         Get the url from browser state.
@@ -83,6 +85,7 @@ class Browser(object):
         return driver.current_url
 
     @classmethod
+    @automation_logger(logger)
     def get_element_span_html(cls, element):
         """
         Get the innerHTML attribute value from a web element.
@@ -92,6 +95,7 @@ class Browser(object):
         return element.get_attribute("innerHTML")
 
     @classmethod
+    @automation_logger(logger)
     def highlight_element(cls, driver, element):
         """
         To highlight web element using script.
@@ -103,6 +107,7 @@ class Browser(object):
         driver.execute_script("arguments[0].setAttribute('style', arguments[1]);", element, "")
 
     @classmethod
+    @automation_logger(logger)
     def get_attribute_from_element(cls, element, attribute):
         """
         Get attribute text of a web element.
@@ -113,6 +118,20 @@ class Browser(object):
         return element.get_attribute(attribute)
 
     @classmethod
+    @automation_logger(logger)
+    def get_attribute_from_locator(cls, driver, locator, attribute):
+        """
+        Get attribute of a web element.
+        @param driver: WebDriver instance.
+        @param locator: locator of web element.
+        @param attribute: attribute string.
+        :return: attribute value.
+        """
+        element = cls.find_element(driver, locator)
+        return element.get_attribute(attribute)
+
+    @classmethod
+    @automation_logger(logger)
     def send_enter_key(cls, element):
         """
         Clicks on 'ENTER' button for given web element.
@@ -129,6 +148,7 @@ class Browser(object):
         driver.execute_script('window.open("about:blank", "_blank");')
 
     @classmethod
+    @automation_logger(logger)
     def close_tab(cls, driver):
         """
         Closes the current open browser page.
@@ -137,13 +157,15 @@ class Browser(object):
         try:
             driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + 'w')
         except TimeoutException as e:
-            print("{0} method close_tab failed with error {0}".format(e.__class__.__name__, e.__cause__))
+            logger.logger.error("{0} method close_tab failed with error {0}".format(e.__class__.__name__, e.__cause__),
+                                e)
 
     @classmethod
+    @automation_logger(logger)
     def execute_js(cls, driver, script, *args):
         """
         Injection js code into current driver state.
-        :param args: tuple of additional parameters.
+        :param args: tuple of additional_tests parameters.
         :param driver: web_driver instance.
         :param script: java script code passed as string.
         :return: result of the script execution.
@@ -151,6 +173,7 @@ class Browser(object):
         return driver.execute_script(script, args)
 
     @classmethod
+    @automation_logger(logger)
     def drag_and_drop(cls, driver, source_element, destination_element):
         """
         Drags and drops a web element.
@@ -162,6 +185,7 @@ class Browser(object):
         return Actions(driver).drag_and_drop(source_element, destination_element).perform()
 
     @classmethod
+    @automation_logger(logger)
     def hover_over_element_and_click(cls, driver, element):
         """
         Hover over web element and clicks on it.
@@ -175,6 +199,7 @@ class Browser(object):
         return action.perform()
 
     @classmethod
+    @automation_logger(logger)
     def click_with_offset(cls, driver, element, x, y):
         """
         Clicks on web element with x.y coordinates.
@@ -190,24 +215,25 @@ class Browser(object):
         return action.perform()
 
     @classmethod
-    def click_with_wait_and_offset(cls, driver, element, x, y, delay):
+    @automation_logger(logger)
+    def click_with_wait_and_offset(cls, driver, element, x=5, y=5):
         """
         Waits and clicks on web element with x.y coordinates.
         :param driver: web_driver instance.
         :param element: web element.
         :param x: horizontal coordinate in pixels.
         :param y: vertical coordinate in pixels.
-        :param delay: seconds to wait.
         :return: browser state with performed actions.
         """
         action = Actions(driver)
         action.move_to_element_with_offset(element, x, y)
-        action.wait(delay)
+        action.wait(2)
         action.click(element)
         return action.perform()
 
     @classmethod
-    def try_click(cls, driver, element, delay=1):
+    @automation_logger(logger)
+    def try_click(cls, driver, element, delay=1.0):
         """
         Clicks with time delay between actions.
         :param driver: web_driver instance.
@@ -223,6 +249,7 @@ class Browser(object):
         return action.perform()
 
     @classmethod
+    @automation_logger(logger)
     def switch_frame(cls, driver, element):
         """
         Switch current frame to another page frame.
@@ -233,6 +260,7 @@ class Browser(object):
         return driver.switch_to.frame(element)
 
     @classmethod
+    @automation_logger(logger)
     def switch_window(cls, driver, element):
         """
         Switch current browser window to another window.
@@ -243,6 +271,7 @@ class Browser(object):
         return driver.switch_to.window(element)
 
     @classmethod
+    @automation_logger(logger)
     def refresh_page(cls, driver):
         """
         Refresh browser page by sending 'Ctrl + r' keys.
@@ -251,9 +280,10 @@ class Browser(object):
         try:
             driver.find_element_by_tag_name('body').send_keys(Keys.COMMAND + 'r')
         except TimeoutException as e:
-            print("{0} method refresh_page failed with error {0}".format(e.__class__.__name__, e.__cause__))
+            logger.logger.exception(F"{e.__class__.__name__} method refresh_page failed with error {e}")
 
     @classmethod
+    @automation_logger(logger)
     def refresh_browser(cls, driver):
         """
         Refresh browser by navigating on 'refresh' button.
@@ -262,6 +292,7 @@ class Browser(object):
         driver.refresh()
 
     @classmethod
+    @automation_logger(logger)
     def back_browser(cls, driver):
         """
         To go back on previous page using driver.
@@ -270,6 +301,7 @@ class Browser(object):
         driver.navigate().back()
 
     @classmethod
+    @automation_logger(logger)
     def forward_browser(cls, driver):
         """
         To go forward on previous page using driver.
@@ -278,6 +310,7 @@ class Browser(object):
         driver.navigate().forward()
 
     @classmethod
+    @automation_logger(logger)
     def go_back(cls, driver):
         """
         To go back on previous page using js.
@@ -286,6 +319,7 @@ class Browser(object):
         driver.execute_script("window.history.go(-1)")
 
     @classmethod
+    @automation_logger(logger)
     def select_by_value(cls, element, value):
         """
         Select option from selector by value.
@@ -298,6 +332,7 @@ class Browser(object):
         selector.select_by_value(value)
 
     @classmethod
+    @automation_logger(logger)
     def select_by_index(cls, element, index):
         """
         Select option from selector by index.
@@ -310,6 +345,7 @@ class Browser(object):
         selector.select_by_index(index)
 
     @classmethod
+    @automation_logger(logger)
     def send_keys(cls, element, query):
         """
         Clear and type a text into web element.
@@ -320,14 +356,18 @@ class Browser(object):
         element.send_keys(query)
 
     @classmethod
-    def check_not_send_key(cls, element, value):
+    @automation_logger(logger)
+    def possibility_to_send_keys(cls, element, query):
         try:
-            cls.send_keys(element, value)
+            element.clear()
+            element.send_keys(query)
         except InvalidElementStateException:
+            logger.logger.info("possibility_to_send_keys: Web element not acceptable for keys as expected.")
             return True
         return False
 
     @classmethod
+    @automation_logger(logger)
     def clear_field(cls, element):
         """
         Clear input field.
@@ -336,6 +376,7 @@ class Browser(object):
         element.clear()
 
     @classmethod
+    @automation_logger(logger)
     def get_attribute_from_locator(cls, driver, locator, attribute):
         """
         Get attribute text of a web element by locator.
@@ -348,6 +389,7 @@ class Browser(object):
         return element.get_attribute(attribute)
 
     @classmethod
+    @automation_logger(logger)
     def search_element(cls, driver, locator, delay):
         """
         Search a web element on a page.
@@ -358,10 +400,12 @@ class Browser(object):
         """
         try:
             return cls.driver_wait(driver, delay).until(lambda x: x.find_element_by_xpath(locator))
-        except TimeoutException:
+        except TimeoutException as e:
+            logger.logger.error(F"{e.__class__.__name__} search_element raising error: {e}")
             return False
 
     @classmethod
+    @automation_logger(logger)
     def input_data(cls, element, data):
         """
         Type text into a field
@@ -373,6 +417,7 @@ class Browser(object):
         element.send_keys(Keys.ENTER)
 
     @classmethod
+    @automation_logger(logger)
     def type_text_by_locator(cls, driver, locator, query):
         """
         Clear and type text into web element.
@@ -388,21 +433,24 @@ class Browser(object):
         cls.send_enter_key(element)
 
     @classmethod
+    @automation_logger(logger)
     def wait_for_new_window(cls, driver, delay):
         """
         Waits and checks if another window is open.
         :param driver: web_driver instance.
         :param delay: seconds to wait.
-        :return: True if additional window is open and False otherwise.
+        :return: True if additional_tests window is open and False otherwise.
         """
         try:
             handles_before = driver.window_handles
             yield
             return cls.driver_wait(driver, delay).until(lambda d: len(handles_before) != len(driver.window_handles))
-        except TimeoutException:
+        except TimeoutException as e:
+            logger.logger.error(F"{e.__class__.__name__} wait_for_new_window raising error: {e}")
             return False
 
     @classmethod
+    @automation_logger(logger)
     def click_on_element_by_locator(cls, driver, locator, delay):
         """
         Wait, search by locator and click on a web element.
@@ -411,12 +459,13 @@ class Browser(object):
         :param locator: xpath of a element.
         """
         try:
-            element = cls.wait_element_clickable(driver, locator, delay)
-            element.click()
+            cls.wait_element_clickable(driver, locator, delay).click()
         except AttributeError as e:
+            logger.logger.error(F"{e.__class__.__name__} click_on_element_by_locator raising error: {e}")
             raise e
 
     @classmethod
+    @automation_logger(logger)
     def click_on_element(cls, element):
         """
         Click on a passed web element.
@@ -425,32 +474,30 @@ class Browser(object):
         element.click()
 
     @classmethod
-    def choose_option_from_dropdown(cls, driver, dropdown_locator, dropdown_field_locator, dropdown_option, delay):
+    @automation_logger(logger)
+    def choose_option_from_dropdown(cls, driver, dropdown_locator, dropdown_field_locator, dropdown_option):
         """
         Searches for web elements (drop-down and text-input) and selects option from drop-down.
         :param driver: web_driver instance.
         :param dropdown_locator: string locator for drop-down.
         :param dropdown_field_locator: string locator for text-input.
         :param dropdown_option: option to select from drop-down.
-        :param delay: delay to wait between actions.
         :return: driver state with performed actions.
         """
         dropdown = cls.find_element(driver, dropdown_locator)
-        if isinstance(dropdown_field_locator, WebElement):
-            dropdown_field = dropdown_field_locator
-        else:
-            dropdown_field = cls.find_element(driver, dropdown_field_locator)
         action = Actions(driver)
         action.click(dropdown)
-        action.wait(delay)
+        action.wait(2)
+        dropdown_field = cls.search_element(driver, dropdown_field_locator, 3.0)
         action.click(dropdown_field)
-        action.wait(delay)
-        action.send_keys(dropdown_option)
-        action.wait(delay)
+        action.wait(2)
+        action.send_keys(str(dropdown_option))
+        action.wait(2)
         action.send_keys(Keys.ENTER)
         return action.perform()
 
     @classmethod
+    @automation_logger(logger)
     def check_element_not_visible(cls, driver, locator, delay):
         """
         Wait and check than element not visible on the page.
@@ -461,10 +508,28 @@ class Browser(object):
         """
         try:
             return cls.driver_wait(driver, delay).until_not(ec.visibility_of_element_located((By.XPATH, locator)))
-        except TimeoutException:
+        except TimeoutException as e:
+            logger.logger.error(F"{e.__class__.__name__} check_element_not_visible raising error: {e}")
             return False
 
     @classmethod
+    @automation_logger(logger)
+    def check_element_is_not_presented(cls, driver, locator):
+        """
+        Check than element not presented on the page.
+        :param driver: web_driver instance.
+        :param locator: xpath of a element.
+        :return: web element if element visible and False otherwise.
+        """
+        try:
+            driver.find_element_by_xpath(locator)
+        except NoSuchElementException as e:
+            logger.logger.error(F"{e.__class__.__name__} check_element_is_not_presented raising error: {e}")
+            return True
+        return False
+
+    @classmethod
+    @automation_logger(logger)
     def check_element_not_presented(cls, driver, locator, delay):
         """
         Wait and check than element not present on the page.
@@ -475,10 +540,12 @@ class Browser(object):
         """
         try:
             return cls.driver_wait(driver, delay).until_not(ec.presence_of_element_located((By.XPATH, locator)))
-        except TimeoutException:
+        except TimeoutException as e:
+            logger.logger.error(F"{e.__class__.__name__} check_element_not_presented raising error: {e}")
             return False
 
     @classmethod
+    @automation_logger(logger)
     def check_element_to_not_be_selected(cls, driver, locator, delay):
         """
         Wait for element to be click able on the page.
@@ -489,10 +556,12 @@ class Browser(object):
         """
         try:
             return cls.driver_wait(driver, delay).until_not(ec.element_to_be_selected((By.XPATH, locator)))
-        except TimeoutException:
+        except TimeoutException as e:
+            logger.logger.error(F"{e.__class__.__name__} check_element_to_not_be_selected raising error: {e}")
             return False
 
     @classmethod
+    @automation_logger(logger)
     def wait_number_of_windows(cls, driver, number, delay):
         """
         Waits for new window to be opened.
@@ -503,10 +572,12 @@ class Browser(object):
         """
         try:
             return cls.driver_wait(driver, delay).until(ec.number_of_windows_to_be(number))
-        except TimeoutException:
+        except TimeoutException as e:
+            logger.logger.error(F"{e.__class__.__name__} wait_number_of_windows raising error: {e}")
             return False
 
     @classmethod
+    @automation_logger(logger)
     def wait_url_contains(cls, driver, url, delay):
         """
         Waits and checks if expected url is contains to current url.
@@ -517,10 +588,12 @@ class Browser(object):
         """
         try:
             return cls.driver_wait(driver, delay).until(ec.url_contains(url))
-        except TimeoutException:
+        except TimeoutException as e:
+            logger.logger.error(F"{e.__class__.__name__} wait_url_contains raising error: {e}")
             return False
 
     @classmethod
+    @automation_logger(logger)
     def wait_url_matches(cls, driver, url, delay):
         """
         Waits and checks if expected url is matches to current url.
@@ -531,10 +604,12 @@ class Browser(object):
         """
         try:
             return cls.driver_wait(driver, delay).until(ec.url_matches(url))
-        except TimeoutException:
+        except TimeoutException as e:
+            logger.logger.error(F"{e.__class__.__name__} wait_url_matches raising error: {e}")
             return False
 
     @classmethod
+    @automation_logger(logger)
     def wait_element_visible(cls, driver, locator, delay):
         """
         Wait for element to be visible on the page.
@@ -545,10 +620,12 @@ class Browser(object):
         """
         try:
             return cls.driver_wait(driver, delay).until(ec.visibility_of_element_located((By.XPATH, locator)))
-        except TimeoutException:
+        except TimeoutException as e:
+            logger.logger.error(F"{e.__class__.__name__} wait_element_visible raising error: {e}")
             return False
 
     @classmethod
+    @automation_logger(logger)
     def wait_element_presented(cls, driver, locator, delay):
         """
         Wait for element to be presented on the page.
@@ -559,10 +636,12 @@ class Browser(object):
         """
         try:
             return cls.driver_wait(driver, delay).until(ec.presence_of_element_located((By.XPATH, locator)))
-        except TimeoutException:
+        except TimeoutException as e:
+            logger.logger.error(F"{e.__class__.__name__} wait_element_presented raising error: {e}")
             return False
 
     @classmethod
+    @automation_logger(logger)
     def wait_element_to_be_selected(cls, driver, locator, delay):
         """
         Wait for element to be click able on the page.
@@ -573,10 +652,12 @@ class Browser(object):
         """
         try:
             return cls.driver_wait(driver, delay).until(ec.element_to_be_selected((By.XPATH, locator)))
-        except TimeoutException:
+        except TimeoutException as e:
+            logger.logger.error(F"{e.__class__.__name__} wait_element_to_be_selected raising error: {e}")
             return False
 
     @classmethod
+    @automation_logger(logger)
     def wait_element_clickable(cls, driver, locator, delay):
         """
         Wait for element to be click able on the page.
@@ -587,10 +668,12 @@ class Browser(object):
         """
         try:
             return cls.driver_wait(driver, delay).until(ec.element_to_be_clickable((By.XPATH, locator)))
-        except TimeoutException:
+        except TimeoutException as e:
+            logger.logger.error(F"{e.__class__.__name__} wait_element_clickable raising error: {e}")
             return False
 
     @classmethod
+    @automation_logger(logger)
     def find_element(cls, driver, locator):
         """
         Find a web element without waiting by locator.
@@ -601,6 +684,7 @@ class Browser(object):
         return driver.find_element_by_xpath(locator)
 
     @classmethod
+    @automation_logger(logger)
     def find_element_by(cls, driver, locator, by):
         """
         Find a web element by provided option.
@@ -610,24 +694,29 @@ class Browser(object):
         :return: web element.
         """
         by = by.lower()
-        if by == DriverHelper.ID.value:
-            return driver.find_element(By.ID, locator)
-        elif by == DriverHelper.NAME.value:
-            return driver.find_element(By.NAME, locator)
-        elif by == DriverHelper.CLASS_NAME.value:
-            return driver.find_element(By.CLASS_NAME, locator)
-        elif by == DriverHelper.TAG_NAME.value:
-            return driver.find_element(By.TAG_NAME, locator)
-        elif by == DriverHelper.LINK_TEXT.value:
-            return driver.find_element(By.LINK_TEXT, locator)
-        elif by == DriverHelper.CSS_SELECTOR.value:
-            return driver.find_element(By.CSS_SELECTOR)
-        elif by == DriverHelper.PARTIAL_LINK_TEXT.value:
-            return driver.find_element(By.PARTIAL_LINK_TEXT, locator)
-        else:
-            return driver.find_element(By.XPATH, locator)
+        try:
+            if by == DriverHelper.ID.value:
+                return driver.find_element(By.ID, locator)
+            elif by == DriverHelper.NAME.value:
+                return driver.find_element(By.NAME, locator)
+            elif by == DriverHelper.CLASS_NAME.value:
+                return driver.find_element(By.CLASS_NAME, locator)
+            elif by == DriverHelper.TAG_NAME.value:
+                return driver.find_element(By.TAG_NAME, locator)
+            elif by == DriverHelper.LINK_TEXT.value:
+                return driver.find_element(By.LINK_TEXT, locator)
+            elif by == DriverHelper.CSS_SELECTOR.value:
+                return driver.find_element(By.CSS_SELECTOR)
+            elif by == DriverHelper.PARTIAL_LINK_TEXT.value:
+                return driver.find_element(By.PARTIAL_LINK_TEXT, locator)
+            else:
+                return driver.find_element(By.XPATH, locator)
+        except Exception as e:
+            logger.logger.error(e)
+            return False
 
     @classmethod
+    @automation_logger(logger)
     def find_elements(cls, driver, locator):
         """
         Find all duplicated elements in a DOM.
@@ -635,43 +724,10 @@ class Browser(object):
         :param locator: selector web element.
         :return: list of web elements.
         """
-        elements = []
-        for i in driver.find_elements_by_xpath(locator):
-            elements.append(i)
-        return elements
-
-    # def if_page_loaded(cls, delay, page_elements):
-    #     WebDriverWait(cls.get_driver(), delay).all_elements.get(0).get_locator_by()
-
-    # need to change for elements
-    # def print_objects_text(cls, delay, locator):
-    #     element = cls.wait_element_presented(delay, locator)
-    #     print(element.get_text())
-
-    # need to change for elements
-    # def get_num_of_elements(cls, locator):
-    #     elements = cls.find_elements(locator)
-    #     return elements.size()
-
-    # def click_on_button(cls, locator, index):
-    #     cls.find_elements(locator).get(index).click()
-
-    # for purpose need to create check_checkbox method
-    # def if_parent_element_exists(cls, delay, locator, element):
-    #     cls.driver_wait(delay)
-    #     result = element.find_elements(locator).size() != 0
-    #     return result
+        return [i for i in driver.find_elements_by_xpath(locator)]
 
 
 class Actions(ActionChains):
     def wait(self, delay: float):
         self._actions.append(lambda: time.sleep(delay))
         return self
-
-
-# if __name__ == '__main__':
-#     driver = WebDriverFactory.get_driver('chrome')
-#     driver.get("http://www.google.com")
-#     Browser.open_new_tab(driver)
-#     Browser.close_tab(driver)
-#     ""
