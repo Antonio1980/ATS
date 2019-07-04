@@ -303,3 +303,4 @@ tests/platform_tests_base/market_order_panel_page.py
 tests/platform_tests_base/signin_page.py
 tests/platform_tests_base/signup_page.py
 tests/tools/
+!/tests/tools/
