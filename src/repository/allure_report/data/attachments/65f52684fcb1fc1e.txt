@@ -1,2 +1,0 @@
-conftest.py                 27 INFO     END TIME: 92.7273589
-conftest.py                 28 INFO     AVERAGE OF THE TEST CASE RUN TIME: 16.119043399999995 seconds
