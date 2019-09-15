@@ -161,7 +161,7 @@ Docker:
 * $ docker image prune -a -f
 
 3 Build image: 
-* $ docker build --rm -f "Dockerfile" -t [project_name]:latest 
+* $ docker build . --rm -f "Dockerfile" -t [project_name]:latest 
 
 4 Get Docker logs:
 * $ docker info

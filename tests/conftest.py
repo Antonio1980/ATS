@@ -40,7 +40,6 @@ def r_time_count(request):
 @automation_logger(logger)
 def r_customer():
     r_customer = RegisteredCustomer()
-    # r_customer.approve_via_crm()
     Instruments.customer_approval(r_customer.customer_id)
     return r_customer
 
@@ -78,8 +77,6 @@ def customer_pending(customer):
 @pytest.fixture(scope="class")
 @automation_logger(logger)
 def conf_customer():
-    # phone = '+97252' + ''.join(random.choice(string.digits) for _ in range(7))
-    # Instruments.change_customer_phone(BaseConfig.CUSTOMER_ID, phone)
     return RegisteredCustomer(None, BaseConfig.EMAIL, BaseConfig.PASSWORD, BaseConfig.CUSTOMER_ID)
 
 
@@ -104,8 +101,10 @@ def conf_prod_app():
 @pytest.fixture(scope="class")
 @automation_logger(logger)
 def two_customers(request):
-    if hasattr(request, 'param'): return Instruments.create_two_customers(request.param[0])
-    else: return Instruments.create_two_customers()
+    if hasattr(request, 'param'):
+        return Instruments.create_two_customers(request.param[0])
+    else:
+        return Instruments.create_two_customers()
 
 
 @pytest.fixture(params=[[instrument_id, 1, "buy"]])
@@ -245,7 +244,8 @@ def prices_from_orderbook(request, r_customer):
                                                             price_b[0]['price']['decimals'])
             return {"sell": price_sell, "buy": price_buy}
         
-        else: return Instruments.get_safe_price(instrument_id_)
+        else:
+            return Instruments.get_safe_price(instrument_id_)
 
 
 @pytest.fixture(params=[[instrument_id, ]])
@@ -259,9 +259,9 @@ def safe_price(request):
 @pytest.fixture(scope="class", params=[[instrument_id, ]])
 @automation_logger(logger)
 def update_reference_price(request):
-    instrument_id_  = str(request.param[0])
-    ref_before = float(Instruments.run_mysql_query("SELECT referencePriceRatio FROM instruments WHERE id =" + instrument_id_)
-                       [0][0])
+    instrument_id_ = str(request.param[0])
+    ref_before = float(Instruments.run_mysql_query("SELECT referencePriceRatio FROM instruments WHERE id =" +
+                                                   instrument_id_)[0][0])
     logger.logger.info("Reference price for Instrument ID- {0} before test is: {1}".format(instrument_id_,
                                                                                            ref_before))
     Instruments.run_mysql_query("UPDATE instruments SET referencePriceRatio = 1.50000000 WHERE id =" + instrument_id_)

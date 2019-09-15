@@ -5,7 +5,6 @@ from src.base.log_decorator import automation_logger
 from src.base.services.service_route import ServiceRoute
 from src.base.services.svc_requests.payment_requests import PaymentServiceRequest
 from src.base.utils.calculator import Calculator
-import copy
 
 
 class PaymentService(ServiceRoute):

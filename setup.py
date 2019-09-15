@@ -57,9 +57,12 @@ for dirname, dir_names, filenames in os.walk(os.path.join(root_dir, 'src/reposit
 class PyTest(TestCommand):
     user_options = [("pytest-args=", "test" )]
 
+    def __init__(self, dist, **kw):
+        super().__init__(dist, **kw)
+        self.pytest_args = ""
+
     def initialize_options(self):
         PyTest.initialize_options(self)
-        self.pytest_args = ""
 
     def finalize_options(self):
         pass
@@ -81,6 +84,7 @@ class PyTest(TestCommand):
         else:
             raise SystemExit(
                 subprocess.call([sys.executable, '-m', 'pytest', '-vv', 'tests/platform_tests', '*_test.py']))
+
 
 # python setup.py test
 setup(

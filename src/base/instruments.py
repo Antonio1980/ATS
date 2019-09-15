@@ -90,7 +90,8 @@ class Instruments(RedisDb, SqlDb, TestRail, Calculator, Utils, MailGun, Kubernet
         assert boris_data['error'] is None
         assert boris_data['result']['customer']['status'] == 2
 
-        if flag: return [(boris, boris_token)]
+        if flag:
+            return [(boris, boris_token)]
 
         if not flag:
             stas = Customer()
@@ -106,9 +107,3 @@ class Instruments(RedisDb, SqlDb, TestRail, Calculator, Utils, MailGun, Kubernet
             assert stas_data['result']['customer']['status'] == 2
 
             return [(boris, boris_token), (stas, stas_token)]
-
-
-# if __name__ == "__main__":
-#     print([l for l in Instruments.execute_ssh_command("ls -l")])
-#     x = Instruments.create_two_customers()
-#     pass

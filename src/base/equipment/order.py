@@ -28,7 +28,7 @@ class Order(object):
         self.balance_change_transaction_id = ""
 
     def __repr__(self):
-        return  F"Order(type: {self.type}, price: [pure-{self.price}, p_value-{self.p_value}, " \
+        return F"Order(type: {self.type}, price: [pure-{self.price}, p_value-{self.p_value}, " \
             F"p_presc.-{self.p_precision}], quantity: [pure-{self.quantity}, q_value-{self.q_value}, " \
             F"q_presc.-{self.q_precision}], order_id: {self.external_id}, internal_id: {self.internal_id}, " \
             F"direction: {self.direction}, instrument_id: {self.instrument_id}, date_created: {self.date_created}), "\

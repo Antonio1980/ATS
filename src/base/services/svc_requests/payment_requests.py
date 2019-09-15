@@ -257,7 +257,8 @@ class PaymentServiceRequest(ApiRequestSchema):
         """
 
         @param currency_id:
-        @param amount:
+        @param deposit_amount_value:
+        @param deposit_amount_decimals:
         @param wallet_link:
         @return:
         """
@@ -315,12 +316,13 @@ class PaymentServiceRequest(ApiRequestSchema):
         return body
 
     @automation_logger(logger)
-    def withdrawal_wire(self, bank, currency_id: int, withdrawal_amount_value,withdrawal_amount_decimals : float):
+    def withdrawal_wire(self, bank, currency_id: int, withdrawal_amount_value, withdrawal_amount_decimals: float):
         """
 
         @param bank:
         @param currency_id:
-        @param withdrawal_amount:
+        @param withdrawal_amount_value:
+        @param withdrawal_amount_decimals:
         @return:
         """
         self.method += "WithdrawalWire"

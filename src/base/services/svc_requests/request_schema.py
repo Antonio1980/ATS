@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from src.base import base_url
 from src.base.automation_error import AutomationError
 from src.base.utils.utils import Utils

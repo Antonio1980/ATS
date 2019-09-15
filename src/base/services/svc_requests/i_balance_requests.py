@@ -118,10 +118,9 @@ class IBalanceServiceRequest:
     def subtract_transaction_partial_rollback(self, guid, customer_id, currency_id, amount):
         """
         Build request body for IBalanceService.subtract_transaction_partial_rollback()
-        :param args: 1- transaction_link, 2- customer_id, 3- currency_id,  4- subtract_amount
+        :param: 1- transaction_link, 2- customer_id, 3- currency_id,  4- subtract_amount
         :return: Request body as json dump string.
         """
-        #(transaction_link, customer_id, currency_id, subtract_amount) = args
         self.method += "subtractTransactionPartialRollback"
         self.params[TRANSACTION_GUID] = guid
         self.params[CUSTOMER_ID] = customer_id

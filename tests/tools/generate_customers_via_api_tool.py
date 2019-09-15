@@ -12,6 +12,7 @@ from src.base.log_decorator import automation_logger
 def get_customer():
     return Customer()
 
+
 @pytest.mark.tool
 @pytest.mark.parametrize('i', range(1))
 @automation_logger(logger)
@@ -39,9 +40,7 @@ def test_generate_customers(i):
     step6 = customer.postman.authorization_service.client_checklist_step6()
     assert step6['error'] is None and step6['result']['errors'] is None
     link1 = customer.postman.file_service.upload_file(BaseConfig.DOCUMENT_PNG)['link']
-    #time.sleep(1.0)
     link2 = customer.postman.file_service.upload_file(BaseConfig.DOCUMENT_JPG)['link']
-    #time.sleep(1.0)
     link3 = customer.postman.file_service.upload_file(BaseConfig.DOCUMENT_PNG)['link']
     step7_response = customer.postman.authorization_service.upload_documents_step_7(link1, link2, link3)
     assert step7_response['error'] is None and step7_response['result']['errors'] is None

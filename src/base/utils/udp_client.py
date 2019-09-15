@@ -19,24 +19,19 @@ class UdpClient:
     def udp_connect(cls):
         logger.logger.info("UDP client up and listening")
 
-        while(True):
+        while True:
             cls.UDPClientSocket.sendto(cls.bytesToSend, ADDR)
 
-            bytesAddressPair = cls.UDPClientSocket.recvfrom(BUFSIZ)
+            bytes_address_pair = cls.UDPClientSocket.recvfrom(BUFSIZ)
 
-            message = bytesAddressPair[0]
+            message = bytes_address_pair[0]
 
-            address = bytesAddressPair[1]
+            address = bytes_address_pair[1]
 
-            serverMsg = "Message from Server:{}".format(message)
-            serverIP  = "Server IP Address:{}".format(address)
+            server_msg = "Message from Server:{}".format(message)
+            server_ip = "Server IP Address:{}".format(address)
 
-            logger.logger.info(serverMsg)
-            logger.logger.info(serverIP)
+            logger.logger.info(server_msg)
+            logger.logger.info(server_ip)
 
             # cls.UDPClientSocket.close()
-
-
-if __name__ == "__main__":
-    UdpClient.udp_connect()
-    pass

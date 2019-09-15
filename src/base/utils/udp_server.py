@@ -19,27 +19,23 @@ class UdpServer:
     @automation_logger(logger)
     def udp_listen(cls):
 
-        cls.UDPServerSocket.bind((ADDR))
+        cls.UDPServerSocket.bind(ADDR)
 
         logger.logger.info("UDP server up and listening")
-        while(True):
+        while True:
 
-            bytesAddressPair = cls.UDPServerSocket.recvfrom(BUFSIZ)
+            bytes_address_pair = cls.UDPServerSocket.recvfrom(BUFSIZ)
 
-            message = bytesAddressPair[0]
+            message = bytes_address_pair[0]
 
-            address = bytesAddressPair[1]
+            address = bytes_address_pair[1]
 
-            clientMsg = "Message from Client:{}".format(message)
-            clientIP  = "Client IP Address:{}".format(address)
+            client_msg = "Message from Client:{}".format(message)
+            client_ip = "Client IP Address:{}".format(address)
 
-            logger.logger.info(clientMsg)
-            logger.logger.info(clientIP)
+            logger.logger.info(client_msg)
+            logger.logger.info(client_ip)
             # Sending a reply to client
 
             cls.UDPServerSocket.sendto(cls.bytesToSend, address)
             # cls.UDPServerSocket.close()
-
-
-if __name__ == "__main__":
-    UdpServer.udp_listen()

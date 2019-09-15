@@ -1,9 +1,7 @@
 import random
 import string
-
 import arrow
 import pymysql
-
 from config_definitions import BaseConfig
 from src.base import logger
 from src.base.automation_error import AutomationError
@@ -38,7 +36,7 @@ class SqlDb:
     @automation_logger(logger)
     def get_withdrawals_by_customer(cls, customer_id, payment_method_id, currency_id=None):
         query_ = F"SELECT * FROM withdrawals WHERE customerId = {customer_id} " \
-            F"AND paymentMethodId = {payment_method_id} AND currencyId LIKE '%{currency_id}' ORDER BY dateInserted DESC;"
+            F"AND paymentMethodId = {payment_method_id} AND currencyId LIKE '%{currency_id}' ORDER BY dateInserted DESC"
         try:
             return cls.run_mysql_query(query_)
         except Exception as e:
@@ -63,7 +61,7 @@ class SqlDb:
         3 - get all orders with the given status disregarding of order filled quantity.
         """
         if filled_quantity == 1:
-            query = F"SELECT * FROM orders WHERE customerId = {customer_id} AND filledQuantity > 0 AND filledQuantity " \
+            query = F"SELECT * FROM orders WHERE customerId = {customer_id} AND filledQuantity > 0 AND filledQuantity "\
                 F"< quantity AND statusId = {order_status} ORDER BY executionDate DESC;"
 
         elif filled_quantity == 2:
@@ -183,12 +181,12 @@ class SqlDb:
         cur_date = date.format('YYYY-MM-DD')
         cur_date_full = date.format('YYYY-MM-DD HH:mm:ss')
         id_ = ''.join(random.choice(string.digits) for _ in range(6))
-        query = "INSERT INTO deposits(id, customerId, paymentMethodId, clearingCompanyId, currencyId, amount, rateUSD," \
+        query = "INSERT INTO deposits(id, customerId, paymentMethodId, clearingCompanyId, currencyId, amount, rateUSD,"\
                 "rateEUR, rateBTC, referenceNumber, statusId, sourceId, IPAddress, balanceChangeTransactionGuid, " \
                 "comments, canceledByWId, cancelingWId, addedBy, updatedBy, confirmedBy, canceledBy, cancelReasonId, " \
                 "cancelReason, declinedBy, declineReason, dateConfirmed, dateValue, dateCanceled, dateDeclined, " \
                 "dateInserted, dateUpdated) VALUES(" + id_ + ", " + customer_id + ", 3, 0, " + currency_id + ", " + \
-                amount + ", 0.00012500, 0.00014388, 1.00000000, '2134776', 2, 3, '10.244.10.1', '', '', 0, 0, 9, 9, 9," \
+                amount + ", 0.00012500, 0.00014388, 1.00000000, '2134776', 2, 3, '10.244.10.1', '', '', 0, 0, 9, 9, 9,"\
                          "0, 0, '', 0, '', '" + cur_date_full + "', '" + cur_date + "', '" + _ + "', '" + _ + "', '" + \
                 cur_date_full + "', '" + cur_date_full + "');"
         cls.run_mysql_query(query)
@@ -390,18 +388,18 @@ class SqlDb:
 
     @classmethod
     @automation_logger(logger)
-    def set_cumulative_fee_dxchash_disabled(cls, id, step_usd=None, fee=None):
+    def set_cumulative_fee_dxchash_disabled(cls, id_, step_usd=None, fee=None):
         """
         Set Fee or/and Step USD for Regular Cumulative Fee.
-        :param id: as int, 7 - step One, 8 - step Two, 11 - step Three
-               step_usd: as float
-               fee: as float
+        :param id_: as int, 7 - step One, 8 - step Two, 11 - step Three
+        :param step_usd: as float
+        :param fee: as float
         :return: True. Returns False on failure.
         """
-        query_1 = (
-            F"UPDATE params_cumulative_fee SET stepUsd = {step_usd}, feeMultiplier = {fee} WHERE id = {id} and feePlanId = 2;")
-        query_2 = F"UPDATE params_cumulative_fee SET feeMultiplier = {fee} WHERE id = {id} and feePlanId = 2;"
-        query_3 = F"UPDATE params_cumulative_fee SET stepUsd = {step_usd} WHERE id = {id} and feePlanId = 2;"
+        query_1 = (F"UPDATE params_cumulative_fee SET stepUsd = {step_usd}, feeMultiplier = {fee} WHERE id = "
+                   F"{id_} and feePlanId = 2;")
+        query_2 = F"UPDATE params_cumulative_fee SET feeMultiplier = {fee} WHERE id = {id_} and feePlanId = 2;"
+        query_3 = F"UPDATE params_cumulative_fee SET stepUsd = {step_usd} WHERE id = {id_} and feePlanId = 2;"
 
         try:
             if step_usd is not None and fee is not None:
@@ -473,4 +471,3 @@ class SqlDb:
         except Exception as e:
             logger.logger.error(F"Failed to get_currency_name_by_currency_id: {e}")
             return False
-

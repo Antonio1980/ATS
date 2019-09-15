@@ -9,7 +9,6 @@ c_currency_id = 4
 instrument_id = 1008
 
 
-# @pytest.mark.skip
 @pytest.mark.load
 @pytest.mark.usefixtures("r_time_count")
 @pytest.mark.parametrize('add_customer_balance', [[currency_id, c_currency_id]], indirect=True)

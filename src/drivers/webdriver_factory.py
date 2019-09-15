@@ -38,7 +38,7 @@ class WebDriverFactory:
         """
 
         def request_will_be_sent(**kwargs):
-            print("loading: %s" % kwargs.get('request').get('url'))
+            logger.logger.info("loading: %s" % kwargs.get('request').get('url'))
 
         browser = pychrome.Browser(url=cls.f_12_executor)
         f_12 = browser.new_tab()

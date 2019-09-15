@@ -242,7 +242,8 @@ class Utils:
         :return: verification url from customer email.
         """
         parsed_html = cls.parse_html(html)
-        if crm: return parsed_html
+        if crm:
+            return parsed_html
         return parsed_html.center.find_all('a')[1]['href']
 
     @classmethod
@@ -281,7 +282,8 @@ class Utils:
                 storage_response = cls.mail_gun_cli.retrieve_stored_email(storage_url)
                 html = storage_response['body-html']
                 faked_url = cls.parse_ver_token(html, crm)
-                if crm: return faked_url
+                if crm:
+                    return faked_url
                 cls.ver_url = cls.mail_gun_cli.get_true_url(faked_url)
                 assert cls.ver_url is not None, "URL with ver_token not received."
 

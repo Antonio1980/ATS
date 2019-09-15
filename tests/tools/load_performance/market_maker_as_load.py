@@ -11,6 +11,7 @@ from src.base.customer.registered_customer import RegisteredCustomer
 num_threads = 50
 orders_dict = Utils.read_json_config(BaseConfig.MM_CONFIG)
 
+
 @automation_logger(logger)
 def test_set_redis_price():
     for order in list(orders_dict["orders"]):
@@ -28,6 +29,7 @@ orders = tuple(orders[:20])
 
 l_customer = RegisteredCustomer(None, "James_King@sandbox7e64c317900647609c225574db67437b.mailgun.org", "1Aa@<>12",
                                 "100001100000023976")
+
 
 @automation_logger(logger)
 def test_add_customer_balance():
@@ -61,4 +63,3 @@ for i in range(num_threads):
     worker = Thread(target=test_market_maker_as_load)
     worker.setDaemon(True)
     worker.start()
-    

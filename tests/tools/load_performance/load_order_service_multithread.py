@@ -20,6 +20,7 @@ price = l_customer.postman.order_service.get_order_book(instrument_id)['result']
 price_sell = Calculator.calculate_from_decimals(price['sell'][0]['price']['value'], price['sell'][0]['price']['decimals'])
 price_buy = Calculator.calculate_from_decimals(price['buy'][0]['price']['value'], price['sell'][0]['price']['decimals'])
 
+
 @automation_logger(logger)
 def test_performance_for_order_service():
 

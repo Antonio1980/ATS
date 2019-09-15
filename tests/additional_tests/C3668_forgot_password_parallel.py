@@ -33,7 +33,7 @@ num_threads = q.qsize()
 @pytest.mark.skip
 @pytest.mark.advanced
 @automation_logger(logger)
-def test_forgot_password_full_flow(q):
+def test_forgot_password_full_flow(queue):
     driver = None
     test_case = '3668'
     customer = Customer()
@@ -46,9 +46,9 @@ def test_forgot_password_full_flow(q):
     element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(customer.email)
     WebDriverFactory.start_selenium_server(Browsers.CHROME.value)
 
-    while q.empty() is False:
+    while queue.empty() is False:
         try:
-            _browser = q.get()
+            _browser = queue.get()
             driver = WebDriverFactory.get_remote_driver(_browser)
             assert home_page.open_signup_page(driver)
             assert signup_page.fill_signup_form(driver, customer.username, customer.email, customer.password, element)
@@ -64,7 +64,7 @@ def test_forgot_password_full_flow(q):
         finally:
             driver.quit()
             time.sleep(1)
-            q.task_done()
+            queue.task_done()
 
 
 for i in range(num_threads):

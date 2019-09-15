@@ -32,8 +32,8 @@ class RegisteredCustomer(Customer):
                     self.get_postman_access(self.auth_token)
         except Exception as e:
             logger.logger.exception(
-                "__init__ for RegisteredCustomer is not passed for RegisteredCustomer: {0}, {1}, "
-                "{2}".format(self.email, self.password, self.customer_id))
+                "__init__ for RegisteredCustomer is not passed for RegisteredCustomer: {0}, {1}, {2}".format(
+                    self.email, self.password, self.customer_id))
             raise e
 
         self.btc_wallet = "mr8MnPXT4KubFFQiXe4SeEB6T9ymjR2Hdp"

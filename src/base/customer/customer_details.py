@@ -82,5 +82,4 @@ def choose_customer_details(country_code, state_number):
         country_code = db_country_data[0][1]
 
         return dict(STATE=state, ZIP=zip_code, COUNTRY=country, CITY=city, PHONE_PREFIX=phone_prefix,
-                    STATE_CODE=state_code,
-                    COUNTRY_CODE=country_code)
+                    STATE_CODE=state_code, COUNTRY_CODE=country_code)

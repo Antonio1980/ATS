@@ -8,6 +8,7 @@ from src.base.log_decorator import automation_logger
 Implementation of SSH connector with paramiko.SSHClient.
 """
 
+
 class ParamicoConnector:
 
     ssh_connector = paramiko.SSHClient()
@@ -37,9 +38,3 @@ class ParamicoConnector:
                 yield line
         finally:
             cls.ssh_connector.close()
-
-
-# if __name__ == '__main__':
-#     res = [line for line in ParamicoConnector.execute_ssh_command("ls -l")]
-#     # res = ParamicoConnector.execute_ssh_command("ls -l")
-#     print(res)

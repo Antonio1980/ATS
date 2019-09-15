@@ -156,7 +156,7 @@ class MailGun:
     def get_logs(cls, recipient):
         uri = cls.mail_gun_base_url + cls.domain + "/events"
         params_ = {"begin": "Fri, 3 May 2013 09:00:00 -0000", "ascending": "yes", "limit": 25, "pretty": "yes",
-                  "recipient": recipient}
+                   "recipient": recipient}
         try:
             _response = requests.request("GET", uri, params=params_, headers=cls.headers)
             body = json.loads(_response.text)
@@ -190,7 +190,7 @@ class MailGun:
     @classmethod
     @automation_logger(logger)
     def get_true_url(cls, faked_url):
-        headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko)'
+        headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML,like Gecko)'
                                  'Chrome/39.0.2171.95 Safari/537.36'}
         try:
             _response = requests.request("GET", faked_url, headers=headers)
@@ -198,10 +198,3 @@ class MailGun:
         except Exception as e:
             logger.logger.exception("get_true_url failed with error: {0}".format(e))
             raise e
-
-
-# if __name__ == '__main__':
-#     m = MailGun()
-#     r = m.get_logs("anton_dx_qa@sandbox7e64c317900647609c225574db67437b.mailgun.org")
-#     rs = m.retrieve_stored_email("CsT4KbYKQLefTH09IRC2SA")
-#     pass

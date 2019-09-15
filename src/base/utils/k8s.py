@@ -46,4 +46,3 @@ class Kubernetes:
                 logger.logger.info("result is: " + str(delete_response))
 
             return True
-    

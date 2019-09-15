@@ -1,37 +1,31 @@
 from src.base import logger
 from src.base.log_decorator import automation_logger
 
+
 class Trade(object):
     
     def __init__(self):
-        # self.type = type_
         self.id = 0
-
         self.direction = ""
         self.customer_id = ""
         self.instrument_id = ""
-
-
         self.price = ""
         self.quantity = ""
         self.status_id = ""
         self.rate_usd_base = ""
-
         self.rate_usd_quoted = ""
         self.rate_dxex_base = ""
         # self.rate_dxex_quoted = ""
-
         self.balance_change_transaction = ""
         self.execution_date = ""
-
         self.orderId = ""
 
     def __repr__(self):
         return F"Trade ID: {self.id}, direction: {self.direction}, customer ID: {self.customer_id}, " \
                F"Execution Date: {self.execution_date}, Price: {self.price}, Quantity: {self.quantity}, " \
-               F"Trade Status: {self.status_id}, Rate USD Base: {self.rate_usd_base}, Rate USD Quoted: {self.rate_usd_quoted}," \
-               F"Balance Transaction: {self.balance_change_transaction}, Instrument ID: {self.instrument_id}," \
-               F" Order ID: {self.orderId}, Rate DXEX Base: {self.rate_dxex_base}"
+               F"Trade Status: {self.status_id}, Rate USD Base: {self.rate_usd_base}, Rate USD Quoted: " \
+               F"{self.rate_usd_quoted}, Balance Transaction: {self.balance_change_transaction}, Instrument ID: " \
+               F"{self.instrument_id}, Order ID: {self.orderId}, Rate DXEX Base: {self.rate_dxex_base}"
 
     @automation_logger(logger)
     def set_trade(self, direction, instrument_id, quantity, price, *args):
@@ -43,7 +37,7 @@ class Trade(object):
         if args and len(args) >= 9:
             (self.id, self.customer_id, self.status_id, self.rate_usd_base,
              self.rate_usd_quoted, self.orderId, self.execution_date,
-             self.balance_change_transaction,self.rate_dxex_base, *args) = args
+             self.balance_change_transaction, self.rate_dxex_base, *args) = args
 
         logger.logger.info(F"Trade was set to {self.__repr__()}")
         return self

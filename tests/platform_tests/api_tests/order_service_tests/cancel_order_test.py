@@ -8,6 +8,7 @@ from src.base.log_decorator import automation_logger
 instrument_id = 1008
 test_case = "6077"
 
+
 @allure.feature("Order Management")
 @allure.story("Client able to cancel his open order.")
 @allure.title("CANCEL ORDER")

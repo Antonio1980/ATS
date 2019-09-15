@@ -17,9 +17,8 @@ class Bank(object):
         self.credit_card = self.CreditCard(customer)
 
     def __repr__(self):
-        return "Bank: %s, BIC: %s, IBAN: %s, C. Company: %s, Address: %s" %(self.bank_name, self.bic, self.iban,
-                                                                            self.clearing_company, self.address)
-
+        return "Bank: %s, BIC: %s, IBAN: %s, C. Company: %s, Address: %s" % (self.bank_name, self.bic, self.iban,
+                                                                             self.clearing_company, self.address)
 
     class CreditCard(object):
         

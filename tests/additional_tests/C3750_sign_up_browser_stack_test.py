@@ -26,9 +26,9 @@ class TestSignUpFullFlowBrowserStack(unittest.TestCase):
         self.browser = self.customer.get_browser_functionality()
         self.element = "//*[@class='userEmail'][contains(text(),'{0}')]".format(self.customer.email)
         self.mac_details = {'browser': 'Chrome', 'browser_version': '68.0', 'os': 'OS X', 'os_version': 'Sierra',
-                       'resolution': '1920x1080'}
+                            'resolution': '1920x1080'}
         self.win_details = {'browser': 'Chrome', 'browser_version': '68.0', 'os': 'Windows', 'os_version': '10',
-                       'resolution': '2048x1536'}
+                            'resolution': '2048x1536'}
 
     @allure.step("Test test_sign_up_browserstack")
     @automation_logger(logger)

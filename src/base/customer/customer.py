@@ -61,7 +61,7 @@ class Customer(object):
         self.postman = PostmanClient.get_static_postman()
         self.faked_email = self.username + "@mailinator.com"
         self.auth_token, self.api_token, self.api_secret, self.api_token_id, self.ver_token, self.api_token_state, \
-        self.hashed_password, self.api_key = None, None, None, None, None, False, None, None
+            self.hashed_password, self.api_key = None, None, None, None, None, False, None, None
         self.script_test_token = "$.ajaxPrefilter(function (options) {if (!options.beforeSend) {options.beforeSend = " \
                                  "function (xhr) {xhr.setRequestHeader('Test-Token', '%s');}}})" % test_token
 
@@ -166,8 +166,7 @@ class Customer(object):
                         logger.logger.info("renew_api_token", renew_response)
                         assert renew_response['error'] is None
                         self.api_secret, self.api_token, self.api_token_id = renew_response['result']['secret'], \
-                                                                             renew_response['result']['token'], \
-                                                                             renew_response['result']['id']
+                            renew_response['result']['token'], renew_response['result']['id']
                         logger.logger.info(
                             "API Access: {0}, {1}, {2}".format(self.api_secret, self.api_token, self.api_token_id))
                     else:
@@ -176,10 +175,9 @@ class Customer(object):
                         assert notification_['error'] is None
                         create_response = self.postman.api_service.create_api_token(self.api_key)
                         assert create_response['result']['token'] and create_response['result']['secret'] and \
-                               create_response['result']['id']
+                            create_response['result']['id']
                         self.api_token, self.api_secret, self.api_token_id = create_response['result']['token'], \
-                                                                             create_response['result']['secret'], \
-                                                                             create_response['result']['id']
+                            create_response['result']['secret'], create_response['result']['id']
                     api_tokens2 = self.postman.api_service.get_api_tokens()
                     if api_tokens2['result']['apiToken'][0]['isActive'] is False:
                         activate_response = self.postman.api_service.activate_api_token(self.api_token_id, True)
@@ -404,7 +402,7 @@ class Customer(object):
         assert isinstance(cur_balance['result'], list)
         balances = cur_balance['result']
         # self.rollback_frozen_balance(balances)
-        self.unfreeze_by_GUIDs()
+        self.unfreeze_by_guids()
         self.subtract_available_balance(balances)
         return self
 
@@ -449,9 +447,9 @@ class Customer(object):
             Instruments.set_price_last_trade(instrument_id, buy_order_book_counted[1])
             Instruments.set_ticker_last_price(instrument_id, buy_order_book_counted[1])
 
-            self.postman.balance_service.add_balance(self.customer_id, quoted_currency,
-                                                     900000000000.0)
-            logger.logger.info(F"Quantity to buy: {buy_order_book_counted[0]} Price to pay: {buy_order_book_counted[1]}")
+            self.postman.balance_service.add_balance(self.customer_id, quoted_currency, 900000000000.0)
+            logger.logger.info(
+                F"Quantity to buy: {buy_order_book_counted[0]} Price to pay: {buy_order_book_counted[1]}")
             response = self.postman.order_service.create_order_sync(
                 Order().set_order(1, instrument_id, buy_order_book_counted[0], buy_order_book_counted[1]))
             assert response['error'] is None, "Failed to clean the Order Book"
@@ -463,7 +461,8 @@ class Customer(object):
 
             sell_order_book_counted = self.count_order_book(instrument_id, "sell")
             self.postman.balance_service.add_balance(self.customer_id, base_currency, 900000000000.0)
-            logger.logger.info(F"Quantity to sell: {sell_order_book_counted[0]} Price to pay: {sell_order_book_counted[1]}")
+            logger.logger.info(
+                F"Quantity to sell: {sell_order_book_counted[0]} Price to pay: {sell_order_book_counted[1]}")
             response = self.postman.order_service.create_order_sync(
                 Order().set_order(2, instrument_id, sell_order_book_counted[0], sell_order_book_counted[1]))
             assert response['error'] is None, "Failed to clean the Order Book"
@@ -481,7 +480,7 @@ class Customer(object):
         MFASecret, qrSecret, associateBy, ivrExtension, modifiedByUserId, mpsUser, createdDate, createdByUserid) 
         VALUES  (100001, '""" + self.email + """', '""" + self.first_name + """', '""" + self.last_name + """', '', 
         0, 0, '', 0, 0, '""" + self.full_phone + """', '', 0, '""" + self.full_phone + """', '""" + \
-        self.username + """', md5('""" + self.password + """Spider-Pig'), 1, 'manager', 'admin', 0, 0.00, 
+                self.username + """', md5('""" + self.password + """Spider-Pig'), 1, 'manager', 'admin', 0, 0.00, 
         'Active', '""" + date_ + """', '""" + date_ + """', '""" + date_ + """', 'a7217ffaf7b859b6dbff610a1d219d7', 
         0, '""" + date_ + """', '', 0, -1, '', 'en', 0, -1, 0, 1, 0, 1, 1, 1, 1, 0, 1, '""" + date_ + """', 
         8, 1, '""" + date_ + """', '', NULL, 1, 0, '', NULL, 0, -1, 48, 0, '""" + date_ + """', 0)"""
@@ -501,8 +500,8 @@ class Customer(object):
         """
         if Instruments.add_customer_deposit_sql(self.customer_id, currency_id, amount):
             if Instruments.add_customer_balance_redis(self.customer_id, currency_id, amount):
-                logger.logger.info(
-                    F"Deposit was added for customer- {self.customer_id} balance successfully, current deposit: {amount}")
+                logger.logger.info(F"Deposit was added for customer- {self.customer_id} balance successfully, "
+                                   F"current deposit: {amount}")
                 _response = self.postman.balance_service.add_balance(self.customer_id, currency_id, amount)
                 assert _response['result']['transactionGuid']
                 assert "AAAAA" in _response['result']['transactionGuid']
@@ -543,7 +542,7 @@ class Customer(object):
             raise e
 
     @automation_logger(logger)
-    def unfreeze_by_GUIDs(self):
+    def unfreeze_by_guids(self):
 
         currencies = Instruments.get_currencies_list()
 
@@ -551,17 +550,9 @@ class Customer(object):
             customer_transactions = self.postman.balance_service.get_subtract_transactions(self.customer_id, currency)
             guid_list = customer_transactions['result']['subtractTransactions']
 
-            if guid_list is not []:
+            if guid_list:
                 for guid in guid_list:
-                    self.postman.balance_service.subtract_transaction_commit(guid['transactionGuid'], self.customer_id, currency)
+                    self.postman.balance_service.subtract_transaction_commit(guid['transactionGuid'], self.customer_id,
+                                                                             currency)
 
         return True
-
-
-# if __name__ == '__main__':
-#    Instruments.add_deposit_on_customer_balance(100001100000020643, 3, '20')
-#     from src.base.customer.registered_customer import RegisteredCustomer
-#
-#     conf_customer = RegisteredCustomer(None, "Colton_Murphy@guerrillamailblock.com", "1Aa@<>12", "100001100000022877")
-#     c = conf_customer.clean_up_customer()
-#     pass

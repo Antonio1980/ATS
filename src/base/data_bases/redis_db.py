@@ -85,8 +85,10 @@ class RedisDb:
             logger.logger.error(f"Get balance  from Redis has failed: {e}")
             raise e
 
-        if total_balance is None: total_balance = 0
-        if frozen_balance is None: frozen_balance = 0
+        if total_balance is None:
+            total_balance = 0
+        if frozen_balance is None:
+            frozen_balance = 0
 
         return float(total_balance) - float(frozen_balance), float(frozen_balance)
 
@@ -158,7 +160,8 @@ class RedisDb:
                             '"direction": "BUY", "timestamp": ' + str(int(datetime.datetime.today().timestamp())) + ' }'
 
                 param_sell = ' { "price": ' + str(price) + ', "quantity": 0.25, ' \
-                             '"direction": "SELL", "timestamp": ' + str(int(datetime.datetime.today().timestamp())) +'}'
+                             '"direction": "SELL", "timestamp": ' + str(int(datetime.datetime.today().timestamp())) + \
+                             ' }'
                 cls.redis_client.lpush(instrument, param_buy)
                 cls.redis_client.lpush(instrument, param_sell)
             except Exception as e:
@@ -182,7 +185,7 @@ class RedisDb:
                 cls.redis_client.execute_command('publish ' + instrument + '_last ' + timestamp + '|' + price)
                 cls.redis_client.execute_command('hset ' + instrument + ' last ' + price)
             except Exception as e:
-                logger.logger.error(f"set_ticker_last_price has failed: {e}" )
+                logger.logger.error(f"set_ticker_last_price has failed: {e}")
                 raise e
 
     @classmethod
