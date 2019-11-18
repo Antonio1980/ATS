@@ -38,7 +38,7 @@ pytz==2018.4
 tox==3.12.1
 PyYAML==3.13
 redis==2.10.6
-requests==2.19.1
+requests==2.20.0
 requests-cache==0.4.13
 robotframework==3.0.4
 robotframework-selenium2library==3.0.0
