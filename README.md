@@ -20,8 +20,7 @@ The "platform-server_qa"- automation test project for the Web Trading Platform o
 LOCATION
 ---------
 
-- SSH: git@gitlab.com:cx_group/qa/platform-server_qa.git
-- HTTPS: https://gitlab.com/cx_group/qa/platform-server_qa.git
+- https://github.com/Antonio1980/ATS.git
 
 TECHNOLOGIES
 -------------
