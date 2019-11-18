@@ -7,7 +7,7 @@ from src.base.log_decorator import automation_logger
 from src.base.customer.registered_customer import RegisteredCustomer
 from src.base.utils.calculator import Calculator
 
-num_threads = 1
+num_threads = 10
 instrument_id = 1008
 
 l_customer = RegisteredCustomer(None, "James_King@sandbox7e64c317900647609c225574db67437b.mailgun.org", "1Aa@<>12",

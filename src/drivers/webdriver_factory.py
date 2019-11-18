@@ -4,8 +4,8 @@ import subprocess
 import multiprocessing
 from src.base import logger
 from selenium import webdriver
+from src.base.utils.utils import Utils
 from config_definitions import BaseConfig
-from src.base.instruments import Instruments
 from selenium.webdriver import DesiredCapabilities
 from src.base.log_decorator import automation_logger
 from src.base.enums import OperationSystem, Browsers
@@ -57,11 +57,11 @@ class WebDriverFactory:
         """
         if browser_name is None:
             browser_name = Browsers.CHROME.value
-        if Instruments.detect_os() == OperationSystem.WINDOWS.value:
+        if Utils.detect_os() == OperationSystem.WINDOWS.value:
             return cls.get_driver_win(browser_name)
-        elif Instruments.detect_os() == OperationSystem.DARWIN.value:
+        elif Utils.detect_os() == OperationSystem.DARWIN.value:
             return cls.get_driver_mac(browser_name)
-        elif Instruments.detect_os() == OperationSystem.LINUX.value:
+        elif Utils.detect_os() == OperationSystem.LINUX.value:
             return cls.get_driver_lin(browser_name)
         else:
             error = "Operational System not detected."
@@ -143,10 +143,10 @@ class WebDriverFactory:
             chrome_options = webdriver.ChromeOptions()
             chrome_options.add_experimental_option('w3c', False)
             try:
-                return webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
+                return webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
             except Exception as e:
                 logger.logger.exception(e)
-                return webdriver.Chrome(BaseConfig.M_CHROME_PATH, chrome_options=chrome_options)
+                return webdriver.Chrome(BaseConfig.M_CHROME_PATH, options=chrome_options)
         else:
             error = "No such " + browser_name + " browser exists"
             logger.logger.exception(error)

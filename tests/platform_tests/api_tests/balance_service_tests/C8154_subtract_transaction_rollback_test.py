@@ -42,7 +42,7 @@ class TestSubtractTransactionRollback(object):
     @automation_logger(logger)
     @pytest.mark.parametrize('add_balance', [[currency_id, amount]], indirect=True)
     def test_subtract_transaction_rollback_balance_check(self, r_customer, add_balance):
-        amount = 1.0
+        amount_ = 1.0
         # Save current balance
         cur_balance = r_customer.postman.balance_service.get_currency_balance(r_customer.customer_id, currency_id)
         assert cur_balance['result']['customerId'] == r_customer.customer_id
@@ -53,7 +53,7 @@ class TestSubtractTransactionRollback(object):
 
         # Make freeze
         sub_transaction = r_customer.postman.balance_service.subtract_transaction_initialize(r_customer.customer_id,
-                                                                                             currency_id, amount)
+                                                                                             currency_id, amount_)
         assert sub_transaction['result']['customerId'] == r_customer.customer_id
         guid = sub_transaction['result']['transactionGuid']
 
