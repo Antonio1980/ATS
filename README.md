@@ -15,7 +15,13 @@ CONTENTS OF THIS FILE
 INTRODUCTION
 ------------
 
-The "platform-server_qa"- automation test project for the Web Trading Platform of DX.Exchange.
+The "A.T.S."- automation test framework covers backend and frontend, provides functionality testing:
+- Unit
+- API
+- UI
+- Integration
+- EndToEnd
+- Load/Performance
 
 LOCATION
 ---------
@@ -223,11 +229,8 @@ $ cd /usr/local/zend/var/log
 * View logs:
 $ tail -f | grep *.log
 
-http://crm.currency.exchange/cx/tools/status.php?pass=crmtools
---------------------------------------------------------------
-
 * Inspect DB network:
-$ telnet il-dx-dev-mysql-main.dev.spotoption.com 3306
+$ telnet hostname 3306
 
 Git Configuration:
 ------------------
@@ -293,4 +296,4 @@ https://gitlab.com/cx_group/common/proto_contracts
 MAINTAINERS
 -----------
 
-* Anton Shipulin <antons@coins.exchange> 
+* Anton Shipulin <antishipul@gmail.com> 
