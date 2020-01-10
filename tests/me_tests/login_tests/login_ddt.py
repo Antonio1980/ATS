@@ -13,8 +13,8 @@ from src.drivers.webdriver_factory import WebDriverFactory
 
 
 @ddt
-@pytest.mark.smoke
-@pytest.mark.sign_in_page
+@pytest.mark.me_smoke
+@pytest.mark.me_sign_in_page
 class TestLogIn(unittest.TestCase):
     @allure.step("SetUp: calling RegisteredCustomer object and pages.")
     @automation_logger(logger)

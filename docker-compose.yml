@@ -1,0 +1,172 @@
+version: '2'
+services:
+  nginx: # nginx container
+    image: registry.gitlab.com/cx_group/platform-server/platformbuilder-nginx:v.18.1.100.3
+    volumes:
+    - ./:/data/spotcore
+    ports:
+      - "80:80"
+    links:
+      - php-fpm-svc
+
+  redis-svc: # redis container
+    image: registry.gitlab.com/cx_group/infrastructure/cxredis
+    ports:
+    - "6379:6379"
+
+  kafka:
+    image: lekararik/docker-kafka:1.0.1
+    environment:
+      ADVERTISED_PORT: 9092
+    ports:
+      - "9092:9092"
+      - "2181:2181"
+    links:
+      - redis-svc
+
+  mysql-service:
+    image: registry.gitlab.com/cx_group/images/cxexchange-db:5.7
+    ports:
+      - "3306:3306"
+
+  php-fpm-svc: # php-fpm container
+      build: . # set folder with Dockerfile.bak for this container
+      environment:
+        # set xdebug settings
+        PHP_IDE_CONFIG: "serverName=project-server"
+        PHP_XDEBUG_ENABLED: 1
+        XDEBUG_CONFIG: remote_host=10.0.75.1
+        MICRO_REGISTRY: "mdns"
+        MICRO_REGISTRY_ADDRESS: "172.17.0.1"
+        REDIS_SERVICE_PORT: 6379
+        REDIS_SERVICE_HOST: redis-svc
+      links:
+          - redis-svc
+          - config-svc
+
+  config-svc: 
+    image: registry.gitlab.com/cx_group/platform-server/config_service:v.18.1.19.1
+    environment:
+      MICRO_REGISTRY: "mdns"
+      MICRO_REGISTRY_ADDRESS: "172.17.0.1"
+      MICRO_SERVER_ADDRESS: ":10001"
+      LOG_DEBUG_LEVEL: "5"
+      DATABASE_FQDN: "root:123456@tcp(mysql-service:3306)/cx_main?charset=utf8&parseTime=True&loc=Local"
+      REDIS_SERVICE_PORT: 6379
+      REDIS_SERVICE_HOST: redis-svc
+    ports:
+      - "10001:10001"
+
+  acl-svc:
+    image: registry.gitlab.com/cx_group/platform-server/acl:v.18.1.133.135
+    environment:
+      ACL_LISTEN: ":8081"
+      TOKEN_JWT_TYPE: "Authorization"
+      TOKEN_JWT_SECRET: "mySecret"
+      LOG_DEBUG_LEVEL: "5"
+      MICRO_REGISTRY: "mdns"
+      MICRO_REGISTRY_ADDRESS: "172.17.0.1"
+      REDIS_SERVICE_PORT: 6379
+      REDIS_SERVICE_HOST: redis-svc
+    ports:
+      - "8081:8081"
+
+  auth-svc:
+    image: registry.gitlab.com/cx_group/platform-server/authorization_service:v.18.1.90.13
+    environment:
+      DATABASE_FQDN: "root:123456@tcp(mysql-service:3306)/cx_main?charset=utf8&parseTime=True&loc=Local"
+      REDIS_SERVICE_PORT: 6379
+      REDIS_SERVICE_HOST: redis-svc
+      TOKEN_JWT_TYPE: "Authorization"
+      TOKEN_JWT_SECRET: "mySecret"
+      MICRO_REGISTRY: "mdns"
+      MICRO_REGISTRY_ADDRESS: "172.17.0.1"
+      MICRO_SERVER_ADDRESS: ":30000"
+      GOOGLE_SECRET: "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+      LOG_DEBUG_LEVEL: 5
+    links:
+      - redis-svc
+    ports:
+      - "30000:30000"
+
+  customer-svc:
+    image: registry.gitlab.com/cx_group/platform-server/customer_service:v.18.1.90.5
+    environment:
+      DATABASE_FQDN: "root:123456@tcp(mysql-service:3306)/cx_main?charset=utf8&parseTime=True&loc=Local"
+      TOKEN_JWT_TYPE: "Authorization"
+      TOKEN_JWT_SECRET: "mySecret"
+      MICRO_REGISTRY: "mdns"
+      MICRO_REGISTRY_ADDRESS: "172.17.0.1"
+      MICRO_SERVER_ADDRESS: ":30001"
+      REDIS_SERVICE_PORT: 6379
+      REDIS_SERVICE_HOST: redis-svc
+      LOG_DEBUG_LEVEL: 5
+    ports:
+      - "30001:30001"
+
+  asset-svc:
+    image: registry.gitlab.com/cx_group/platform-server/asset_service:v.19.1.1.1
+    environment:
+      DATABASE_FQDN: "root:123456@tcp(mysql-service:3306)/cx_main?charset=utf8&parseTime=True&loc=Local"
+      LOG_DEBUG_LEVEL: 5
+      TOKEN_JWT_TYPE: "Authorization"
+      TOKEN_JWT_SECRET: "mySecret"
+      MICRO_REGISTRY: "mdns"
+      MICRO_REGISTRY_ADDRESS: "172.17.0.1"
+      MICRO_SERVER_ADDRESS: ":30002"
+      REDIS_SERVICE_PORT: 6379
+      REDIS_SERVICE_HOST: redis-svc
+    ports:
+      - "30002:30002"
+
+  order-svc:
+    image: registry.gitlab.com/cx_group/platform-server/order_service:v.18.1.90.133
+    environment:
+      DATABASE_FQDN: "root:123456@tcp(mysql-service:3306)/cx_main?charset=utf8&parseTime=True&loc=Local"
+      LOG_DEBUG_LEVEL: 5
+      TOKEN_JWT_TYPE: "Authorization"
+      TOKEN_JWT_SECRET: "mySecret"
+      MICRO_REGISTRY: "mdns"
+      MICRO_REGISTRY_ADDRESS: "172.17.0.1"
+      MICRO_SERVER_ADDRESS: ":30004"
+      CONFIG_FIX: "/root/client.cfg"
+      NME_HOST: "172.20.40.241"
+      NME_PORT: "34021"
+      REDIS_SERVICE_PORT: 6379
+      REDIS_SERVICE_HOST: redis-svc
+    ports:
+      - "30004:30004"
+
+  trade-svc:
+    image: registry.gitlab.com/cx_group/platform-server/trade_service:v.18.1.100.1
+    environment:
+      DATABASE_FQDN: "root:123456@tcp(mysql-service:3306)/cx_main?charset=utf8&parseTime=True&loc=Local"
+      LOG_DEBUG_LEVEL: 5
+      TOKEN_JWT_TYPE: "Authorization"
+      TOKEN_JWT_SECRET: "mySecret"
+      MICRO_REGISTRY: "mdns"
+      MICRO_REGISTRY_ADDRESS: "172.17.0.1"
+      MICRO_SERVER_ADDRESS: ":30006"
+      REDIS_SERVICE_PORT: 6379
+      REDIS_SERVICE_HOST: redis-svc
+    ports:
+      - "30006:30006"
+
+  balance-svc:
+    image: registry.gitlab.com/cx_group/core-services/balance-service:v.18.1.20.7
+    ports:
+      - 30025:8080
+    environment:
+      KAFKA_SERVICE_HOST: kafka
+      KAFKA_SERVICE_PORT: 9092
+      MYSQL_SERVICE_HOST: mysql-service
+      MYSQL_SERVICE_PORT: 3306
+      MYSQL_DATABASE: cx_main
+      K8S_SECRET_MYSQL_SERVICE_USERNAME: root
+      K8S_SECRET_MYSQL_SERVICE_PASSWORD: 123456
+      REDIS_SERVICE_HOST: redis-svc
+      REDIS_SERVICE_PORT: 6379
+      TOPICS: deposits,withdrawals,fees
+    links:
+      - redis-svc
+      - kafka

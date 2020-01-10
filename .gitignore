@@ -32,6 +32,7 @@ Temporary Items
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
+.idea/
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
@@ -229,7 +230,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-
 /.idea/
 /src/repository/wtp_log.log
 src/repository/wtp_log.log
@@ -237,11 +237,7 @@ src/repository/wtp_log.log
 exportToHTML/*
 *.html
 exportToHTML/
-src/repository/allure_report/plugins/jira/
-src/repository/allure_report/plugins/junit/
-src/repository/allure_report/plugins/trx/
-src/repository/allure_report/plugins/xctest/
-src/repository/allure_report/plugins/xray/
-src/repository/allure_report/plugins/xunit-xml/
-src/repository/allure_results/
+src/repository/allure_reports/*
+src/repository/allure_results/*
 src/repository/logs
+/src/repository/logs/
