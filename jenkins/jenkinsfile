@@ -1,0 +1,174 @@
+
+pipeline {
+    agent  any
+
+
+// check on differt job
+
+    parameters {
+
+       booleanParam(
+          name:'clear_previous_results',
+          defaultValue: true,
+          description: "Clear previous test result. need to be performed in case of failures in previous builds")
+
+       choice(
+          name: 'TEST_GROUP',
+          choices: "regression\nregression_areas_blacklist\nregression_log_fetch\nregression_message_sync\regression_message\regression_remote_config\nregression_reporting\nregression_routing\nregression_licensing\n",
+          description: "select test group for rgerssion testes client to update or all" )
+
+        string(
+            name: 'buildnum',
+           //defaultValue:"${branch:"master}",
+            defaultValue:"",
+            description: "Recieved from drone")
+        string(
+            name: 'repo_name',
+           //defaultValue:"${branch:"master}",
+            defaultValue:"",
+            description: "Recieved from drone")
+        string(
+            name: 'tests_env',
+           //defaultValue:"${branch:"master}",
+            defaultValue:"stg",
+            description: " ")
+
+    }
+
+    stages {
+        stage('check service is up ') {
+             when {
+                 expression { params.buildnum  != "" };
+                  expression { params.repo_name  != "qa_automation" }
+                }
+                   agent {
+                        docker {
+                            image 'idol75/drone-kubernetes:gke0.2'
+                            args '-u root'
+                            reuseNode true
+                        }
+                    }
+            steps {
+               withCredentials([file(credentialsId: 'gcloud-jenkins', variable: 'myfile')]){
+                 sh 'gcloud auth activate-service-account --key-file=$myfile'
+                 //sh 'gcloud container clusters get-credentials ${clustername} --zone ${clusterzone} --project eye-net'
+                 sh'''
+                 qa_tag=`gcloud container images list-tags eu.gcr.io/eye-net/qa_automation|sed -n 2p|awk -F" " '{print $2}' | sed "s/,/ /g"`
+                 echo $qa_tag > $WORKSPACE/./mytag.tmp
+                 '''
+                 sh 'gcloud container clusters get-credentials eyenet-eu-west1 --zone europe-west1-c --project eye-net'
+                 sh '''
+                  function get_avilable_reps() {
+                                      kubectl get deployments  $1 -o jsonpath="{..status.availableReplicas}" -n ${tests_env}
+                                }
+                  desired_reps=$(kubectl get deployments  ${repo_name}  -n ${tests_env} -o jsonpath="{..spec.replicas}")
+                  sleep 70
+                  echo $rep_num
+
+                  count=0
+                  available_reps=`get_avilable_reps ${repo_name}`
+                  while [ -z $available_reps ]  ||  [ $available_reps -lt $desired_reps ]; do
+                          if [ $count -lt 5 ];
+                          then
+                            sleep 10
+                            count=$((count + 1))
+                            echo $count
+                            available_reps=`get_avilable_reps ${repo_name}`
+                          else
+                            echo "Error - pod is not starting correctly after update"
+                            exit 4
+                          fi
+                        done
+                     echo "update done"
+                     '''
+            }
+        }
+    }
+
+
+
+        stage (clear_provious){
+            when {
+                 expression { params.clear_previous_results }
+                }
+              steps {
+                sh 'env'
+                sh 'rm -rf  ./target/allure-results/*'
+                }
+            }
+
+         stage (' get qa container tag name if repo is qa_autotion ') {
+             when {
+                  // TODO add if repo name is qa the run this stage
+                 expression { params.repo_name  == "qa_automation" }
+                }
+               steps {
+                sh 'echo ${buildnum} > ./mytag.tmp'
+                 script {
+                    qatag = readFile './mytag.tmp'
+                    echo "${qatag}"
+                 }
+                }
+         }
+
+        //   stage (' get qa container last tag name from gcr if repo is not  qa_autotion ') {
+        //      when {
+        //           // TODO add if repo name is qa the run this stage
+        //          expression { params.repo_name  != "qa_automation" }
+        //         }
+        //       steps {
+        //             sh" $buildnum >
+        //          }
+        //         }
+        //   }
+
+
+        stage('apply') {
+            steps {
+                withCredentials([file(credentialsId: 'gcloud-jenkins', variable: 'myfile')]){
+                sh "pwd ; ls -lrt; cat ./mytag.tmp"
+                sh 'cat $myfile | docker login -u _json_key --password-stdin https://eu.gcr.io'
+                sh'''
+                if [ ${repo_name} = "routing-service"  ] ; then
+                echo "sleeping 1 2 0 seconds"
+                  sleep 120
+                fi
+                '''
+                sh'''
+                mytag=`cat ./mytag.tmp`
+                docker run  -v /data/jenkins_new/workspace/$JOB_NAME/target/allure-results/:/project/src/allure_results -e ENV=${tests_env} -i eu.gcr.io/eye-net/qa_automation:${mytag} pytest . -m ${TEST_GROUP} --alluredir=src/allure_results
+                '''
+                // sh 'docker run  -v /data/jenkins/workspace/$JOB_NAME/target/allure-results/:/project/src/repository/allure_result -i eu.gcr.io/eye-net/qa_automation:794278fb04ce71081eb7e0d1c5a4dc408d968355 pytest .  --alluredir=src/repository/allure_result'
+
+                }
+            }
+        }
+    }
+
+ post {
+            always {
+                script {
+                    allure([
+                            includeProperties: false,
+                            IncludeEnvironment: true,
+                            jdk: '',
+                            properties: [],
+                       //     reportBuildPolicy: 'ALWAYS',
+                            results: [[path: 'target/allure-results']]
+            ])
+            }
+        }
+    success {
+         wrap([$class: 'BuildUser'])  {
+          slackSend (color: '#00FF00', message: "SUCCESSFUL, \nREPOSITORY NAME: ${repo_name},\nENV NAME: ${tests_env},\n BUILD NUMBER: ${buildnum}, \nFor logs: (${env.BUILD_URL}allure/)  ")
+
+      }
+     }
+      failure {
+        wrap([$class: 'BuildUser']) {
+        slackSend (color: '#FF0002', message: "FAILED: , \nREPOSITORY NAME: ${repo_name},\nENV NAME: ${tests_env},\n BUILD NUMBER: ${buildnum}, \nFor logs: (${env.BUILD_URL}allure/)  ")
+
+         }
+       }
+    }
+}

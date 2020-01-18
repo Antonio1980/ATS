@@ -90,6 +90,12 @@ TESTS
 9 Ignore Not Finished tests (cross project)
 * $ pytest -v tests/platform_tests --ignore-glob='NF*.py'
 
+10 Run tests under tox and pass environment variable:
+* $ ENV=int tox -- -m [GROUP_NAME] --alluredir=../src/allure_results
+
+11 Run tests under tox:
+* $ tox -- -m [GROUP_NAME] --alluredir=../src/allure_results
+
 * Test Groups:
 
 1. smoke - ui smoke tests includes signup, signin, forgot, etc.
@@ -179,6 +185,24 @@ Docker:
 
 7 Log In to GitLab Registry:
 * $ docker login registry.gitlab.com
+
+* Remove by ID:
+$ docker network rm
+
+* Docker processes:
+$ docker ps
+
+* Docker run container:
+$ docker exec -it #containername# bash
+
+* Logs dir:
+$ cd /usr/local/zend/var/log
+
+* View logs:
+$ tail -f | grep *.log
+
+* Kill all UDP connections (Docker included):
+$ lsof -P | grep 'UDP' | awk '{print $2}' | xargs kill -9 
 
 Kafka:
 ------
@@ -279,18 +303,28 @@ $ python -m pip install --upgrade pip
 
 PROTOBUF
 -------- 
+
 - Download and Installation:
 
 https://github.com/protocolbuffers/protobuf/releases/tag/v3.6.1
----------------------------------------------------------------
 
-- Proto contracts:
+$ brew install libtool, automake
+$ pip3 install --no-binary=protobuf protobuf
+$ python3 ./setup.py build  
+$ python3 ./setup.py -v install  
 
-https://gitlab.com/cx_group/common/proto_contracts
----------------------------------------------------- 
+- Plugin:
+https://github.com/dropbox/mypy-protobuf
 
 * Generate python proto:
-* $ C:\GitLab\protoc-3.6.1-win32\bin\protoc.exe -I=C:\GitLab\proto_contracts\src --python_out=C:\GitLab\proto_contracts\gen
+$ GitLab\protoc-3.6.1-win32\bin\protoc -I=GitLab\proto_contracts\src --python_out=GitLab\proto_contracts\gen   
+
+* Generate mypy proto (with autocomplete and keywords):
+$ protoc -I=. --mypy_out=../mypy_out --python_out=../python_out LocationServiceResponse.proto   
+
+Protobuf installation:
+pip install --no-binary=protobuf protobuf
+I guess that before it you need pip uninstall protobuf
 
 
 MAINTAINERS

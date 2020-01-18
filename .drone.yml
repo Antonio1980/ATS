@@ -1,0 +1,43 @@
+pipeline:
+
+  publish_to_gcr:
+    when:
+      branch: master
+    image: plugins/gcr
+    registry: eu.gcr.io
+    repo:  eye-net/qa_automation
+    storage_path: /drone/docker
+    dockerfile: Dockerfile
+    tags:
+    - '${DRONE_COMMIT}'
+    force_tag: true
+    secrets: [ token ]
+
+  notify:
+      image: plugins/slack
+      webhook: https://hooks.slack.com/services/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
+      when:
+        status: [ success, failure ]
+        branch: master
+      channel: deployments
+      username: drone
+      template: >
+       {{#success build.status}}
+         repo: {{repo.name}} branch: {{build.branch}} :  build {{build.number}} succeeded. Good job {{build.author}}.
+       {{else}}
+         repo: {{repo.name}} branch: {{build.branch}} :  build {{build.number}} failed. {{build.author}} fix me please.
+       {{/success}}
+
+  jenkins_trigger:
+      image: foresightauto/jtrigger:0.4
+      when:
+        branch: master
+      USER: auto
+      USER_TOKEN: 0b1652bb55058463f70fcd56b8d8557c
+      URL: git-v2x.foresight.com:8080
+      JOB: qa-regression-testing
+      TOKEN: gCzkLaa1cQUiMFGhYAKE
+      TEST: regression
+      BUILDNUM: ${DRONE_COMMIT}
+      REPO: qa_automation
+      ENV: int
