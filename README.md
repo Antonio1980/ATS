@@ -9,7 +9,6 @@ CONTENTS OF THIS FILE
  * Requirements
  * Tests
  * Configuration
- * Troubleshooting
  * Maintainers
 
 INTRODUCTION
