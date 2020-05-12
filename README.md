@@ -9,6 +9,7 @@ CONTENTS OF THIS FILE
  * Requirements
  * Tests
  * Configuration
+ * Troubleshooting
  * Maintainers
 
 INTRODUCTION
@@ -157,6 +158,127 @@ To change URL or test_token of the environment just change value of needed key i
 * $ python setup.py install --root=build --install-purelib=INFO --install-data=data --record=install.log --force
 
 - Setup configuration stores in setup.sfg that actually contains definitions for Pytest.
+
+
+TROUBLESHOOTING
+---------------
+
+Docker:
+-------
+1 Remove containers: 
+* $ docker container prune -f
+
+2 Remove images: 
+* $ docker image prune -a -f
+
+3 Build image: 
+* $ docker build . --rm -f "Dockerfile" -t [project_name]:latest 
+* $ docker build --build-arg http_proxy=http://144.72.255.21:80 . --rm -f "Dockerfile" -t vpm_automation:latest
+
+3/1 Run tox:
+* $ HTTP_PROXY=http://144.72.225.21:80 tox -- -m smoke --alluredir=../allure/allure_results
+
+4 Get Docker logs:
+* $ docker info
+
+5 Get list of used IP's:
+* $ docker network ls
+
+6 Inspect Docker connection:
+* $ docker network inspect <contiv-srv-net>
+
+7 Log In to GitLab Registry:
+* $ docker login registry.gitlab.com
+
+* Remove by ID:
+$ docker network rm
+
+* Docker processes:
+$ docker ps
+
+* Docker run container:
+$ docker exec -it #containername# bash
+
+* Logs dir:
+$ cd /usr/local/zend/var/log
+
+* View logs:
+$ tail -f | grep *.log
+
+* Kill all UDP connections (Docker included):
+$ lsof -P | grep 'UDP' | awk '{print $2}' | xargs kill -9 
+
+
+Git Configuration:
+------------------
+* $ git init
+
+* $ git status
+
+* $ git config --global --list
+
+* $ git config --global user.name ""
+
+* $ git config --global user.email ""
+
+* $ cat ~/.gitconfig
+
+* $ git config --global help.autocorrect 1
+
+* $ git config core.autorlf true/false
+
+Git Initialization:
+------------------------------------------------
+git init
+git status
+git add app.py
+git add -u -except app.py  
+git commit -m "Created a simple app."  
+git remote add origin https://[project_path].git
+git push -u origin --all 
+git push --set-upstream origin master
+git remote -v  
+
+- SSH Hash Key:
+ssh-keygen -t rsa -C "username@example.com" -b 4096
+
+git remote show origin
+git remote rename <remote_from> <remote_to>
+git remote remove <remote>
+git clone https://gitlab.com/[project_path].git    
+git clone git@gitlab.com:[project_path].git
+git checkout -b qa origin/qa
+git checkout -b dev origin/dev
+git checkout qa
+git checkout dev
+git merge  origin/dev
+git fetch <remote>
+git pull <remote>
+
+Python Installation:  
+--------------------
+https://www.python.org/downloads/windows/
+
+* install pip:
+$ python get-pip.py
+
+* install virtual environment:
+$ pip install virtualenv
+
+* create virtual environment:
+$ virtualenv venv --python=python3.7
+
+* activate environment for Windows:
+$ venv\Scripts\activate
+
+* activate environment for Unix:
+$ source venv/bin/activate
+
+* list all packages installed in the environment:
+$ pip freeze
+
+* upgrade pip:  
+$ python -m pip install --upgrade pip
 
 
 MAINTAINERS

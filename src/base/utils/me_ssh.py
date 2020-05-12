@@ -5,7 +5,7 @@ from src.base.log_decorator import automation_logger
 
 
 """
-Implementation of SSH connector with paramiko.SSHClient.
+    Implementation of SSH connector with paramiko.SSHClient.
 """
 
 

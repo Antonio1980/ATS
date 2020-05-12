@@ -220,7 +220,6 @@ class Utils:
                 username = first_last_name
                 body = F"{first_last_name},{phone},{email},{username},{language},{permissions},{status},{user_type}"
                 my_file.write(body)
-        return file
 
     @classmethod
     @automation_logger(logger)

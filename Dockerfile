@@ -1,8 +1,8 @@
 FROM python:3.7-alpine3.8
 
 # update apk repo
-RUN echo "http://dl-4.alpinelinux.org/alpine/v3.8/main" >> /etc/apk/repositories && \
-    echo "http://dl-4.alpinelinux.org/alpine/v3.8/community" >> /etc/apk/repositories
+RUN echo "http://dl-4.alpinelinux.org/alpine/v3.8/main" >> /etc/apk/repositories &&   \
+    echo "http://dl-4.alpinelinux.org/alpine/v3.8/community" >> /etc/apk/repositories \
 
 # upgrade and update VM
 RUN apk upgrade
@@ -40,7 +40,7 @@ RUN apt-get install -yqq unzip
 RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
 RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 
-# install xvfb
+# install xvfb (headless browser mode).
 RUN apt-get install -yqq xvfb
 
 # install pip
@@ -54,7 +54,8 @@ RUN pwd && ls -la
 # install requirements
 RUN pip install virtualenv
 RUN virtualenv venv
-# RUN source ./venv/bin/activate
+RUN chmod -R 775 venv/bin/
+RUN venv/bin/activate
 RUN pip install -r project/requirements.txt
 
 # Grand permissions

@@ -1,19 +1,21 @@
+import unittest
+
 import allure
 import pytest
-import unittest
-from src.base import logger
-from src.base.enums import Browsers
-from src.base.utils.utils import Utils
+
 from config_definitions import BaseConfig
-from src.base.instruments import Instruments
+from src.base import logger
 from src.base.customer.customer import Customer
+from src.base.enums import Browsers
+from src.base.instruments import Instruments
 from src.base.log_decorator import automation_logger
-from tests.platform_tests_base.home_page import HomePage
+from src.base.utils.utils import Utils
 from src.drivers.webdriver_factory import WebDriverFactory
+from tests.platform_tests_base import wtp_signin_page_url, wtp_open_account_url
+from tests.platform_tests_base.forgot_password_page import ForgotPasswordPage
+from tests.platform_tests_base.home_page import HomePage
 from tests.platform_tests_base.signin_page import SignInPage
 from tests.platform_tests_base.signup_page import SignUpPage
-from tests.platform_tests_base.forgot_password_page import ForgotPasswordPage
-from tests.platform_tests_base import wtp_signin_page_url, wtp_open_account_url
 
 test_case = '3668'
 
