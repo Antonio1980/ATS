@@ -6,11 +6,11 @@ Version: 1.05
 
 import os as _os
 import subprocess
-
-from config_definitions import BaseConfig, repository_dir
+from src.base.utils.utils import Utils
 from src.base.enums import OperationSystem
 from src.base.instruments import Instruments
-from src.base.utils.utils import Utils
+from config_definitions import BaseConfig, repository_dir
+
 
 test_utils_dir = _os.path.abspath(_os.path.dirname(__file__))
 UTILS_HOME_DIR = test_utils_dir

@@ -112,6 +112,8 @@ Git Configuration:
 
 * $ git config core.autorlf true/false
 
+* $ git pull --allow-unrelated-histories
+
 Git Initialization:
 ------------------------------------------------
 git init
@@ -194,6 +196,8 @@ I guess that before it you need pip uninstall protobuf
 
 BASH
 ----
+
+To split large file: $ split ****-b 50m dialogues.txt
 
 main.exe -clientId 5bd96c4ce349400016db6d37 -tokenDuration 20h
 
