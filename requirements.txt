@@ -24,7 +24,7 @@ parse==1.14.0
 parse-type==0.5.2
 phonenumbers==8.11.2
 pluggy==0.13.1
-py==1.8.1
+py==1.10.0
 pycparser==2.19
 PyExecJS==1.5.1
 pyjsparser==2.7.1
